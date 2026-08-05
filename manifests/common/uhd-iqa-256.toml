@@ -1,0 +1,40 @@
+schema_version = 1
+id = "common/uhd-iqa-256"
+version = "2024-subset-256-v1"
+name = "UHD-IQA stable 256-image subset"
+description = "Planned deterministic subset of CC0 UHD-1 photographs for realistic 4K throughput, memory, and photographic-distribution benchmarks."
+review_state = "planned"
+kind = "derived"
+codecs = ["common", "jpeg-xl", "jpeg-2000", "htj2k", "jpeg-ai"]
+purposes = ["throughput-benchmark", "memory-benchmark", "quality-benchmark"]
+
+[license]
+expression = "CC0-1.0"
+name = "Creative Commons Zero v1.0 Universal"
+local_files = []
+evidence_url = "https://database.mmsp-kn.de/uhd-iqa-benchmark-database.html"
+reviewed_on = "2026-08-05"
+notes = "The official dataset page states that all images are CC0 and were published to Pixabay before 2019. Preserve source-page and per-image provenance despite the waiver."
+
+[rights]
+access = "permitted"
+redistribution = "permitted"
+modification = "permitted"
+commercial_use = "permitted"
+publish_derivatives = "permitted"
+publish_benchmarks = "permitted"
+ml_training = "permitted"
+weights_redistribution = "permitted"
+notes = "CC0 addresses copyright and related rights; trademarks, privacy, publicity, and other non-copyright rights still require ordinary care."
+
+[source]
+landing_page = "https://database.mmsp-kn.de/uhd-iqa-benchmark-database.html"
+terms_url = "https://creativecommons.org/publicdomain/zero/1.0/legalcode"
+archive_filename = "uhd-iqa-database.zip"
+requires_manual_acquisition = false
+
+[materialization]
+directory = "artifacts/common/uhd-iqa-256/2024-subset-256-v1"
+generator = "future recipe: stratified deterministic selection from locked metadata"
+layout = "A 256-image immutable selection plus original metadata and a selection report."
+notes = "Selection recipe, upstream archive hash, chosen filenames, and file hashes remain to be established."

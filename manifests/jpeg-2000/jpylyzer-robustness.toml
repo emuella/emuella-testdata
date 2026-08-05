@@ -1,0 +1,39 @@
+schema_version = 1
+id = "jpeg-2000/jpylyzer-robustness"
+version = "upstream-unlocked"
+name = "jpylyzer JP2 and HTJ2K robustness files"
+description = "Valid, malformed, damaged, and implementation-diverse JP2/JPH/JHC inputs assembled for jpylyzer testing."
+review_state = "planned"
+kind = "external"
+codecs = ["jpeg-2000", "htj2k"]
+purposes = ["robustness", "file-format-regression", "interoperability"]
+
+[license]
+expression = "NOASSERTION"
+name = "Mixed per-file provenance"
+local_files = []
+evidence_url = "https://github.com/openpreserve/jpylyzer-test-files"
+reviewed_on = "2026-08-05"
+notes = "The upstream README describes the collection as openly licensed but also identifies OpenJPEG, Apache Tika, and several other file groups as licence unknown or used with permission."
+
+[rights]
+access = "permitted"
+redistribution = "unknown"
+modification = "unknown"
+commercial_use = "unknown"
+publish_derivatives = "unknown"
+publish_benchmarks = "conditional"
+ml_training = "prohibited"
+weights_redistribution = "prohibited"
+notes = "Future packs should select only individually cleared files and preserve the upstream attribution table."
+
+[source]
+landing_page = "https://github.com/openpreserve/jpylyzer-test-files"
+download_url = "https://github.com/openpreserve/jpylyzer-test-files.git"
+terms_url = "https://github.com/openpreserve/jpylyzer-test-files/blob/master/README.md"
+requires_manual_acquisition = true
+
+[materialization]
+directory = "artifacts/jpeg-2000/jpylyzer-robustness/upstream-unlocked"
+layout = "A future per-file allow-list grouped by valid, invalid, malformed, and interoperability expectations."
+notes = "Do not mirror the repository wholesale under an Emuella licence."

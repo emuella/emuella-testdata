@@ -1,0 +1,40 @@
+schema_version = 1
+id = "jpeg-2000/openjpeg-regressions"
+version = "git-39524bd3-unlocked"
+name = "OpenJPEG data regressions"
+description = "Historical conformance copies, decoder regressions, malformed files, and baselines used by OpenJPEG."
+review_state = "planned"
+kind = "external"
+codecs = ["jpeg-2000", "htj2k"]
+purposes = ["regression", "robustness", "interoperability"]
+
+[license]
+expression = "NOASSERTION"
+name = "Mixed and partly unknown upstream provenance"
+local_files = ["LICENSES/LicenseRef-J2K-Conformance.txt"]
+evidence_url = "https://github.com/uclouvain/openjpeg-data"
+reviewed_on = "2026-08-05"
+notes = "There is no root licence covering every asset. The conformance subtree has its own JPEG-2000-use notice, while regression files have varied bug-report and third-party origins."
+
+[rights]
+access = "permitted"
+redistribution = "unknown"
+modification = "unknown"
+commercial_use = "unknown"
+publish_derivatives = "unknown"
+publish_benchmarks = "conditional"
+ml_training = "prohibited"
+weights_redistribution = "prohibited"
+notes = "Fetch-only. Future locking must inventory and review selected files individually rather than treating the Git repository as uniformly licensed."
+
+[source]
+landing_page = "https://github.com/uclouvain/openjpeg-data"
+download_url = "https://github.com/uclouvain/openjpeg-data.git"
+terms_url = "https://github.com/uclouvain/openjpeg-data/blob/master/README.md"
+upstream_revision = "39524bd3a601d90ed8e0177559400d23945f96a9"
+requires_manual_acquisition = true
+
+[materialization]
+directory = "artifacts/jpeg-2000/openjpeg-regressions/git-39524bd3-unlocked"
+layout = "A future reviewed allow-list, not the complete repository by default."
+notes = "Confirm the recorded upstream revision and per-file provenance before changing the review state."

@@ -1,0 +1,6 @@
+Licence reference: JPEG 2000 conformance files
+
+The authoritative current insert is identified by the JPEG 2000 conformance
+manifest. Historical copies can carry a JPEG-2000-use-only copyright
+non-assertion notice. Neither that notice nor public downloadability is treated
+as an Apache-2.0 grant. Emuella does not vendor these files.

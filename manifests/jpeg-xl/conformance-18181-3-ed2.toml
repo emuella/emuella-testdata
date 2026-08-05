@@ -1,0 +1,45 @@
+schema_version = 1
+id = "jpeg-xl/conformance"
+version = "18181-3-2025-ed2"
+name = "JPEG XL edition-2 conformance attachment"
+description = "Core and extended decoder-conformance bitstreams and references for Main profile Levels 5 and 10."
+review_state = "reviewed"
+kind = "external"
+codecs = ["jpeg-xl"]
+purposes = ["conformance"]
+
+[[standards]]
+identifier = "ISO/IEC 18181-3:2025"
+role = "conformance-testing"
+clauses = ["5", "Annex A", "Annex B"]
+
+[license]
+expression = "LicenseRef-ISO-Electronic-Insert"
+name = "ISO electronic-insert terms"
+local_files = ["LICENSES/LicenseRef-ISO-Electronic-Insert.txt"]
+evidence_url = "https://standards.iso.org/iso-iec/18181/-3/ed-2/en/"
+reviewed_on = "2026-08-05"
+notes = "The ISO landing page permits original-format use for purposes specified by the standard and links the applicable customer licence. The GitHub libjxl/conformance distribution has additional repository and per-test provenance that must be reviewed separately if used as the byte source."
+
+[rights]
+access = "conditional"
+redistribution = "unknown"
+modification = "prohibited"
+commercial_use = "conditional"
+publish_derivatives = "unknown"
+publish_benchmarks = "conditional"
+ml_training = "prohibited"
+weights_redistribution = "prohibited"
+notes = "Acquire manually and preserve the attachment unchanged. This catalogue does not accept ISO terms or redistribute the archive. Conformance use is not model-training permission."
+
+[source]
+landing_page = "https://standards.iso.org/iso-iec/18181/-3/ed-2/en/"
+download_url = "https://standards.iso.org/iso-iec/18181/-3/ed-2/en/FDIS%2018181-3%202EDatt.zip"
+terms_url = "https://www.iso.org/terms-conditions-licence-agreement.html"
+archive_filename = "FDIS 18181-3 2EDatt.zip"
+requires_manual_acquisition = true
+
+[materialization]
+directory = "artifacts/jpeg-xl/conformance/18181-3-2025-ed2"
+layout = "Preserve the electronic attachment's testcases tree, including main_level5.txt and main_level10.txt."
+notes = "Archive and expanded-asset hashes must be recorded before this pack becomes locked."

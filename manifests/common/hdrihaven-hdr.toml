@@ -1,0 +1,41 @@
+schema_version = 1
+id = "common/hdrihaven-hdr"
+version = "zenodo-1285800-v1.0.1-subset-v1"
+name = "HDRI Haven high-dynamic-range subset"
+description = "Planned immutable subset of CC0 16K scene-linear HDR panoramas and deterministic high-resolution crops."
+review_state = "planned"
+kind = "derived"
+codecs = ["common", "jpeg-xl", "jpeg-2000", "htj2k", "jpeg-ai"]
+purposes = ["hdr-benchmark", "throughput-benchmark", "memory-benchmark", "quality-benchmark"]
+
+[license]
+expression = "CC0-1.0"
+name = "Creative Commons Zero v1.0 Universal"
+local_files = []
+evidence_url = "https://zenodo.org/records/1285800"
+reviewed_on = "2026-08-05"
+notes = "The Zenodo record identifies the source images as CC0 and documents the updated v1.0.1 record. Preserve creator and record provenance."
+
+[rights]
+access = "permitted"
+redistribution = "permitted"
+modification = "permitted"
+commercial_use = "permitted"
+publish_derivatives = "permitted"
+publish_benchmarks = "permitted"
+ml_training = "permitted"
+weights_redistribution = "permitted"
+notes = "CC0 addresses copyright and related rights; retain provenance and review any non-copyright interests in selected imagery."
+
+[source]
+landing_page = "https://zenodo.org/records/1285800"
+terms_url = "https://creativecommons.org/publicdomain/zero/1.0/legalcode"
+upstream_revision = "Zenodo record 1285800 v1.0.1"
+archive_filename = "individual .hdr.xz and .json.xz objects"
+requires_manual_acquisition = false
+
+[materialization]
+directory = "artifacts/common/hdrihaven-hdr/zenodo-1285800-v1.0.1-subset-v1"
+generator = "future recipe: select original HDR objects and derive pinned PFM/crop representations"
+layout = "Original selected .hdr files, metadata, deterministic PFM conversions, and 4K/8K crops."
+notes = "Exact selection and conversion tooling remain to be locked. Originals must remain distinguishable from derived crops."

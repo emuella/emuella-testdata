@@ -1,0 +1,18 @@
+schema_version = 1
+id = "layer2/conformance-jpeg-xl"
+revision = 1
+name = "JPEG XL decoder conformance"
+description = "ISO/IEC 18181-3:2025 edition-2 core and extended conformance material for Levels 5 and 10."
+layer = 2
+purposes = ["conformance"]
+gating = false
+missing_policy = "skip"
+notes = [
+  "The pack is not release-gating until its authoritative archive and expanded assets are locked.",
+  "A harness must report Level 5, Level 10, core, and extended outcomes separately.",
+]
+
+[[packs]]
+id = "jpeg-xl/conformance"
+version = "18181-3-2025-ed2"
+required = true

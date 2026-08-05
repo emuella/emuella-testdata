@@ -1,0 +1,18 @@
+schema_version = 1
+id = "uhd-iqa-subset-v1"
+status = "planned"
+input_pack = "upstream UHD-IQA 2024"
+output_pack = "common/uhd-iqa-256@2024-subset-256-v1"
+selection_count = 256
+selection_must_ignore_codec_results = true
+strata = [
+  "dataset split",
+  "aspect ratio",
+  "quality MOS",
+  "content tags",
+  "decoded luminance distribution",
+  "decoded edge density",
+  "decoded entropy",
+]
+tie_breaker = "ascending SHA-256 of original file bytes"
+notes = "Lock the upstream archive and metadata before implementing this recipe. Record the selection report and chosen file hashes."

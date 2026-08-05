@@ -1,0 +1,18 @@
+schema_version = 1
+id = "layer2/conformance-jpeg-2000"
+revision = 1
+name = "JPEG 2000 and HTJ2K decoder conformance"
+description = "ISO/IEC 15444-4:2024 fourth-edition J2K, HTJ2K, JP2, and JPH qualification material."
+layer = 2
+purposes = ["conformance", "file-format-conformance"]
+gating = false
+missing_policy = "skip"
+notes = [
+  "The pack is not release-gating until its authoritative archive and expanded assets are locked.",
+  "Annex C, Annex G, and informative Annex H results must remain distinct.",
+]
+
+[[packs]]
+id = "jpeg-2000/conformance"
+version = "15444-4-2024-ed4"
+required = true

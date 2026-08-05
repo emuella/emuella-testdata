@@ -1,0 +1,25 @@
+schema_version = 1
+id = "layer2/benchmark-throughput"
+revision = 1
+name = "Photographic, HDR, and geometric throughput"
+description = "Separate realistic 4K, scene-linear HDR, and pathological-dimension workloads for throughput and memory measurement."
+layer = 2
+purposes = ["throughput-benchmark", "memory-benchmark", "hdr-benchmark"]
+gating = false
+missing_policy = "skip"
+notes = ["The UHD-IQA and HDR selections are planned and must be locked before results are comparable across revisions."]
+
+[[packs]]
+id = "common/generated-core"
+version = "1"
+required = true
+
+[[packs]]
+id = "common/uhd-iqa-256"
+version = "2024-subset-256-v1"
+required = false
+
+[[packs]]
+id = "common/hdrihaven-hdr"
+version = "zenodo-1285800-v1.0.1-subset-v1"
+required = false

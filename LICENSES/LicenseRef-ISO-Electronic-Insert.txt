@@ -1,0 +1,9 @@
+Licence reference: ISO electronic inserts
+
+Authoritative terms:
+https://www.iso.org/terms-conditions-licence-agreement.html
+
+An ISO electronic-insert landing page can state additional purpose and
+original-format conditions. The applicable manifest records that landing page.
+Emuella does not distribute the insert, accept its terms on another user's
+behalf, or apply Apache-2.0 to it.

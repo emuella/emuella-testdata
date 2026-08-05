@@ -1,0 +1,15 @@
+schema_version = 1
+id = "layer3/ci-fast"
+revision = 1
+name = "Fast catalogue CI qualification"
+description = "Locked project-owned data that can run on every change without network or licence acceptance."
+layer = 3
+purposes = ["regression", "catalogue-qualification"]
+gating = true
+missing_policy = "fail"
+notes = ["External conformance workflows should become separate Layer 3 suites only after their pack bytes are locked and CI acquisition is authorized."]
+
+[[packs]]
+id = "common/generated-core"
+version = "1"
+required = true

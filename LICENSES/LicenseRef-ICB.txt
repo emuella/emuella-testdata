@@ -1,0 +1,8 @@
+Licence reference: Image Compression Benchmark test images
+
+Authoritative source and terms:
+https://imagecompression.info/test_images/
+
+The upstream terms include provenance, alteration-marking, free-distribution,
+and notice-retention conditions. Emuella does not relicense or vendor the
+images. Consult the source page and pack manifest before use.

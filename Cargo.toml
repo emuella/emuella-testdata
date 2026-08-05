@@ -1,0 +1,19 @@
+[workspace]
+members = ["crates/emuella-corpus"]
+resolver = "3"
+
+[workspace.package]
+edition = "2024"
+rust-version = "1.97.0"
+description = "Reproducible mixed-license image corpus catalogue and deterministic fixture tooling for Emuella codecs"
+repository = "https://github.com/robchristie/emuella-testdata"
+homepage = "https://github.com/robchristie/emuella-testdata"
+readme = "README.md"
+keywords = ["image", "codec", "conformance", "benchmark", "testdata"]
+categories = ["multimedia::images", "development-tools::testing"]
+license = "Apache-2.0"
+
+[workspace.dependencies]
+serde = { version = "1.0.228", features = ["derive"] }
+sha2 = "0.10.9"
+toml = "0.8.23"

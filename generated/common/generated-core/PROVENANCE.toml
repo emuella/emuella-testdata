@@ -1,0 +1,8 @@
+schema_version = 1
+pack_id = "common/generated-core"
+pack_version = "1"
+generator = "emuella-corpus generated-core-v1"
+random_algorithm = "xorshift64"
+random_seed = "0x6a09e667f3bcc909"
+timestamped = false
+license = "Apache-2.0"

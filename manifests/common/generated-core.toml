@@ -1,0 +1,160 @@
+schema_version = 1
+id = "common/generated-core"
+version = "1"
+name = "Emuella generated core images"
+description = "Small deterministic Apache-2.0 source images covering odd dimensions, integer and floating samples, alpha, animation frames, noise, gradients, edges, and signed components."
+review_state = "locked"
+kind = "generated"
+codecs = ["common", "jpeg-xl", "jpeg-2000", "htj2k", "jpeg-ai"]
+purposes = ["unit-fixture", "regression", "interoperability", "microbenchmark"]
+
+[license]
+expression = "Apache-2.0"
+name = "Apache License 2.0"
+local_files = ["LICENSE"]
+evidence_url = "https://www.apache.org/licenses/LICENSE-2.0"
+reviewed_on = "2026-08-05"
+notes = "Generator algorithms, metadata, and outputs are authored for Emuella and distributed with the root Apache-2.0 grant."
+
+[rights]
+access = "permitted"
+redistribution = "permitted"
+modification = "permitted"
+commercial_use = "permitted"
+publish_derivatives = "permitted"
+publish_benchmarks = "permitted"
+ml_training = "permitted"
+weights_redistribution = "permitted"
+notes = "No third-party imagery, font, profile, random data, or external executable contributes to this pack."
+
+[materialization]
+directory = "generated/common/generated-core"
+generator = "emuella-corpus generated-core-v1"
+layout = "README and provenance followed by PGM, PPM, PAM, PGX, PFM, and four animation source frames."
+notes = "Generation is deterministic and timestamp-free."
+
+[[assets]]
+path = "PROVENANCE.toml"
+bytes = 229
+sha256 = "fa0278e242c2d06bb5ba41dec2c7fed4ab3b7fbe01da88066970ad09aeec257e"
+media_type = "application/toml"
+semantics = "Generator identity, deterministic random algorithm and seed, pack version, and licence."
+
+[[assets]]
+path = "README.md"
+bytes = 720
+sha256 = "ad167a9402743b1a9f061edf28814f94a02bfc032ace9ca527864cd47b0f9d1d"
+media_type = "text/markdown"
+semantics = "Pack-level format, generation, and Apache-2.0 scope documentation."
+
+[[assets]]
+path = "animation/frame-00.pam"
+bytes = 24643
+sha256 = "0a0d0579f87bb2648fd7d2892fc869a2ada8c4aaf88fc5c22863859fe15af227"
+media_type = "image/x-portable-arbitrarymap"
+semantics = "Frame 0 of 4; 96x64, 8-bit straight RGBA, sparse moving circle over non-zero transparent background samples."
+
+[[assets]]
+path = "animation/frame-01.pam"
+bytes = 24643
+sha256 = "1f32a3e9ca9600a81c05237d8af53eb113ade0186f04df2e3baace5b667cb56a"
+media_type = "image/x-portable-arbitrarymap"
+semantics = "Frame 1 of 4; 96x64, 8-bit straight RGBA, sparse moving circle over non-zero transparent background samples."
+
+[[assets]]
+path = "animation/frame-02.pam"
+bytes = 24643
+sha256 = "cce1323c0316d4650f9b82518cd76692463d0785a8d6cf027b841156bd630e0a"
+media_type = "image/x-portable-arbitrarymap"
+semantics = "Frame 2 of 4; 96x64, 8-bit straight RGBA, sparse moving circle over non-zero transparent background samples."
+
+[[assets]]
+path = "animation/frame-03.pam"
+bytes = 24643
+sha256 = "23cc2215f2c4f3abee91c2c80212284ab30afa9713b00924b90d2e7dae41b930"
+media_type = "image/x-portable-arbitrarymap"
+semantics = "Frame 3 of 4; 96x64, 8-bit straight RGBA, sparse moving circle over non-zero transparent background samples."
+
+[[assets]]
+path = "gray-u16-ramp-257x193.pgm"
+bytes = 99219
+sha256 = "f7b6760010d2f389ce071a242c6aa20059237e2ef8212898d90398e5db132b34"
+media_type = "image/x-portable-graymap"
+semantics = "257x193 grayscale, unsigned 16-bit, big-endian Netpbm samples, non-separable modular ramp."
+
+[[assets]]
+path = "gray-u8-1x1.pgm"
+bytes = 12
+sha256 = "c562b0556e17c4350801ae74c04e04e921db5117692e0a6f5d42fb9798b5edcd"
+media_type = "image/x-portable-graymap"
+semantics = "1x1 grayscale, unsigned 8-bit, zero sample; minimum geometric fixture."
+
+[[assets]]
+path = "gray-u8-checkerboard-127x131.pgm"
+bytes = 16652
+sha256 = "00846a45ab63c00205189c59c77867370fcfe19bc060921e064d55ceddda6e34"
+media_type = "image/x-portable-graymap"
+semantics = "127x131 grayscale, unsigned 8-bit extrema, 3x5-period asymmetric checkerboard."
+
+[[assets]]
+path = "gray-u8-noise-257x263.pgm"
+bytes = 67606
+sha256 = "aee8a1e8c0fbc9030013c00dfd4c9d4486866d21a5811b60c7e7009f336f632f"
+media_type = "image/x-portable-graymap"
+semantics = "257x263 grayscale, unsigned 8-bit, deterministic xorshift64 noise with the pack provenance seed."
+
+[[assets]]
+path = "gray-u8-prime-gradient-17x19.pgm"
+bytes = 336
+sha256 = "894e8a3547f1927b9a853f8d3f860171f901c0780a6552714cf458b102c613af"
+media_type = "image/x-portable-graymap"
+semantics = "17x19 grayscale, unsigned 8-bit, two-dimensional polynomial gradient at small prime dimensions."
+
+[[assets]]
+path = "gray-u8-tall-3x4099.pgm"
+bytes = 12311
+sha256 = "290bc5c2cec527826ce99c4c1422e8149c3c3b7bb8167f824af5570f755e5e99"
+media_type = "image/x-portable-graymap"
+semantics = "3x4099 grayscale, unsigned 8-bit; pathological tall geometry crossing common block and group boundaries."
+
+[[assets]]
+path = "gray-u8-wide-4097x3.pgm"
+bytes = 12305
+sha256 = "065ae222c2557f22dc28f73f1b1b0e9ad900092134207412623ef1f4678d6703"
+media_type = "image/x-portable-graymap"
+semantics = "4097x3 grayscale, unsigned 8-bit; pathological wide geometry crossing common block and group boundaries."
+
+[[assets]]
+path = "rgb-f32-linear-hdr-73x59.pfm"
+bytes = 51698
+sha256 = "0b8ba147a81df15c5f6c2a4e27910d6b573e2e619c8741500019dd70a69bede5"
+media_type = "image/x-portable-floatmap"
+semantics = "73x59 RGB, little-endian binary32 PFM, scene-linear values spanning negative samples through 16.0."
+
+[[assets]]
+path = "rgb-u16-extrema-65x63.ppm"
+bytes = 24585
+sha256 = "ca36eb658bd85de78315b3fbcefcc4caa5638a2981fdf9bd8de8121beb8f336c"
+media_type = "image/x-portable-pixmap"
+semantics = "65x63 RGB, unsigned 16-bit, big-endian Netpbm samples combining extrema, unit values, and a ramp."
+
+[[assets]]
+path = "rgb-u8-edges-31x29.ppm"
+bytes = 2710
+sha256 = "d94274d1e1d26ea49cb4ad59ce876ab58b918bfb72333a886d8ea6d1c97d943e"
+media_type = "image/x-portable-pixmap"
+semantics = "31x29 RGB, unsigned 8-bit, vertical discontinuity, diagonal impulses, and component ramp."
+
+[[assets]]
+path = "rgba-u8-alpha-67x61.pam"
+bytes = 16415
+sha256 = "61afbbe85a714116b33e55ab9efd1d2a36221b1db60a739be9a1e28c45893f8c"
+media_type = "image/x-portable-arbitrarymap"
+semantics = "67x61 straight RGBA, unsigned 8-bit, horizontal alpha gradient with non-zero color under transparency."
+
+[[assets]]
+path = "signed-12bit-impulse-71x69.pgx"
+bytes = 9814
+sha256 = "d20639a64c6a278a60fed9e8d1a60d7dea3773db1a7b8bb0310f609c12be9fe8"
+media_type = "image/x-pgx"
+semantics = "71x69 single component, signed 12-bit PGX, big-endian sign-extended samples with extrema and cross impulses."

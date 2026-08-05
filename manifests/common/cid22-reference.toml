@@ -1,0 +1,39 @@
+schema_version = 1
+id = "common/cid22-reference"
+version = "2022-validation-reference-49"
+name = "CID22 validation reference images"
+description = "The 49-image reference-only validation subset of the Cloudinary Image Dataset 22 for high-fidelity lossy compression evaluation."
+review_state = "reviewed"
+kind = "external"
+codecs = ["common", "jpeg-xl", "jpeg-2000", "htj2k", "jpeg-ai"]
+purposes = ["quality-benchmark", "metric-validation"]
+
+[license]
+expression = "CC-BY-SA-4.0"
+name = "Creative Commons Attribution-ShareAlike 4.0 International"
+local_files = []
+evidence_url = "https://cloudinary.com/labs/cid22"
+reviewed_on = "2026-08-05"
+notes = "The official dataset page applies CC BY-SA 4.0 and supplies reference-only, validation, full, and score downloads. Preserve the upstream licence and citation."
+
+[rights]
+access = "permitted"
+redistribution = "conditional"
+modification = "conditional"
+commercial_use = "conditional"
+publish_derivatives = "conditional"
+publish_benchmarks = "conditional"
+ml_training = "conditional"
+weights_redistribution = "unknown"
+notes = "Attribution and ShareAlike conditions apply where the relevant rights are exercised. Keep published recompressions with their source lineage. Model-weight consequences require separate review."
+
+[source]
+landing_page = "https://cloudinary.com/labs/cid22"
+terms_url = "https://creativecommons.org/licenses/by-sa/4.0/legalcode"
+archive_filename = "CID22-validation-reference.zip"
+requires_manual_acquisition = false
+
+[materialization]
+directory = "artifacts/common/cid22-reference/2022-validation-reference-49"
+layout = "Retain the 49 reference images and upstream citation/licence metadata; exclude pre-compressed distortions from this pack."
+notes = "Record the current direct download URL and archive/tree hashes during pack locking."

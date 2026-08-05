@@ -1,0 +1,38 @@
+schema_version = 1
+id = "common/icb"
+version = "upstream-current-unlocked"
+name = "Image Compression Benchmark new test images"
+description = "High-resolution 8-bit, 16-bit, linear, RGB, and grayscale compression images under custom upstream conditions."
+review_state = "reviewed"
+kind = "external"
+codecs = ["common", "jpeg-xl", "jpeg-2000", "htj2k", "jpeg-ai"]
+purposes = ["quality-benchmark", "lossless-benchmark", "high-bit-depth-benchmark"]
+
+[license]
+expression = "LicenseRef-ICB"
+name = "Image Compression Benchmark custom image terms"
+local_files = ["LICENSES/LicenseRef-ICB.txt"]
+evidence_url = "https://imagecompression.info/test_images/"
+reviewed_on = "2026-08-05"
+notes = "The upstream page grants redistribution and publication subject to provenance, alteration marking, free availability, and notice retention, and prohibits sale of the material."
+
+[rights]
+access = "permitted"
+redistribution = "conditional"
+modification = "conditional"
+commercial_use = "unknown"
+publish_derivatives = "conditional"
+publish_benchmarks = "conditional"
+ml_training = "unknown"
+weights_redistribution = "unknown"
+notes = "Use as an externally acquired optional pack. The custom no-sale condition is not treated as Apache-compatible or as a general commercial-use grant."
+
+[source]
+landing_page = "https://imagecompression.info/test_images/"
+terms_url = "https://imagecompression.info/test_images/"
+requires_manual_acquisition = true
+
+[materialization]
+directory = "artifacts/common/icb/upstream-current-unlocked"
+layout = "Preserve each upstream archive and its notice; keep 8/16-bit, linear, RGB, and grayscale variants distinguishable."
+notes = "The upstream collection must be assigned an immutable version and hashes before qualification use."

@@ -1,0 +1,7 @@
+schema_version = 1
+name = "Emuella test-data catalogue"
+description = "Reproducible corpus packs for Emuella image codec conformance, regression, robustness, and benchmarking."
+manifest_root = "manifests"
+suite_root = "suites"
+generated_root = "generated"
+cache_environment = "EMU_TESTDATA_CACHE"

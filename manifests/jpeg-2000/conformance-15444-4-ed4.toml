@@ -1,0 +1,45 @@
+schema_version = 1
+id = "jpeg-2000/conformance"
+version = "15444-4-2024-ed4"
+name = "JPEG 2000 and HTJ2K fourth-edition conformance attachment"
+description = "J2K Profile-0/Profile-1, HTJ2K derived-set, JP2, JPH, reference-image, tolerance, and informative Part 2 test material."
+review_state = "reviewed"
+kind = "external"
+codecs = ["jpeg-2000", "htj2k"]
+purposes = ["conformance", "file-format-conformance", "interoperability"]
+
+[[standards]]
+identifier = "ISO/IEC 15444-4:2024 | ITU-T T.803 (V3)"
+role = "conformance-testing"
+clauses = ["Annex B", "Annex C", "Annex G", "Annex H"]
+
+[license]
+expression = "LicenseRef-J2K-Conformance"
+name = "JPEG 2000 conformance-file terms"
+local_files = ["LICENSES/LicenseRef-J2K-Conformance.txt", "LICENSES/LicenseRef-ISO-Electronic-Insert.txt"]
+evidence_url = "https://standards.iso.org/iso-iec/15444/-4/ed-4/en/"
+reviewed_on = "2026-08-05"
+notes = "The current ISO insert and any embedded COPYRIGHT file govern the material. Historical OpenJPEG copies carry a purpose-restricted copyright non-assertion rather than an Apache-compatible licence."
+
+[rights]
+access = "conditional"
+redistribution = "unknown"
+modification = "unknown"
+commercial_use = "conditional"
+publish_derivatives = "unknown"
+publish_benchmarks = "conditional"
+ml_training = "prohibited"
+weights_redistribution = "prohibited"
+notes = "Acquire manually for JPEG 2000 standards testing, retain every embedded notice, and do not vendor under Apache-2.0."
+
+[source]
+landing_page = "https://standards.iso.org/iso-iec/15444/-4/ed-4/en/"
+download_url = "https://standards.iso.org/iso-iec/15444/-4/ed-4/en/electronic_insert.zip"
+terms_url = "https://www.iso.org/terms-conditions-licence-agreement.html"
+archive_filename = "electronic_insert.zip"
+requires_manual_acquisition = true
+
+[materialization]
+directory = "artifacts/jpeg-2000/conformance/15444-4-2024-ed4"
+layout = "Preserve the complete archive tree and classify Annex C, Annex G, and Annex H selections in the test harness."
+notes = "Archive and expanded-asset hashes must be recorded before this pack becomes locked."

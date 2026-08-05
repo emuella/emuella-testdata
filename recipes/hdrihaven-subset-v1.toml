@@ -1,0 +1,10 @@
+schema_version = 1
+id = "hdrihaven-subset-v1"
+status = "planned"
+input_pack = "Zenodo record 1285800 v1.0.1"
+output_pack = "common/hdrihaven-hdr@zenodo-1285800-v1.0.1-subset-v1"
+preserve_original_hdr = true
+tone_map = false
+derived_formats = ["PFM binary32 scene-linear"]
+crop_sizes = ["4096x4096", "8192x4096"]
+notes = "Select indoor, outdoor, day, night, smooth-gradient, point-light, and high-texture content before consulting codec results. Pin conversion software and rounding semantics."

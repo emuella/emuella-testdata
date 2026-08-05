@@ -1,0 +1,23 @@
+schema_version = 1
+id = "layer2/benchmark-routine-lossy"
+revision = 1
+name = "Routine lossy rate-distortion benchmark"
+description = "Compact generated and photographic references for repeatable local rate-distortion development."
+layer = 2
+purposes = ["quality-benchmark", "metric-validation"]
+gating = false
+missing_policy = "skip"
+notes = [
+  "CID22 attribution and ShareAlike conditions remain applicable to published derivatives.",
+  "Report generated and photographic aggregates separately.",
+]
+
+[[packs]]
+id = "common/generated-core"
+version = "1"
+required = true
+
+[[packs]]
+id = "common/cid22-reference"
+version = "2022-validation-reference-49"
+required = true

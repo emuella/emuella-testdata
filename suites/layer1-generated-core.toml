@@ -1,0 +1,15 @@
+schema_version = 1
+id = "layer1/generated-core"
+revision = 1
+name = "Generated core fixtures"
+description = "Fast, self-contained, Apache-2.0 reusable source imagery for unit and integration harness development."
+layer = 1
+purposes = ["unit-fixture", "regression"]
+gating = true
+missing_policy = "fail"
+notes = ["Codec repositories should still retain their smallest byte-level fixtures locally so ordinary cargo test does not require this checkout."]
+
+[[packs]]
+id = "common/generated-core"
+version = "1"
+required = true

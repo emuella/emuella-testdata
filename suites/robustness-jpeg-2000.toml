@@ -1,0 +1,20 @@
+schema_version = 1
+id = "layer2/robustness-jpeg-2000"
+revision = 1
+name = "JPEG 2000 parser and decoder robustness"
+description = "Optional historical regression and malformed-file sources, kept distinct from standards conformance."
+layer = 2
+purposes = ["robustness", "regression", "interoperability"]
+gating = false
+missing_policy = "skip"
+notes = ["Every selected external file needs individual provenance review before this suite can become gating or redistributable."]
+
+[[packs]]
+id = "jpeg-2000/openjpeg-regressions"
+version = "git-39524bd3-unlocked"
+required = false
+
+[[packs]]
+id = "jpeg-2000/jpylyzer-robustness"
+version = "upstream-unlocked"
+required = false

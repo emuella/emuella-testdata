@@ -1,0 +1,12 @@
+schema_version = 1
+id = "generated-core-v1"
+implementation = "emuella-corpus"
+pack = "common/generated-core"
+pack_version = "1"
+deterministic = true
+timestamped = false
+random_algorithm = "xorshift64"
+random_seed = "0x6a09e667f3bcc909"
+formats = ["PGM", "PPM", "PAM", "PGX", "PFM"]
+license = "Apache-2.0"
+notes = "The implementation source is the canonical recipe. This metadata makes nondeterminism-sensitive inputs explicit."
