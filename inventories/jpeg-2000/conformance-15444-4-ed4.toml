@@ -1,0 +1,4231 @@
+schema_version = 1
+pack_id = "jpeg-2000/conformance"
+pack_version = "15444-4-2024-ed4"
+
+[[assets]]
+path = "electronic_insert.zip"
+bytes = 131660076
+sha256 = "ac04b52e1fe38404912036c14f215099ea9a785f38644fbe76ae8f3d1523c86d"
+media_type = "application/zip"
+semantics = "Unmodified authoritative ISO electronic-insert archive."
+
+[[assets]]
+path = "files/COPYRIGHT.txt"
+bytes = 1282
+sha256 = "bda3f1fdfc89c8287520f2c3dea3d7d2dfa19c88809d16c2a9cbeec244e2effc"
+media_type = "text/plain"
+semantics = "Embedded rights and attribution notice; preserve unchanged with the pack."
+
+[[assets]]
+path = "files/README.licence"
+bytes = 2528
+sha256 = "89377d4081a67a52221691523164c8c2e1cef986dd8672ee82fed6dcfec413b1"
+media_type = "text/plain"
+semantics = "Embedded rights and attribution notice; preserve unchanged with the pack."
+
+[[assets]]
+path = "files/README.txt"
+bytes = 122
+sha256 = "9d15ec3747b8fe44b3a8d151f8079e3e2b700ef7e66e82ee996e0332f08783e4"
+media_type = "text/plain"
+semantics = "Supporting file from the ISO/IEC 15444-4:2024 electronic insert."
+
+[[assets]]
+path = "files/VERSION.txt"
+bytes = 1168
+sha256 = "a4916508a73361863067a8a575a2f070da8b53e908e0fd8d73ccd270b5be6794"
+media_type = "text/plain"
+semantics = "Supporting file from the ISO/IEC 15444-4:2024 electronic insert."
+
+[[assets]]
+path = "files/codestreams_extended/mct1.j2k"
+bytes = 1156132
+sha256 = "e6a95d4fd2f5804e3f5a7794df1a248b2531b56489948ee9a196e005f8064b9b"
+media_type = "image/j2c"
+semantics = "JPEG 2000 conformance codestream."
+
+[[assets]]
+path = "files/codestreams_extended/mct2.j2k"
+bytes = 2054894
+sha256 = "cf75bc351b919230d01c846ea810134339f4f9cc1cb46df565351e4344aa6430"
+media_type = "image/j2c"
+semantics = "JPEG 2000 conformance codestream."
+
+[[assets]]
+path = "files/codestreams_extended/mct3o.j2k"
+bytes = 118677
+sha256 = "1d579cc05075b229d61afdba9941ccb403df0485d74dab1ac71114e8e9a3efd0"
+media_type = "image/j2c"
+semantics = "JPEG 2000 conformance codestream."
+
+[[assets]]
+path = "files/codestreams_extended/nlt1.j2k"
+bytes = 75042
+sha256 = "d362b99f7141b741f49741f97c719d036e11fd1e3f3cdb1b306fa1a937f81d12"
+media_type = "image/j2c"
+semantics = "JPEG 2000 conformance codestream."
+
+[[assets]]
+path = "files/codestreams_hifi/hifi_ht1_02.j2k"
+bytes = 30665
+sha256 = "8ecb1ddcd469e4b3fda6df01c919e831e16f7c3bc19a0b3c41d72038f2b44e53"
+media_type = "image/j2c"
+semantics = "JPEG 2000 conformance codestream."
+
+[[assets]]
+path = "files/codestreams_hifi/hifi_p1_02.j2k"
+bytes = 30688
+sha256 = "2870eaf3a8f7ed91b8db07663b0c0ffa3de11b6565dfafd62e3571232a766085"
+media_type = "image/j2c"
+semantics = "JPEG 2000 conformance codestream."
+
+[[assets]]
+path = "files/codestreams_profile0/p0_01.j2k"
+bytes = 7390
+sha256 = "a61ea8d21ad0f7f9b76796e0f841c3e125240f83e308e3b8d626f4356b9a1113"
+media_type = "image/j2c"
+semantics = "JPEG 2000 conformance codestream."
+
+[[assets]]
+path = "files/codestreams_profile0/p0_02.j2k"
+bytes = 6183
+sha256 = "150c8554b827c25b48029f3455b43ce3c029a26bea06eea2c60076c868bb07be"
+media_type = "image/j2c"
+semantics = "JPEG 2000 conformance codestream."
+
+[[assets]]
+path = "files/codestreams_profile0/p0_03.j2k"
+bytes = 12845
+sha256 = "0aa26db75e8414d554e1fa93a0c7e101f16bb203f1fe06983fdd0c01fa61ddee"
+media_type = "image/j2c"
+semantics = "JPEG 2000 conformance codestream."
+
+[[assets]]
+path = "files/codestreams_profile0/p0_04.j2k"
+bytes = 264635
+sha256 = "3d35a4eeffb00e150bb69611afec80fba9570d5fca18a04c4e644badfd052c6f"
+media_type = "image/j2c"
+semantics = "JPEG 2000 conformance codestream."
+
+[[assets]]
+path = "files/codestreams_profile0/p0_05.j2k"
+bytes = 1310767
+sha256 = "35f3840030802898d5ff2fc6ff39eea3b8080cad65db859830b869d48579cf9f"
+media_type = "image/j2c"
+semantics = "JPEG 2000 conformance codestream."
+
+[[assets]]
+path = "files/codestreams_profile0/p0_06.j2k"
+bytes = 33826
+sha256 = "8a98292f29c4f04ef57c9a2974a1c254cca8297ce270c8baeb911bfe975c013d"
+media_type = "image/j2c"
+semantics = "JPEG 2000 conformance codestream."
+
+[[assets]]
+path = "files/codestreams_profile0/p0_07.j2k"
+bytes = 7885684
+sha256 = "46c4f5d64880a2df20d3faa22f6697384a6599dedb1b283e41a2efb1009cd9d1"
+media_type = "image/j2c"
+semantics = "JPEG 2000 conformance codestream."
+
+[[assets]]
+path = "files/codestreams_profile0/p0_08.j2k"
+bytes = 3820794
+sha256 = "4eb4eb2b356e16640ee94a24327fb66385c387657863072d774d633cf4379ef8"
+media_type = "image/j2c"
+semantics = "JPEG 2000 conformance codestream."
+
+[[assets]]
+path = "files/codestreams_profile0/p0_09.j2k"
+bytes = 594
+sha256 = "409c62a227497e7f2fc7e49055c02530cce742b6b385800b8a5aa4ae5bfab1a4"
+media_type = "image/j2c"
+semantics = "JPEG 2000 conformance codestream."
+
+[[assets]]
+path = "files/codestreams_profile0/p0_10.j2k"
+bytes = 14131
+sha256 = "0146480434740e7580ec5a413fd19654a2f1273dd7db25dc5d0b75ab98a9d706"
+media_type = "image/j2c"
+semantics = "JPEG 2000 conformance codestream."
+
+[[assets]]
+path = "files/codestreams_profile0/p0_11.j2k"
+bytes = 233
+sha256 = "d20d8a13b570ef4adb0c8d4166568b043d00124c2db652ce7f78d85ac1d77b62"
+media_type = "image/j2c"
+semantics = "JPEG 2000 conformance codestream."
+
+[[assets]]
+path = "files/codestreams_profile0/p0_12.j2k"
+bytes = 285
+sha256 = "741885b801b7b8a901b61792f52e0d67d05b7a87a7fc2a718c92cb6c969416fc"
+media_type = "image/j2c"
+semantics = "JPEG 2000 conformance codestream."
+
+[[assets]]
+path = "files/codestreams_profile0/p0_13.j2k"
+bytes = 2486
+sha256 = "12463d0c67e803fac6637d384263abbb6b546826419ecb725aed18fd45bcabb0"
+media_type = "image/j2c"
+semantics = "JPEG 2000 conformance codestream."
+
+[[assets]]
+path = "files/codestreams_profile0/p0_14.j2k"
+bytes = 1634
+sha256 = "3e8df4a1dc7e5edcd9478d2e5d350e16f802ef8da3161d63a979f94906440e54"
+media_type = "image/j2c"
+semantics = "JPEG 2000 conformance codestream."
+
+[[assets]]
+path = "files/codestreams_profile0/p0_15.j2k"
+bytes = 12845
+sha256 = "0aa26db75e8414d554e1fa93a0c7e101f16bb203f1fe06983fdd0c01fa61ddee"
+media_type = "image/j2c"
+semantics = "JPEG 2000 conformance codestream."
+
+[[assets]]
+path = "files/codestreams_profile0/p0_16.j2k"
+bytes = 7407
+sha256 = "853d78ff805eff1aa9d6b97cea42ea4975d334b0d4d6b36f217baa0bc1314d27"
+media_type = "image/j2c"
+semantics = "JPEG 2000 conformance codestream."
+
+[[assets]]
+path = "files/codestreams_profile1/p1_01.j2k"
+bytes = 4761
+sha256 = "26919bf56968ab57137bb478badb0bde8d2d53dfa26233935eecfbd40f235b81"
+media_type = "image/j2c"
+semantics = "JPEG 2000 conformance codestream."
+
+[[assets]]
+path = "files/codestreams_profile1/p1_02.j2k"
+bytes = 263090
+sha256 = "9fb9a26fbd769ea4fce1ca450ed605764af9931783eba49b3551b3a37b7a6f87"
+media_type = "image/j2c"
+semantics = "JPEG 2000 conformance codestream."
+
+[[assets]]
+path = "files/codestreams_profile1/p1_03.j2k"
+bytes = 1410721
+sha256 = "0ff5572be1d0411550ceaf3b935f2c9f100bbd0399efbb8d48143add8d56ffb7"
+media_type = "image/j2c"
+semantics = "JPEG 2000 conformance codestream."
+
+[[assets]]
+path = "files/codestreams_profile1/p1_04.j2k"
+bytes = 101844
+sha256 = "fbbe812a6ce6abfc5d1eef02c2e3838c023c24f0ff0b1dcd79c4e1d018b3351f"
+media_type = "image/j2c"
+semantics = "JPEG 2000 conformance codestream."
+
+[[assets]]
+path = "files/codestreams_profile1/p1_05.j2k"
+bytes = 282505
+sha256 = "6b1eb070cb40585a9c0ce8569a957dcdbb1948e6129c0af50ec38ee9c0cef994"
+media_type = "image/j2c"
+semantics = "JPEG 2000 conformance codestream."
+
+[[assets]]
+path = "files/codestreams_profile1/p1_06.j2k"
+bytes = 3356
+sha256 = "08a7fb96ba93bb3cd57183eee56ee92e91cb58193a378c6a4208d8cf1877459b"
+media_type = "image/j2c"
+semantics = "JPEG 2000 conformance codestream."
+
+[[assets]]
+path = "files/codestreams_profile1/p1_07.j2k"
+bytes = 569
+sha256 = "59576c42568098e4e5d9967eefb0a59b0002fedd7776c201c2c9f9aeb3cf1949"
+media_type = "image/j2c"
+semantics = "JPEG 2000 conformance codestream."
+
+[[assets]]
+path = "files/descriptions_extended/mct1.txt"
+bytes = 18213
+sha256 = "ba30a948f112ed8ad9182db6a8d004df82cc36c871eebc0101dddcc403218542"
+media_type = "text/plain"
+semantics = "Conformance test description or comparison parameters."
+
+[[assets]]
+path = "files/descriptions_extended/mct2.txt"
+bytes = 86078
+sha256 = "826e9a43e3b1f9f4c9fc4cd8c54c9f0c7af013e40016f93bfe4b60a0a6f93363"
+media_type = "text/plain"
+semantics = "Conformance test description or comparison parameters."
+
+[[assets]]
+path = "files/descriptions_extended/mct3o.txt"
+bytes = 5857
+sha256 = "be8778363dcc5f5beff64d929cf88c76620a6f61be59d926720259438ef10577"
+media_type = "text/plain"
+semantics = "Conformance test description or comparison parameters."
+
+[[assets]]
+path = "files/descriptions_extended/nlt1.txt"
+bytes = 4232
+sha256 = "946bc8d72dca652de6d265def8f8ec90f7c1ef3747980a47dd7eee56d3149330"
+media_type = "text/plain"
+semantics = "Conformance test description or comparison parameters."
+
+[[assets]]
+path = "files/descriptions_htj2k_profile0/ds0_hm_06_b11syntax.txt"
+bytes = 10950
+sha256 = "2b433eb8732bcef4098386801baba2cc21e0a2503ec2ed68a087e7b7f2dcbdc1"
+media_type = "text/plain"
+semantics = "Conformance test description or comparison parameters."
+
+[[assets]]
+path = "files/descriptions_htj2k_profile0/ds0_hm_06_b18syntax.txt"
+bytes = 10950
+sha256 = "f0dd49c08acaa6c771d5188c3a229029f691c813a92ec17c77830ae814004ee3"
+media_type = "text/plain"
+semantics = "Conformance test description or comparison parameters."
+
+[[assets]]
+path = "files/descriptions_htj2k_profile0/ds0_hm_15_b8syntax.txt"
+bytes = 9114
+sha256 = "89e19e7b68ba2451de374e8ad547ca78330362a4c35ad1acfdeae5bb46e39dbb"
+media_type = "text/plain"
+semantics = "Conformance test description or comparison parameters."
+
+[[assets]]
+path = "files/descriptions_htj2k_profile0/ds0_ht_01_b11syntax.txt"
+bytes = 3204
+sha256 = "476e16c6e1d21ea6f2a169a9a36265d96c2cc4502eba320d8d0463b070f728e4"
+media_type = "text/plain"
+semantics = "Conformance test description or comparison parameters."
+
+[[assets]]
+path = "files/descriptions_htj2k_profile0/ds0_ht_02_b11syntax.txt"
+bytes = 8177
+sha256 = "d43825a14ac92671416f0c05f5b297970095d2c43165cb388e4f88ec7eaa2f8c"
+media_type = "text/plain"
+semantics = "Conformance test description or comparison parameters."
+
+[[assets]]
+path = "files/descriptions_htj2k_profile0/ds0_ht_02_b12syntax.txt"
+bytes = 8176
+sha256 = "9aebbf89477c17625ac5746d710342bb544698ba4e41ed0c39982b5bf67d3a1c"
+media_type = "text/plain"
+semantics = "Conformance test description or comparison parameters."
+
+[[assets]]
+path = "files/descriptions_htj2k_profile0/ds0_ht_03_b11syntax.txt"
+bytes = 11796
+sha256 = "98f2e4f41708e800f5ec6793835e34a62f25e8b033d7df26b935b37915acda96"
+media_type = "text/plain"
+semantics = "Conformance test description or comparison parameters."
+
+[[assets]]
+path = "files/descriptions_htj2k_profile0/ds0_ht_03_b14syntax.txt"
+bytes = 11798
+sha256 = "a2071a186f86bf6a8e286b64ad22f8c45a74065e7ed242a81563b78f54411fab"
+media_type = "text/plain"
+semantics = "Conformance test description or comparison parameters."
+
+[[assets]]
+path = "files/descriptions_htj2k_profile0/ds0_ht_04_b11syntax.txt"
+bytes = 8494
+sha256 = "10316fba7b66730209a93d384ea4dd0ca4341766a32c27e65e2aecbe1b0442c9"
+media_type = "text/plain"
+semantics = "Conformance test description or comparison parameters."
+
+[[assets]]
+path = "files/descriptions_htj2k_profile0/ds0_ht_04_b12syntax.txt"
+bytes = 8494
+sha256 = "6c17e26059363bf35d88132095dda63f74db52f83e8a67bf5af4a1b5cd9d8a7a"
+media_type = "text/plain"
+semantics = "Conformance test description or comparison parameters."
+
+[[assets]]
+path = "files/descriptions_htj2k_profile0/ds0_ht_05_b11syntax.txt"
+bytes = 9117
+sha256 = "81b55d4bda69347d09988b59d66a80278007a2b6bdd26debc715dfdd1d78c49b"
+media_type = "text/plain"
+semantics = "Conformance test description or comparison parameters."
+
+[[assets]]
+path = "files/descriptions_htj2k_profile0/ds0_ht_05_b12syntax.txt"
+bytes = 9117
+sha256 = "dd2158e4f8fc84102ee56fb8dec0985067b29d6cb4011c44024c52af691a0e9f"
+media_type = "text/plain"
+semantics = "Conformance test description or comparison parameters."
+
+[[assets]]
+path = "files/descriptions_htj2k_profile0/ds0_ht_06_b11syntax.txt"
+bytes = 10948
+sha256 = "63ee25eb2638a9383e481f73cb96571ae2d59653e382b9212fc10f252f24d70c"
+media_type = "text/plain"
+semantics = "Conformance test description or comparison parameters."
+
+[[assets]]
+path = "files/descriptions_htj2k_profile0/ds0_ht_06_b18syntax.txt"
+bytes = 10948
+sha256 = "f2788eca4fc470fa41acd3634b97a500aead91d416a2f2f6b73c3bc1ee91a2b3"
+media_type = "text/plain"
+semantics = "Conformance test description or comparison parameters."
+
+[[assets]]
+path = "files/descriptions_htj2k_profile0/ds0_ht_07_b11syntax.txt"
+bytes = 3293409
+sha256 = "4b43d33badd88432adcb974338507fe3038f38ceb360ea83521941a886e16d0f"
+media_type = "text/plain"
+semantics = "Conformance test description or comparison parameters."
+
+[[assets]]
+path = "files/descriptions_htj2k_profile0/ds0_ht_07_b15syntax.txt"
+bytes = 3254280
+sha256 = "eb8827d0587e0146870fa8345483e495fe4b302391e976fccf3929840ab13a01"
+media_type = "text/plain"
+semantics = "Conformance test description or comparison parameters."
+
+[[assets]]
+path = "files/descriptions_htj2k_profile0/ds0_ht_07_b16syntax.txt"
+bytes = 3248588
+sha256 = "47e5771035a373073bfb07cb72d524878cf67a99fe57cf3c70ae0dd358b62a5d"
+media_type = "text/plain"
+semantics = "Conformance test description or comparison parameters."
+
+[[assets]]
+path = "files/descriptions_htj2k_profile0/ds0_ht_08_b11syntax.txt"
+bytes = 684856
+sha256 = "c897e2602b8a772cd6740cc83926d412303ec9228838cb889231dc8a19f7ee11"
+media_type = "text/plain"
+semantics = "Conformance test description or comparison parameters."
+
+[[assets]]
+path = "files/descriptions_htj2k_profile0/ds0_ht_08_b15syntax.txt"
+bytes = 681203
+sha256 = "598e2ce345db00eef40514d863f87e13e572a417a69af23784a53c9f45064c69"
+media_type = "text/plain"
+semantics = "Conformance test description or comparison parameters."
+
+[[assets]]
+path = "files/descriptions_htj2k_profile0/ds0_ht_08_b16syntax.txt"
+bytes = 680394
+sha256 = "fcb3689608ad918996a72c781334185bf8cf18853eaec16517d13f3e3452e92c"
+media_type = "text/plain"
+semantics = "Conformance test description or comparison parameters."
+
+[[assets]]
+path = "files/descriptions_htj2k_profile0/ds0_ht_09_b11syntax.txt"
+bytes = 4087
+sha256 = "106bed94b23f1b4e598c54eaf65e96637c2ab62252987a217320308f9cd5e173"
+media_type = "text/plain"
+semantics = "Conformance test description or comparison parameters."
+
+[[assets]]
+path = "files/descriptions_htj2k_profile0/ds0_ht_10_b11syntax.txt"
+bytes = 4029
+sha256 = "3687696de9ea2bdf5d9a1482ff4e030b164a6a6771150c738ea19d7284d44175"
+media_type = "text/plain"
+semantics = "Conformance test description or comparison parameters."
+
+[[assets]]
+path = "files/descriptions_htj2k_profile0/ds0_ht_11_b10syntax.txt"
+bytes = 2609
+sha256 = "184d2426514faeb83a774cd846f72b3f58d7ac10efd69b9a3faec5ca06b8c3fa"
+media_type = "text/plain"
+semantics = "Conformance test description or comparison parameters."
+
+[[assets]]
+path = "files/descriptions_htj2k_profile0/ds0_ht_12_b11syntax.txt"
+bytes = 3485
+sha256 = "cdab2e4655c8cb5bb5ef72f41518b08a26ed5c533de81c0551c04da02442fc6a"
+media_type = "text/plain"
+semantics = "Conformance test description or comparison parameters."
+
+[[assets]]
+path = "files/descriptions_htj2k_profile0/ds0_ht_13_b11syntax.txt"
+bytes = 35718
+sha256 = "89b54321a847be600444f3d56d8b83809ad5ab0321f1f93002af86f5176c6603"
+media_type = "text/plain"
+semantics = "Conformance test description or comparison parameters."
+
+[[assets]]
+path = "files/descriptions_htj2k_profile0/ds0_ht_14_b11syntax.txt"
+bytes = 3832
+sha256 = "900c64e750fbda06890c27463136ddb12463fc3ecb457a80fd68b3feb99b2770"
+media_type = "text/plain"
+semantics = "Conformance test description or comparison parameters."
+
+[[assets]]
+path = "files/descriptions_htj2k_profile0/ds0_ht_15_b11syntax.txt"
+bytes = 9100
+sha256 = "568b75084f7e76cff355d3a9e8352740891d40eccb7720b7f32cb7b5e36f73aa"
+media_type = "text/plain"
+semantics = "Conformance test description or comparison parameters."
+
+[[assets]]
+path = "files/descriptions_htj2k_profile0/ds0_ht_15_b14syntax.txt"
+bytes = 9102
+sha256 = "0a6ca40ad8ef9bcb55578385b272dd189f8a1669d93c4800a8ff558d2337e06f"
+media_type = "text/plain"
+semantics = "Conformance test description or comparison parameters."
+
+[[assets]]
+path = "files/descriptions_htj2k_profile0/ds0_ht_16_b11syntax.txt"
+bytes = 3115
+sha256 = "4cb8627551a4989541fad8f193c8659136eed2cdb654ae4bd6850f12e1bdd009"
+media_type = "text/plain"
+semantics = "Conformance test description or comparison parameters."
+
+[[assets]]
+path = "files/descriptions_htj2k_profile1/ds1_ht_01_b11syntax.txt"
+bytes = 7667
+sha256 = "102de4c5ac43ada4a48a95f543b89b98e85c583fa4741c8e162c9f83fd05e441"
+media_type = "text/plain"
+semantics = "Conformance test description or comparison parameters."
+
+[[assets]]
+path = "files/descriptions_htj2k_profile1/ds1_ht_01_b12syntax.txt"
+bytes = 7666
+sha256 = "0f36023f3c44e4c2df86859638a4fdbc06fa57a98c3ffe8f70e9ecc6d2715bd2"
+media_type = "text/plain"
+semantics = "Conformance test description or comparison parameters."
+
+[[assets]]
+path = "files/descriptions_htj2k_profile1/ds1_ht_02_b11syntax.txt"
+bytes = 8626
+sha256 = "0c1f067db1a3517d880e10504ced6f47280f061f3f303414da43096d8c05cce8"
+media_type = "text/plain"
+semantics = "Conformance test description or comparison parameters."
+
+[[assets]]
+path = "files/descriptions_htj2k_profile1/ds1_ht_02_b12syntax.txt"
+bytes = 8626
+sha256 = "b4e1a42fc6e9f5c8e7709024748d518553aa266c9a3d32561e1c63f561bb9d95"
+media_type = "text/plain"
+semantics = "Conformance test description or comparison parameters."
+
+[[assets]]
+path = "files/descriptions_htj2k_profile1/ds1_ht_03_b11syntax.txt"
+bytes = 9239
+sha256 = "fa1db923f9e28fba1d4e0193679bad642e4040b55e622b147a774b2e8f60997b"
+media_type = "text/plain"
+semantics = "Conformance test description or comparison parameters."
+
+[[assets]]
+path = "files/descriptions_htj2k_profile1/ds1_ht_03_b12syntax.txt"
+bytes = 9239
+sha256 = "ac115b0e8cb176c89721cb8ea3fe23cdab269eafbb10719843805da55b812495"
+media_type = "text/plain"
+semantics = "Conformance test description or comparison parameters."
+
+[[assets]]
+path = "files/descriptions_htj2k_profile1/ds1_ht_04_b9syntax.txt"
+bytes = 77778
+sha256 = "6b513f903acbb3e0071a909df11033a2835d97d4d79e371437273989be1772f2"
+media_type = "text/plain"
+semantics = "Conformance test description or comparison parameters."
+
+[[assets]]
+path = "files/descriptions_htj2k_profile1/ds1_ht_05_b11syntax.txt"
+bytes = 1773550
+sha256 = "3a404ae332eecab4c344ea7ce85e99bffa16158928cb2b991d3f656a41381b78"
+media_type = "text/plain"
+semantics = "Conformance test description or comparison parameters."
+
+[[assets]]
+path = "files/descriptions_htj2k_profile1/ds1_ht_06_b11syntax.txt"
+bytes = 25942
+sha256 = "016025147aef1f5f2f063d3e3d4ef3e73dd9816bfb85edea335757da52a18372"
+media_type = "text/plain"
+semantics = "Conformance test description or comparison parameters."
+
+[[assets]]
+path = "files/descriptions_htj2k_profile1/ds1_ht_07_b11syntax.txt"
+bytes = 7789
+sha256 = "b7c5b7c08d9e3ea5ef358032db4eaa631d2edaa2bc9c1eb32051e8b7d84cf403"
+media_type = "text/plain"
+semantics = "Conformance test description or comparison parameters."
+
+[[assets]]
+path = "files/descriptions_htj2k_profile1/hifi_ht1_02syntax.txt"
+bytes = 4836
+sha256 = "5d998465b72ba09d70969911a32acb58d604ca75a5894ae38ed9602c6305e1e9"
+media_type = "text/plain"
+semantics = "Conformance test description or comparison parameters."
+
+[[assets]]
+path = "files/descriptions_jp2/file1-xml1.xml"
+bytes = 431
+sha256 = "006e9f62f9bd78b6ef5d3ba87b71be377b9ac6af32c882f266c48aab100f820a"
+media_type = "application/xml"
+semantics = "Conformance test description or comparison parameters."
+
+[[assets]]
+path = "files/descriptions_jp2/file1-xml2.xml"
+bytes = 741
+sha256 = "d26842ea73eb9f98b7c4876b40b31f704a3630e4abdea9d80d56fa3e302ea36b"
+media_type = "application/xml"
+semantics = "Conformance test description or comparison parameters."
+
+[[assets]]
+path = "files/descriptions_jp2/file1.desc"
+bytes = 5278
+sha256 = "55621189491dee2e088260493129d62fd2389bc0a53c3e9c79d41501a0982a0c"
+media_type = "text/plain"
+semantics = "Conformance test description or comparison parameters."
+
+[[assets]]
+path = "files/descriptions_jp2/file2.desc"
+bytes = 4340
+sha256 = "079ca115944bb797e710702cfa754d5499378c55a95ce2674badd2b705ad6a37"
+media_type = "text/plain"
+semantics = "Conformance test description or comparison parameters."
+
+[[assets]]
+path = "files/descriptions_jp2/file3.desc"
+bytes = 4187
+sha256 = "3eaa4e65b0fbc2911fc36c8e8c2fe6a22f8d84cea74cec50bc74c244864d5b64"
+media_type = "text/plain"
+semantics = "Conformance test description or comparison parameters."
+
+[[assets]]
+path = "files/descriptions_jp2/file4.desc"
+bytes = 3947
+sha256 = "4921e2481c31337b86357bc0e034f40841c32bab3d750c8e86a451ed3623baf4"
+media_type = "text/plain"
+semantics = "Conformance test description or comparison parameters."
+
+[[assets]]
+path = "files/descriptions_jp2/file5.desc"
+bytes = 5617
+sha256 = "0b79aa36045c2d4023b27653da38126abc565cb159b77c5352971dfbc2add3d5"
+media_type = "text/plain"
+semantics = "Conformance test description or comparison parameters."
+
+[[assets]]
+path = "files/descriptions_jp2/file5.pf"
+bytes = 546
+sha256 = "d9f63489c08414e9a86acf88cac9b022144841ec1ea0e77d19c68f9d563d5581"
+media_type = "text/plain"
+semantics = "Conformance test description or comparison parameters."
+
+[[assets]]
+path = "files/descriptions_jp2/file6.desc"
+bytes = 3949
+sha256 = "d6322dd843fe14c96cb42181a162612ce8f4855cdd13bf8c2158902aa8da0d9c"
+media_type = "text/plain"
+semantics = "Conformance test description or comparison parameters."
+
+[[assets]]
+path = "files/descriptions_jp2/file7.desc"
+bytes = 48777
+sha256 = "516cd194eda5519c3d833b217d0d807195718b176fb1ce6ee9c2ce3eee977e44"
+media_type = "text/plain"
+semantics = "Conformance test description or comparison parameters."
+
+[[assets]]
+path = "files/descriptions_jp2/file7.pf"
+bytes = 13332
+sha256 = "356ce369ce2d641b1de3b484d360a9e6da63fc8cf658283e863a87b3343f2cff"
+media_type = "text/plain"
+semantics = "Conformance test description or comparison parameters."
+
+[[assets]]
+path = "files/descriptions_jp2/file8-xml1.xml"
+bytes = 377
+sha256 = "bf3927984dd0ecd4fcb65d4a3492cd7fea689ae581115355d60d400255f4c07e"
+media_type = "application/xml"
+semantics = "Conformance test description or comparison parameters."
+
+[[assets]]
+path = "files/descriptions_jp2/file8-xml2.xml"
+bytes = 902
+sha256 = "fa4396334b82e194f82c6e6f82d849b51c677d30d75e79ec2250a565654a427e"
+media_type = "application/xml"
+semantics = "Conformance test description or comparison parameters."
+
+[[assets]]
+path = "files/descriptions_jp2/file8.desc"
+bytes = 6098
+sha256 = "f2386bf8356323f3f24f819490e80548625176984ad8f8ef40a377e0e460ea8d"
+media_type = "text/plain"
+semantics = "Conformance test description or comparison parameters."
+
+[[assets]]
+path = "files/descriptions_jp2/file8.pf"
+bytes = 414
+sha256 = "64ed586e213e2dd285927f0eb9cc994076b2777b9815589a532889d7703e05da"
+media_type = "text/plain"
+semantics = "Conformance test description or comparison parameters."
+
+[[assets]]
+path = "files/descriptions_jp2/file9.desc"
+bytes = 18191
+sha256 = "95b7f4227edeb2670cb5a50d48f39481d84e543d6e00ab664fb2367ba832b758"
+media_type = "text/plain"
+semantics = "Conformance test description or comparison parameters."
+
+[[assets]]
+path = "files/descriptions_jph/file10_b11.desc"
+bytes = 5691
+sha256 = "3f774eec76c2c1eef970a6c918a86c88af1e112158c2498106e98d187c7fe109"
+media_type = "text/plain"
+semantics = "Conformance test description or comparison parameters."
+
+[[assets]]
+path = "files/descriptions_jph/file10_b12.desc"
+bytes = 5691
+sha256 = "7b74f6700b6d4bcf64f570ab96ddaad2bedee26e3984b185c68a8832e9fc356c"
+media_type = "text/plain"
+semantics = "Conformance test description or comparison parameters."
+
+[[assets]]
+path = "files/descriptions_jph/file1_b11.desc"
+bytes = 6190
+sha256 = "8d62a0ab9c58064f14ea44985c82f312e35f11fe3255c36021772b0a6009b6a9"
+media_type = "text/plain"
+semantics = "Conformance test description or comparison parameters."
+
+[[assets]]
+path = "files/descriptions_jph/file1_b12.desc"
+bytes = 6190
+sha256 = "c150f6e44027f068712d58c33230ac901547f840a710e70f96d5d72082f641be"
+media_type = "text/plain"
+semantics = "Conformance test description or comparison parameters."
+
+[[assets]]
+path = "files/descriptions_jph/file2_b11.desc"
+bytes = 5175
+sha256 = "0ac9257f7d054bdf2bf00eb89d64b71a05e3d2fba9d16ce0932b2fe6c5705b82"
+media_type = "text/plain"
+semantics = "Conformance test description or comparison parameters."
+
+[[assets]]
+path = "files/descriptions_jph/file2_b12.desc"
+bytes = 5175
+sha256 = "2e7d610706ffde1303194cfa9557c527b6e1d2bb41c37c35b09a368ba288394f"
+media_type = "text/plain"
+semantics = "Conformance test description or comparison parameters."
+
+[[assets]]
+path = "files/descriptions_jph/file3_b11.desc"
+bytes = 4913
+sha256 = "12157382dc1ae8aaaf0764688f4fca7e62116bb85baf3a23f885901b668559de"
+media_type = "text/plain"
+semantics = "Conformance test description or comparison parameters."
+
+[[assets]]
+path = "files/descriptions_jph/file3_b12.desc"
+bytes = 4913
+sha256 = "d41db4bd6063170f5bf93f576f8f2536ded0ea3d013546e3133b9ff0b2baebdd"
+media_type = "text/plain"
+semantics = "Conformance test description or comparison parameters."
+
+[[assets]]
+path = "files/descriptions_jph/file4_b11.desc"
+bytes = 4667
+sha256 = "754e95372f48c2d69451ea4c3692c99eaf59d11d4467375d54c2a1059f9e0a38"
+media_type = "text/plain"
+semantics = "Conformance test description or comparison parameters."
+
+[[assets]]
+path = "files/descriptions_jph/file4_b12.desc"
+bytes = 4667
+sha256 = "b7c78f75c9f1ee5774c069b4ab7f58df336af0ab1426a39dfe777d66aaaf6ded"
+media_type = "text/plain"
+semantics = "Conformance test description or comparison parameters."
+
+[[assets]]
+path = "files/descriptions_jph/file5_b11.desc"
+bytes = 7399
+sha256 = "b047a31f5ded4aee2aa55099a6e4e59531d66c7557cf802b6156c850512deade"
+media_type = "text/plain"
+semantics = "Conformance test description or comparison parameters."
+
+[[assets]]
+path = "files/descriptions_jph/file5_b12.desc"
+bytes = 7399
+sha256 = "8060fe43c5e25760ee47d36a1adf6622724ad0d329f61ffc98745ca28a22b080"
+media_type = "text/plain"
+semantics = "Conformance test description or comparison parameters."
+
+[[assets]]
+path = "files/descriptions_jph/file6_b11.desc"
+bytes = 4717
+sha256 = "962c68279bc2f5c30d158590524b4b958e1968ed96846ff5945e66001c718d91"
+media_type = "text/plain"
+semantics = "Conformance test description or comparison parameters."
+
+[[assets]]
+path = "files/descriptions_jph/file6_b15.desc"
+bytes = 4717
+sha256 = "482d77f4d20e48eb2d2b3a9e81995fc8d3abc3c17eb099e08bcc934121dbd5ea"
+media_type = "text/plain"
+semantics = "Conformance test description or comparison parameters."
+
+[[assets]]
+path = "files/descriptions_jph/file7_b11.desc"
+bytes = 119422
+sha256 = "67cab0ef049be3c5652129417627e8347bc2717517798bc010caaa17e01e81a4"
+media_type = "text/plain"
+semantics = "Conformance test description or comparison parameters."
+
+[[assets]]
+path = "files/descriptions_jph/file7_b15.desc"
+bytes = 119422
+sha256 = "f424fee5727683208df7ea03b2080c317982514c884a9b6a37fc0f33efac2f56"
+media_type = "text/plain"
+semantics = "Conformance test description or comparison parameters."
+
+[[assets]]
+path = "files/descriptions_jph/file7_b19.desc"
+bytes = 119426
+sha256 = "e972748de7f839236f3995487a20a51198a1b93b6e79edccd94b41d0b29bf880"
+media_type = "text/plain"
+semantics = "Conformance test description or comparison parameters."
+
+[[assets]]
+path = "files/descriptions_jph/file8_b11.desc"
+bytes = 7614
+sha256 = "f978eb733e19720a8bc6e4df652583a180992a8745a6559008ae33cc30f1f527"
+media_type = "text/plain"
+semantics = "Conformance test description or comparison parameters."
+
+[[assets]]
+path = "files/descriptions_jph/file9_b11.desc"
+bytes = 19262
+sha256 = "d5286cd3e6b5b611b6bbd68be1a1f45e46ef1648730782a51f534ca90306a5c2"
+media_type = "text/plain"
+semantics = "Conformance test description or comparison parameters."
+
+[[assets]]
+path = "files/descriptions_jph/file9_b12.desc"
+bytes = 19262
+sha256 = "2a21ca65b4c55c6f27d4e94e6d7180a56e10f404be3fe1b75c2a089b56c4c595"
+media_type = "text/plain"
+semantics = "Conformance test description or comparison parameters."
+
+[[assets]]
+path = "files/descriptions_jpx/float.txt"
+bytes = 5895
+sha256 = "9fe495234e70a3fb59ae2822a6f57477bda3d2b7e6f1a57bda0ec528719afbab"
+media_type = "text/plain"
+semantics = "Conformance test description or comparison parameters."
+
+[[assets]]
+path = "files/descriptions_jpx/multi_img.txt"
+bytes = 9729
+sha256 = "32d99d7af564eeb4a7611b3b688f19225ed3b4d493771db38ff9970bc2010ae8"
+media_type = "text/plain"
+semantics = "Conformance test description or comparison parameters."
+
+[[assets]]
+path = "files/descriptions_jpx/reboxing.txt"
+bytes = 4756
+sha256 = "7ab3aff8e8dd6fff5b4f2daeeaa3cd416225c8ef709484b6bbd5a117d484b000"
+media_type = "text/plain"
+semantics = "Conformance test description or comparison parameters."
+
+[[assets]]
+path = "files/descriptions_profile0/p0_01syntax.txt"
+bytes = 2414
+sha256 = "b90cb0e588c66f455ec0722ad09646a0a288b8e3f9b7bc20635f9b2c0cea4b04"
+media_type = "text/plain"
+semantics = "Conformance test description or comparison parameters."
+
+[[assets]]
+path = "files/descriptions_profile0/p0_02syntax.txt"
+bytes = 6710
+sha256 = "3a2ed6dc05ee48c55e5c3500da1241b493c84b128edf09712e6db08c44505b2b"
+media_type = "text/plain"
+semantics = "Conformance test description or comparison parameters."
+
+[[assets]]
+path = "files/descriptions_profile0/p0_03syntax.txt"
+bytes = 9535
+sha256 = "28f589605ec87a116ce2a85f90f35306a163c3809b281b5e674de3f8b29ffc9c"
+media_type = "text/plain"
+semantics = "Conformance test description or comparison parameters."
+
+[[assets]]
+path = "files/descriptions_profile0/p0_04syntax.txt"
+bytes = 6213
+sha256 = "0b34fd94f517e283e2f1c9072a4ed1afab5d44206e2f789ef4fd1bf83085c32f"
+media_type = "text/plain"
+semantics = "Conformance test description or comparison parameters."
+
+[[assets]]
+path = "files/descriptions_profile0/p0_05syntax.txt"
+bytes = 5720
+sha256 = "47b14fb4e4d8de34ac69efefed762a35365afd6bcebb53913930b05aff846cf1"
+media_type = "text/plain"
+semantics = "Conformance test description or comparison parameters."
+
+[[assets]]
+path = "files/descriptions_profile0/p0_06syntax.txt"
+bytes = 7252
+sha256 = "8179cf9a357fc0e4309f711b87d4512b6c2b334bde825d01e65c9816da839784"
+media_type = "text/plain"
+semantics = "Conformance test description or comparison parameters."
+
+[[assets]]
+path = "files/descriptions_profile0/p0_07syntax.txt"
+bytes = 3854988
+sha256 = "b8a3b0d3cda72d5849966dd3d40f0618e341218b3fa7e0fe1002577f4176f0e4"
+media_type = "text/plain"
+semantics = "Conformance test description or comparison parameters."
+
+[[assets]]
+path = "files/descriptions_profile0/p0_08syntax.txt"
+bytes = 114301
+sha256 = "b8b50a491a5f91f5c6320915d108568ef8d343d247bfe40b62694cb1293595d7"
+media_type = "text/plain"
+semantics = "Conformance test description or comparison parameters."
+
+[[assets]]
+path = "files/descriptions_profile0/p0_09syntax.txt"
+bytes = 3130
+sha256 = "8a2ec9f296292e868950ff4fca243590a4160f518d50b1d7db83a1f7bf064fe8"
+media_type = "text/plain"
+semantics = "Conformance test description or comparison parameters."
+
+[[assets]]
+path = "files/descriptions_profile0/p0_10syntax.txt"
+bytes = 4259
+sha256 = "c93d50624bc6939f23b0046dec78ff665d6f6a8bee13990f0bccbed3f38d0834"
+media_type = "text/plain"
+semantics = "Conformance test description or comparison parameters."
+
+[[assets]]
+path = "files/descriptions_profile0/p0_11syntax.txt"
+bytes = 2427
+sha256 = "6354bb039e474f25a650df933ff4597f610e04673f79ebcf8f087075bef9ee0c"
+media_type = "text/plain"
+semantics = "Conformance test description or comparison parameters."
+
+[[assets]]
+path = "files/descriptions_profile0/p0_12syntax.txt"
+bytes = 2853
+sha256 = "c81b088450d839b33159e48669cc8d109017a98799392304c661f1b45c8f9e50"
+media_type = "text/plain"
+semantics = "Conformance test description or comparison parameters."
+
+[[assets]]
+path = "files/descriptions_profile0/p0_13syntax.txt"
+bytes = 35705
+sha256 = "a76a96b0e49bcd1af33ffde8e1f321e9f60d85a402160a1716bdd78f110af682"
+media_type = "text/plain"
+semantics = "Conformance test description or comparison parameters."
+
+[[assets]]
+path = "files/descriptions_profile0/p0_14syntax.txt"
+bytes = 2926
+sha256 = "f9e3400e31bf73c98936e73b78c25e0214dda7bb368fdc1e36c4361ae1397299"
+media_type = "text/plain"
+semantics = "Conformance test description or comparison parameters."
+
+[[assets]]
+path = "files/descriptions_profile0/p0_15syntax.txt"
+bytes = 9535
+sha256 = "28f589605ec87a116ce2a85f90f35306a163c3809b281b5e674de3f8b29ffc9c"
+media_type = "text/plain"
+semantics = "Conformance test description or comparison parameters."
+
+[[assets]]
+path = "files/descriptions_profile0/p0_16syntax.txt"
+bytes = 2418
+sha256 = "ee235f4ac36e04bdf4523fd0b69c0028764af2c69259ca90f0188bc05df4f009"
+media_type = "text/plain"
+semantics = "Conformance test description or comparison parameters."
+
+[[assets]]
+path = "files/descriptions_profile1/hifi_p1_02syntax.txt"
+bytes = 4384
+sha256 = "d987a675026ef46ad0ffaead7d6936305a8da28e8bf9d54b3c3a07b0202f3521"
+media_type = "text/plain"
+semantics = "Conformance test description or comparison parameters."
+
+[[assets]]
+path = "files/descriptions_profile1/p1_01syntax.txt"
+bytes = 6036
+sha256 = "98ab4c766368c42ca21e1617507dc7b39acf148c9b9ed6f4266918f121707803"
+media_type = "text/plain"
+semantics = "Conformance test description or comparison parameters."
+
+[[assets]]
+path = "files/descriptions_profile1/p1_02syntax.txt"
+bytes = 6351
+sha256 = "29fea6bdd7f2503d32b5219e3e1e6fe118376d4e1406f0774c43225c75cb513b"
+media_type = "text/plain"
+semantics = "Conformance test description or comparison parameters."
+
+[[assets]]
+path = "files/descriptions_profile1/p1_03syntax.txt"
+bytes = 5853
+sha256 = "51f6a99f09784d737aa3278bf3e5d946f72fd1a08376b3deb12c447866c8123a"
+media_type = "text/plain"
+semantics = "Conformance test description or comparison parameters."
+
+[[assets]]
+path = "files/descriptions_profile1/p1_04syntax.txt"
+bytes = 59263
+sha256 = "883b87fb6e0bc7840d4fa082d4bc9d33b86e3b65c0696d0005f127c0843f9ad3"
+media_type = "text/plain"
+semantics = "Conformance test description or comparison parameters."
+
+[[assets]]
+path = "files/descriptions_profile1/p1_05syntax.txt"
+bytes = 1918890
+sha256 = "41f432725f7d6481aaf5dd768e5c349dcd5257d663d7ffde3eb2fbfc464ae773"
+media_type = "text/plain"
+semantics = "Conformance test description or comparison parameters."
+
+[[assets]]
+path = "files/descriptions_profile1/p1_06syntax.txt"
+bytes = 29384
+sha256 = "778ae969b40f832435c90b5b4a9181458ecd2535a76de8df17fbb01614ac2e8e"
+media_type = "text/plain"
+semantics = "Conformance test description or comparison parameters."
+
+[[assets]]
+path = "files/descriptions_profile1/p1_07syntax.txt"
+bytes = 7711
+sha256 = "fce9d01a1ad1050db5288c7761af578d2d39b3b3c8efc48ac004ac02b9b69ed3"
+media_type = "text/plain"
+semantics = "Conformance test description or comparison parameters."
+
+[[assets]]
+path = "files/htj2k_bsets_profile0/gitlab_repository.txt"
+bytes = 331
+sha256 = "5e81c719ab2d39413cdb76b191c7c451fdab8c7bbf0d58a7903e883278d155a7"
+media_type = "text/plain"
+semantics = "Supporting file from the ISO/IEC 15444-4:2024 electronic insert."
+
+[[assets]]
+path = "files/htj2k_bsets_profile0/p0_01_bset/ds0_ht_01_b11.j2k"
+bytes = 8085
+sha256 = "4f81100e4eb3b0ab03d669870034257f73c2abb837fcec1ac02962a9910b4824"
+media_type = "image/j2c"
+semantics = "HTJ2K conformance codestream."
+
+[[assets]]
+path = "files/htj2k_bsets_profile0/p0_01_bset/stats.txt"
+bytes = 141
+sha256 = "79f64c0638ed638d11d338f073b72aceab0f245ca4319af5e03d86669eb174ed"
+media_type = "text/plain"
+semantics = "Supporting file from the ISO/IEC 15444-4:2024 electronic insert."
+
+[[assets]]
+path = "files/htj2k_bsets_profile0/p0_02_bset/ds0_ht_02_b11.j2k"
+bytes = 6164
+sha256 = "44386273c368b9454210fcef311260db72ce3d5c133f414c5ab9a832a19482fe"
+media_type = "image/j2c"
+semantics = "HTJ2K conformance codestream."
+
+[[assets]]
+path = "files/htj2k_bsets_profile0/p0_02_bset/ds0_ht_02_b12.j2k"
+bytes = 6202
+sha256 = "053421d280326f3f11f495b3d9ea1045a822dfbcfa3217c6effbd057e9c7e239"
+media_type = "image/j2c"
+semantics = "HTJ2K conformance codestream."
+
+[[assets]]
+path = "files/htj2k_bsets_profile0/p0_02_bset/stats.txt"
+bytes = 224
+sha256 = "3cb3f69681a1b11b323374a722fd10c13e5ffa3d844d10828c8266f2fb746c44"
+media_type = "text/plain"
+semantics = "Supporting file from the ISO/IEC 15444-4:2024 electronic insert."
+
+[[assets]]
+path = "files/htj2k_bsets_profile0/p0_03_bset/ds0_ht_03_b11.j2k"
+bytes = 17199
+sha256 = "49acc614f87c135c2741ca3757f86d9aa6421c8d12c9b4c34c68cc2b6f5f95b4"
+media_type = "image/j2c"
+semantics = "HTJ2K conformance codestream."
+
+[[assets]]
+path = "files/htj2k_bsets_profile0/p0_03_bset/ds0_ht_03_b14.j2k"
+bytes = 19539
+sha256 = "58e7e443642069081a244e383f1a615f2921ed2f88627c19cb9b9141396525fb"
+media_type = "image/j2c"
+semantics = "HTJ2K conformance codestream."
+
+[[assets]]
+path = "files/htj2k_bsets_profile0/p0_03_bset/stats.txt"
+bytes = 581
+sha256 = "8f27a3fd5444216339badcb854a0b39056f32c0b6a254329c83facd74d2506d0"
+media_type = "text/plain"
+semantics = "Supporting file from the ISO/IEC 15444-4:2024 electronic insert."
+
+[[assets]]
+path = "files/htj2k_bsets_profile0/p0_04_bset/ds0_ht_04_b11.j2k"
+bytes = 266209
+sha256 = "d4b0b3152f1d606211334bf82cfd8b960eebbbd89b60bf3a04de43bec8d8f78d"
+media_type = "image/j2c"
+semantics = "HTJ2K conformance codestream."
+
+[[assets]]
+path = "files/htj2k_bsets_profile0/p0_04_bset/ds0_ht_04_b12.j2k"
+bytes = 273988
+sha256 = "77ff230280d03c02f66ff79d06acae77e92126490d019e2d14de64325a0dd4e8"
+media_type = "image/j2c"
+semantics = "HTJ2K conformance codestream."
+
+[[assets]]
+path = "files/htj2k_bsets_profile0/p0_04_bset/stats.txt"
+bytes = 660
+sha256 = "583aa160ec732aae7f78e5a4d8ddebe332dbdec127f5409450eeacc1e6a38efd"
+media_type = "text/plain"
+semantics = "Supporting file from the ISO/IEC 15444-4:2024 electronic insert."
+
+[[assets]]
+path = "files/htj2k_bsets_profile0/p0_05_bset/ds0_ht_05_b11.j2k"
+bytes = 1375732
+sha256 = "2d98f8a241880ea5bfc1d283dc4856ae6dc05aa6f585fdd6280f4254d9bca69b"
+media_type = "image/j2c"
+semantics = "HTJ2K conformance codestream."
+
+[[assets]]
+path = "files/htj2k_bsets_profile0/p0_05_bset/ds0_ht_05_b12.j2k"
+bytes = 1378249
+sha256 = "e936bceff1ee6465b6b1e0c0169cf442f3053d72bbb2c316589c3968a27745a3"
+media_type = "image/j2c"
+semantics = "HTJ2K conformance codestream."
+
+[[assets]]
+path = "files/htj2k_bsets_profile0/p0_05_bset/stats.txt"
+bytes = 644
+sha256 = "aa8fe2cdc5b8be670107c66ef3ade7457bfa6762080729a8736e7510195bd593"
+media_type = "text/plain"
+semantics = "Supporting file from the ISO/IEC 15444-4:2024 electronic insert."
+
+[[assets]]
+path = "files/htj2k_bsets_profile0/p0_06_bset/ds0_hm_06_b11.j2k"
+bytes = 21098
+sha256 = "2ed9119d74bab5e413dc3e8d0612189bbc66d2003784d0cffa18f303fcfb2e1b"
+media_type = "image/j2c"
+semantics = "HTJ2K conformance codestream."
+
+[[assets]]
+path = "files/htj2k_bsets_profile0/p0_06_bset/ds0_hm_06_b18.j2k"
+bytes = 36216
+sha256 = "d30ca91bafd02181d8138865414be0a7b58a4e41cb2d091b969a817f0b4abc77"
+media_type = "image/j2c"
+semantics = "HTJ2K conformance codestream."
+
+[[assets]]
+path = "files/htj2k_bsets_profile0/p0_06_bset/ds0_ht_06_b11.j2k"
+bytes = 21478
+sha256 = "128cdf462ba518eddac97c6ed7ddefab60f09dd4f47e29b7778386471a8b712f"
+media_type = "image/j2c"
+semantics = "HTJ2K conformance codestream."
+
+[[assets]]
+path = "files/htj2k_bsets_profile0/p0_06_bset/ds0_ht_06_b15.j2k"
+bytes = 31337
+sha256 = "59572b57a43a61f2f96da4723965362ce16690a615d6b5ce8b4ad4093eaa21d1"
+media_type = "image/j2c"
+semantics = "HTJ2K conformance codestream."
+
+[[assets]]
+path = "files/htj2k_bsets_profile0/p0_06_bset/ds0_ht_06_b18.j2k"
+bytes = 36670
+sha256 = "c1b768338b6fccba480f4d496dc662255ab19d44d98d0cd182cd543cfe42655b"
+media_type = "image/j2c"
+semantics = "HTJ2K conformance codestream."
+
+[[assets]]
+path = "files/htj2k_bsets_profile0/p0_06_bset/stats.txt"
+bytes = 1539
+sha256 = "4e0c7583adf1a82458b1ee83790759560ecbf6d1e4e30519f9b2a15ef3df2751"
+media_type = "text/plain"
+semantics = "Supporting file from the ISO/IEC 15444-4:2024 electronic insert."
+
+[[assets]]
+path = "files/htj2k_bsets_profile0/p0_07_bset/ds0_ht_07_b11.j2k"
+bytes = 3279290
+sha256 = "b40bf07e90b27a9e10bdf65c9f727d9baa233648635c76924c81a41fcf5fd4a8"
+media_type = "image/j2c"
+semantics = "HTJ2K conformance codestream."
+
+[[assets]]
+path = "files/htj2k_bsets_profile0/p0_07_bset/ds0_ht_07_b15.j2k"
+bytes = 8607525
+sha256 = "14da7e15d3c88c636410ab573b9ceb5d46881e99860bc200636602f59c701da2"
+media_type = "image/j2c"
+semantics = "HTJ2K conformance codestream."
+
+[[assets]]
+path = "files/htj2k_bsets_profile0/p0_07_bset/ds0_ht_07_b16.j2k"
+bytes = 8885403
+sha256 = "4e11ab229ab4f7d6fe6d5665aa9e1d94712ad58d7b5b5f29bd8265df8762bdf9"
+media_type = "image/j2c"
+semantics = "HTJ2K conformance codestream."
+
+[[assets]]
+path = "files/htj2k_bsets_profile0/p0_07_bset/stats.txt"
+bytes = 1445
+sha256 = "1ac2f2e0b7a79eb69762097056869eeccf461397b6c2719336bd543905d9d775"
+media_type = "text/plain"
+semantics = "Supporting file from the ISO/IEC 15444-4:2024 electronic insert."
+
+[[assets]]
+path = "files/htj2k_bsets_profile0/p0_08_bset/ds0_ht_08_b11.j2k"
+bytes = 2445072
+sha256 = "e3261e51c8357e92ba8c8a9f7ed6239bb476f8b3d7c01f7ead31fc562f31abb5"
+media_type = "image/j2c"
+semantics = "HTJ2K conformance codestream."
+
+[[assets]]
+path = "files/htj2k_bsets_profile0/p0_08_bset/ds0_ht_08_b15.j2k"
+bytes = 4520744
+sha256 = "79aac2e8e85d699b6cc7ba8639d95496c0e3386c64ab58f27bd31ac593bb9680"
+media_type = "image/j2c"
+semantics = "HTJ2K conformance codestream."
+
+[[assets]]
+path = "files/htj2k_bsets_profile0/p0_08_bset/ds0_ht_08_b16.j2k"
+bytes = 4508876
+sha256 = "da8a5f8e1f99ff0e4092d9017c39dcda01079c5b2b94448a1016421ee5bd4462"
+media_type = "image/j2c"
+semantics = "HTJ2K conformance codestream."
+
+[[assets]]
+path = "files/htj2k_bsets_profile0/p0_08_bset/stats.txt"
+bytes = 1444
+sha256 = "b17b001113219c0daf011c4a69b83089863e975f26f0ac3a0b70ff051eb9ca9e"
+media_type = "text/plain"
+semantics = "Supporting file from the ISO/IEC 15444-4:2024 electronic insert."
+
+[[assets]]
+path = "files/htj2k_bsets_profile0/p0_09_bset/ds0_ht_09_b11.j2k"
+bytes = 790
+sha256 = "1837d4e37327c4170191852e06ef42a78ccfa82d529f1f6f50faeab409805653"
+media_type = "image/j2c"
+semantics = "HTJ2K conformance codestream."
+
+[[assets]]
+path = "files/htj2k_bsets_profile0/p0_09_bset/stats.txt"
+bytes = 141
+sha256 = "79f64c0638ed638d11d338f073b72aceab0f245ca4319af5e03d86669eb174ed"
+media_type = "text/plain"
+semantics = "Supporting file from the ISO/IEC 15444-4:2024 electronic insert."
+
+[[assets]]
+path = "files/htj2k_bsets_profile0/p0_10_bset/ds0_ht_10_b11.j2k"
+bytes = 14887
+sha256 = "022679c600ed171a14bb0050f43f59b2543fa48befccc78b977d552918ebbe84"
+media_type = "image/j2c"
+semantics = "HTJ2K conformance codestream."
+
+[[assets]]
+path = "files/htj2k_bsets_profile0/p0_10_bset/stats.txt"
+bytes = 359
+sha256 = "fb5062b2b87296435a51104c31087e87d3ad2f63b7b82e75a46e3f79012c292e"
+media_type = "text/plain"
+semantics = "Supporting file from the ISO/IEC 15444-4:2024 electronic insert."
+
+[[assets]]
+path = "files/htj2k_bsets_profile0/p0_11_bset/ds0_ht_11_b10.j2k"
+bytes = 299
+sha256 = "3a497d436c4a90afe810948e9df9fc1f24adf7e0dbc08d40d121260f4358b31c"
+media_type = "image/j2c"
+semantics = "HTJ2K conformance codestream."
+
+[[assets]]
+path = "files/htj2k_bsets_profile0/p0_11_bset/stats.txt"
+bytes = 141
+sha256 = "3f25f97c69fc630f1a6744b1aae16491dde609f1b17fec45d3dd976c66112f2d"
+media_type = "text/plain"
+semantics = "Supporting file from the ISO/IEC 15444-4:2024 electronic insert."
+
+[[assets]]
+path = "files/htj2k_bsets_profile0/p0_12_bset/ds0_ht_12_b11.j2k"
+bytes = 231
+sha256 = "4941137592aa48e41552c4b3bf66ef35f2f4ca915a4ca4a9fe296eabaae8aaf7"
+media_type = "image/j2c"
+semantics = "HTJ2K conformance codestream."
+
+[[assets]]
+path = "files/htj2k_bsets_profile0/p0_12_bset/stats.txt"
+bytes = 141
+sha256 = "79f64c0638ed638d11d338f073b72aceab0f245ca4319af5e03d86669eb174ed"
+media_type = "text/plain"
+semantics = "Supporting file from the ISO/IEC 15444-4:2024 electronic insert."
+
+[[assets]]
+path = "files/htj2k_bsets_profile0/p0_13_bset/ds0_ht_13_b11.j2k"
+bytes = 2985
+sha256 = "43493c63d3d4affc13337d26fec4eddb7d023bd68f268d182d51013db6c51c0d"
+media_type = "image/j2c"
+semantics = "HTJ2K conformance codestream."
+
+[[assets]]
+path = "files/htj2k_bsets_profile0/p0_13_bset/stats.txt"
+bytes = 453
+sha256 = "6703563621b1a0ecf92426d1c867d6c4637ed9c542a414e7a34404d9ab961ea0"
+media_type = "text/plain"
+semantics = "Supporting file from the ISO/IEC 15444-4:2024 electronic insert."
+
+[[assets]]
+path = "files/htj2k_bsets_profile0/p0_14_bset/ds0_ht_14_b11.j2k"
+bytes = 2254
+sha256 = "c3b1071873a3c4f03d63a186afde7bdaf87be6f9e5750f74ddebd4f863d11ada"
+media_type = "image/j2c"
+semantics = "HTJ2K conformance codestream."
+
+[[assets]]
+path = "files/htj2k_bsets_profile0/p0_14_bset/stats.txt"
+bytes = 359
+sha256 = "fb5062b2b87296435a51104c31087e87d3ad2f63b7b82e75a46e3f79012c292e"
+media_type = "text/plain"
+semantics = "Supporting file from the ISO/IEC 15444-4:2024 electronic insert."
+
+[[assets]]
+path = "files/htj2k_bsets_profile0/p0_15_bset/ds0_hm_15_b8.j2k"
+bytes = 17095
+sha256 = "94378d2c73f1c12c719b6fb53ec66e43e3f6564b49c81de2a13abd5527fa185a"
+media_type = "image/j2c"
+semantics = "HTJ2K conformance codestream."
+
+[[assets]]
+path = "files/htj2k_bsets_profile0/p0_15_bset/ds0_ht_15_b11.j2k"
+bytes = 16977
+sha256 = "f19f9deb2007f305d6361319f04506e9c9b02cd1c166d3f18c7a10893e085cb8"
+media_type = "image/j2c"
+semantics = "HTJ2K conformance codestream."
+
+[[assets]]
+path = "files/htj2k_bsets_profile0/p0_15_bset/ds0_ht_15_b14.j2k"
+bytes = 19317
+sha256 = "2be3ab7e49eeb941eab1368a1b1594665506bb1e4266b30a4a0cc41b0aaf5bd5"
+media_type = "image/j2c"
+semantics = "HTJ2K conformance codestream."
+
+[[assets]]
+path = "files/htj2k_bsets_profile0/p0_15_bset/stats.txt"
+bytes = 788
+sha256 = "ee15486748ac7e3eeb134a4f4703ddc066a2303fa0174a6be50e050cff2fc28b"
+media_type = "text/plain"
+semantics = "Supporting file from the ISO/IEC 15444-4:2024 electronic insert."
+
+[[assets]]
+path = "files/htj2k_bsets_profile0/p0_16_bset/ds0_ht_16_b11.j2k"
+bytes = 8090
+sha256 = "890e0ba09bbcdf3b7f6647f4cf9c55c69532171bd013d96f93aecce3a370e108"
+media_type = "image/j2c"
+semantics = "HTJ2K conformance codestream."
+
+[[assets]]
+path = "files/htj2k_bsets_profile0/p0_16_bset/stats.txt"
+bytes = 141
+sha256 = "79f64c0638ed638d11d338f073b72aceab0f245ca4319af5e03d86669eb174ed"
+media_type = "text/plain"
+semantics = "Supporting file from the ISO/IEC 15444-4:2024 electronic insert."
+
+[[assets]]
+path = "files/htj2k_bsets_profile1/gitlab_repository.txt"
+bytes = 331
+sha256 = "5e81c719ab2d39413cdb76b191c7c451fdab8c7bbf0d58a7903e883278d155a7"
+media_type = "text/plain"
+semantics = "Supporting file from the ISO/IEC 15444-4:2024 electronic insert."
+
+[[assets]]
+path = "files/htj2k_bsets_profile1/p1_01_bset/ds1_ht_01_b11.j2k"
+bytes = 4700
+sha256 = "a8a83d911023df792e942b9d8fa8501d4e5853fb31b7c5f9392ebd4a246bfb4a"
+media_type = "image/j2c"
+semantics = "HTJ2K conformance codestream."
+
+[[assets]]
+path = "files/htj2k_bsets_profile1/p1_01_bset/ds1_ht_01_b12.j2k"
+bytes = 4727
+sha256 = "f0b23e38fc93e17edf078e3eac0fef82b81d4894448d536c703ec7588d33965f"
+media_type = "image/j2c"
+semantics = "HTJ2K conformance codestream."
+
+[[assets]]
+path = "files/htj2k_bsets_profile1/p1_01_bset/stats.txt"
+bytes = 224
+sha256 = "bf24e2c5aec152785bf8a6b1f6403ef93e1d94298f2d11a892d66e91f8caf1ec"
+media_type = "text/plain"
+semantics = "Supporting file from the ISO/IEC 15444-4:2024 electronic insert."
+
+[[assets]]
+path = "files/htj2k_bsets_profile1/p1_02_bset/ds1_ht_02_b11.j2k"
+bytes = 264763
+sha256 = "3b172b912ef33af283b2bbd7438fed53ed8d25c7999471c2405d29043db62c15"
+media_type = "image/j2c"
+semantics = "HTJ2K conformance codestream."
+
+[[assets]]
+path = "files/htj2k_bsets_profile1/p1_02_bset/ds1_ht_02_b12.j2k"
+bytes = 272826
+sha256 = "281224ca009d514766a06b357928185361d19b2c68b6fbcdc496c7c52a142ce0"
+media_type = "image/j2c"
+semantics = "HTJ2K conformance codestream."
+
+[[assets]]
+path = "files/htj2k_bsets_profile1/p1_02_bset/stats.txt"
+bytes = 862
+sha256 = "7991e97d54bd63cbe65d69b617c8d7968a5b1d8152a21df0b3dd6e380bb6f145"
+media_type = "text/plain"
+semantics = "Supporting file from the ISO/IEC 15444-4:2024 electronic insert."
+
+[[assets]]
+path = "files/htj2k_bsets_profile1/p1_03_bset/ds1_ht_03_b11.j2k"
+bytes = 1439344
+sha256 = "947f2bca24ab3c17e5a0c39b000f2f0b51cc00079f717ebb1ae5051035840165"
+media_type = "image/j2c"
+semantics = "HTJ2K conformance codestream."
+
+[[assets]]
+path = "files/htj2k_bsets_profile1/p1_03_bset/ds1_ht_03_b12.j2k"
+bytes = 1455730
+sha256 = "b0016d76aaa288fa2450f4d26a21c5403eb4d742eee4fc6633056eeb4eb715eb"
+media_type = "image/j2c"
+semantics = "HTJ2K conformance codestream."
+
+[[assets]]
+path = "files/htj2k_bsets_profile1/p1_03_bset/stats.txt"
+bytes = 1521
+sha256 = "8a06ea17ec7c26dfb96a26feac46f1bea4c23ad9dabcb7fef61551c647a6dba9"
+media_type = "text/plain"
+semantics = "Supporting file from the ISO/IEC 15444-4:2024 electronic insert."
+
+[[assets]]
+path = "files/htj2k_bsets_profile1/p1_04_bset/ds1_ht_04_b9.j2k"
+bytes = 45903
+sha256 = "0e578dd62a2d8ca0136a0fd2532701fc72be599843ae8465b4dda293752947f2"
+media_type = "image/j2c"
+semantics = "HTJ2K conformance codestream."
+
+[[assets]]
+path = "files/htj2k_bsets_profile1/p1_04_bset/stats.txt"
+bytes = 140
+sha256 = "a7a818a5a775eb280268e5413d3c3ac4517eb04c8aaa51f595abe7fea783ba18"
+media_type = "text/plain"
+semantics = "Supporting file from the ISO/IEC 15444-4:2024 electronic insert."
+
+[[assets]]
+path = "files/htj2k_bsets_profile1/p1_05_bset/ds1_ht_05_b11.j2k"
+bytes = 296502
+sha256 = "8d29b7d88fd8542d120b120d7edcbe150d05f66a3db7f33a0b07aa524196813a"
+media_type = "image/j2c"
+semantics = "HTJ2K conformance codestream."
+
+[[assets]]
+path = "files/htj2k_bsets_profile1/p1_05_bset/stats.txt"
+bytes = 464
+sha256 = "3034a60f9bd0d078d622cf3f6cdcb80cfbe04580b7a9715fb2c373f4895d5faa"
+media_type = "text/plain"
+semantics = "Supporting file from the ISO/IEC 15444-4:2024 electronic insert."
+
+[[assets]]
+path = "files/htj2k_bsets_profile1/p1_06_bset/ds1_ht_06_b11.j2k"
+bytes = 3211
+sha256 = "7d80ccf6fe9d100437003a68b152c814bf392207f1fe23ebd8dc59923bcf15f8"
+media_type = "image/j2c"
+semantics = "HTJ2K conformance codestream."
+
+[[assets]]
+path = "files/htj2k_bsets_profile1/p1_06_bset/stats.txt"
+bytes = 359
+sha256 = "fb5062b2b87296435a51104c31087e87d3ad2f63b7b82e75a46e3f79012c292e"
+media_type = "text/plain"
+semantics = "Supporting file from the ISO/IEC 15444-4:2024 electronic insert."
+
+[[assets]]
+path = "files/htj2k_bsets_profile1/p1_07_bset/ds1_ht_07_b11.j2k"
+bytes = 645
+sha256 = "15f0309d27a22a65c3b5068e7ebd6443b4f95bb41777d70819342cf01ad4b19d"
+media_type = "image/j2c"
+semantics = "HTJ2K conformance codestream."
+
+[[assets]]
+path = "files/htj2k_bsets_profile1/p1_07_bset/stats.txt"
+bytes = 211
+sha256 = "ebf2c4ee529e38a7a49fc441c860093cbe626064e9defce508899b7792e37fcb"
+media_type = "text/plain"
+semantics = "Supporting file from the ISO/IEC 15444-4:2024 electronic insert."
+
+[[assets]]
+path = "files/reference_class0_profile0/c0p0_01.pgx"
+bytes = 16402
+sha256 = "268a50614b74bb375092d11aa21594069666568a73fe0b83f3ca9cfbda389139"
+media_type = "application/octet-stream"
+semantics = "Reference image for conformance comparison."
+
+[[assets]]
+path = "files/reference_class0_profile0/c0p0_02.pgx"
+bytes = 8081
+sha256 = "7d7924248477c4368eadd508234545acca9f790e5cd2f888651de44b0ae9e9f9"
+media_type = "application/octet-stream"
+semantics = "Reference image for conformance comparison."
+
+[[assets]]
+path = "files/reference_class0_profile0/c0p0_03r0.pgx"
+bytes = 16402
+sha256 = "29aa1042c71b3868bf607e4e3b29436604f512c392131925523a060554aea9f5"
+media_type = "application/octet-stream"
+semantics = "Reference image for conformance comparison."
+
+[[assets]]
+path = "files/reference_class0_profile0/c0p0_03r1.pgx"
+bytes = 16402
+sha256 = "3e3e2055b0b7783d16a339447a0dcc50d6ddb2381ac5d2769d3bd4206f30a68d"
+media_type = "application/octet-stream"
+semantics = "Reference image for conformance comparison."
+
+[[assets]]
+path = "files/reference_class0_profile0/c0p0_04.pgx"
+bytes = 4814
+sha256 = "3bd0ba5ab481a5415e7272fd03a5c8463ffc223c09b3954ead086c7556502cea"
+media_type = "application/octet-stream"
+semantics = "Reference image for conformance comparison."
+
+[[assets]]
+path = "files/reference_class0_profile0/c0p0_05.pgx"
+bytes = 16400
+sha256 = "008e9c31c4409706048d59d3dd9f79c87db0ea8c45eb49d53449c56c8919a2df"
+media_type = "application/octet-stream"
+semantics = "Reference image for conformance comparison."
+
+[[assets]]
+path = "files/reference_class0_profile0/c0p0_06.pgx"
+bytes = 1119
+sha256 = "2a2c37396620bc14f37c578c74b2894ecfeb5e20bd30dc67fc0e8db4bbfb592b"
+media_type = "application/octet-stream"
+semantics = "Reference image for conformance comparison."
+
+[[assets]]
+path = "files/reference_class0_profile0/c0p0_07.pgx"
+bytes = 16401
+sha256 = "55ee08494d259e5879aa4695d8c9d1afca4f4bb0be65bde61b55c7120d425d38"
+media_type = "application/octet-stream"
+semantics = "Reference image for conformance comparison."
+
+[[assets]]
+path = "files/reference_class0_profile0/c0p0_08.pgx"
+bytes = 1647
+sha256 = "ad58ffadc846fc3ce72d1280ef3f2300c3697bfa754c6eb292167f9f835716a6"
+media_type = "application/octet-stream"
+semantics = "Reference image for conformance comparison."
+
+[[assets]]
+path = "files/reference_class0_profile0/c0p0_09.pgx"
+bytes = 63
+sha256 = "ce4dcf09fbd8076527f8d3ea83d9a6c23e24c8aa50f74ac7cd943695f59c875a"
+media_type = "application/octet-stream"
+semantics = "Reference image for conformance comparison."
+
+[[assets]]
+path = "files/reference_class0_profile0/c0p0_10.pgx"
+bytes = 4110
+sha256 = "c58b9eb2901a78519af6eec0946a38a9ebb01bc9bb429fb3ea7cc4fc7e9a0bfb"
+media_type = "application/octet-stream"
+semantics = "Reference image for conformance comparison."
+
+[[assets]]
+path = "files/reference_class0_profile0/c0p0_11.pgx"
+bytes = 144
+sha256 = "4a4457e31466d9a78d332fea16237da57cd4b2f3d4fa6dee0074fa568b282765"
+media_type = "application/octet-stream"
+semantics = "Reference image for conformance comparison."
+
+[[assets]]
+path = "files/reference_class0_profile0/c0p0_12.pgx"
+bytes = 29
+sha256 = "69a27310574c9849c6af457de29ba5eec34fd2b2037cd96e6ac7eca0a4fa40e9"
+media_type = "application/octet-stream"
+semantics = "Reference image for conformance comparison."
+
+[[assets]]
+path = "files/reference_class0_profile0/c0p0_13.pgx"
+bytes = 15
+sha256 = "7f2bc12d19df4b2dd7b651c48d87c419ba8caa0cb7ec76424f672ba0ab53261c"
+media_type = "application/octet-stream"
+semantics = "Reference image for conformance comparison."
+
+[[assets]]
+path = "files/reference_class0_profile0/c0p0_14.pgx"
+bytes = 184
+sha256 = "c556ab741f9b7d0a519830d9d609fd68366d7af200a9c2dd740e18218ced8fba"
+media_type = "application/octet-stream"
+semantics = "Reference image for conformance comparison."
+
+[[assets]]
+path = "files/reference_class0_profile0/c0p0_15r0.pgx"
+bytes = 16401
+sha256 = "12e00c98f9ad94527542d99c0763955614352ece12f22afa8e418c77fdcb9d35"
+media_type = "application/octet-stream"
+semantics = "Reference image for conformance comparison."
+
+[[assets]]
+path = "files/reference_class0_profile0/c0p0_15r1.pgx"
+bytes = 16401
+sha256 = "b95be5fbc4272595678af5955805ea073decb7bbb4e60708eaf41853c5c1311a"
+media_type = "application/octet-stream"
+semantics = "Reference image for conformance comparison."
+
+[[assets]]
+path = "files/reference_class0_profile0/c0p0_16.pgx"
+bytes = 16401
+sha256 = "48876e9905a149b70299072d8f148bf697589c6c5aa15b328af8566bb4daecf5"
+media_type = "application/octet-stream"
+semantics = "Reference image for conformance comparison."
+
+[[assets]]
+path = "files/reference_class0_profile1/c0p1_01.pgx"
+bytes = 6054
+sha256 = "00bdf8d02daa6eafb36a4563dd6c0f6125e2df75b2eb66f38b122a1c105849db"
+media_type = "application/octet-stream"
+semantics = "Reference image for conformance comparison."
+
+[[assets]]
+path = "files/reference_class0_profile1/c0p1_02.pgx"
+bytes = 4814
+sha256 = "23b2f1215dc6581c3f7014224f02f208ae7b05bc977300bc75a516160e4c7f27"
+media_type = "application/octet-stream"
+semantics = "Reference image for conformance comparison."
+
+[[assets]]
+path = "files/reference_class0_profile1/c0p1_03.pgx"
+bytes = 16400
+sha256 = "d3836ed021026ec9b5b13ad0d0cbc00446318134143a8dcba32ba6b5f6d78d6f"
+media_type = "application/octet-stream"
+semantics = "Reference image for conformance comparison."
+
+[[assets]]
+path = "files/reference_class0_profile1/c0p1_04r0.pgx"
+bytes = 16400
+sha256 = "63cc22c9b256116fae5976fdce1f7254f9743cba571dc2b4f5ddba1b11883a6a"
+media_type = "application/octet-stream"
+semantics = "Reference image for conformance comparison."
+
+[[assets]]
+path = "files/reference_class0_profile1/c0p1_04r3.pgx"
+bytes = 16400
+sha256 = "caddf11fa88f7ca8bc80ad11188203e69496d1437f7edb3930370b862cfd5489"
+media_type = "application/octet-stream"
+semantics = "Reference image for conformance comparison."
+
+[[assets]]
+path = "files/reference_class0_profile1/c0p1_05.pgx"
+bytes = 1039
+sha256 = "06595f8b3d171dbb5538bba8c9ba701e4e8e6c50d2208a28623d01a02d65a279"
+media_type = "application/octet-stream"
+semantics = "Reference image for conformance comparison."
+
+[[assets]]
+path = "files/reference_class0_profile1/c0p1_06.pgx"
+bytes = 49
+sha256 = "25053fa746c9c552ab67b7da59b60384b6e1b8aba688d0314550beb5ba561f80"
+media_type = "application/octet-stream"
+semantics = "Reference image for conformance comparison."
+
+[[assets]]
+path = "files/reference_class0_profile1/c0p1_07.pgx"
+bytes = 38
+sha256 = "ee0f0dd90be110241c60dbed84e03c94ff4f83d5cbdae603db9182f24cf5f8a4"
+media_type = "application/octet-stream"
+semantics = "Reference image for conformance comparison."
+
+[[assets]]
+path = "files/reference_class1HF_profile1/hifi_02-0.pgx"
+bytes = 32785
+sha256 = "d043e2685517ac444fd2b5e5b9785bdc8e0ec767dcea8fece3ff450f599ab549"
+media_type = "application/octet-stream"
+semantics = "Reference image for conformance comparison."
+
+[[assets]]
+path = "files/reference_class1HF_profile1/hifi_02-1.pgx"
+bytes = 32785
+sha256 = "ad44bd5c5fba4e5cc46a332b1f2543ef92207b37ef6ee5c5fb4db7e842d15c5f"
+media_type = "application/octet-stream"
+semantics = "Reference image for conformance comparison."
+
+[[assets]]
+path = "files/reference_class1HF_profile1/hifi_02-2.pgx"
+bytes = 32785
+sha256 = "a8624f77a99fd4264abe8dea5ff266da36f55ad4d35ffb261c9721ec01293d27"
+media_type = "application/octet-stream"
+semantics = "Reference image for conformance comparison."
+
+[[assets]]
+path = "files/reference_class1_profile0/c1p0_01-0.pgx"
+bytes = 16401
+sha256 = "d1c24494c873c6c6bf84021bcbbf4606ade7c1755f9bf4ee0c2fd999ce9ae211"
+media_type = "application/octet-stream"
+semantics = "Reference image for conformance comparison."
+
+[[assets]]
+path = "files/reference_class1_profile0/c1p0_02-0.pgx"
+bytes = 8080
+sha256 = "f8928b6d8d200c7dbc56e754c1826caf773d99e52c2c1bc4bbfdea7bc1e0d236"
+media_type = "application/octet-stream"
+semantics = "Reference image for conformance comparison."
+
+[[assets]]
+path = "files/reference_class1_profile0/c1p0_03-0.pgx"
+bytes = 65553
+sha256 = "edbdfc559b314d6ec3b3f75d94c50ba2b65040cf02ef0017a97ba92e9fedaa86"
+media_type = "application/octet-stream"
+semantics = "Reference image for conformance comparison."
+
+[[assets]]
+path = "files/reference_class1_profile0/c1p0_04-0.pgx"
+bytes = 307216
+sha256 = "51705f9c5e9a0abf2890a6d05d8e5cc509bc0dedc46a590acf04255318e25001"
+media_type = "application/octet-stream"
+semantics = "Reference image for conformance comparison."
+
+[[assets]]
+path = "files/reference_class1_profile0/c1p0_04-1.pgx"
+bytes = 307216
+sha256 = "9949ce4c13203132f6200926fec8c24ccb2381b8888ade607d9b73f403ee6c42"
+media_type = "application/octet-stream"
+semantics = "Reference image for conformance comparison."
+
+[[assets]]
+path = "files/reference_class1_profile0/c1p0_04-2.pgx"
+bytes = 307216
+sha256 = "81c8dda3f54ac601b0e9a4e18d7556ec69fddbb7997ae8aed75e3b512e6cbd60"
+media_type = "application/octet-stream"
+semantics = "Reference image for conformance comparison."
+
+[[assets]]
+path = "files/reference_class1_profile0/c1p0_05-0.pgx"
+bytes = 1048594
+sha256 = "87122bc8f4a15c2b507d3d766c91b3fee54142c1935c0cdef43444a319f0a77f"
+media_type = "application/octet-stream"
+semantics = "Reference image for conformance comparison."
+
+[[assets]]
+path = "files/reference_class1_profile0/c1p0_05-1.pgx"
+bytes = 1048594
+sha256 = "92876bda577d5ea7b2ba7c4c2c2a646251043f681f9e3cbf4f92260fac3ee3b7"
+media_type = "application/octet-stream"
+semantics = "Reference image for conformance comparison."
+
+[[assets]]
+path = "files/reference_class1_profile0/c1p0_05-2.pgx"
+bytes = 262160
+sha256 = "8183c2a7682d34b62cb09a747ab803207282f882590f5a533e61a9d6b1922511"
+media_type = "application/octet-stream"
+semantics = "Reference image for conformance comparison."
+
+[[assets]]
+path = "files/reference_class1_profile0/c1p0_05-3.pgx"
+bytes = 262160
+sha256 = "1d52fc3949c1110036d7f478f378a11bc7d91a2d02743d6c5eccde72e345cc6f"
+media_type = "application/octet-stream"
+semantics = "Reference image for conformance comparison."
+
+[[assets]]
+path = "files/reference_class1_profile0/c1p0_06-0.pgx"
+bytes = 132371
+sha256 = "8e4fe489e03fd5579f28c527bb966526a4cbc8bd2957277f9ef71f4d366ad286"
+media_type = "application/octet-stream"
+semantics = "Reference image for conformance comparison."
+
+[[assets]]
+path = "files/reference_class1_profile0/c1p0_06-1.pgx"
+bytes = 66323
+sha256 = "37cd7cbb59d8a8a6868d90b458fe7f1c1ca9cc8c3d1aaeb3279401cdac0a007f"
+media_type = "application/octet-stream"
+semantics = "Reference image for conformance comparison."
+
+[[assets]]
+path = "files/reference_class1_profile0/c1p0_06-2.pgx"
+bytes = 66706
+sha256 = "37da1bfb1f6fc90e65ecb62efab284daaf8828235e808bb3f1dcc819e242a87f"
+media_type = "application/octet-stream"
+semantics = "Reference image for conformance comparison."
+
+[[assets]]
+path = "files/reference_class1_profile0/c1p0_06-3.pgx"
+bytes = 33426
+sha256 = "e3a2ddfc7a37a16dde4c51d4bca43bc07fe65505d1d03986f9516713e6527f57"
+media_type = "application/octet-stream"
+semantics = "Reference image for conformance comparison."
+
+[[assets]]
+path = "files/reference_class1_profile0/c1p0_07-0.pgx"
+bytes = 8388628
+sha256 = "2f59fff782b20c1648b68019ce6069960aac5efb2bf98a4df509ad4ba5a72b3b"
+media_type = "application/octet-stream"
+semantics = "Reference image for conformance comparison."
+
+[[assets]]
+path = "files/reference_class1_profile0/c1p0_07-1.pgx"
+bytes = 8388628
+sha256 = "967181e82d33e3442160bf0ae3e5ffa6db99a21584e6736acb2719030ad1e412"
+media_type = "application/octet-stream"
+semantics = "Reference image for conformance comparison."
+
+[[assets]]
+path = "files/reference_class1_profile0/c1p0_07-2.pgx"
+bytes = 8388628
+sha256 = "2d8d2ae1d2e33a486c3187206599944856b8a75525a165069042f4cfc295dc74"
+media_type = "application/octet-stream"
+semantics = "Reference image for conformance comparison."
+
+[[assets]]
+path = "files/reference_class1_profile0/c1p0_08-0.pgx"
+bytes = 789523
+sha256 = "69a2af90074593b007d50c96b1c5e4ecb1e591e265dc4f2ab5a230359ab2c87d"
+media_type = "application/octet-stream"
+semantics = "Reference image for conformance comparison."
+
+[[assets]]
+path = "files/reference_class1_profile0/c1p0_08-1.pgx"
+bytes = 789523
+sha256 = "fa2598b68dde7613b50caa1e5692dcecec934b33e2eb8327f44a274869bc3025"
+media_type = "application/octet-stream"
+semantics = "Reference image for conformance comparison."
+
+[[assets]]
+path = "files/reference_class1_profile0/c1p0_08-2.pgx"
+bytes = 789523
+sha256 = "7c3c05a5c5d4fe8efa55975e1b6d24869b3e1bf140db2b32b5dd14e42d65f77e"
+media_type = "application/octet-stream"
+semantics = "Reference image for conformance comparison."
+
+[[assets]]
+path = "files/reference_class1_profile0/c1p0_09-0.pgx"
+bytes = 644
+sha256 = "174557fca48a83f7a474d2307984051326350266fec1acf623466e8f92bc8a29"
+media_type = "application/octet-stream"
+semantics = "Reference image for conformance comparison."
+
+[[assets]]
+path = "files/reference_class1_profile0/c1p0_10-0.pgx"
+bytes = 4111
+sha256 = "feee51c4c4519bd4ddbd53fb9e8186ddc95c4e64b42ffc9681d65d26172f76c4"
+media_type = "application/octet-stream"
+semantics = "Reference image for conformance comparison."
+
+[[assets]]
+path = "files/reference_class1_profile0/c1p0_10-1.pgx"
+bytes = 4111
+sha256 = "4857f0f3247bac8bef2354dc88727cece95bb5713cbe1e83c346601c8cd395d1"
+media_type = "application/octet-stream"
+semantics = "Reference image for conformance comparison."
+
+[[assets]]
+path = "files/reference_class1_profile0/c1p0_10-2.pgx"
+bytes = 4111
+sha256 = "460dede2e04d2be3f2c74334784b58bac59bd640c2f2fbad64489e788d2c511a"
+media_type = "application/octet-stream"
+semantics = "Reference image for conformance comparison."
+
+[[assets]]
+path = "files/reference_class1_profile0/c1p0_11-0.pgx"
+bytes = 143
+sha256 = "2255812746edf02b988b0efefedf99ad2a9c1e01f2260a223490480d53e69c99"
+media_type = "application/octet-stream"
+semantics = "Reference image for conformance comparison."
+
+[[assets]]
+path = "files/reference_class1_profile0/c1p0_12-0.pgx"
+bytes = 28
+sha256 = "2336f73b2596e62ce5fd46a09813c4e88f2b57eabdfa5178008f8ef6982de8bd"
+media_type = "application/octet-stream"
+semantics = "Reference image for conformance comparison."
+
+[[assets]]
+path = "files/reference_class1_profile0/c1p0_13-0.pgx"
+bytes = 14
+sha256 = "a3250795aa7c31d0caf0a9ad706e21652060768b404210624e5dd695787dbc07"
+media_type = "application/octet-stream"
+semantics = "Reference image for conformance comparison."
+
+[[assets]]
+path = "files/reference_class1_profile0/c1p0_13-1.pgx"
+bytes = 14
+sha256 = "ff079e7fe2ca5fd542f6b85bda838fa9f11428a59d7584f6523cb649cb8b79c7"
+media_type = "application/octet-stream"
+semantics = "Reference image for conformance comparison."
+
+[[assets]]
+path = "files/reference_class1_profile0/c1p0_13-2.pgx"
+bytes = 14
+sha256 = "83d2079dcfaee85fcd75e8a23d6dd69686b966ba334d2c8ca9a25b2bbc7079b0"
+media_type = "application/octet-stream"
+semantics = "Reference image for conformance comparison."
+
+[[assets]]
+path = "files/reference_class1_profile0/c1p0_13-3.pgx"
+bytes = 14
+sha256 = "d1bb447c46cf81b0673ff570eb5d5f940aeebd8e6fee68f21e061c6d5cb064ae"
+media_type = "application/octet-stream"
+semantics = "Reference image for conformance comparison."
+
+[[assets]]
+path = "files/reference_class1_profile0/c1p0_14-0.pgx"
+bytes = 2416
+sha256 = "c4e96524ccf8f0520e92f335dc4bf968c74187ab491660992fff4740e6a1cd63"
+media_type = "application/octet-stream"
+semantics = "Reference image for conformance comparison."
+
+[[assets]]
+path = "files/reference_class1_profile0/c1p0_14-1.pgx"
+bytes = 2416
+sha256 = "b1e1b60cda396c16803da500f8b3006a2bf7375f39f1c79cf79f827881bbd714"
+media_type = "application/octet-stream"
+semantics = "Reference image for conformance comparison."
+
+[[assets]]
+path = "files/reference_class1_profile0/c1p0_14-2.pgx"
+bytes = 2416
+sha256 = "c4e96524ccf8f0520e92f335dc4bf968c74187ab491660992fff4740e6a1cd63"
+media_type = "application/octet-stream"
+semantics = "Reference image for conformance comparison."
+
+[[assets]]
+path = "files/reference_class1_profile0/c1p0_15-0.pgx"
+bytes = 65553
+sha256 = "edbdfc559b314d6ec3b3f75d94c50ba2b65040cf02ef0017a97ba92e9fedaa86"
+media_type = "application/octet-stream"
+semantics = "Reference image for conformance comparison."
+
+[[assets]]
+path = "files/reference_class1_profile0/c1p0_16-0.pgx"
+bytes = 16401
+sha256 = "48876e9905a149b70299072d8f148bf697589c6c5aa15b328af8566bb4daecf5"
+media_type = "application/octet-stream"
+semantics = "Reference image for conformance comparison."
+
+[[assets]]
+path = "files/reference_class1_profile1/c1p1_01-0.pgx"
+bytes = 6054
+sha256 = "fd1730adccecdfa90c31e895ea58083670ccedbe6fe053b20c3bb7c7cf8fb96b"
+media_type = "application/octet-stream"
+semantics = "Reference image for conformance comparison."
+
+[[assets]]
+path = "files/reference_class1_profile1/c1p1_02-0.pgx"
+bytes = 307216
+sha256 = "0ed11a110b40f1f7174546decf075a12ba201e1d5bbba18dcfa638d6b320bc3f"
+media_type = "application/octet-stream"
+semantics = "Reference image for conformance comparison."
+
+[[assets]]
+path = "files/reference_class1_profile1/c1p1_02-1.pgx"
+bytes = 307216
+sha256 = "23551bc04b229de63344f7a7f4b0cc19d8512681ad3fbd5d7b3fbd55d23228dc"
+media_type = "application/octet-stream"
+semantics = "Reference image for conformance comparison."
+
+[[assets]]
+path = "files/reference_class1_profile1/c1p1_02-2.pgx"
+bytes = 307216
+sha256 = "46349e1ccb1df738b58ce7d0f706bd6c2937eb6457596e9ec9f858ed0d9b47a4"
+media_type = "application/octet-stream"
+semantics = "Reference image for conformance comparison."
+
+[[assets]]
+path = "files/reference_class1_profile1/c1p1_03-0.pgx"
+bytes = 1048594
+sha256 = "416ff6c9b3d917ff20d3bd6405e224049137d04ed80dec9f8f42dfa070deb794"
+media_type = "application/octet-stream"
+semantics = "Reference image for conformance comparison."
+
+[[assets]]
+path = "files/reference_class1_profile1/c1p1_03-1.pgx"
+bytes = 1048594
+sha256 = "9cfbc8ebb61d6447cc4fc98d8cca63016a288037a4609b7424685fd72a984ca1"
+media_type = "application/octet-stream"
+semantics = "Reference image for conformance comparison."
+
+[[assets]]
+path = "files/reference_class1_profile1/c1p1_03-2.pgx"
+bytes = 262160
+sha256 = "71fd301fb0da107998a8805a46faff754c14316d1544e4159778b43055b210a5"
+media_type = "application/octet-stream"
+semantics = "Reference image for conformance comparison."
+
+[[assets]]
+path = "files/reference_class1_profile1/c1p1_03-3.pgx"
+bytes = 262160
+sha256 = "1d52fc3949c1110036d7f478f378a11bc7d91a2d02743d6c5eccde72e345cc6f"
+media_type = "application/octet-stream"
+semantics = "Reference image for conformance comparison."
+
+[[assets]]
+path = "files/reference_class1_profile1/c1p1_04-0.pgx"
+bytes = 2097171
+sha256 = "46208571732cee8d274ec11629da785c6358599a040ddeb3d5e8f0b76e38594a"
+media_type = "application/octet-stream"
+semantics = "Reference image for conformance comparison."
+
+[[assets]]
+path = "files/reference_class1_profile1/c1p1_05-0.pgx"
+bytes = 262160
+sha256 = "e60798e11ca7af7fba5af5805f0cdb0682d903f698b4f4fc3f2bceab56331ad0"
+media_type = "application/octet-stream"
+semantics = "Reference image for conformance comparison."
+
+[[assets]]
+path = "files/reference_class1_profile1/c1p1_05-1.pgx"
+bytes = 262160
+sha256 = "c9858b293f37c4c831cec4c7fc21cae83493b6f60995ddd8cfe67e5f7c85c1c1"
+media_type = "application/octet-stream"
+semantics = "Reference image for conformance comparison."
+
+[[assets]]
+path = "files/reference_class1_profile1/c1p1_05-2.pgx"
+bytes = 262160
+sha256 = "c9279428c9c879a590fe70e991ddc76ab41a9441b43c349020a1b8582fb2671a"
+media_type = "application/octet-stream"
+semantics = "Reference image for conformance comparison."
+
+[[assets]]
+path = "files/reference_class1_profile1/c1p1_06-0.pgx"
+bytes = 158
+sha256 = "5f1fea232444c1afa6f1e06738a64910436d122f2fe69b0bf5ea59a55ac7f66e"
+media_type = "application/octet-stream"
+semantics = "Reference image for conformance comparison."
+
+[[assets]]
+path = "files/reference_class1_profile1/c1p1_06-1.pgx"
+bytes = 158
+sha256 = "52acc2a2c4374dcdcdf4b795c430fef1e632e5fc35590401c7c0a618935f6749"
+media_type = "application/octet-stream"
+semantics = "Reference image for conformance comparison."
+
+[[assets]]
+path = "files/reference_class1_profile1/c1p1_06-2.pgx"
+bytes = 158
+sha256 = "01cb2817388ee05f1f4524b0420f86580e62e098ac17680f18ec53cf7f470fc0"
+media_type = "application/octet-stream"
+semantics = "Reference image for conformance comparison."
+
+[[assets]]
+path = "files/reference_class1_profile1/c1p1_07-0.pgx"
+bytes = 38
+sha256 = "ee0f0dd90be110241c60dbed84e03c94ff4f83d5cbdae603db9182f24cf5f8a4"
+media_type = "application/octet-stream"
+semantics = "Reference image for conformance comparison."
+
+[[assets]]
+path = "files/reference_class1_profile1/c1p1_07-1.pgx"
+bytes = 110
+sha256 = "b72f60a12ec7dcb1360cc9adfd86bfb2e81d929262df5e0167d00c02e61b4df4"
+media_type = "application/octet-stream"
+semantics = "Reference image for conformance comparison."
+
+[[assets]]
+path = "files/reference_extended/mct1-0.pgx"
+bytes = 129617
+sha256 = "5cfb8503e99b9c46b23710b01c7170ac1e039990f3bfc1e9e8a4f715aceae7c8"
+media_type = "application/octet-stream"
+semantics = "Reference image for conformance comparison."
+
+[[assets]]
+path = "files/reference_extended/mct1-1.pgx"
+bytes = 129617
+sha256 = "d039d2e35a9aed9318c3f28d585168b252da6721882f73573f4a75a03b4605a9"
+media_type = "application/octet-stream"
+semantics = "Reference image for conformance comparison."
+
+[[assets]]
+path = "files/reference_extended/mct1-10.pgx"
+bytes = 129617
+sha256 = "44b255ac5420797839053b71baae17c949b814ae51bb131bf6aeaff3044af959"
+media_type = "application/octet-stream"
+semantics = "Reference image for conformance comparison."
+
+[[assets]]
+path = "files/reference_extended/mct1-11.pgx"
+bytes = 129617
+sha256 = "92d6dcbde6fa043df152e2169c847c00f78e0f085407888f071dffe901454729"
+media_type = "application/octet-stream"
+semantics = "Reference image for conformance comparison."
+
+[[assets]]
+path = "files/reference_extended/mct1-12.pgx"
+bytes = 129617
+sha256 = "f21bc4e82e3bfbfb85e52a58e44a4b6d50b2740bd2211c0d1186e96b89bbd92f"
+media_type = "application/octet-stream"
+semantics = "Reference image for conformance comparison."
+
+[[assets]]
+path = "files/reference_extended/mct1-13.pgx"
+bytes = 129617
+sha256 = "c5a999e3c1765b63eae8d15574428bea93cb14836fc6751574e5c1c5570916b7"
+media_type = "application/octet-stream"
+semantics = "Reference image for conformance comparison."
+
+[[assets]]
+path = "files/reference_extended/mct1-14.pgx"
+bytes = 129617
+sha256 = "44b12a72e6639cc7949b388750240185ba1797edff68c9d44ef5551323a53077"
+media_type = "application/octet-stream"
+semantics = "Reference image for conformance comparison."
+
+[[assets]]
+path = "files/reference_extended/mct1-15.pgx"
+bytes = 129617
+sha256 = "531f72afceda280f6902c1a6e67f68e98a7ecb24b7ed5aefaa1dfeaebfc10ebb"
+media_type = "application/octet-stream"
+semantics = "Reference image for conformance comparison."
+
+[[assets]]
+path = "files/reference_extended/mct1-16.pgx"
+bytes = 129617
+sha256 = "6722a9337ab346eca0ce8973429067c91da406ea33d60592f662259874ea54f9"
+media_type = "application/octet-stream"
+semantics = "Reference image for conformance comparison."
+
+[[assets]]
+path = "files/reference_extended/mct1-17.pgx"
+bytes = 129617
+sha256 = "f42c296099535e63e2ec4c233ef543c28ad04754d089fa112776f1fd29f97361"
+media_type = "application/octet-stream"
+semantics = "Reference image for conformance comparison."
+
+[[assets]]
+path = "files/reference_extended/mct1-18.pgx"
+bytes = 129617
+sha256 = "85dc033efd31647c55ed2adcf616f217607d0756ec6af73cd9e66e01abdb8d5e"
+media_type = "application/octet-stream"
+semantics = "Reference image for conformance comparison."
+
+[[assets]]
+path = "files/reference_extended/mct1-19.pgx"
+bytes = 129617
+sha256 = "69c2eac9f2592f7b03283f319ca55ad3b7a78f52c58d2c89de490e860d6a7b1c"
+media_type = "application/octet-stream"
+semantics = "Reference image for conformance comparison."
+
+[[assets]]
+path = "files/reference_extended/mct1-2.pgx"
+bytes = 129617
+sha256 = "a1ceabd6d08707a324a08f82f338e193c68cb5ab4d80b6e6cd56c3b1216fc27a"
+media_type = "application/octet-stream"
+semantics = "Reference image for conformance comparison."
+
+[[assets]]
+path = "files/reference_extended/mct1-20.pgx"
+bytes = 129617
+sha256 = "1c2defa75e93700b8acbaebff6001d3397643e4489cd33702bada2ed08285d92"
+media_type = "application/octet-stream"
+semantics = "Reference image for conformance comparison."
+
+[[assets]]
+path = "files/reference_extended/mct1-21.pgx"
+bytes = 129617
+sha256 = "1f1452381fdc6fcc1a942035dcd4ceb54d63189c07727771cb0b98c3f233503b"
+media_type = "application/octet-stream"
+semantics = "Reference image for conformance comparison."
+
+[[assets]]
+path = "files/reference_extended/mct1-22.pgx"
+bytes = 129617
+sha256 = "53085d48ad229a3b3755513446bb7e78964659ab378ce560b078f7a8266f6daa"
+media_type = "application/octet-stream"
+semantics = "Reference image for conformance comparison."
+
+[[assets]]
+path = "files/reference_extended/mct1-23.pgx"
+bytes = 129617
+sha256 = "1ec577726423d1a11effc7dd59707c5e02efbfd3f5d5e29e1161b3943cb5363c"
+media_type = "application/octet-stream"
+semantics = "Reference image for conformance comparison."
+
+[[assets]]
+path = "files/reference_extended/mct1-24.pgx"
+bytes = 129617
+sha256 = "79ce9bd1c83af4815707f27565a5f18a5ac726f42edc587b51925007d6094147"
+media_type = "application/octet-stream"
+semantics = "Reference image for conformance comparison."
+
+[[assets]]
+path = "files/reference_extended/mct1-25.pgx"
+bytes = 129617
+sha256 = "90803425f0d619f1a896433767c85b5d63273ff4e77a97398feb878c7732987a"
+media_type = "application/octet-stream"
+semantics = "Reference image for conformance comparison."
+
+[[assets]]
+path = "files/reference_extended/mct1-26.pgx"
+bytes = 129617
+sha256 = "b7f4940dd6f2d0563397785d81b05cd983026a8af3ad26f9798c22deb8c5077c"
+media_type = "application/octet-stream"
+semantics = "Reference image for conformance comparison."
+
+[[assets]]
+path = "files/reference_extended/mct1-27.pgx"
+bytes = 129617
+sha256 = "ba944a36ffe06f31e998116c6000011ac7938ee8a8672cc7f4f0ddf5707e1688"
+media_type = "application/octet-stream"
+semantics = "Reference image for conformance comparison."
+
+[[assets]]
+path = "files/reference_extended/mct1-28.pgx"
+bytes = 129617
+sha256 = "58ef707e99cafbc1eb0b423fa4b00fb73676a3b10c63eb147c3eca0c5b443767"
+media_type = "application/octet-stream"
+semantics = "Reference image for conformance comparison."
+
+[[assets]]
+path = "files/reference_extended/mct1-29.pgx"
+bytes = 129617
+sha256 = "430ca41360502987f15293180e4c4d524722595ba10dc331d858fd901104e2e5"
+media_type = "application/octet-stream"
+semantics = "Reference image for conformance comparison."
+
+[[assets]]
+path = "files/reference_extended/mct1-3.pgx"
+bytes = 129617
+sha256 = "b3df1277db1c2f88320061060b100f9b37fb0ed568153ff84326ac0e74f94865"
+media_type = "application/octet-stream"
+semantics = "Reference image for conformance comparison."
+
+[[assets]]
+path = "files/reference_extended/mct1-30.pgx"
+bytes = 129617
+sha256 = "eb1e7d20ece4651a9f18cbe4676e5e73e0bd58ab85798f0a7a892aaeb9fe0ee8"
+media_type = "application/octet-stream"
+semantics = "Reference image for conformance comparison."
+
+[[assets]]
+path = "files/reference_extended/mct1-31.pgx"
+bytes = 129617
+sha256 = "e737fa0d1a3fd97c29cf45e0ed49b8636bdd21abb264c990dc3d10ca6535d406"
+media_type = "application/octet-stream"
+semantics = "Reference image for conformance comparison."
+
+[[assets]]
+path = "files/reference_extended/mct1-32.pgx"
+bytes = 129617
+sha256 = "1c272d6cce695a731f192fb02d840f02a6b6f1c287e7f3aa413cf3fd6be9effb"
+media_type = "application/octet-stream"
+semantics = "Reference image for conformance comparison."
+
+[[assets]]
+path = "files/reference_extended/mct1-33.pgx"
+bytes = 129617
+sha256 = "8498f94619834191052a5777ee2425fc53d6a9dc4c0c77991e899d3950f1c45b"
+media_type = "application/octet-stream"
+semantics = "Reference image for conformance comparison."
+
+[[assets]]
+path = "files/reference_extended/mct1-34.pgx"
+bytes = 129617
+sha256 = "22a7e57e0208543f48e1a55687de9b4956adcb17026ff3a7ad1b8603c595975e"
+media_type = "application/octet-stream"
+semantics = "Reference image for conformance comparison."
+
+[[assets]]
+path = "files/reference_extended/mct1-35.pgx"
+bytes = 129617
+sha256 = "e892be75ff21a2734524b948f6eb53df7b7c124c3819b39a480f99480edbd74a"
+media_type = "application/octet-stream"
+semantics = "Reference image for conformance comparison."
+
+[[assets]]
+path = "files/reference_extended/mct1-36.pgx"
+bytes = 129617
+sha256 = "163ef3ee16449c8c4949f454bc93df09e92dff3b741910a8de59e8203e6a01c2"
+media_type = "application/octet-stream"
+semantics = "Reference image for conformance comparison."
+
+[[assets]]
+path = "files/reference_extended/mct1-37.pgx"
+bytes = 129617
+sha256 = "888c24968859c002cd6bc2bef9c0648c2a45f89803da25cf94ce5c0e661195d5"
+media_type = "application/octet-stream"
+semantics = "Reference image for conformance comparison."
+
+[[assets]]
+path = "files/reference_extended/mct1-38.pgx"
+bytes = 129617
+sha256 = "21ea1c06bc15bc8061e3be336a215bfefead536fe729212b34699f9b322019b1"
+media_type = "application/octet-stream"
+semantics = "Reference image for conformance comparison."
+
+[[assets]]
+path = "files/reference_extended/mct1-39.pgx"
+bytes = 129617
+sha256 = "169c01bb2338ff4e6231c8c9ff0918457ba6fdd73fb64b4e14b9ff9c3cc3be06"
+media_type = "application/octet-stream"
+semantics = "Reference image for conformance comparison."
+
+[[assets]]
+path = "files/reference_extended/mct1-4.pgx"
+bytes = 129617
+sha256 = "d4b42d8c7c0e2a6d90933c9cba3c2641a59e5d992dd243b76ccee9f4405c141d"
+media_type = "application/octet-stream"
+semantics = "Reference image for conformance comparison."
+
+[[assets]]
+path = "files/reference_extended/mct1-40.pgx"
+bytes = 129617
+sha256 = "620f9ba9b79445f604594abc958831442fc6937c23674f4bd158e2ea352327d5"
+media_type = "application/octet-stream"
+semantics = "Reference image for conformance comparison."
+
+[[assets]]
+path = "files/reference_extended/mct1-41.pgx"
+bytes = 129617
+sha256 = "39e0630cc04874b23604b85ed1b0bacd77792a2fbf9e20bbb6fe00b10db1d39d"
+media_type = "application/octet-stream"
+semantics = "Reference image for conformance comparison."
+
+[[assets]]
+path = "files/reference_extended/mct1-42.pgx"
+bytes = 129617
+sha256 = "0e5a7d7116fa12b39fa34f400961e6fdd9f398738c182ff9281a80e9aec656f4"
+media_type = "application/octet-stream"
+semantics = "Reference image for conformance comparison."
+
+[[assets]]
+path = "files/reference_extended/mct1-43.pgx"
+bytes = 129617
+sha256 = "29e4906eb5289ee863407000070fc615ec7bf6883bf8b28dc358ad556ae45794"
+media_type = "application/octet-stream"
+semantics = "Reference image for conformance comparison."
+
+[[assets]]
+path = "files/reference_extended/mct1-44.pgx"
+bytes = 129617
+sha256 = "32232bef37a16edf228fcc01edff50fb531177e9bc341b2e5a39f28d1fbd5675"
+media_type = "application/octet-stream"
+semantics = "Reference image for conformance comparison."
+
+[[assets]]
+path = "files/reference_extended/mct1-45.pgx"
+bytes = 129617
+sha256 = "0e526211764c77c47daf0c70df4afd2843450199b782591d353633234edf51b5"
+media_type = "application/octet-stream"
+semantics = "Reference image for conformance comparison."
+
+[[assets]]
+path = "files/reference_extended/mct1-46.pgx"
+bytes = 129617
+sha256 = "8dadd9cf5e9e868f61a3452ff731f5a0502273906c41688cd7a92b88acb30441"
+media_type = "application/octet-stream"
+semantics = "Reference image for conformance comparison."
+
+[[assets]]
+path = "files/reference_extended/mct1-47.pgx"
+bytes = 129617
+sha256 = "9a4467353aa2d3d6475b5eefbdf09bc8de63b4581e97ee4a40d4e2b0f1bbe953"
+media_type = "application/octet-stream"
+semantics = "Reference image for conformance comparison."
+
+[[assets]]
+path = "files/reference_extended/mct1-48.pgx"
+bytes = 129617
+sha256 = "39fc4d7d2c0dd65d7cabd41b919808492e5052b267074843aa0064dab024a4ee"
+media_type = "application/octet-stream"
+semantics = "Reference image for conformance comparison."
+
+[[assets]]
+path = "files/reference_extended/mct1-49.pgx"
+bytes = 129617
+sha256 = "ff4ebfacc9337e2267408fd383de2020614b6a49610e365d296472a940d60b7c"
+media_type = "application/octet-stream"
+semantics = "Reference image for conformance comparison."
+
+[[assets]]
+path = "files/reference_extended/mct1-5.pgx"
+bytes = 129617
+sha256 = "bc8071a55aed5555f20f89bd5bbae3f77cc06338b2ba6938e31ceef41781610e"
+media_type = "application/octet-stream"
+semantics = "Reference image for conformance comparison."
+
+[[assets]]
+path = "files/reference_extended/mct1-50.pgx"
+bytes = 129617
+sha256 = "137231826c86c262fcf04b88d146f1a586a5ce2990b7df09715ca066ab4bd028"
+media_type = "application/octet-stream"
+semantics = "Reference image for conformance comparison."
+
+[[assets]]
+path = "files/reference_extended/mct1-51.pgx"
+bytes = 129617
+sha256 = "34c58a63d3b1d1c28576eb49dab60d4fed1d1c4e7bb0da220c239953e5fd04e9"
+media_type = "application/octet-stream"
+semantics = "Reference image for conformance comparison."
+
+[[assets]]
+path = "files/reference_extended/mct1-52.pgx"
+bytes = 129617
+sha256 = "cb77af29cd46317a7d489adc396944158eebd2c0cea37bbb6d394ce3599208f3"
+media_type = "application/octet-stream"
+semantics = "Reference image for conformance comparison."
+
+[[assets]]
+path = "files/reference_extended/mct1-53.pgx"
+bytes = 129617
+sha256 = "9d6d8a4f79c5ab96f81abce2f0424d8fc914dca63b0f5f5461ef670a7f16a3ba"
+media_type = "application/octet-stream"
+semantics = "Reference image for conformance comparison."
+
+[[assets]]
+path = "files/reference_extended/mct1-54.pgx"
+bytes = 129617
+sha256 = "793792cdc4d72c4f1cc4a77a5a533f8402656183e54ac294ec029f347e78aee3"
+media_type = "application/octet-stream"
+semantics = "Reference image for conformance comparison."
+
+[[assets]]
+path = "files/reference_extended/mct1-55.pgx"
+bytes = 129617
+sha256 = "de2e7d214289aa3fbb173752190a356f0ce32c892a6bf86f2b29e5e5dbce7af9"
+media_type = "application/octet-stream"
+semantics = "Reference image for conformance comparison."
+
+[[assets]]
+path = "files/reference_extended/mct1-56.pgx"
+bytes = 129617
+sha256 = "a0468b4f95266311175ed11c98f0b9c38a093fa419c7dfb3ab1c401bf90d4fd6"
+media_type = "application/octet-stream"
+semantics = "Reference image for conformance comparison."
+
+[[assets]]
+path = "files/reference_extended/mct1-57.pgx"
+bytes = 129617
+sha256 = "d9a0f9ced02b6b4bcf82a4e1d3d69a6cedf618a9fcf19368efa2c8ecc866aa6c"
+media_type = "application/octet-stream"
+semantics = "Reference image for conformance comparison."
+
+[[assets]]
+path = "files/reference_extended/mct1-58.pgx"
+bytes = 129617
+sha256 = "7fbf6f00e771c91622d630860a1179a64f6c3e7b8674b3ae5d8e5be4d9aad19d"
+media_type = "application/octet-stream"
+semantics = "Reference image for conformance comparison."
+
+[[assets]]
+path = "files/reference_extended/mct1-59.pgx"
+bytes = 129617
+sha256 = "c6c25aa7d5cce342680e42202d5bf47216cfe1a942d6b2a92c5757f8fae1d03c"
+media_type = "application/octet-stream"
+semantics = "Reference image for conformance comparison."
+
+[[assets]]
+path = "files/reference_extended/mct1-6.pgx"
+bytes = 129617
+sha256 = "f2cb07fa34d2c50507570ceb6a182b37433376813a0cedd6141e61ef67b0333a"
+media_type = "application/octet-stream"
+semantics = "Reference image for conformance comparison."
+
+[[assets]]
+path = "files/reference_extended/mct1-7.pgx"
+bytes = 129617
+sha256 = "cfc1fbe4052bd51665b709c810ff6b3c2b585e6d4d6b4b557043fc900e873526"
+media_type = "application/octet-stream"
+semantics = "Reference image for conformance comparison."
+
+[[assets]]
+path = "files/reference_extended/mct1-8.pgx"
+bytes = 129617
+sha256 = "3c87ae1e533d8119c11412988f125e9d3923747efcffd497990fda4451e4d8ae"
+media_type = "application/octet-stream"
+semantics = "Reference image for conformance comparison."
+
+[[assets]]
+path = "files/reference_extended/mct1-9.pgx"
+bytes = 129617
+sha256 = "660c1224d446b5810c3084ae3b2bbc11beb7a5b8c92d56aa3cf65ba2e7ae4f46"
+media_type = "application/octet-stream"
+semantics = "Reference image for conformance comparison."
+
+[[assets]]
+path = "files/reference_extended/mct2-0.pgx"
+bytes = 129617
+sha256 = "be88dca1d303000eda35869bf85a3f670cc7d9ffbd5921458cbe0423ff3d4a7d"
+media_type = "application/octet-stream"
+semantics = "Reference image for conformance comparison."
+
+[[assets]]
+path = "files/reference_extended/mct2-1.pgx"
+bytes = 129617
+sha256 = "b1983087fe126f8af99fe743f2730210e98b640563cb47ea08ad5951979b3e0d"
+media_type = "application/octet-stream"
+semantics = "Reference image for conformance comparison."
+
+[[assets]]
+path = "files/reference_extended/mct2-10.pgx"
+bytes = 129617
+sha256 = "1f17a3db9719d2b5e781490a180637cfbf701028185e82e10538e6d600a38f0f"
+media_type = "application/octet-stream"
+semantics = "Reference image for conformance comparison."
+
+[[assets]]
+path = "files/reference_extended/mct2-100.pgx"
+bytes = 129617
+sha256 = "92aae65d09d3a2c76bd238c7e28122b5f2d55c950fa80bff1896b99594e05e1a"
+media_type = "application/octet-stream"
+semantics = "Reference image for conformance comparison."
+
+[[assets]]
+path = "files/reference_extended/mct2-101.pgx"
+bytes = 129617
+sha256 = "aeb4f0911449f868b3b9ccef52e05b80b3e1744efb6321b317ad4d71e60b40ed"
+media_type = "application/octet-stream"
+semantics = "Reference image for conformance comparison."
+
+[[assets]]
+path = "files/reference_extended/mct2-102.pgx"
+bytes = 129617
+sha256 = "1ea7f4622bb910ded87c36fc3d6907d4a532ea9573a600b085790bf76d4e9e85"
+media_type = "application/octet-stream"
+semantics = "Reference image for conformance comparison."
+
+[[assets]]
+path = "files/reference_extended/mct2-103.pgx"
+bytes = 129617
+sha256 = "298f1df1ec0df701dd24012cdbcdbcba60c6a3bf5c2b701e83c50b7311a6e546"
+media_type = "application/octet-stream"
+semantics = "Reference image for conformance comparison."
+
+[[assets]]
+path = "files/reference_extended/mct2-104.pgx"
+bytes = 129617
+sha256 = "c2cc40c6e39ca39930c2a0006ba9bf95c1801f0bbae0b34dbee15788333b18ab"
+media_type = "application/octet-stream"
+semantics = "Reference image for conformance comparison."
+
+[[assets]]
+path = "files/reference_extended/mct2-105.pgx"
+bytes = 129617
+sha256 = "c19e5154954ede81af7917e7e23da2e72ed3e64ba3d6c6ddb4c21c67e2bed400"
+media_type = "application/octet-stream"
+semantics = "Reference image for conformance comparison."
+
+[[assets]]
+path = "files/reference_extended/mct2-106.pgx"
+bytes = 129617
+sha256 = "69fc886649c8481ba94a3ccaadf439590d5d474b56bc4379a993b3222801bdb2"
+media_type = "application/octet-stream"
+semantics = "Reference image for conformance comparison."
+
+[[assets]]
+path = "files/reference_extended/mct2-107.pgx"
+bytes = 129617
+sha256 = "d712c0b7631ff7d09f2e26d76ff037c223ebdd9b09a6c20d68af81a171d0201a"
+media_type = "application/octet-stream"
+semantics = "Reference image for conformance comparison."
+
+[[assets]]
+path = "files/reference_extended/mct2-108.pgx"
+bytes = 129617
+sha256 = "3bd6823f2d6da9ad89f326e900d2ab858c251fd24dd28c8cddd034eda14091bd"
+media_type = "application/octet-stream"
+semantics = "Reference image for conformance comparison."
+
+[[assets]]
+path = "files/reference_extended/mct2-109.pgx"
+bytes = 129617
+sha256 = "65b39d63aeb83742d672554ec1c829ebd9a71d4dc470c191b4226acadbb70cff"
+media_type = "application/octet-stream"
+semantics = "Reference image for conformance comparison."
+
+[[assets]]
+path = "files/reference_extended/mct2-11.pgx"
+bytes = 129617
+sha256 = "8db0d0f5a22b986601406a0dbdb15c73d148f9731835dce1ac384f059ed9bd40"
+media_type = "application/octet-stream"
+semantics = "Reference image for conformance comparison."
+
+[[assets]]
+path = "files/reference_extended/mct2-110.pgx"
+bytes = 129617
+sha256 = "4815ff2aaa55de4349d4196932c037ed991cc889d0053fb420b71b875301eb0c"
+media_type = "application/octet-stream"
+semantics = "Reference image for conformance comparison."
+
+[[assets]]
+path = "files/reference_extended/mct2-111.pgx"
+bytes = 129617
+sha256 = "76b4e83e53912188b15ce09a8167c16a8fa6bfdc0a6f5a9882fd985422f954f5"
+media_type = "application/octet-stream"
+semantics = "Reference image for conformance comparison."
+
+[[assets]]
+path = "files/reference_extended/mct2-112.pgx"
+bytes = 129617
+sha256 = "18111163ac4109405f3f5fcbc082758360b411f34813f0a3a4074323bb9e2104"
+media_type = "application/octet-stream"
+semantics = "Reference image for conformance comparison."
+
+[[assets]]
+path = "files/reference_extended/mct2-113.pgx"
+bytes = 129617
+sha256 = "a095de4f16eb9bcba24ff9e26c0c5767660f1e07624aced66140824a0959e961"
+media_type = "application/octet-stream"
+semantics = "Reference image for conformance comparison."
+
+[[assets]]
+path = "files/reference_extended/mct2-114.pgx"
+bytes = 129617
+sha256 = "cf3edacc736acc427d9c6e0c4a22cdb6d40d20156c64711ff6b290c1079a39ed"
+media_type = "application/octet-stream"
+semantics = "Reference image for conformance comparison."
+
+[[assets]]
+path = "files/reference_extended/mct2-115.pgx"
+bytes = 129617
+sha256 = "460e84af3eb954f3b054b2b666adf11eb35c727b1792f48b867ef48aae229a97"
+media_type = "application/octet-stream"
+semantics = "Reference image for conformance comparison."
+
+[[assets]]
+path = "files/reference_extended/mct2-116.pgx"
+bytes = 129617
+sha256 = "4eb8d0bd405be93bedcf01a7a33bc038f4be5fd376279c95518731211e32f1a4"
+media_type = "application/octet-stream"
+semantics = "Reference image for conformance comparison."
+
+[[assets]]
+path = "files/reference_extended/mct2-117.pgx"
+bytes = 129617
+sha256 = "9854bdec8cb9d179fe65c9d606a48bc66080b03db75a8ebea17c4ff4dab18ccd"
+media_type = "application/octet-stream"
+semantics = "Reference image for conformance comparison."
+
+[[assets]]
+path = "files/reference_extended/mct2-118.pgx"
+bytes = 129617
+sha256 = "202c842e6609b1ce79882556cb527dd5f5d69b529b5289aa33f3ff839ffcbfc2"
+media_type = "application/octet-stream"
+semantics = "Reference image for conformance comparison."
+
+[[assets]]
+path = "files/reference_extended/mct2-119.pgx"
+bytes = 129617
+sha256 = "368452e701343b2cb2df88b44eb906baac89d7560901a5c5aa16325b4caf1ae8"
+media_type = "application/octet-stream"
+semantics = "Reference image for conformance comparison."
+
+[[assets]]
+path = "files/reference_extended/mct2-12.pgx"
+bytes = 129617
+sha256 = "ebd23d34c09484cf0d9add18655340a0f01c52a7fb3966a200ca3b6b3d734410"
+media_type = "application/octet-stream"
+semantics = "Reference image for conformance comparison."
+
+[[assets]]
+path = "files/reference_extended/mct2-120.pgx"
+bytes = 129617
+sha256 = "b6aab206b642e9ac186c6d6efa15631f278772f4e751c0267b175e450c60f523"
+media_type = "application/octet-stream"
+semantics = "Reference image for conformance comparison."
+
+[[assets]]
+path = "files/reference_extended/mct2-121.pgx"
+bytes = 129617
+sha256 = "4a813fe708fec95337dddec9305cbfebd138560cfe0100285b231d1bb05fecae"
+media_type = "application/octet-stream"
+semantics = "Reference image for conformance comparison."
+
+[[assets]]
+path = "files/reference_extended/mct2-122.pgx"
+bytes = 129617
+sha256 = "6a1a18b2dcd57c3b9437de868e0776c43a352a4a965e103b6e329b7fa44cd4a6"
+media_type = "application/octet-stream"
+semantics = "Reference image for conformance comparison."
+
+[[assets]]
+path = "files/reference_extended/mct2-123.pgx"
+bytes = 129617
+sha256 = "649111882d259ab4f7bfe18b5e1e5b3c59e23e9cb72735785b07ef7e33808774"
+media_type = "application/octet-stream"
+semantics = "Reference image for conformance comparison."
+
+[[assets]]
+path = "files/reference_extended/mct2-124.pgx"
+bytes = 129617
+sha256 = "deb01b03cdf5e975e2a314a2822a18400b408120ed91f17f948e4d262a22da7f"
+media_type = "application/octet-stream"
+semantics = "Reference image for conformance comparison."
+
+[[assets]]
+path = "files/reference_extended/mct2-125.pgx"
+bytes = 129617
+sha256 = "ef1e646bee0bc150bfbd715f08ddf0efa46de66bc9eef2ee017f571fa50c1534"
+media_type = "application/octet-stream"
+semantics = "Reference image for conformance comparison."
+
+[[assets]]
+path = "files/reference_extended/mct2-126.pgx"
+bytes = 129617
+sha256 = "6330a0349111883892d7c8f88eb368cbfbd1f74f0585e7f32c57b162b3efcad6"
+media_type = "application/octet-stream"
+semantics = "Reference image for conformance comparison."
+
+[[assets]]
+path = "files/reference_extended/mct2-127.pgx"
+bytes = 129617
+sha256 = "c55011514eb5fa4d43931607a2d315bfd8fd9c47cf90f6b938dab6ec73e6797d"
+media_type = "application/octet-stream"
+semantics = "Reference image for conformance comparison."
+
+[[assets]]
+path = "files/reference_extended/mct2-128.pgx"
+bytes = 129617
+sha256 = "57cb546625b38ab0a6d4bee511337087c77f66e60b6f24ba91e32aaffcbfcf9b"
+media_type = "application/octet-stream"
+semantics = "Reference image for conformance comparison."
+
+[[assets]]
+path = "files/reference_extended/mct2-129.pgx"
+bytes = 129617
+sha256 = "72fcc86d13d17e52a60471a6c13133b453f2165d3bd921ca8c638473833036a7"
+media_type = "application/octet-stream"
+semantics = "Reference image for conformance comparison."
+
+[[assets]]
+path = "files/reference_extended/mct2-13.pgx"
+bytes = 129617
+sha256 = "7c55c4747a7f220eefc563acf62abdc7c2d8c4223caf0d15e728611614eb40d4"
+media_type = "application/octet-stream"
+semantics = "Reference image for conformance comparison."
+
+[[assets]]
+path = "files/reference_extended/mct2-130.pgx"
+bytes = 129617
+sha256 = "c4e9e2637e559d657b438173612ad04f38e3064012e09b4765293158429cf9ee"
+media_type = "application/octet-stream"
+semantics = "Reference image for conformance comparison."
+
+[[assets]]
+path = "files/reference_extended/mct2-131.pgx"
+bytes = 129617
+sha256 = "ab97050b09c4092bed64c25642d05ae01959b39038e07d51c2490462bfc0cd91"
+media_type = "application/octet-stream"
+semantics = "Reference image for conformance comparison."
+
+[[assets]]
+path = "files/reference_extended/mct2-132.pgx"
+bytes = 129617
+sha256 = "cb17523ef038f060a601d402dcfa6732abf36089d3a1ccf3d9b48afdcbc452a2"
+media_type = "application/octet-stream"
+semantics = "Reference image for conformance comparison."
+
+[[assets]]
+path = "files/reference_extended/mct2-133.pgx"
+bytes = 129617
+sha256 = "929c8917868b31d278f988a39e612673bae1df623e9ca2430e505810644dfdb0"
+media_type = "application/octet-stream"
+semantics = "Reference image for conformance comparison."
+
+[[assets]]
+path = "files/reference_extended/mct2-134.pgx"
+bytes = 129617
+sha256 = "17b891403e8b549b84bebe4328e22c086c464d7cfc89d2a0b5b64aa8759d62e2"
+media_type = "application/octet-stream"
+semantics = "Reference image for conformance comparison."
+
+[[assets]]
+path = "files/reference_extended/mct2-135.pgx"
+bytes = 129617
+sha256 = "ed92e2e87641e55d0b2a2aacd4e1b89042993031a2ffea4efa1c577ba99e0425"
+media_type = "application/octet-stream"
+semantics = "Reference image for conformance comparison."
+
+[[assets]]
+path = "files/reference_extended/mct2-136.pgx"
+bytes = 129617
+sha256 = "18d3c3c475cd092fad092f2c47ee1dfc7e68c3fc7d1ce14cf3ae48db1f6af59b"
+media_type = "application/octet-stream"
+semantics = "Reference image for conformance comparison."
+
+[[assets]]
+path = "files/reference_extended/mct2-137.pgx"
+bytes = 129617
+sha256 = "66c03478f86273370361a8f4bd0e031a6e86fe88c12bd88c9cf6c4dfff24ffa8"
+media_type = "application/octet-stream"
+semantics = "Reference image for conformance comparison."
+
+[[assets]]
+path = "files/reference_extended/mct2-138.pgx"
+bytes = 129617
+sha256 = "e54a873c82ca62e7fdaa6d6944f66d3884e79a0e72acdcf1ce01f80cdeb70c38"
+media_type = "application/octet-stream"
+semantics = "Reference image for conformance comparison."
+
+[[assets]]
+path = "files/reference_extended/mct2-139.pgx"
+bytes = 129617
+sha256 = "67ac802fcdea7e4ad5793c11cd33a9ec73ac7415329946745715bb7e44bed2de"
+media_type = "application/octet-stream"
+semantics = "Reference image for conformance comparison."
+
+[[assets]]
+path = "files/reference_extended/mct2-14.pgx"
+bytes = 129617
+sha256 = "4ce3c38e7185d73481f6fd9d9f6957aaca179260165ceaedfe559332428cff78"
+media_type = "application/octet-stream"
+semantics = "Reference image for conformance comparison."
+
+[[assets]]
+path = "files/reference_extended/mct2-140.pgx"
+bytes = 129617
+sha256 = "80e6c8abf8738e3d10ec91fc634fb736fe35a4f9f53f6c217e259988bfdfe57c"
+media_type = "application/octet-stream"
+semantics = "Reference image for conformance comparison."
+
+[[assets]]
+path = "files/reference_extended/mct2-141.pgx"
+bytes = 129617
+sha256 = "4980e92e07b9000c90f2f5c1ba4830233ee873c3c6f71d7d8704326203ad67ed"
+media_type = "application/octet-stream"
+semantics = "Reference image for conformance comparison."
+
+[[assets]]
+path = "files/reference_extended/mct2-142.pgx"
+bytes = 129617
+sha256 = "b5783608296ee2e08bbd69489711048bb03c6f1e9a314d632132f577f5f99ab2"
+media_type = "application/octet-stream"
+semantics = "Reference image for conformance comparison."
+
+[[assets]]
+path = "files/reference_extended/mct2-143.pgx"
+bytes = 129617
+sha256 = "7b5055e7b09a9ae6f656c10dd33aef3512c3620bc803e9c08a5d7aaac4bfc8f6"
+media_type = "application/octet-stream"
+semantics = "Reference image for conformance comparison."
+
+[[assets]]
+path = "files/reference_extended/mct2-144.pgx"
+bytes = 129617
+sha256 = "a671392cb031f9abd33a52723140940db98ab4e9a8943bf881579185e11b9f52"
+media_type = "application/octet-stream"
+semantics = "Reference image for conformance comparison."
+
+[[assets]]
+path = "files/reference_extended/mct2-145.pgx"
+bytes = 129617
+sha256 = "351edc4d29f6e3a4a99e45de563062e349ad333d47f6e8c03a3484ad41a93b7b"
+media_type = "application/octet-stream"
+semantics = "Reference image for conformance comparison."
+
+[[assets]]
+path = "files/reference_extended/mct2-146.pgx"
+bytes = 129617
+sha256 = "9291e7edf86c7e2748631506b78b0cec69017ef2adcb97a255c657dd95b57b8d"
+media_type = "application/octet-stream"
+semantics = "Reference image for conformance comparison."
+
+[[assets]]
+path = "files/reference_extended/mct2-147.pgx"
+bytes = 129617
+sha256 = "9b6930ef48338c45cce8d6205aa1cd2d3fa1a3a11cd7b2baa5ff44bcc75a3026"
+media_type = "application/octet-stream"
+semantics = "Reference image for conformance comparison."
+
+[[assets]]
+path = "files/reference_extended/mct2-148.pgx"
+bytes = 129617
+sha256 = "f455b16ffdb36bbd70ec677cd1edf895a6595afb27abca0a0d3c9b0c356b95b4"
+media_type = "application/octet-stream"
+semantics = "Reference image for conformance comparison."
+
+[[assets]]
+path = "files/reference_extended/mct2-149.pgx"
+bytes = 129617
+sha256 = "e8f37109467f1924c2eac02e3c04fefa8f139fe67c9b458c44efd56f34270148"
+media_type = "application/octet-stream"
+semantics = "Reference image for conformance comparison."
+
+[[assets]]
+path = "files/reference_extended/mct2-15.pgx"
+bytes = 129617
+sha256 = "f634a8b708ceaa1d06b450605d3e2cb0bae10dbdef104b5feb81508e71411b4e"
+media_type = "application/octet-stream"
+semantics = "Reference image for conformance comparison."
+
+[[assets]]
+path = "files/reference_extended/mct2-150.pgx"
+bytes = 129617
+sha256 = "3eb76bf5c5754aaf4820bfcfdb73e1952704bf7f591a782245ddbc19656e1c30"
+media_type = "application/octet-stream"
+semantics = "Reference image for conformance comparison."
+
+[[assets]]
+path = "files/reference_extended/mct2-151.pgx"
+bytes = 129617
+sha256 = "1ba78aec65c1b579bdd4e10d33f7b5f013371d5c0dd137fc6e98e87d5bc041ee"
+media_type = "application/octet-stream"
+semantics = "Reference image for conformance comparison."
+
+[[assets]]
+path = "files/reference_extended/mct2-152.pgx"
+bytes = 129617
+sha256 = "08f32030a4c16d105820cabded3ac4ce4563ad26297f4695c49c09e08519a450"
+media_type = "application/octet-stream"
+semantics = "Reference image for conformance comparison."
+
+[[assets]]
+path = "files/reference_extended/mct2-153.pgx"
+bytes = 129617
+sha256 = "1cfe4a161a8a4ed53b48a5eb8c425a47463d15e7e876bb0b292e0da17013336b"
+media_type = "application/octet-stream"
+semantics = "Reference image for conformance comparison."
+
+[[assets]]
+path = "files/reference_extended/mct2-154.pgx"
+bytes = 129617
+sha256 = "3230f4ed265170a299ad696077089f0b1f580890dd48d350e106924208ffed7f"
+media_type = "application/octet-stream"
+semantics = "Reference image for conformance comparison."
+
+[[assets]]
+path = "files/reference_extended/mct2-155.pgx"
+bytes = 129617
+sha256 = "eeff5a4ac513783e8d929bef03262073b2a69bdd04b54b5460d0be492aab36f7"
+media_type = "application/octet-stream"
+semantics = "Reference image for conformance comparison."
+
+[[assets]]
+path = "files/reference_extended/mct2-156.pgx"
+bytes = 129617
+sha256 = "64f0782655377df32315b14ad2aa397bf30e7a7e5a65f6a6bfabc1f567c09f09"
+media_type = "application/octet-stream"
+semantics = "Reference image for conformance comparison."
+
+[[assets]]
+path = "files/reference_extended/mct2-157.pgx"
+bytes = 129617
+sha256 = "0dc144605da288fdf588dfd8604666ab560982dfb5fe62fb0453e4268c924104"
+media_type = "application/octet-stream"
+semantics = "Reference image for conformance comparison."
+
+[[assets]]
+path = "files/reference_extended/mct2-158.pgx"
+bytes = 129617
+sha256 = "9b1c220929080966346be2da7005534bc35a11d68127fa754833cd1cb31e63df"
+media_type = "application/octet-stream"
+semantics = "Reference image for conformance comparison."
+
+[[assets]]
+path = "files/reference_extended/mct2-159.pgx"
+bytes = 129617
+sha256 = "f3e8e6e0cc6e7ebaf430f24c08bd972c0e157f702da2e2b146e9c283cc0bfa5b"
+media_type = "application/octet-stream"
+semantics = "Reference image for conformance comparison."
+
+[[assets]]
+path = "files/reference_extended/mct2-16.pgx"
+bytes = 129617
+sha256 = "c825b158941ee7425aa9448bf6cac6070d840e643e2651780a3915f8baaac3cc"
+media_type = "application/octet-stream"
+semantics = "Reference image for conformance comparison."
+
+[[assets]]
+path = "files/reference_extended/mct2-160.pgx"
+bytes = 129617
+sha256 = "ad4fbe814f44c4c35cb15c44726da18a48ebd7ddf3e55d8e15afcd82eaba7514"
+media_type = "application/octet-stream"
+semantics = "Reference image for conformance comparison."
+
+[[assets]]
+path = "files/reference_extended/mct2-161.pgx"
+bytes = 129617
+sha256 = "b10e96f55f3871d56913e4bfce818d2eb7eb1fe87304c85b4d4bfcdd85ff2110"
+media_type = "application/octet-stream"
+semantics = "Reference image for conformance comparison."
+
+[[assets]]
+path = "files/reference_extended/mct2-162.pgx"
+bytes = 129617
+sha256 = "1cf75ce9914854b265b9c7648818f3bc109344ef742432549d7452052ab76917"
+media_type = "application/octet-stream"
+semantics = "Reference image for conformance comparison."
+
+[[assets]]
+path = "files/reference_extended/mct2-163.pgx"
+bytes = 129617
+sha256 = "e9db21ed08aa96bd98cde4a6bba7f6e295170af8b2c775e3cc49b23b93f7a728"
+media_type = "application/octet-stream"
+semantics = "Reference image for conformance comparison."
+
+[[assets]]
+path = "files/reference_extended/mct2-164.pgx"
+bytes = 129617
+sha256 = "369d2e949d180b1b21e868d848fe24cea191b87d677cbf29cf8094add84f4e64"
+media_type = "application/octet-stream"
+semantics = "Reference image for conformance comparison."
+
+[[assets]]
+path = "files/reference_extended/mct2-165.pgx"
+bytes = 129617
+sha256 = "382fd2207199c9706b7efbe70b3140222cc3a051ed1102600c132e55d96d2051"
+media_type = "application/octet-stream"
+semantics = "Reference image for conformance comparison."
+
+[[assets]]
+path = "files/reference_extended/mct2-166.pgx"
+bytes = 129617
+sha256 = "44d2aaee13577e117429883f761a903c8b5dbec7f2ce53776ca20a1da4255512"
+media_type = "application/octet-stream"
+semantics = "Reference image for conformance comparison."
+
+[[assets]]
+path = "files/reference_extended/mct2-167.pgx"
+bytes = 129617
+sha256 = "f31be1d2c927b1e3d6ec3803ec1d994533e001bbc8aa15dc2dfb40b44e8520db"
+media_type = "application/octet-stream"
+semantics = "Reference image for conformance comparison."
+
+[[assets]]
+path = "files/reference_extended/mct2-168.pgx"
+bytes = 129617
+sha256 = "7507768f3cd04ddc0eb3ace9599c86ab901a9af321a61fe3b5508fad64d07ed6"
+media_type = "application/octet-stream"
+semantics = "Reference image for conformance comparison."
+
+[[assets]]
+path = "files/reference_extended/mct2-169.pgx"
+bytes = 129617
+sha256 = "20474d3cc3e8645b85f8431f176d20dcc25f080c8fbbda9838918be451459c44"
+media_type = "application/octet-stream"
+semantics = "Reference image for conformance comparison."
+
+[[assets]]
+path = "files/reference_extended/mct2-17.pgx"
+bytes = 129617
+sha256 = "48f9c0b8cbcf5af08b55074883c1ae9f6eeb3de4b5a2988b6934764d4b494e07"
+media_type = "application/octet-stream"
+semantics = "Reference image for conformance comparison."
+
+[[assets]]
+path = "files/reference_extended/mct2-170.pgx"
+bytes = 129617
+sha256 = "00c5c311431443a77c583d9b1e38b1b874e97329e6c0ff4f1236b945b836335d"
+media_type = "application/octet-stream"
+semantics = "Reference image for conformance comparison."
+
+[[assets]]
+path = "files/reference_extended/mct2-171.pgx"
+bytes = 129617
+sha256 = "519dea8fa3f52ccec6e54ac46875e6536da15f46e1ff659b826264da736bc8dd"
+media_type = "application/octet-stream"
+semantics = "Reference image for conformance comparison."
+
+[[assets]]
+path = "files/reference_extended/mct2-172.pgx"
+bytes = 129617
+sha256 = "3068541cc78362987598a4c44bf66d9db0bbcd874c8ec928a2ce2f82a1ccd545"
+media_type = "application/octet-stream"
+semantics = "Reference image for conformance comparison."
+
+[[assets]]
+path = "files/reference_extended/mct2-173.pgx"
+bytes = 129617
+sha256 = "5d1f9fa68723459a00cbb6fe937847c99c139b943c7c1a6d830bba5de4fdd9e7"
+media_type = "application/octet-stream"
+semantics = "Reference image for conformance comparison."
+
+[[assets]]
+path = "files/reference_extended/mct2-174.pgx"
+bytes = 129617
+sha256 = "a5d341bd4ba7485ea2545a7440595d3df1e064d9944705dad9aaa1f62b1afff5"
+media_type = "application/octet-stream"
+semantics = "Reference image for conformance comparison."
+
+[[assets]]
+path = "files/reference_extended/mct2-175.pgx"
+bytes = 129617
+sha256 = "518e01e27fbc9c153ed17728c826788268022d02ee7ccae1f0f8e02068036b34"
+media_type = "application/octet-stream"
+semantics = "Reference image for conformance comparison."
+
+[[assets]]
+path = "files/reference_extended/mct2-176.pgx"
+bytes = 129617
+sha256 = "55887d5b483a22a9cf77efa87d5b61328ea68a7a56cb0ea360f99268e21837e2"
+media_type = "application/octet-stream"
+semantics = "Reference image for conformance comparison."
+
+[[assets]]
+path = "files/reference_extended/mct2-177.pgx"
+bytes = 129617
+sha256 = "298f4c8c488c00135c63949881792a502e1778dfb65d6f020a150bb59fd02946"
+media_type = "application/octet-stream"
+semantics = "Reference image for conformance comparison."
+
+[[assets]]
+path = "files/reference_extended/mct2-178.pgx"
+bytes = 129617
+sha256 = "0f76d93fc0c2cae27a684f73c23d3cd32701718cb17674e4255c5ecf19f9bfb0"
+media_type = "application/octet-stream"
+semantics = "Reference image for conformance comparison."
+
+[[assets]]
+path = "files/reference_extended/mct2-179.pgx"
+bytes = 129617
+sha256 = "d3c89e87fd1bcaf22d90636c331cde565cd9eb1555dafef34c2332e0314ebeca"
+media_type = "application/octet-stream"
+semantics = "Reference image for conformance comparison."
+
+[[assets]]
+path = "files/reference_extended/mct2-18.pgx"
+bytes = 129617
+sha256 = "aca15406bbff16f2c9489ad1be409e9e80c0c1553413ddbd13ae9b51aa74527a"
+media_type = "application/octet-stream"
+semantics = "Reference image for conformance comparison."
+
+[[assets]]
+path = "files/reference_extended/mct2-19.pgx"
+bytes = 129617
+sha256 = "98fe78327e9a8747da90b1c0b58fa985c826d7ec227ac3e58777e1b698cd925a"
+media_type = "application/octet-stream"
+semantics = "Reference image for conformance comparison."
+
+[[assets]]
+path = "files/reference_extended/mct2-2.pgx"
+bytes = 129617
+sha256 = "9107317647ef133160dafe391ce68f5fdfe61276b49a0cbf880a44fc4f4c04e1"
+media_type = "application/octet-stream"
+semantics = "Reference image for conformance comparison."
+
+[[assets]]
+path = "files/reference_extended/mct2-20.pgx"
+bytes = 129617
+sha256 = "908a6b77267b68080a4cdaed63e307b170951b6b5eec0ca4fbea80a840c7ae3d"
+media_type = "application/octet-stream"
+semantics = "Reference image for conformance comparison."
+
+[[assets]]
+path = "files/reference_extended/mct2-21.pgx"
+bytes = 129617
+sha256 = "11cd063d15a681159a476e7bf27561bec115de2dbe3b5b8dad3181a996ac9dab"
+media_type = "application/octet-stream"
+semantics = "Reference image for conformance comparison."
+
+[[assets]]
+path = "files/reference_extended/mct2-22.pgx"
+bytes = 129617
+sha256 = "0ebb101f42e5b8858bd5d81cda1b671903bc790a6136eaed0c23ead4283cc331"
+media_type = "application/octet-stream"
+semantics = "Reference image for conformance comparison."
+
+[[assets]]
+path = "files/reference_extended/mct2-23.pgx"
+bytes = 129617
+sha256 = "b7d74fa201859c555782c5b1e185a8cd32f60d5cc14f4f2210e27eff361b20f4"
+media_type = "application/octet-stream"
+semantics = "Reference image for conformance comparison."
+
+[[assets]]
+path = "files/reference_extended/mct2-24.pgx"
+bytes = 129617
+sha256 = "547b34158855810791933d84f127ba6e2a0430f5ce3a196cb206c8d51389dd3d"
+media_type = "application/octet-stream"
+semantics = "Reference image for conformance comparison."
+
+[[assets]]
+path = "files/reference_extended/mct2-25.pgx"
+bytes = 129617
+sha256 = "8f8446f153ce3138d913d53227b5b5a22ba2b4ff964b503d4593c467b6e1ebc2"
+media_type = "application/octet-stream"
+semantics = "Reference image for conformance comparison."
+
+[[assets]]
+path = "files/reference_extended/mct2-26.pgx"
+bytes = 129617
+sha256 = "874a2c582c76dfdc5b6297f6b6581cbc8913f02ceb9a3c96691940344f09487c"
+media_type = "application/octet-stream"
+semantics = "Reference image for conformance comparison."
+
+[[assets]]
+path = "files/reference_extended/mct2-27.pgx"
+bytes = 129617
+sha256 = "c0d2cc60548b14dd7b156bc33a58a6dfafec074c46572bc1b7b12360de5908fd"
+media_type = "application/octet-stream"
+semantics = "Reference image for conformance comparison."
+
+[[assets]]
+path = "files/reference_extended/mct2-28.pgx"
+bytes = 129617
+sha256 = "c87b170ab0b3bdf3e4172d00fc66288e252e19df306c074aaa75a245b607eafb"
+media_type = "application/octet-stream"
+semantics = "Reference image for conformance comparison."
+
+[[assets]]
+path = "files/reference_extended/mct2-29.pgx"
+bytes = 129617
+sha256 = "ffebcd5e4d30e5682169f08e78b5dd0ff1242bc8f02b9be93bdbaaa441427778"
+media_type = "application/octet-stream"
+semantics = "Reference image for conformance comparison."
+
+[[assets]]
+path = "files/reference_extended/mct2-3.pgx"
+bytes = 129617
+sha256 = "99e83148b59018feaed2e3d51dbb24dfe013776a988dbab95a51b0b690c5f6ea"
+media_type = "application/octet-stream"
+semantics = "Reference image for conformance comparison."
+
+[[assets]]
+path = "files/reference_extended/mct2-30.pgx"
+bytes = 129617
+sha256 = "945a879cbb19735b8047bd36736d95a4f2b6490b3e16cf626dc550090f7e965f"
+media_type = "application/octet-stream"
+semantics = "Reference image for conformance comparison."
+
+[[assets]]
+path = "files/reference_extended/mct2-31.pgx"
+bytes = 129617
+sha256 = "7ede92b8a1cd97d23bed904b6e3156383b972ed14d560097ad052192b083cc5d"
+media_type = "application/octet-stream"
+semantics = "Reference image for conformance comparison."
+
+[[assets]]
+path = "files/reference_extended/mct2-32.pgx"
+bytes = 129617
+sha256 = "44f8155c0c2d42282c5d1194d1e46508dee29f990d82e254d33ee21ed857c7e0"
+media_type = "application/octet-stream"
+semantics = "Reference image for conformance comparison."
+
+[[assets]]
+path = "files/reference_extended/mct2-33.pgx"
+bytes = 129617
+sha256 = "48bd13ca2c67463580aa5d88535078500a571db2c4872ac0c9b34d25e44fd019"
+media_type = "application/octet-stream"
+semantics = "Reference image for conformance comparison."
+
+[[assets]]
+path = "files/reference_extended/mct2-34.pgx"
+bytes = 129617
+sha256 = "49e02d913cf7338f0e98c218844adb7635175f4b13d109210631f5406558fea0"
+media_type = "application/octet-stream"
+semantics = "Reference image for conformance comparison."
+
+[[assets]]
+path = "files/reference_extended/mct2-35.pgx"
+bytes = 129617
+sha256 = "e23bd493a3a9fb81699a6ce5af6f9cc60cb68fa1083419561fbc91de3554c3e8"
+media_type = "application/octet-stream"
+semantics = "Reference image for conformance comparison."
+
+[[assets]]
+path = "files/reference_extended/mct2-36.pgx"
+bytes = 129617
+sha256 = "c5caf2bb4239eb823ff57cc770d4e39b4aba070f6f4e386e7a00ffccfb2a7509"
+media_type = "application/octet-stream"
+semantics = "Reference image for conformance comparison."
+
+[[assets]]
+path = "files/reference_extended/mct2-37.pgx"
+bytes = 129617
+sha256 = "2516dd96a976b4634213ec2a8565f923cdb89a5ea732ef707ba1eabb21ff7b24"
+media_type = "application/octet-stream"
+semantics = "Reference image for conformance comparison."
+
+[[assets]]
+path = "files/reference_extended/mct2-38.pgx"
+bytes = 129617
+sha256 = "dec52884712bbd960e524fa4a3ac95ed4a68a140f94fa2a3e9663e8a013412c4"
+media_type = "application/octet-stream"
+semantics = "Reference image for conformance comparison."
+
+[[assets]]
+path = "files/reference_extended/mct2-39.pgx"
+bytes = 129617
+sha256 = "85e1ce28fc493a42851ce838987a0523091d7747bff780dfc79c9250248d7dcd"
+media_type = "application/octet-stream"
+semantics = "Reference image for conformance comparison."
+
+[[assets]]
+path = "files/reference_extended/mct2-4.pgx"
+bytes = 129617
+sha256 = "0736cac727f10301d4a206f4b9af39fff18d364d0060738696cd075bbb18f480"
+media_type = "application/octet-stream"
+semantics = "Reference image for conformance comparison."
+
+[[assets]]
+path = "files/reference_extended/mct2-40.pgx"
+bytes = 129617
+sha256 = "d4cdbb625dbde5c72f91a43cc7c9b912d811b487fe42423553a8461fb463ef0d"
+media_type = "application/octet-stream"
+semantics = "Reference image for conformance comparison."
+
+[[assets]]
+path = "files/reference_extended/mct2-41.pgx"
+bytes = 129617
+sha256 = "ce3c2264971c28a4cdf6d5f7b80a393f93ae101d0b2b66278a5473319d00b0f6"
+media_type = "application/octet-stream"
+semantics = "Reference image for conformance comparison."
+
+[[assets]]
+path = "files/reference_extended/mct2-42.pgx"
+bytes = 129617
+sha256 = "8d0beda3a290b76a58ddec2572ea6d169b04e96332f49872b19eeabefd6af32a"
+media_type = "application/octet-stream"
+semantics = "Reference image for conformance comparison."
+
+[[assets]]
+path = "files/reference_extended/mct2-43.pgx"
+bytes = 129617
+sha256 = "bcb1f408b96ad4574963daa89f8cf9fd1229d98e3082f0b6e043b916302a62b7"
+media_type = "application/octet-stream"
+semantics = "Reference image for conformance comparison."
+
+[[assets]]
+path = "files/reference_extended/mct2-44.pgx"
+bytes = 129617
+sha256 = "2147a86dc841bea461d86a1325eb57d8735e22f376f249429b39e80d98f2452d"
+media_type = "application/octet-stream"
+semantics = "Reference image for conformance comparison."
+
+[[assets]]
+path = "files/reference_extended/mct2-45.pgx"
+bytes = 129617
+sha256 = "332953274f46cfa95618f871c23e95185c1c89b5016fed4d84b76b310b2be1c8"
+media_type = "application/octet-stream"
+semantics = "Reference image for conformance comparison."
+
+[[assets]]
+path = "files/reference_extended/mct2-46.pgx"
+bytes = 129617
+sha256 = "e398509e2ac8be238295ca4c905ab18bf013f8320746f3315a576ea0845adc40"
+media_type = "application/octet-stream"
+semantics = "Reference image for conformance comparison."
+
+[[assets]]
+path = "files/reference_extended/mct2-47.pgx"
+bytes = 129617
+sha256 = "a7b924c5e2da4873d67258a344ab9e3b0d5c9b65dbe89687fcfb5730e3b87792"
+media_type = "application/octet-stream"
+semantics = "Reference image for conformance comparison."
+
+[[assets]]
+path = "files/reference_extended/mct2-48.pgx"
+bytes = 129617
+sha256 = "003bd446b36cb0e2663b2876889d0dfe88154d7931f073f0b2a24a348f5a0a32"
+media_type = "application/octet-stream"
+semantics = "Reference image for conformance comparison."
+
+[[assets]]
+path = "files/reference_extended/mct2-49.pgx"
+bytes = 129617
+sha256 = "8d021672b494b49f13ce1e1db809f72735847a8af3dee0a7afc5f7aa0812ab37"
+media_type = "application/octet-stream"
+semantics = "Reference image for conformance comparison."
+
+[[assets]]
+path = "files/reference_extended/mct2-5.pgx"
+bytes = 129617
+sha256 = "f3b89e1e610590a09787c299735c6dd9d5870315ed77f3463866f52583440e3b"
+media_type = "application/octet-stream"
+semantics = "Reference image for conformance comparison."
+
+[[assets]]
+path = "files/reference_extended/mct2-50.pgx"
+bytes = 129617
+sha256 = "1837bc78dd8771d54688a6b665d299fffeb97d4535027f9616dfbf8d2b275f08"
+media_type = "application/octet-stream"
+semantics = "Reference image for conformance comparison."
+
+[[assets]]
+path = "files/reference_extended/mct2-51.pgx"
+bytes = 129617
+sha256 = "7596f2ce8e2ad7243c44508f3b58d2ede5ca6a395832112eebcd25fe6c0c6dca"
+media_type = "application/octet-stream"
+semantics = "Reference image for conformance comparison."
+
+[[assets]]
+path = "files/reference_extended/mct2-52.pgx"
+bytes = 129617
+sha256 = "f51777b6f1f135b913eca0e2a42f000230ce626e9aaad38c3e305a18c39e3329"
+media_type = "application/octet-stream"
+semantics = "Reference image for conformance comparison."
+
+[[assets]]
+path = "files/reference_extended/mct2-53.pgx"
+bytes = 129617
+sha256 = "5e4d0dc70a4fc1d49ce6164769cd5439b88f87e83f37499a3cef516c807060ff"
+media_type = "application/octet-stream"
+semantics = "Reference image for conformance comparison."
+
+[[assets]]
+path = "files/reference_extended/mct2-54.pgx"
+bytes = 129617
+sha256 = "903f8db82d7778d0a0e37f104de8cfea1d4529eb1d969f65dfd93541e42d534c"
+media_type = "application/octet-stream"
+semantics = "Reference image for conformance comparison."
+
+[[assets]]
+path = "files/reference_extended/mct2-55.pgx"
+bytes = 129617
+sha256 = "cf2637269de5fba869cf808c0c7a01b1d98b8327f8013e8bb012a3a4037878ae"
+media_type = "application/octet-stream"
+semantics = "Reference image for conformance comparison."
+
+[[assets]]
+path = "files/reference_extended/mct2-56.pgx"
+bytes = 129617
+sha256 = "871e27d25e8809ce2f28e851da2b27fa99d15d729a0e9df35f906fd50bf94ce0"
+media_type = "application/octet-stream"
+semantics = "Reference image for conformance comparison."
+
+[[assets]]
+path = "files/reference_extended/mct2-57.pgx"
+bytes = 129617
+sha256 = "12db57996c20bd556a3ec8ff32568cf9438408bf7ffa092bbfad21f6c29a3671"
+media_type = "application/octet-stream"
+semantics = "Reference image for conformance comparison."
+
+[[assets]]
+path = "files/reference_extended/mct2-58.pgx"
+bytes = 129617
+sha256 = "da3d392db396bcadddb449933600fa037b0081e9885eec90c6c943020a00db7b"
+media_type = "application/octet-stream"
+semantics = "Reference image for conformance comparison."
+
+[[assets]]
+path = "files/reference_extended/mct2-59.pgx"
+bytes = 129617
+sha256 = "25a49b4fd202db45b8c4f18e77a30962528a00655d165359e01e3a2484294842"
+media_type = "application/octet-stream"
+semantics = "Reference image for conformance comparison."
+
+[[assets]]
+path = "files/reference_extended/mct2-6.pgx"
+bytes = 129617
+sha256 = "4aa4bae5f61b3ac862abb4fc332f17813662423293d818fa2bbab93f062ac31a"
+media_type = "application/octet-stream"
+semantics = "Reference image for conformance comparison."
+
+[[assets]]
+path = "files/reference_extended/mct2-60.pgx"
+bytes = 129617
+sha256 = "106ee47ba9fd6b92a1fb37301c0173b1b5e26ea044505cc55dad6e227ce24e59"
+media_type = "application/octet-stream"
+semantics = "Reference image for conformance comparison."
+
+[[assets]]
+path = "files/reference_extended/mct2-61.pgx"
+bytes = 129617
+sha256 = "5041f5a9cb7c8c8d252063c864de7a9944a47ee6656115711a4c8ea7ff4de064"
+media_type = "application/octet-stream"
+semantics = "Reference image for conformance comparison."
+
+[[assets]]
+path = "files/reference_extended/mct2-62.pgx"
+bytes = 129617
+sha256 = "a93b1302f33044aaa1aac19e166ae157fc895e03166e9d3b11ab8067e0eb288a"
+media_type = "application/octet-stream"
+semantics = "Reference image for conformance comparison."
+
+[[assets]]
+path = "files/reference_extended/mct2-63.pgx"
+bytes = 129617
+sha256 = "badfe6d4fee9a73db54c3126d1cc1d7df2af11a5bd3e362420ffe25adc159345"
+media_type = "application/octet-stream"
+semantics = "Reference image for conformance comparison."
+
+[[assets]]
+path = "files/reference_extended/mct2-64.pgx"
+bytes = 129617
+sha256 = "9496990b253faf5ccf121a3cd87f6d9d9175a910c16f05357521dea68d4e24eb"
+media_type = "application/octet-stream"
+semantics = "Reference image for conformance comparison."
+
+[[assets]]
+path = "files/reference_extended/mct2-65.pgx"
+bytes = 129617
+sha256 = "69a48fee2c1db8e0487f7c683fa6dfeb9261b0abe4ace82633bed2ee047cb2b8"
+media_type = "application/octet-stream"
+semantics = "Reference image for conformance comparison."
+
+[[assets]]
+path = "files/reference_extended/mct2-66.pgx"
+bytes = 129617
+sha256 = "63312e6aa7a266b73aef6cc55549cca6ff3ca77d62a870d733d905349e8f2b25"
+media_type = "application/octet-stream"
+semantics = "Reference image for conformance comparison."
+
+[[assets]]
+path = "files/reference_extended/mct2-67.pgx"
+bytes = 129617
+sha256 = "8653e03bf4c894c3b956be608ab56c1abe1794ddfb895f156c6a34d271f23dd6"
+media_type = "application/octet-stream"
+semantics = "Reference image for conformance comparison."
+
+[[assets]]
+path = "files/reference_extended/mct2-68.pgx"
+bytes = 129617
+sha256 = "696ecd034e9a69555f29aebbf8c7bd3a7fb3ed83eb5bb260a5868806a4204040"
+media_type = "application/octet-stream"
+semantics = "Reference image for conformance comparison."
+
+[[assets]]
+path = "files/reference_extended/mct2-69.pgx"
+bytes = 129617
+sha256 = "14bad92c9041b975f43e1c0a38d1e31581332477761342314e881d5898387a5e"
+media_type = "application/octet-stream"
+semantics = "Reference image for conformance comparison."
+
+[[assets]]
+path = "files/reference_extended/mct2-7.pgx"
+bytes = 129617
+sha256 = "c3a93533793ad9db8c9ed5c1cbaf787954fbf564732a3be4fc54dcc9f5961ba3"
+media_type = "application/octet-stream"
+semantics = "Reference image for conformance comparison."
+
+[[assets]]
+path = "files/reference_extended/mct2-70.pgx"
+bytes = 129617
+sha256 = "41aa01d6189bad3ab745c2633be4b5619cecb6903ccba7994f1f82462b915b50"
+media_type = "application/octet-stream"
+semantics = "Reference image for conformance comparison."
+
+[[assets]]
+path = "files/reference_extended/mct2-71.pgx"
+bytes = 129617
+sha256 = "81cfd31333b5ae5342cb5146017c3d7a46a14bc5c1beb0419a468945807b1132"
+media_type = "application/octet-stream"
+semantics = "Reference image for conformance comparison."
+
+[[assets]]
+path = "files/reference_extended/mct2-72.pgx"
+bytes = 129617
+sha256 = "c28217b9ff9a4d961d1fe082a92bfe0823d2f7951d8a9f3bf1c60184f54375f0"
+media_type = "application/octet-stream"
+semantics = "Reference image for conformance comparison."
+
+[[assets]]
+path = "files/reference_extended/mct2-73.pgx"
+bytes = 129617
+sha256 = "4e3e233e23981bba0d7d0bab93a02aa0de3fdf745ba020ed960f60f9984fe750"
+media_type = "application/octet-stream"
+semantics = "Reference image for conformance comparison."
+
+[[assets]]
+path = "files/reference_extended/mct2-74.pgx"
+bytes = 129617
+sha256 = "9232c08c76304f627b548fe7c0cf56ff1d7c9855fdfa60e6bb6879969a40681e"
+media_type = "application/octet-stream"
+semantics = "Reference image for conformance comparison."
+
+[[assets]]
+path = "files/reference_extended/mct2-75.pgx"
+bytes = 129617
+sha256 = "c9d5300a3b282c0c3877618048cc21789fc32d3521fa39819f06dea269c63614"
+media_type = "application/octet-stream"
+semantics = "Reference image for conformance comparison."
+
+[[assets]]
+path = "files/reference_extended/mct2-76.pgx"
+bytes = 129617
+sha256 = "30c85829e91db51f91c5a423e58e954a70d62d2d173f9f7979f4c06e9d8192d2"
+media_type = "application/octet-stream"
+semantics = "Reference image for conformance comparison."
+
+[[assets]]
+path = "files/reference_extended/mct2-77.pgx"
+bytes = 129617
+sha256 = "32f0e1d1a1852f68b587de624b58c958e4cb150979e4308e50f04cf596b600af"
+media_type = "application/octet-stream"
+semantics = "Reference image for conformance comparison."
+
+[[assets]]
+path = "files/reference_extended/mct2-78.pgx"
+bytes = 129617
+sha256 = "d29333c9bec154a149d8e3ede596c20c1519a0f2c89f04ac6ce696723ac7333e"
+media_type = "application/octet-stream"
+semantics = "Reference image for conformance comparison."
+
+[[assets]]
+path = "files/reference_extended/mct2-79.pgx"
+bytes = 129617
+sha256 = "439045105a9ed34646ead060c4a503ce7fa2b6a5b8f72cd5bc0b899f55e4d5c6"
+media_type = "application/octet-stream"
+semantics = "Reference image for conformance comparison."
+
+[[assets]]
+path = "files/reference_extended/mct2-8.pgx"
+bytes = 129617
+sha256 = "800ce87ea030a48db5b8e627c9a9dd1e5ccda67d760b82b3ec2e43bbaba2f49a"
+media_type = "application/octet-stream"
+semantics = "Reference image for conformance comparison."
+
+[[assets]]
+path = "files/reference_extended/mct2-80.pgx"
+bytes = 129617
+sha256 = "cdcfa278e101ac8131a17105ca1ba4ac7d5a5fb853a7c9305bc5d4db2e0275b6"
+media_type = "application/octet-stream"
+semantics = "Reference image for conformance comparison."
+
+[[assets]]
+path = "files/reference_extended/mct2-81.pgx"
+bytes = 129617
+sha256 = "ea57193a4eeae73d4250170574774bb807f44ae65425f0359f615f7744d66ec7"
+media_type = "application/octet-stream"
+semantics = "Reference image for conformance comparison."
+
+[[assets]]
+path = "files/reference_extended/mct2-82.pgx"
+bytes = 129617
+sha256 = "c6768a377b74fde284c776bb36bc0c1f9ba812366faa348d71c704e14317e12e"
+media_type = "application/octet-stream"
+semantics = "Reference image for conformance comparison."
+
+[[assets]]
+path = "files/reference_extended/mct2-83.pgx"
+bytes = 129617
+sha256 = "dfd003505b94ef0f5ee3ed4083c3a5fc6cb6b37acf869a5f07b1798a9631d7f3"
+media_type = "application/octet-stream"
+semantics = "Reference image for conformance comparison."
+
+[[assets]]
+path = "files/reference_extended/mct2-84.pgx"
+bytes = 129617
+sha256 = "d0bb63141018707eba75e7ab90fdb69217b0041ccf148a053c58befb275312f3"
+media_type = "application/octet-stream"
+semantics = "Reference image for conformance comparison."
+
+[[assets]]
+path = "files/reference_extended/mct2-85.pgx"
+bytes = 129617
+sha256 = "71c04d479cae2167085f18790f3dce8cd1e076d02102b198ebc8f054e23f0a4f"
+media_type = "application/octet-stream"
+semantics = "Reference image for conformance comparison."
+
+[[assets]]
+path = "files/reference_extended/mct2-86.pgx"
+bytes = 129617
+sha256 = "8264b4d47576a658dfdfe0a278e8b45e4f267e2208912207ba8de1cd4062c904"
+media_type = "application/octet-stream"
+semantics = "Reference image for conformance comparison."
+
+[[assets]]
+path = "files/reference_extended/mct2-87.pgx"
+bytes = 129617
+sha256 = "9d558d02867ce967564b8bb25ce0ef2282004b818c02d62d82f09d97203005c8"
+media_type = "application/octet-stream"
+semantics = "Reference image for conformance comparison."
+
+[[assets]]
+path = "files/reference_extended/mct2-88.pgx"
+bytes = 129617
+sha256 = "7982c6a11169473c077b24115076a0f0763d886137fa0c70aa309d1c9348f497"
+media_type = "application/octet-stream"
+semantics = "Reference image for conformance comparison."
+
+[[assets]]
+path = "files/reference_extended/mct2-89.pgx"
+bytes = 129617
+sha256 = "94ba25e642f35d5a9841568d7523f8548239fc700187fa2050aef4c84be44895"
+media_type = "application/octet-stream"
+semantics = "Reference image for conformance comparison."
+
+[[assets]]
+path = "files/reference_extended/mct2-9.pgx"
+bytes = 129617
+sha256 = "9275cef9d0d1716e3cd76897ae38385f761bbf935b96661eccf97a67a07a7db4"
+media_type = "application/octet-stream"
+semantics = "Reference image for conformance comparison."
+
+[[assets]]
+path = "files/reference_extended/mct2-90.pgx"
+bytes = 129617
+sha256 = "0d4b6a906d7126e9b9747a770732c6207f4d92c0b1bc6e1c527c22c771807dbc"
+media_type = "application/octet-stream"
+semantics = "Reference image for conformance comparison."
+
+[[assets]]
+path = "files/reference_extended/mct2-91.pgx"
+bytes = 129617
+sha256 = "b12d352243599b8f75d563b5e97929787b913f8a6ddd566160e7b4ee78f4fec5"
+media_type = "application/octet-stream"
+semantics = "Reference image for conformance comparison."
+
+[[assets]]
+path = "files/reference_extended/mct2-92.pgx"
+bytes = 129617
+sha256 = "9980cc6d9d75687065817ba0f31ffddb892e75030fb05bba04b93e9b5fb5cffd"
+media_type = "application/octet-stream"
+semantics = "Reference image for conformance comparison."
+
+[[assets]]
+path = "files/reference_extended/mct2-93.pgx"
+bytes = 129617
+sha256 = "262b617ac64fda2e2f685b2ef92a0b260ecc37c53d0b2718be2c561260e11f43"
+media_type = "application/octet-stream"
+semantics = "Reference image for conformance comparison."
+
+[[assets]]
+path = "files/reference_extended/mct2-94.pgx"
+bytes = 129617
+sha256 = "d87bd85e4beefd454f5e0c0bfa5c23b1355a9d5ae98a57c2764edd9a6704807a"
+media_type = "application/octet-stream"
+semantics = "Reference image for conformance comparison."
+
+[[assets]]
+path = "files/reference_extended/mct2-95.pgx"
+bytes = 129617
+sha256 = "81e56711e53ee462d541c108a6c2fcc627257186bbcb30c9071fab611a04b17d"
+media_type = "application/octet-stream"
+semantics = "Reference image for conformance comparison."
+
+[[assets]]
+path = "files/reference_extended/mct2-96.pgx"
+bytes = 129617
+sha256 = "ab1300ea37fcbbd3aa89b972779ffd2b76b25c5dcfd62dd48b23dfaea80cbf99"
+media_type = "application/octet-stream"
+semantics = "Reference image for conformance comparison."
+
+[[assets]]
+path = "files/reference_extended/mct2-97.pgx"
+bytes = 129617
+sha256 = "e609c795a5475773eaf07e2212035a261608164c027f660667bf60ef731062ef"
+media_type = "application/octet-stream"
+semantics = "Reference image for conformance comparison."
+
+[[assets]]
+path = "files/reference_extended/mct2-98.pgx"
+bytes = 129617
+sha256 = "b2179371d49c602beb49d0cd5a34a9fa6c0357f70adc551d8c6a194b7ee9c512"
+media_type = "application/octet-stream"
+semantics = "Reference image for conformance comparison."
+
+[[assets]]
+path = "files/reference_extended/mct2-99.pgx"
+bytes = 129617
+sha256 = "a5a1d944f9230bb7028c0202bc7d1b2a8b83abc3fd91ee8733f154b52e309bbe"
+media_type = "application/octet-stream"
+semantics = "Reference image for conformance comparison."
+
+[[assets]]
+path = "files/reference_extended/mct3o-0.pgx"
+bytes = 129617
+sha256 = "8e1c8d2a9221710c3b91b4296afd1aaf5d3e96a8dcc6ccd861f523c9899c9854"
+media_type = "application/octet-stream"
+semantics = "Reference image for conformance comparison."
+
+[[assets]]
+path = "files/reference_extended/mct3o-1.pgx"
+bytes = 129617
+sha256 = "66b1afc5164c8d78b2d41e5fa0ced68426ac856f446f56c350520efecd2897f3"
+media_type = "application/octet-stream"
+semantics = "Reference image for conformance comparison."
+
+[[assets]]
+path = "files/reference_extended/mct3o-2.pgx"
+bytes = 129617
+sha256 = "92dd3faf06f2b3b63b8a98f72e061284e8feade3dfe15650982c631da9606006"
+media_type = "application/octet-stream"
+semantics = "Reference image for conformance comparison."
+
+[[assets]]
+path = "files/reference_extended/nlt1-0.pgx"
+bytes = 129617
+sha256 = "1978a70b6cd99780cd2ba9f670f69bd899d3baa8c36b6f06f8a00cf328c6562d"
+media_type = "application/octet-stream"
+semantics = "Reference image for conformance comparison."
+
+[[assets]]
+path = "files/reference_extended/nlt1-1.pgx"
+bytes = 129617
+sha256 = "764ed44248ec0feda049d5d6d29850c814115a8632eeece73ee553e6cbe9f0cb"
+media_type = "application/octet-stream"
+semantics = "Reference image for conformance comparison."
+
+[[assets]]
+path = "files/reference_extended/nlt1-2.pgx"
+bytes = 129617
+sha256 = "e3d7ba88875df7f0a8efafac5ca929c1ce20bbd1d791e7b755cac82a195b4a04"
+media_type = "application/octet-stream"
+semantics = "Reference image for conformance comparison."
+
+[[assets]]
+path = "files/reference_jp2/jp2_1.tif"
+bytes = 907984
+sha256 = "1d88f16d47e304affde8fdb3a593a18b328dfa28c04884ac6c889cdefa154d19"
+media_type = "image/tiff"
+semantics = "Reference image for conformance comparison."
+
+[[assets]]
+path = "files/reference_jp2/jp2_2.tif"
+bytes = 766348
+sha256 = "9850a8d54b227dcb931f43c96e3522fcf106629c60e9126381f3b39009c40c91"
+media_type = "image/tiff"
+semantics = "Reference image for conformance comparison."
+
+[[assets]]
+path = "files/reference_jp2/jp2_3.tif"
+bytes = 638064
+sha256 = "512a8827b98d71051c3cba52b96a323e879870ba90dc254016befaa1aa90dbd5"
+media_type = "image/tiff"
+semantics = "Reference image for conformance comparison."
+
+[[assets]]
+path = "files/reference_jp2/jp2_4.tif"
+bytes = 474368
+sha256 = "97395ed8d03798ef25ab7e53d904c288a37c8a07d1510ec1e897cdd923cf8eb1"
+media_type = "image/tiff"
+semantics = "Reference image for conformance comparison."
+
+[[assets]]
+path = "files/reference_jp2/jp2_5.tif"
+bytes = 1184280
+sha256 = "434b199ca176bb87de22d3e7413bf791602a7d0c21056745fb052d395dd52751"
+media_type = "image/tiff"
+semantics = "Reference image for conformance comparison."
+
+[[assets]]
+path = "files/reference_jp2/jp2_6.tif"
+bytes = 474368
+sha256 = "927541305c4f46e1eb43e5e551260bfee8b0c395b5ffba95a77483b0216bd2c6"
+media_type = "image/tiff"
+semantics = "Reference image for conformance comparison."
+
+[[assets]]
+path = "files/reference_jp2/jp2_7.tif"
+bytes = 756792
+sha256 = "65972c102d9277fbc901fbc60ee2253542f665b558c4548f986834a5488d6ed8"
+media_type = "image/tiff"
+semantics = "Reference image for conformance comparison."
+
+[[assets]]
+path = "files/reference_jp2/jp2_8.tif"
+bytes = 844840
+sha256 = "4f0187ac2cf3ab95739f642cafcf96fcb1f42d0de9a0ce92464d7b10f80d4b31"
+media_type = "image/tiff"
+semantics = "Reference image for conformance comparison."
+
+[[assets]]
+path = "files/reference_jp2/jp2_9.tif"
+bytes = 658544
+sha256 = "f092ba8dcffe34f289dbb258de2c3c22eb1eab7bd511096eacf812c29c2883fb"
+media_type = "image/tiff"
+semantics = "Reference image for conformance comparison."
+
+[[assets]]
+path = "files/reference_jph/jph_10_0.pgm"
+bytes = 65551
+sha256 = "a73b24afadeb9a2c85080c722691357ea28afcdd2756ad3e027fcf75f48e2aba"
+media_type = "image/x-portable-graymap"
+semantics = "Reference image for conformance comparison."
+
+[[assets]]
+path = "files/reference_jph/jph_10_1.pgm"
+bytes = 65551
+sha256 = "181f464790d293eea0e77a15adff1dbfeafc560c80efc07d8316b12714f2263d"
+media_type = "image/x-portable-graymap"
+semantics = "Reference image for conformance comparison."
+
+[[assets]]
+path = "files/reference_jph/jph_10_2.pgm"
+bytes = 65551
+sha256 = "1ca1254bfddfccec1f325d32c1145e22a029dbf139053fde164a11e871059237"
+media_type = "image/x-portable-graymap"
+semantics = "Reference image for conformance comparison."
+
+[[assets]]
+path = "files/reference_jph/jph_10_3.pgm"
+bytes = 65551
+sha256 = "a73b24afadeb9a2c85080c722691357ea28afcdd2756ad3e027fcf75f48e2aba"
+media_type = "image/x-portable-graymap"
+semantics = "Reference image for conformance comparison."
+
+[[assets]]
+path = "files/reference_jph/jph_10_4.pgm"
+bytes = 65551
+sha256 = "fbf7ced1a860e83d028d68db68e097ad161d0e14d387eff1df8c5772023e1d8d"
+media_type = "image/x-portable-graymap"
+semantics = "Reference image for conformance comparison."
+
+[[assets]]
+path = "files/reference_jpx/float.tif"
+bytes = 2322170
+sha256 = "d2bbca300f5ea6131e7bd78e5085ff0e4bbefeccf1e6b43f4e33a165749730bd"
+media_type = "image/tiff"
+semantics = "Reference image for conformance comparison."
+
+[[assets]]
+path = "files/reference_jpx/multi_img-0.tif"
+bytes = 521798
+sha256 = "f313d10d78ffb9c1a74536e696b7c72169ffe416ab51b07d0b30082a1aeed883"
+media_type = "image/tiff"
+semantics = "Reference image for conformance comparison."
+
+[[assets]]
+path = "files/reference_jpx/multi_img-1.tif"
+bytes = 521798
+sha256 = "d6b664e7f395b9befcabd04c3fecdfd6b7a75f50480c9365b2a1966de451a9f3"
+media_type = "image/tiff"
+semantics = "Reference image for conformance comparison."
+
+[[assets]]
+path = "files/reference_jpx/reboxing.tif"
+bytes = 388958
+sha256 = "4a9568eb5b3878365d41a6026ce2ca7ba547b9bdefaf6007df7ed68f074929e7"
+media_type = "image/tiff"
+semantics = "Reference image for conformance comparison."
+
+[[assets]]
+path = "files/testfiles_jp2/file1.jp2"
+bytes = 650678
+sha256 = "4e3d51df7bc66cf367162acfff88b0889d2b2c79ea8d99d93b2d2bd165398deb"
+media_type = "image/jp2"
+semantics = "JP2 file-format conformance test file."
+
+[[assets]]
+path = "files/testfiles_jp2/file2.jp2"
+bytes = 452004
+sha256 = "c87b78e7c3298ddb5e2c4b9a27485ae52ed0906184ae4eecf13b7525ad160960"
+media_type = "image/jp2"
+semantics = "JP2 file-format conformance test file."
+
+[[assets]]
+path = "files/testfiles_jp2/file3.jp2"
+bytes = 242213
+sha256 = "fe922461d6928f9b9c86c222a133c42c19d119351400d5e8dd6a1e60db437e66"
+media_type = "image/jp2"
+semantics = "JP2 file-format conformance test file."
+
+[[assets]]
+path = "files/testfiles_jp2/file4.jp2"
+bytes = 220443
+sha256 = "b3474f23bcf622f4f82c8ede5c473a4a1bae1c287b713fbd8447442e37edcee0"
+media_type = "image/jp2"
+semantics = "JP2 file-format conformance test file."
+
+[[assets]]
+path = "files/testfiles_jp2/file5.jp2"
+bytes = 586560
+sha256 = "dbaeb5aaadf2f911c38f2585fa7d87a490c5abcf6742d6c91ecdebe42077ecd7"
+media_type = "image/jp2"
+semantics = "JP2 file-format conformance test file."
+
+[[assets]]
+path = "files/testfiles_jp2/file6.jp2"
+bytes = 394542
+sha256 = "78ae553dc97b22352a2417aba739160e3b6c5b187b2efb867fb50f9814f1bc67"
+media_type = "image/jp2"
+semantics = "JP2 file-format conformance test file."
+
+[[assets]]
+path = "files/testfiles_jp2/file7.jp2"
+bytes = 1368095
+sha256 = "c9e6c845fde3db494035b9be8728239da45791b3269687a043a1fcedd8d11dbf"
+media_type = "image/jp2"
+semantics = "JP2 file-format conformance test file."
+
+[[assets]]
+path = "files/testfiles_jp2/file8.jp2"
+bytes = 150619
+sha256 = "81e8a8bae1e3d7e632091a120a8a6650a04636b2276a550889b153290348eb01"
+media_type = "image/jp2"
+semantics = "JP2 file-format conformance test file."
+
+[[assets]]
+path = "files/testfiles_jp2/file9.jp2"
+bytes = 300208
+sha256 = "6dfea011b013b62353fedcce9520e7c061dbbe8bf0c06d9edad4ac8889274b91"
+media_type = "image/jp2"
+semantics = "JP2 file-format conformance test file."
+
+[[assets]]
+path = "files/testfiles_jph/create_10"
+bytes = 1789
+sha256 = "81e5d1f60e4fcc84176a492ef5e1032efaa44290ce234f8b5dc9cd6fec71ef56"
+media_type = "text/plain"
+semantics = "Supporting file from the ISO/IEC 15444-4:2024 electronic insert."
+
+[[assets]]
+path = "files/testfiles_jph/file10_b11.jph"
+bytes = 62528
+sha256 = "c08b07807d967be41ed86ca444fed6a3761f6c8c889025f0ff036bdb2555e4ed"
+media_type = "image/jph"
+semantics = "JPH file-format conformance test file."
+
+[[assets]]
+path = "files/testfiles_jph/file10_b12.jph"
+bytes = 62616
+sha256 = "89563adb7883c7d2fae5a8d152241c4c5a854ff88e477ba1fcd25c71841344e0"
+media_type = "image/jph"
+semantics = "JPH file-format conformance test file."
+
+[[assets]]
+path = "files/testfiles_jph/file1_b11.jph"
+bytes = 689521
+sha256 = "a496952705d380f3e9f88b6f60798c30f4bb05db920c20b45531b7d882804e10"
+media_type = "image/jph"
+semantics = "JPH file-format conformance test file."
+
+[[assets]]
+path = "files/testfiles_jph/file1_b12.jph"
+bytes = 693209
+sha256 = "8bf8e9aee043da15e95debf9049e2e371640705d949fe51fb0036fe91aac941f"
+media_type = "image/jph"
+semantics = "JPH file-format conformance test file."
+
+[[assets]]
+path = "files/testfiles_jph/file2_b11.jph"
+bytes = 476753
+sha256 = "2633ed1d831e80e9f849915436a4a9439f60eaa0d6b843523085704ce2cc6d25"
+media_type = "image/jph"
+semantics = "JPH file-format conformance test file."
+
+[[assets]]
+path = "files/testfiles_jph/file2_b12.jph"
+bytes = 480518
+sha256 = "8b10fd5861ff8c4f76f070597b002d5789392b988006ff1fb358c4aa1a422218"
+media_type = "image/jph"
+semantics = "JPH file-format conformance test file."
+
+[[assets]]
+path = "files/testfiles_jph/file3_b11.jph"
+bytes = 256294
+sha256 = "f0cd82435088e3c8b86711319a19cc317790eef123a34a9a48d076b3836265ae"
+media_type = "image/jph"
+semantics = "JPH file-format conformance test file."
+
+[[assets]]
+path = "files/testfiles_jph/file3_b12.jph"
+bytes = 258474
+sha256 = "2bbbe77748a9e2e7e4307b0641cb80875f355c3dfceab814f404a872f3370ea9"
+media_type = "image/jph"
+semantics = "JPH file-format conformance test file."
+
+[[assets]]
+path = "files/testfiles_jph/file4_b11.jph"
+bytes = 234052
+sha256 = "a278deaf707ece38a995f87991bce80048ec50a2f053ac9eb19eba624009c953"
+media_type = "image/jph"
+semantics = "JPH file-format conformance test file."
+
+[[assets]]
+path = "files/testfiles_jph/file4_b12.jph"
+bytes = 235245
+sha256 = "a0c6bea72246a0ca1c9627cba9baa075da23ed3c81f3a4159918e2620b0b328e"
+media_type = "image/jph"
+semantics = "JPH file-format conformance test file."
+
+[[assets]]
+path = "files/testfiles_jph/file5_b11.jph"
+bytes = 622716
+sha256 = "f75db93732731cc3d2351b75de088d87cf98ea6ed91c8d393d51a117ad65b6b6"
+media_type = "image/jph"
+semantics = "JPH file-format conformance test file."
+
+[[assets]]
+path = "files/testfiles_jph/file5_b12.jph"
+bytes = 626348
+sha256 = "f1b91a88b8bce719e7d41649b71dd33fc8d85d7f61461fd191a967e3549a5c92"
+media_type = "image/jph"
+semantics = "JPH file-format conformance test file."
+
+[[assets]]
+path = "files/testfiles_jph/file6_b11.jph"
+bytes = 255465
+sha256 = "e55e7530e3b3bdd7b1f7d5a7661da0c3182407a214d24cdae5ef1ecc478b3c6e"
+media_type = "image/jph"
+semantics = "JPH file-format conformance test file."
+
+[[assets]]
+path = "files/testfiles_jph/file6_b15.jph"
+bytes = 434842
+sha256 = "2c25892a9e881b969ea98625386e975a4d7c403851ccf39cb64a03347d3fca12"
+media_type = "image/jph"
+semantics = "JPH file-format conformance test file."
+
+[[assets]]
+path = "files/testfiles_jph/file7_b11.jph"
+bytes = 461647
+sha256 = "844a21a93d2e6f15b540ef2fe3465bbc149b4d98796b4075a2ac7f0aedd01793"
+media_type = "image/jph"
+semantics = "JPH file-format conformance test file."
+
+[[assets]]
+path = "files/testfiles_jph/file7_b15.jph"
+bytes = 992677
+sha256 = "3b8f47b451cac63c09778dfe7829ef890e26dc116a1cd1991999379e3082c22e"
+media_type = "image/jph"
+semantics = "JPH file-format conformance test file."
+
+[[assets]]
+path = "files/testfiles_jph/file7_b19.jph"
+bytes = 1395619
+sha256 = "c20643d17d746134c07849c9457102b793858f4794cf2f37a434e25982b5b859"
+media_type = "image/jph"
+semantics = "JPH file-format conformance test file."
+
+[[assets]]
+path = "files/testfiles_jph/file8_b11.jph"
+bytes = 160504
+sha256 = "4f5fbe9d74ff3eae9c77efa6cb5d482cbfb8443977918b1e04893f764ead16ee"
+media_type = "image/jph"
+semantics = "JPH file-format conformance test file."
+
+[[assets]]
+path = "files/testfiles_jph/file9_b11.jph"
+bytes = 314056
+sha256 = "c898f00048917635d28cce9c740db7ada2b9d349e41ff1f4a15d7185445a57f6"
+media_type = "image/jph"
+semantics = "JPH file-format conformance test file."
+
+[[assets]]
+path = "files/testfiles_jph/file9_b12.jph"
+bytes = 315369
+sha256 = "25f2007778caee9599ddbffb7f267cce91c4e9a35bc2d7f8fe1dcac90ab5061e"
+media_type = "image/jph"
+semantics = "JPH file-format conformance test file."
+
+[[assets]]
+path = "files/testfiles_jph/gitlab_repository.txt"
+bytes = 331
+sha256 = "5e81c719ab2d39413cdb76b191c7c451fdab8c7bbf0d58a7903e883278d155a7"
+media_type = "text/plain"
+semantics = "Supporting file from the ISO/IEC 15444-4:2024 electronic insert."
+
+[[assets]]
+path = "files/testfiles_jph/stats_1.txt"
+bytes = 665
+sha256 = "fc9206db0de0c1632c2182fd60b2521639f59d11df2b7fc150eb34c109c52d6c"
+media_type = "text/plain"
+semantics = "Supporting file from the ISO/IEC 15444-4:2024 electronic insert."
+
+[[assets]]
+path = "files/testfiles_jph/stats_10.txt"
+bytes = 866
+sha256 = "d75d4bdad6b1ca7d6dde651ba63b18f3e66b425979f175a75015c63f49ffade1"
+media_type = "text/plain"
+semantics = "Supporting file from the ISO/IEC 15444-4:2024 electronic insert."
+
+[[assets]]
+path = "files/testfiles_jph/stats_2.txt"
+bytes = 665
+sha256 = "76d728daf073ff9134e3eaac2a165ef020ea1e80c156155eaab1a23b0f9db314"
+media_type = "text/plain"
+semantics = "Supporting file from the ISO/IEC 15444-4:2024 electronic insert."
+
+[[assets]]
+path = "files/testfiles_jph/stats_3.txt"
+bytes = 509
+sha256 = "1d6a798da3145d01a56eb64fec77d71cbbf62574802df22c126673d9bbf9fa0b"
+media_type = "text/plain"
+semantics = "Supporting file from the ISO/IEC 15444-4:2024 electronic insert."
+
+[[assets]]
+path = "files/testfiles_jph/stats_4.ttx"
+bytes = 229
+sha256 = "0182d397539ed6759636dc2f8c30307dbc2b061ec933efd0083ec40dbe7849b1"
+media_type = "text/plain"
+semantics = "Supporting file from the ISO/IEC 15444-4:2024 electronic insert."
+
+[[assets]]
+path = "files/testfiles_jph/stats_5.txt"
+bytes = 665
+sha256 = "7845e2555ea9b2da3c0d63b687999a391a026438f4279b8146ef7be4525211a6"
+media_type = "text/plain"
+semantics = "Supporting file from the ISO/IEC 15444-4:2024 electronic insert."
+
+[[assets]]
+path = "files/testfiles_jph/stats_6.txt"
+bytes = 229
+sha256 = "dc9a883c1f3a347147f004112e776cf41575b8a5832ddcf4dfa55d40c911d518"
+media_type = "text/plain"
+semantics = "Supporting file from the ISO/IEC 15444-4:2024 electronic insert."
+
+[[assets]]
+path = "files/testfiles_jph/stats_7.txt"
+bytes = 973
+sha256 = "7adaee41ccebb8fcba20070e16052763bbf3383964b5f4adb774c0d6adf8912c"
+media_type = "text/plain"
+semantics = "Supporting file from the ISO/IEC 15444-4:2024 electronic insert."
+
+[[assets]]
+path = "files/testfiles_jph/stats_8.txt"
+bytes = 146
+sha256 = "2b891351a962d53cd3033caa82d60a0b27eaf146b811b702016ff6a51a613cbc"
+media_type = "text/plain"
+semantics = "Supporting file from the ISO/IEC 15444-4:2024 electronic insert."
+
+[[assets]]
+path = "files/testfiles_jph/stats_9.txt"
+bytes = 665
+sha256 = "5b19bb235bf6a1943639f7d7333d288c6b76a2ac514f7a5f239ec5fe478c6b07"
+media_type = "text/plain"
+semantics = "Supporting file from the ISO/IEC 15444-4:2024 electronic insert."
+
+[[assets]]
+path = "files/testfiles_jph/transcode_1"
+bytes = 854
+sha256 = "94a110bdfb3779c566c5d22c04552bf12a2aed68f52c31d9342bd28911e00736"
+media_type = "text/plain"
+semantics = "Supporting file from the ISO/IEC 15444-4:2024 electronic insert."
+
+[[assets]]
+path = "files/testfiles_jph/transcode_2"
+bytes = 854
+sha256 = "8641a40b7222866cd7c976ee9ca82badd4490d5825e3e01cbc7b4b0310de7b52"
+media_type = "text/plain"
+semantics = "Supporting file from the ISO/IEC 15444-4:2024 electronic insert."
+
+[[assets]]
+path = "files/testfiles_jph/transcode_3"
+bytes = 1080
+sha256 = "592d2bb57c333fbd6b0f44ae7da92cf0f4a848573924296af6a5691c6d3460fc"
+media_type = "text/plain"
+semantics = "Supporting file from the ISO/IEC 15444-4:2024 electronic insert."
+
+[[assets]]
+path = "files/testfiles_jph/transcode_4"
+bytes = 846
+sha256 = "981b4a78d2e89b227da5b1ca069e90c63e7409058f92e7b3498d5be822a87455"
+media_type = "text/plain"
+semantics = "Supporting file from the ISO/IEC 15444-4:2024 electronic insert."
+
+[[assets]]
+path = "files/testfiles_jph/transcode_5"
+bytes = 854
+sha256 = "b881703eadcea3ac6e96f83ffc8d7ffbf9564534c5142c3186125fbd4ec83a5f"
+media_type = "text/plain"
+semantics = "Supporting file from the ISO/IEC 15444-4:2024 electronic insert."
+
+[[assets]]
+path = "files/testfiles_jph/transcode_6"
+bytes = 846
+sha256 = "d52e57baac71ed4c451952a99a118c6d56610ddc7b8f68cb17ccfcc2a4f6d02f"
+media_type = "text/plain"
+semantics = "Supporting file from the ISO/IEC 15444-4:2024 electronic insert."
+
+[[assets]]
+path = "files/testfiles_jph/transcode_7"
+bytes = 1070
+sha256 = "6acc0f62b2d0bb31717bcdfc0dbac50aef2afda17317e944e77201d0e29eecc1"
+media_type = "text/plain"
+semantics = "Supporting file from the ISO/IEC 15444-4:2024 electronic insert."
+
+[[assets]]
+path = "files/testfiles_jph/transcode_8"
+bytes = 634
+sha256 = "42fd920e18a5f1cdaf895dc698430d8e02e6499ee2924ff439de614c26d859fd"
+media_type = "text/plain"
+semantics = "Supporting file from the ISO/IEC 15444-4:2024 electronic insert."
+
+[[assets]]
+path = "files/testfiles_jph/transcode_9"
+bytes = 854
+sha256 = "2935a396b65be14388a4692b0f8e8a9ee28685afc4e9447b7ccd7865b520977a"
+media_type = "text/plain"
+semantics = "Supporting file from the ISO/IEC 15444-4:2024 electronic insert."
+
+[[assets]]
+path = "files/testfiles_jpx/float.jpx"
+bytes = 24275
+sha256 = "e9b9deeb0fc1316da65bca2867380c4475bc3d846390cbcb9090c797471eed8a"
+media_type = "image/jpx"
+semantics = "JPX file-format conformance test file."
+
+[[assets]]
+path = "files/testfiles_jpx/multi_img.jpx"
+bytes = 198134
+sha256 = "9ff98bd6804abf3f7b5d4d8b7852e112d5b815e5ea9638b1dc483a76801efbd7"
+media_type = "image/jpx"
+semantics = "JPX file-format conformance test file."
+
+[[assets]]
+path = "files/testfiles_jpx/reboxing.jpx"
+bytes = 45252
+sha256 = "32bd0537c0c6c1a9b6ef6ad58c0e7b06e065e146705033ae6b51e5f237927b51"
+media_type = "image/jpx"
+semantics = "JPX file-format conformance test file."

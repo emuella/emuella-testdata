@@ -24,9 +24,29 @@ fn run() -> Result<(), Box<dyn Error>> {
         "show" => show(&catalogue, &arguments),
         "check" => check(&catalogue, &arguments),
         "verify" => verify(&catalogue, &arguments),
+        "inventory" => inventory(&catalogue, &arguments),
         "generate" => generate(&catalogue, &arguments),
         unknown => Err(format!("unknown command {unknown:?}; use --help").into()),
     }
+}
+
+fn inventory(catalogue: &Catalogue, arguments: &[String]) -> Result<(), Box<dyn Error>> {
+    if arguments.len() != 5 || arguments[1] != "--root" || arguments[3] != "--output" {
+        return Err("usage: emuella-corpus inventory <id> --root PATH --output PATH".into());
+    }
+    let report = catalogue.write_inventory(
+        &arguments[0],
+        &PathBuf::from(&arguments[2]),
+        &PathBuf::from(&arguments[4]),
+    )?;
+    println!(
+        "inventoried {} assets ({} bytes) with tree SHA-256 {} into {}",
+        report.asset_count,
+        report.total_bytes,
+        report.tree_sha256,
+        report.output.display()
+    );
+    Ok(())
 }
 
 fn list(catalogue: &Catalogue, arguments: &[String]) -> Result<(), Box<dyn Error>> {
@@ -97,6 +117,9 @@ fn verify(catalogue: &Catalogue, arguments: &[String]) -> Result<(), Box<dyn Err
         report.pack_id,
         report.root.display()
     );
+    if let Some(tree_sha256) = report.tree_sha256 {
+        println!("verified complete tree SHA-256 {tree_sha256}");
+    }
     Ok(())
 }
 
@@ -183,6 +206,7 @@ Usage:
   emuella-corpus show <pack-or-suite-id>
   emuella-corpus check
   emuella-corpus verify <pack-id> [--root PATH]
+  emuella-corpus inventory <pack-id> --root PATH --output PATH
   emuella-corpus generate {GENERATED_CORE_ID} [--output PATH]
 
 The catalogue root is found from EMU_TESTDATA_ROOT or by walking upward from

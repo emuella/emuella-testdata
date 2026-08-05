@@ -1,4 +1,7 @@
-use crate::model::{CatalogueManifest, PackKind, PackManifest, ReviewState, SuiteManifest};
+use crate::model::{
+    AssetInventoryManifest, AssetRecord, CatalogueManifest, PackKind, PackManifest, ReviewState,
+    SuiteManifest,
+};
 use sha2::{Digest, Sha256};
 use std::collections::{BTreeMap, BTreeSet};
 use std::error::Error;
@@ -58,6 +61,15 @@ pub struct VerificationReport {
     pub root: PathBuf,
     pub checked_assets: usize,
     pub checked_bytes: u64,
+    pub tree_sha256: Option<String>,
+}
+
+#[derive(Clone, Debug)]
+pub struct InventoryReport {
+    pub output: PathBuf,
+    pub asset_count: usize,
+    pub total_bytes: u64,
+    pub tree_sha256: String,
 }
 
 impl Catalogue {
@@ -79,7 +91,34 @@ impl Catalogue {
 
         let mut packs = BTreeMap::new();
         for path in toml_files(&root.join(&config.manifest_root))? {
-            let manifest: PackManifest = parse_toml(&path)?;
+            let mut manifest: PackManifest = parse_toml(&path)?;
+            if let Some(inventory_path) = &manifest.asset_inventory {
+                if !manifest.assets.is_empty() {
+                    return Err(CatalogueError::message(format!(
+                        "pack {} has both inline assets and an external asset inventory",
+                        manifest.id
+                    )));
+                }
+                validate_relative_path("asset inventory", inventory_path)?;
+                let inventory: AssetInventoryManifest = parse_toml(&root.join(inventory_path))?;
+                if inventory.schema_version != 1 {
+                    return Err(CatalogueError::message(format!(
+                        "pack {} uses unsupported asset inventory schema version {}",
+                        manifest.id, inventory.schema_version
+                    )));
+                }
+                if inventory.pack_id != manifest.id || inventory.pack_version != manifest.version {
+                    return Err(CatalogueError::message(format!(
+                        "asset inventory {} identifies {}@{}, expected {}@{}",
+                        inventory_path,
+                        inventory.pack_id,
+                        inventory.pack_version,
+                        manifest.id,
+                        manifest.version
+                    )));
+                }
+                manifest.assets = inventory.assets;
+            }
             let id = manifest.id.clone();
             if let Some(previous) = packs.insert(
                 id.clone(),
@@ -294,7 +333,68 @@ impl Catalogue {
             report.checked_assets += 1;
             report.checked_bytes += metadata.len();
         }
+        if let Some(expected) = &pack.materialization.expected_tree_sha256 {
+            let actual_assets = inventory_assets(&root)?;
+            let actual = tree_sha256(&actual_assets);
+            if &actual != expected {
+                return Err(CatalogueError::message(format!(
+                    "tree SHA-256 mismatch for {}: expected {}, found {}",
+                    root.display(),
+                    expected,
+                    actual
+                )));
+            }
+            report.tree_sha256 = Some(actual);
+        }
         Ok(report)
+    }
+
+    pub fn write_inventory(
+        &self,
+        id: &str,
+        root: &Path,
+        output: &Path,
+    ) -> Result<InventoryReport, CatalogueError> {
+        let pack = self
+            .pack(id)
+            .ok_or_else(|| CatalogueError::message(format!("unknown pack ID {id}")))?;
+        let assets = inventory_assets(root)?;
+        if assets.is_empty() {
+            return Err(CatalogueError::message(format!(
+                "cannot inventory an empty tree: {}",
+                root.display()
+            )));
+        }
+        let inventory = AssetInventoryManifest {
+            schema_version: 1,
+            pack_id: pack.id.clone(),
+            pack_version: pack.version.clone(),
+            assets,
+        };
+        let encoded = toml::to_string_pretty(&inventory).map_err(|error| {
+            CatalogueError::message(format!("failed to encode asset inventory: {error}"))
+        })?;
+        if let Some(parent) = output.parent() {
+            fs::create_dir_all(parent).map_err(|error| {
+                CatalogueError::message(format!(
+                    "failed to create inventory directory {}: {error}",
+                    parent.display()
+                ))
+            })?;
+        }
+        fs::write(output, encoded).map_err(|error| {
+            CatalogueError::message(format!(
+                "failed to write asset inventory {}: {error}",
+                output.display()
+            ))
+        })?;
+        let total_bytes = inventory.assets.iter().map(|asset| asset.bytes).sum();
+        Ok(InventoryReport {
+            output: output.to_path_buf(),
+            asset_count: inventory.assets.len(),
+            total_bytes,
+            tree_sha256: tree_sha256(&inventory.assets),
+        })
     }
 }
 
@@ -343,6 +443,15 @@ fn validate_pack(
         }
     }
     validate_relative_path("materialization directory", &pack.materialization.directory)?;
+    if let Some(inventory_path) = &pack.asset_inventory {
+        validate_relative_path("asset inventory", inventory_path)?;
+        if !root.join(inventory_path).is_file() {
+            return Err(CatalogueError::message(format!(
+                "pack {} references missing asset inventory {}",
+                pack.id, inventory_path
+            )));
+        }
+    }
     if let Some(digest) = &pack.materialization.expected_tree_sha256 {
         validate_sha256("expected tree SHA-256", digest, &pack.id)?;
     }
@@ -384,6 +493,21 @@ fn validate_pack(
             pack.id
         )));
     }
+    if pack.review_state == ReviewState::Locked && pack.kind != PackKind::Generated {
+        let source = pack.source.as_ref().expect("external source checked above");
+        if source.archive_filename.is_none() || source.archive_sha256.is_none() {
+            return Err(CatalogueError::message(format!(
+                "locked external pack {} has no archive filename and SHA-256",
+                pack.id
+            )));
+        }
+        if pack.materialization.expected_tree_sha256.is_none() {
+            return Err(CatalogueError::message(format!(
+                "locked external pack {} has no expected tree SHA-256",
+                pack.id
+            )));
+        }
+    }
     if pack.review_state != ReviewState::Locked {
         report.warnings.push(format!(
             "pack {}@{} is {:?}, not locked",
@@ -408,7 +532,142 @@ fn validate_pack(
             )));
         }
     }
+    if let Some(source) = &pack.source
+        && let (Some(filename), Some(digest)) = (&source.archive_filename, &source.archive_sha256)
+    {
+        let archive = pack
+            .assets
+            .iter()
+            .find(|asset| asset.path == *filename)
+            .ok_or_else(|| {
+                CatalogueError::message(format!(
+                    "pack {} archive {} is absent from its asset inventory",
+                    pack.id, filename
+                ))
+            })?;
+        if archive.sha256 != *digest {
+            return Err(CatalogueError::message(format!(
+                "pack {} archive digest disagrees with its asset inventory",
+                pack.id
+            )));
+        }
+    }
     Ok(())
+}
+
+fn inventory_assets(root: &Path) -> Result<Vec<AssetRecord>, CatalogueError> {
+    let root = root.canonicalize().map_err(|error| {
+        CatalogueError::message(format!(
+            "failed to resolve inventory root {}: {error}",
+            root.display()
+        ))
+    })?;
+    let mut files = Vec::new();
+    collect_regular_files(&root, &root, &mut files)?;
+    files.sort_by(|left, right| left.0.cmp(&right.0));
+    files
+        .into_iter()
+        .map(|(relative, path)| {
+            let metadata = fs::metadata(&path).map_err(|error| {
+                CatalogueError::message(format!("failed to inspect {}: {error}", path.display()))
+            })?;
+            Ok(AssetRecord {
+                media_type: media_type(&relative).to_owned(),
+                semantics: asset_semantics(&relative).to_owned(),
+                path: relative,
+                bytes: metadata.len(),
+                sha256: sha256_file(&path)?,
+            })
+        })
+        .collect()
+}
+
+fn collect_regular_files(
+    root: &Path,
+    directory: &Path,
+    files: &mut Vec<(String, PathBuf)>,
+) -> Result<(), CatalogueError> {
+    for entry in fs::read_dir(directory).map_err(|error| {
+        CatalogueError::message(format!("failed to walk {}: {error}", directory.display()))
+    })? {
+        let entry = entry.map_err(|error| {
+            CatalogueError::message(format!("failed to read directory entry: {error}"))
+        })?;
+        let path = entry.path();
+        let file_type = entry.file_type().map_err(|error| {
+            CatalogueError::message(format!("failed to inspect {}: {error}", path.display()))
+        })?;
+        if file_type.is_dir() {
+            collect_regular_files(root, &path, files)?;
+        } else if file_type.is_file() {
+            let relative = path.strip_prefix(root).expect("walk remains under root");
+            let relative = relative.to_str().ok_or_else(|| {
+                CatalogueError::message(format!(
+                    "inventory path is not valid UTF-8: {}",
+                    relative.display()
+                ))
+            })?;
+            files.push((relative.replace(std::path::MAIN_SEPARATOR, "/"), path));
+        } else {
+            return Err(CatalogueError::message(format!(
+                "inventory tree contains a non-regular entry: {}",
+                path.display()
+            )));
+        }
+    }
+    Ok(())
+}
+
+fn tree_sha256(assets: &[AssetRecord]) -> String {
+    let mut hasher = Sha256::new();
+    for asset in assets {
+        hasher.update(asset.sha256.as_bytes());
+        hasher.update(b"\t");
+        hasher.update(asset.bytes.to_string().as_bytes());
+        hasher.update(b"\t");
+        hasher.update(asset.path.as_bytes());
+        hasher.update(b"\n");
+    }
+    hex_digest(hasher.finalize().as_slice())
+}
+
+fn media_type(path: &str) -> &'static str {
+    match Path::new(path).extension().and_then(|value| value.to_str()) {
+        Some("zip") => "application/zip",
+        Some("j2k") => "image/j2c",
+        Some("jp2") => "image/jp2",
+        Some("jph") => "image/jph",
+        Some("jpx") => "image/jpx",
+        Some("pgm") => "image/x-portable-graymap",
+        Some("tif") => "image/tiff",
+        Some("xml") => "application/xml",
+        Some("txt" | "ttx" | "desc" | "pf" | "licence") | None => "text/plain",
+        _ => "application/octet-stream",
+    }
+}
+
+fn asset_semantics(path: &str) -> &'static str {
+    if path == "electronic_insert.zip" {
+        "Unmodified authoritative ISO electronic-insert archive."
+    } else if path.ends_with("COPYRIGHT.txt") || path.ends_with("README.licence") {
+        "Embedded rights and attribution notice; preserve unchanged with the pack."
+    } else if path.contains("htj2k_bsets") && path.ends_with(".j2k") {
+        "HTJ2K conformance codestream."
+    } else if path.contains("codestreams_") && path.ends_with(".j2k") {
+        "JPEG 2000 conformance codestream."
+    } else if path.contains("testfiles_jp2") && path.ends_with(".jp2") {
+        "JP2 file-format conformance test file."
+    } else if path.contains("testfiles_jph") && path.ends_with(".jph") {
+        "JPH file-format conformance test file."
+    } else if path.contains("testfiles_jpx") && path.ends_with(".jpx") {
+        "JPX file-format conformance test file."
+    } else if path.contains("reference_") {
+        "Reference image for conformance comparison."
+    } else if path.contains("descriptions_") {
+        "Conformance test description or comparison parameters."
+    } else {
+        "Supporting file from the ISO/IEC 15444-4:2024 electronic insert."
+    }
 }
 
 fn validate_id(kind: &str, id: &str) -> Result<(), CatalogueError> {
@@ -532,6 +791,21 @@ mod tests {
     #[test]
     fn formats_sha256_as_lowercase_hex() {
         assert_eq!(hex_digest(&[0x00, 0xab, 0xff]), "00abff");
+    }
+
+    #[test]
+    fn tree_digest_commits_to_hash_size_and_path() {
+        let assets = vec![AssetRecord {
+            path: "a/file.bin".to_owned(),
+            bytes: 3,
+            sha256: "00aaff0000000000000000000000000000000000000000000000000000000000".to_owned(),
+            media_type: "application/octet-stream".to_owned(),
+            semantics: "ignored by the byte-tree identity".to_owned(),
+        }];
+        assert_eq!(
+            tree_sha256(&assets),
+            "b471b7359e6e37530180322f745db7fb3f2c72f30fb20d055efa6e6165c8b305"
+        );
     }
 
     #[test]

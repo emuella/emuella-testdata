@@ -75,9 +75,16 @@ chooses to create it. Published derived packs should use content-addressed
 release assets or object storage rather than Git history.
 
 The verifier rejects absolute or parent-traversing asset paths. A materialized
-tree may contain upstream licence and provenance files in addition to the
-files selected by the manifest; strict tree locking can be added once a pack's
-authoritative bytes have been acquired and reviewed.
+tree must retain upstream licence and provenance files. A locked external pack
+records every regular file in a separate inventory and rejects symlinks or
+other special filesystem entries.
+
+The canonical tree digest is SHA-256 over the inventory sorted by path. Each
+record is encoded as lowercase file SHA-256, a tab, its decimal byte length, a
+tab, its forward-slash relative path, and a newline. Media type and descriptive
+semantics are intentionally excluded from the digest, so improving catalogue
+metadata does not change the identity of an unchanged byte tree. Additional,
+missing, renamed, or modified files change the digest.
 
 ## Stable identities
 

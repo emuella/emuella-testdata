@@ -4,6 +4,11 @@ Authoritative terms:
 https://www.iso.org/terms-conditions-licence-agreement.html
 
 An ISO electronic-insert landing page can state additional purpose and
-original-format conditions. The applicable manifest records that landing page.
+original-format conditions. The ISO/IEC 15444-4:2024 edition-4 landing page
+states that downloading accepts clauses 1, 7, 8, and 9 of the ISO Customer
+Licence Agreement and permits original-format use for purposes specified by
+the standard. The applicable manifest records that landing page.
+
 Emuella does not distribute the insert, accept its terms on another user's
-behalf, or apply Apache-2.0 to it.
+behalf, or apply Apache-2.0 to it. A user materializing the pack must review
+the authoritative terms for their own use.

@@ -32,9 +32,20 @@ pub struct PackManifest {
     pub source: Option<SourceRecord>,
     pub materialization: MaterializationRecord,
     #[serde(default)]
+    pub asset_inventory: Option<String>,
+    #[serde(default)]
     pub assets: Vec<AssetRecord>,
     #[serde(default)]
     pub notes: Vec<String>,
+}
+
+#[derive(Clone, Debug, Deserialize, Serialize)]
+#[serde(deny_unknown_fields)]
+pub struct AssetInventoryManifest {
+    pub schema_version: u32,
+    pub pack_id: String,
+    pub pack_version: String,
+    pub assets: Vec<AssetRecord>,
 }
 
 #[derive(Clone, Copy, Debug, Deserialize, Serialize, Eq, PartialEq)]

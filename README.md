@@ -31,6 +31,7 @@ model.
 - `crates/emuella-corpus`: catalogue validation, fixture generation, and pack
   verification CLI.
 - `manifests`: one independently licensed and versioned record per corpus pack.
+- `inventories`: complete, deterministic file records for locked external packs.
 - `suites`: named selections used by local testing and CI.
 - `generated`: committed Apache-2.0 fixtures created by the CLI.
 - `recipes`: human- and machine-readable transformation provenance.
@@ -48,12 +49,16 @@ cargo run -p emuella-corpus -- list suites
 cargo run -p emuella-corpus -- show common/generated-core
 cargo run -p emuella-corpus -- check
 cargo run -p emuella-corpus -- verify common/generated-core
+cargo run -p emuella-corpus -- verify jpeg-2000/conformance
+cargo run -p emuella-corpus -- inventory PACK --root PATH --output PATH
 cargo run -p emuella-corpus -- generate common/generated-core --output /tmp/generated-core
 ```
 
 `check` validates all manifests, suite references, local paths, licence-review
 states, and digest syntax. `verify` compares a materialized pack with its
-recorded file sizes and SHA-256 digests.
+recorded file sizes and SHA-256 digests, then verifies the complete tree digest
+when one is present. `inventory` is a maintainer command: it records every
+regular file and rejects symlinks or other special filesystem entries.
 
 The CLI deliberately does not accept external licence terms or download
 click-through material on a user's behalf. External manifests provide the

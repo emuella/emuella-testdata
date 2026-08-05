@@ -1,14 +1,14 @@
 schema_version = 1
 id = "layer2/conformance-jpeg-2000"
-revision = 1
+revision = 2
 name = "JPEG 2000 and HTJ2K decoder conformance"
 description = "ISO/IEC 15444-4:2024 fourth-edition J2K, HTJ2K, JP2, and JPH qualification material."
 layer = 2
 purposes = ["conformance", "file-format-conformance"]
-gating = false
-missing_policy = "skip"
+gating = true
+missing_policy = "fail"
 notes = [
-  "The pack is not release-gating until its authoritative archive and expanded assets are locked.",
+  "The authoritative edition-4 archive and complete expanded tree are locked; absence is a qualification failure.",
   "Annex C, Annex G, and informative Annex H results must remain distinct.",
 ]
 

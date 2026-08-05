@@ -1,6 +1,12 @@
 Licence reference: JPEG 2000 conformance files
 
 The authoritative current insert is identified by the JPEG 2000 conformance
-manifest. Historical copies can carry a JPEG-2000-use-only copyright
-non-assertion notice. Neither that notice nor public downloadability is treated
-as an Apache-2.0 grant. Emuella does not vendor these files.
+manifest. Its embedded COPYRIGHT.txt carries a JPEG-2000-use-only copyright
+non-assertion for conformance-related use and requires preservation of the
+notice in copies or derivative works. The ISO portal separately limits its
+download to original-format use for purposes specified by the standard.
+
+The locked pack follows the stricter original-format condition. Neither the
+embedded notice nor public downloadability is treated as an Apache-2.0 grant,
+and redistribution is not inferred. The complete upstream notices remain in
+the externally materialized tree and are verified by digest.

@@ -42,6 +42,18 @@ Before changing `review_state` to `locked`:
 5. list every selected asset with size and SHA-256; and
 6. run `emuella-corpus check` and `verify`.
 
+For a complete external tree, generate the inventory with:
+
+```sh
+cargo run -p emuella-corpus -- inventory PACK_ID \
+  --root MATERIALIZED_ROOT --output inventories/PACK_VERSION.toml
+```
+
+Record the reported tree digest in `materialization.expected_tree_sha256` and
+reference the inventory from `asset_inventory`. Keep the unchanged upstream
+archive at the materialization root so its digest and extracted tree are
+verified together.
+
 If upstream silently replaces an archive, create a new pack version. Do not
 change the digest of a released version.
 

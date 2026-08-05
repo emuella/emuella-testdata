@@ -3,10 +3,17 @@ id = "jpeg-2000/conformance"
 version = "15444-4-2024-ed4"
 name = "JPEG 2000 and HTJ2K fourth-edition conformance attachment"
 description = "J2K Profile-0/Profile-1, HTJ2K derived-set, JP2, JPH, reference-image, tolerance, and informative Part 2 test material."
-review_state = "reviewed"
+review_state = "locked"
 kind = "external"
 codecs = ["jpeg-2000", "htj2k"]
 purposes = ["conformance", "file-format-conformance", "interoperability"]
+asset_inventory = "inventories/jpeg-2000/conformance-15444-4-ed4.toml"
+notes = [
+  "Acquired from the authoritative ISO maintenance portal on 2026-08-05.",
+  "HTTP metadata at acquisition: Content-Length 131660076; Last-Modified Wed, 04 Sep 2024 13:15:58 GMT; weak ETag W/\"131660076-1725455758687\".",
+  "ZIP integrity passed for all 653 entries: 603 regular files and 50 directories, with no symlinks or unsafe paths.",
+  "Embedded notice digests: files/COPYRIGHT.txt bda3f1fdfc89c8287520f2c3dea3d7d2dfa19c88809d16c2a9cbeec244e2effc; files/README.licence 89377d4081a67a52221691523164c8c2e1cef986dd8672ee82fed6dcfec413b1.",
+]
 
 [[standards]]
 identifier = "ISO/IEC 15444-4:2024 | ITU-T T.803 (V3)"
@@ -19,27 +26,29 @@ name = "JPEG 2000 conformance-file terms"
 local_files = ["LICENSES/LicenseRef-J2K-Conformance.txt", "LICENSES/LicenseRef-ISO-Electronic-Insert.txt"]
 evidence_url = "https://standards.iso.org/iso-iec/15444/-4/ed-4/en/"
 reviewed_on = "2026-08-05"
-notes = "The current ISO insert and any embedded COPYRIGHT file govern the material. Historical OpenJPEG copies carry a purpose-restricted copyright non-assertion rather than an Apache-compatible licence."
+notes = "The ISO portal conditions and the insert's embedded COPYRIGHT.txt govern the material. The portal permits original-format use for the standard's purposes; the embedded notice contains a JPEG-2000-use-only copyright non-assertion and a notice-retention condition. This is purpose-restricted material, not an Apache-compatible grant."
 
 [rights]
 access = "conditional"
 redistribution = "unknown"
-modification = "unknown"
+modification = "prohibited"
 commercial_use = "conditional"
-publish_derivatives = "unknown"
+publish_derivatives = "prohibited"
 publish_benchmarks = "conditional"
 ml_training = "prohibited"
 weights_redistribution = "prohibited"
-notes = "Acquire manually for JPEG 2000 standards testing, retain every embedded notice, and do not vendor under Apache-2.0."
+notes = "The locked pack policy follows the ISO portal's stricter original-format condition. COPYRIGHT.txt also discusses modifications for JPEG 2000 conformance use, but that does not override the portal condition for this download. Redistribution remains unknown; preserve all notices and seek permission before copying the material beyond a licensed cache."
 
 [source]
 landing_page = "https://standards.iso.org/iso-iec/15444/-4/ed-4/en/"
 download_url = "https://standards.iso.org/iso-iec/15444/-4/ed-4/en/electronic_insert.zip"
 terms_url = "https://www.iso.org/terms-conditions-licence-agreement.html"
 archive_filename = "electronic_insert.zip"
+archive_sha256 = "ac04b52e1fe38404912036c14f215099ea9a785f38644fbe76ae8f3d1523c86d"
 requires_manual_acquisition = true
 
 [materialization]
 directory = "artifacts/jpeg-2000/conformance/15444-4-2024-ed4"
-layout = "Preserve the complete archive tree and classify Annex C, Annex G, and Annex H selections in the test harness."
-notes = "Archive and expanded-asset hashes must be recorded before this pack becomes locked."
+expected_tree_sha256 = "5a5c564c70d46740a213e416b772e3f799dc7850c9ffef343cf33b2e7c937816"
+layout = "Place the unmodified electronic_insert.zip at the materialization root and extract its complete files/ tree without changing any bytes. Classify Annex C, Annex G, and Annex H selections separately in the test harness."
+notes = "The tree digest covers the archive plus all 603 extracted regular files using the canonical inventory algorithm documented in docs/ARCHITECTURE.md."

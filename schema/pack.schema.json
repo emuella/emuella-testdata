@@ -35,6 +35,7 @@
     "rights": { "$ref": "#/$defs/rights" },
     "source": { "$ref": "#/$defs/source" },
     "materialization": { "$ref": "#/$defs/materialization" },
+    "asset_inventory": { "type": "string", "minLength": 1 },
     "assets": {
       "type": "array",
       "items": { "$ref": "#/$defs/asset" }
