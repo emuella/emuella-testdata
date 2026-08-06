@@ -1,4 +1,4 @@
-name: CI
+name: emuella-testdata CI
 
 on:
   push:

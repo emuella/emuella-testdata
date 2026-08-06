@@ -4,4 +4,4 @@ description = "Reproducible corpus packs for Emuella image codec conformance, re
 manifest_root = "manifests"
 suite_root = "suites"
 generated_root = "generated"
-cache_environment = "EMU_TESTDATA_CACHE"
+cache_environment = "EMUELLA_TESTDATA_CACHE"

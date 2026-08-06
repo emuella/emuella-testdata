@@ -12,7 +12,7 @@ network connection.
 Add an opt-in harness or `xtask` that accepts, in priority order:
 
 1. an explicit `--testdata` directory;
-2. `EMU_TESTDATA_CACHE`; or
+2. `EMUELLA_TESTDATA_CACHE`; or
 3. an already materialized sibling catalogue cache.
 
 The harness should report a skipped suite when data is absent, not silently

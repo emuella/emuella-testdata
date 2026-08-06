@@ -70,7 +70,7 @@ may name reviewed or planned packs when marked non-gating.
 ## Storage
 
 Tracked Git content is limited to small project-authored fixtures. External
-pack bytes live under `EMU_TESTDATA_CACHE`, defaulting to `.cache` when a user
+pack bytes live under `EMUELLA_TESTDATA_CACHE`, defaulting to `.cache` when a user
 chooses to create it. Published derived packs should use content-addressed
 release assets or object storage rather than Git history.
 

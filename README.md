@@ -41,7 +41,7 @@ model.
 
 ## Commands
 
-Run commands from the repository root, or set `EMU_TESTDATA_ROOT`:
+Run commands from the repository root, or set `EMUELLA_TESTDATA_ROOT`:
 
 ```sh
 cargo run -p emuella-corpus -- list packs

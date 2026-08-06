@@ -170,11 +170,11 @@ fn expect_arity(
 }
 
 fn find_catalogue_root() -> Result<PathBuf, Box<dyn Error>> {
-    if let Some(root) = env::var_os("EMU_TESTDATA_ROOT") {
+    if let Some(root) = env::var_os("EMUELLA_TESTDATA_ROOT") {
         let root = PathBuf::from(root);
         if !root.join("catalog.toml").is_file() {
             return Err(format!(
-                "EMU_TESTDATA_ROOT does not contain catalog.toml: {}",
+                "EMUELLA_TESTDATA_ROOT does not contain catalog.toml: {}",
                 root.display()
             )
             .into());
@@ -189,7 +189,7 @@ fn find_catalogue_root() -> Result<PathBuf, Box<dyn Error>> {
         }
     }
     Err(format!(
-        "could not find catalog.toml from {}; set EMU_TESTDATA_ROOT",
+        "could not find catalog.toml from {}; set EMUELLA_TESTDATA_ROOT",
         current.display()
     )
     .into())
@@ -209,7 +209,7 @@ Usage:
   emuella-corpus inventory <pack-id> --root PATH --output PATH
   emuella-corpus generate {GENERATED_CORE_ID} [--output PATH]
 
-The catalogue root is found from EMU_TESTDATA_ROOT or by walking upward from
+The catalogue root is found from EMUELLA_TESTDATA_ROOT or by walking upward from
 the current directory. External licence terms are never accepted automatically."
     );
 }

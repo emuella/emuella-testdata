@@ -812,6 +812,7 @@ mod tests {
     fn repository_catalogue_is_internally_consistent() {
         let root = Path::new(env!("CARGO_MANIFEST_DIR")).join("../..");
         let catalogue = Catalogue::open(root).expect("repository catalogue opens");
+        assert_eq!(catalogue.cache_environment(), "EMUELLA_TESTDATA_CACHE");
         let report = catalogue.check().expect("repository catalogue checks");
         assert!(report.pack_count >= 9);
         assert!(report.suite_count >= 7);
