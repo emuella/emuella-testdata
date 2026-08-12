@@ -1,6 +1,6 @@
 schema_version = 1
 id = "layer2/conformance-jpeg-2000"
-revision = 3
+revision = 4
 name = "JPEG 2000 and HTJ2K decoder conformance"
 description = "ISO/IEC 15444-4:2024 fourth-edition J2K, HTJ2K, JP2, and JPH qualification material."
 layer = 2
@@ -66,3 +66,22 @@ cohort = "annex-g/jp2"
 path_prefix = "files/testfiles_jph/"
 format = "jph"
 cohort = "annex-g/jph"
+
+[decoded_pixel_comparison]
+pack_id = "jpeg-2000/conformance"
+standard = "ISO/IEC 15444-4:2024"
+clauses = ["B.2", "C.2.1.1", "C.2.1.2", "C.2.1.3", "Table C.1"]
+retrieval_commit = "725ecba70e5d03eff3f6ce9626bb9cb08dd4e0c7"
+
+[[decoded_pixel_comparison.cases]]
+id = "annex-c/class0-profile0/p0-01"
+input = "files/codestreams_profile0/p0_01.j2k"
+reference = "files/reference_class0_profile0/c0p0_01.pgx"
+component = 0
+resolution_reduction = 0
+width = 128
+height = 128
+bits_per_sample = 8
+signed = false
+peak_error_limit = 0
+mean_squared_error_limit = 0.0

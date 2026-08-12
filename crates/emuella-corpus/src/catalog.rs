@@ -278,6 +278,9 @@ impl Catalogue {
             if let Some(inspection) = &suite.inspection {
                 validate_inspection_plan(suite, inspection, &self.packs)?;
             }
+            if let Some(comparison) = &suite.decoded_pixel_comparison {
+                validate_decoded_pixel_comparison_plan(suite, comparison, &self.packs)?;
+            }
         }
 
         Ok(report)
@@ -399,6 +402,117 @@ impl Catalogue {
             tree_sha256: tree_sha256(&inventory.assets),
         })
     }
+}
+
+fn validate_decoded_pixel_comparison_plan(
+    suite: &SuiteManifest,
+    comparison: &crate::model::DecodedPixelComparisonPlan,
+    packs: &BTreeMap<String, LocatedPack>,
+) -> Result<(), CatalogueError> {
+    let selected = suite
+        .packs
+        .iter()
+        .find(|selected| selected.id == comparison.pack_id)
+        .ok_or_else(|| {
+            CatalogueError::message(format!(
+                "suite {} decoded-pixel plan names unselected pack {}",
+                suite.id, comparison.pack_id
+            ))
+        })?;
+    let pack = packs.get(&comparison.pack_id).ok_or_else(|| {
+        CatalogueError::message("decoded-pixel comparison pack disappeared from catalogue")
+    })?;
+    if selected.version != pack.manifest.version {
+        return Err(CatalogueError::message(format!(
+            "suite {} decoded-pixel plan pack version is not selected",
+            suite.id
+        )));
+    }
+    if comparison.standard.trim().is_empty()
+        || comparison.clauses.is_empty()
+        || comparison
+            .clauses
+            .iter()
+            .any(|clause| clause.trim().is_empty())
+        || !is_lower_hex(&comparison.retrieval_commit, 40)
+        || comparison.cases.is_empty()
+    {
+        return Err(CatalogueError::message(format!(
+            "suite {} has incomplete decoded-pixel comparison authority or cases",
+            suite.id
+        )));
+    }
+
+    let inventory = pack
+        .manifest
+        .assets
+        .iter()
+        .map(|asset| (asset.path.as_str(), asset))
+        .collect::<BTreeMap<_, _>>();
+    let mut case_ids = BTreeSet::new();
+    let mut input_paths = BTreeSet::new();
+    for case in &comparison.cases {
+        validate_id("decoded-pixel case", &case.id)?;
+        if !case_ids.insert(case.id.as_str()) {
+            return Err(CatalogueError::message(format!(
+                "suite {} repeats decoded-pixel case ID {}",
+                suite.id, case.id
+            )));
+        }
+        validate_relative_path("decoded-pixel input", &case.input)?;
+        validate_relative_path("decoded-pixel reference", &case.reference)?;
+        if case.input == case.reference {
+            return Err(CatalogueError::message(format!(
+                "suite {} decoded-pixel case {} uses one path as input and reference",
+                suite.id, case.id
+            )));
+        }
+        if !input_paths.insert(case.input.as_str()) {
+            return Err(CatalogueError::message(format!(
+                "suite {} repeats decoded-pixel input {}",
+                suite.id, case.input
+            )));
+        }
+        let input = inventory.get(case.input.as_str()).ok_or_else(|| {
+            CatalogueError::message(format!(
+                "suite {} decoded-pixel case {} input is absent from the locked inventory",
+                suite.id, case.id
+            ))
+        })?;
+        let reference = inventory.get(case.reference.as_str()).ok_or_else(|| {
+            CatalogueError::message(format!(
+                "suite {} decoded-pixel case {} reference is absent from the locked inventory",
+                suite.id, case.id
+            ))
+        })?;
+        if Path::new(&input.path)
+            .extension()
+            .and_then(|extension| extension.to_str())
+            != Some("j2k")
+            || Path::new(&reference.path)
+                .extension()
+                .and_then(|extension| extension.to_str())
+                != Some("pgx")
+        {
+            return Err(CatalogueError::message(format!(
+                "suite {} decoded-pixel case {} requires a .j2k input and .pgx reference",
+                suite.id, case.id
+            )));
+        }
+        if case.resolution_reduction != 0
+            || case.width == 0
+            || case.height == 0
+            || !(1..=32).contains(&case.bits_per_sample)
+            || !case.mean_squared_error_limit.is_finite()
+            || case.mean_squared_error_limit < 0.0
+        {
+            return Err(CatalogueError::message(format!(
+                "suite {} decoded-pixel case {} has unsupported geometry, sample format, resolution, or error limits",
+                suite.id, case.id
+            )));
+        }
+    }
+    Ok(())
 }
 
 fn validate_inspection_plan(
@@ -898,6 +1012,13 @@ fn validate_sha256(label: &str, digest: &str, pack_id: &str) -> Result<(), Catal
     Ok(())
 }
 
+fn is_lower_hex(value: &str, length: usize) -> bool {
+    value.len() == length
+        && value
+            .bytes()
+            .all(|byte| byte.is_ascii_digit() || (b'a'..=b'f').contains(&byte))
+}
+
 fn parse_toml<T>(path: &Path) -> Result<T, CatalogueError>
 where
     T: serde::de::DeserializeOwned,
@@ -1054,6 +1175,40 @@ mod tests {
         let error = validate_inspection_plan(&suite, &inspection, &catalogue.packs)
             .expect_err("unselected override must fail");
         assert!(error.to_string().contains("names unselected path"));
+    }
+
+    #[test]
+    fn rejects_invalid_decoded_pixel_contracts() {
+        let root = Path::new(env!("CARGO_MANIFEST_DIR")).join("../..");
+        let catalogue = Catalogue::open(root).expect("repository catalogue opens");
+        let suite = catalogue
+            .suites
+            .get("layer2/conformance-jpeg-2000")
+            .expect("comparison suite exists")
+            .manifest
+            .clone();
+        let mut comparison = suite
+            .decoded_pixel_comparison
+            .clone()
+            .expect("comparison plan exists");
+
+        comparison.cases[0].reference = "files/not-in-inventory.pgx".to_owned();
+        let error = validate_decoded_pixel_comparison_plan(&suite, &comparison, &catalogue.packs)
+            .expect_err("missing reference must fail");
+        assert!(
+            error
+                .to_string()
+                .contains("absent from the locked inventory")
+        );
+
+        let mut comparison = suite
+            .decoded_pixel_comparison
+            .clone()
+            .expect("comparison plan exists");
+        comparison.cases[0].mean_squared_error_limit = f64::INFINITY;
+        let error = validate_decoded_pixel_comparison_plan(&suite, &comparison, &catalogue.packs)
+            .expect_err("non-finite limit must fail");
+        assert!(error.to_string().contains("unsupported geometry"));
     }
 
     #[test]

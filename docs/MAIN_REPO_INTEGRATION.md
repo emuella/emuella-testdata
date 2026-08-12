@@ -28,6 +28,16 @@ unselected overrides, and rejection expectations without a diagnostic. Codec
 harnesses should consume this catalogue-owned format, cohort, and acceptance
 contract rather than infer it from file names or observed codec behaviour.
 
+When a suite supplies a `decoded_pixel_comparison` plan, consume only its
+explicit locked-pack cases. Each case binds one codestream to one PGX component
+reference, its logical dimensions and sample format, and inclusive peak-error
+and mean-squared-error limits. Validate both paths against the locked inventory
+before opening either asset. Compare logical component samples after any
+required output normalisation; file-byte equality is not the comparison
+contract. Keep protected input, reference, and decoded samples in the
+authorised store and process memory, and report only factual identities,
+dimensions, pass/fail state, and aggregate errors.
+
 Do not embed external files with `include_bytes!`, copy them into crate test
 directories, or make a test-data repository a Cargo dependency. The harness
 should consume paths at runtime.

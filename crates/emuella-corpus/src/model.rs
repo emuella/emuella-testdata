@@ -163,7 +163,35 @@ pub struct SuiteManifest {
     #[serde(default)]
     pub inspection: Option<InspectionPlan>,
     #[serde(default)]
+    pub decoded_pixel_comparison: Option<DecodedPixelComparisonPlan>,
+    #[serde(default)]
     pub notes: Vec<String>,
+}
+
+#[derive(Clone, Debug, Deserialize, Serialize)]
+#[serde(deny_unknown_fields)]
+pub struct DecodedPixelComparisonPlan {
+    pub pack_id: String,
+    pub standard: String,
+    pub clauses: Vec<String>,
+    pub retrieval_commit: String,
+    pub cases: Vec<DecodedPixelComparisonCase>,
+}
+
+#[derive(Clone, Debug, Deserialize, Serialize)]
+#[serde(deny_unknown_fields)]
+pub struct DecodedPixelComparisonCase {
+    pub id: String,
+    pub input: String,
+    pub reference: String,
+    pub component: u16,
+    pub resolution_reduction: u8,
+    pub width: u32,
+    pub height: u32,
+    pub bits_per_sample: u8,
+    pub signed: bool,
+    pub peak_error_limit: u64,
+    pub mean_squared_error_limit: f64,
 }
 
 #[derive(Clone, Debug, Deserialize, Serialize)]
