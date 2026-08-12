@@ -965,6 +965,19 @@ fn hex_digest(bytes: &[u8]) -> String {
 mod tests {
     use super::*;
 
+    fn inspection_fixture() -> (SuiteManifest, crate::model::InspectionPlan, Catalogue) {
+        let root = Path::new(env!("CARGO_MANIFEST_DIR")).join("../..");
+        let catalogue = Catalogue::open(root).expect("repository catalogue opens");
+        let suite = catalogue
+            .suites
+            .get("layer2/conformance-jpeg-2000")
+            .expect("inspection suite exists")
+            .manifest
+            .clone();
+        let inspection = suite.inspection.clone().expect("inspection plan exists");
+        (suite, inspection, catalogue)
+    }
+
     #[test]
     fn rejects_parent_traversal() {
         assert!(validate_relative_path("test", "../escape").is_err());
@@ -989,6 +1002,58 @@ mod tests {
             tree_sha256(&assets),
             "b471b7359e6e37530180322f745db7fb3f2c72f30fb20d055efa6e6165c8b305"
         );
+    }
+
+    #[test]
+    fn rejects_duplicate_inspection_extensions() {
+        let (suite, mut inspection, catalogue) = inspection_fixture();
+        inspection.extensions.push(".j2k".to_owned());
+        let error = validate_inspection_plan(&suite, &inspection, &catalogue.packs)
+            .expect_err("duplicate extension must fail");
+        assert!(error.to_string().contains("repeats extension .j2k"));
+    }
+
+    #[test]
+    fn rejects_ambiguous_and_dead_inspection_classifications() {
+        let (suite, mut inspection, catalogue) = inspection_fixture();
+        inspection
+            .classifications
+            .push(inspection.classifications[0].clone());
+        let error = validate_inspection_plan(&suite, &inspection, &catalogue.packs)
+            .expect_err("overlapping classifications must fail");
+        assert!(error.to_string().contains("matches 2 classifications"));
+
+        let (suite, mut inspection, catalogue) = inspection_fixture();
+        let mut dead = inspection.classifications[0].clone();
+        dead.path = None;
+        dead.path_prefix = Some("files/not-present/".to_owned());
+        inspection.classifications.push(dead);
+        let error = validate_inspection_plan(&suite, &inspection, &catalogue.packs)
+            .expect_err("dead classification must fail");
+        assert!(error.to_string().contains("matches no candidates"));
+    }
+
+    #[test]
+    fn rejects_incomplete_negative_inspection_expectations() {
+        let (suite, mut inspection, catalogue) = inspection_fixture();
+        inspection.expected = InspectionExpectation::Reject;
+        inspection.diagnostic_contains = None;
+        let error = validate_inspection_plan(&suite, &inspection, &catalogue.packs)
+            .expect_err("negative expectation without diagnostic must fail");
+        assert!(error.to_string().contains("lacks a diagnostic"));
+    }
+
+    #[test]
+    fn rejects_inspection_override_outside_selection() {
+        let (suite, mut inspection, catalogue) = inspection_fixture();
+        inspection.overrides.push(crate::model::InspectionOverride {
+            path: "files/not-selected.txt".to_owned(),
+            expected: InspectionExpectation::Reject,
+            diagnostic_contains: Some("expected diagnostic".to_owned()),
+        });
+        let error = validate_inspection_plan(&suite, &inspection, &catalogue.packs)
+            .expect_err("unselected override must fail");
+        assert!(error.to_string().contains("names unselected path"));
     }
 
     #[test]
