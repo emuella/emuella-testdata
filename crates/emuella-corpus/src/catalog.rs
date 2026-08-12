@@ -1,6 +1,6 @@
 use crate::model::{
-    AssetInventoryManifest, AssetRecord, CatalogueManifest, PackKind, PackManifest, ReviewState,
-    SuiteManifest,
+    AssetInventoryManifest, AssetRecord, CatalogueManifest, InspectionExpectation, PackKind,
+    PackManifest, ReviewState, SuiteManifest,
 };
 use sha2::{Digest, Sha256};
 use std::collections::{BTreeMap, BTreeSet};
@@ -275,6 +275,9 @@ impl Catalogue {
                     )));
                 }
             }
+            if let Some(inspection) = &suite.inspection {
+                validate_inspection_plan(suite, inspection, &self.packs)?;
+            }
         }
 
         Ok(report)
@@ -395,6 +398,186 @@ impl Catalogue {
             total_bytes,
             tree_sha256: tree_sha256(&inventory.assets),
         })
+    }
+}
+
+fn validate_inspection_plan(
+    suite: &SuiteManifest,
+    inspection: &crate::model::InspectionPlan,
+    packs: &BTreeMap<String, LocatedPack>,
+) -> Result<(), CatalogueError> {
+    let selected = suite
+        .packs
+        .iter()
+        .find(|selected| selected.id == inspection.pack_id)
+        .ok_or_else(|| {
+            CatalogueError::message(format!(
+                "suite {} inspection plan names unselected pack {}",
+                suite.id, inspection.pack_id
+            ))
+        })?;
+    let pack = packs
+        .get(&inspection.pack_id)
+        .ok_or_else(|| CatalogueError::message("inspection pack disappeared from catalogue"))?;
+    if selected.version != pack.manifest.version {
+        return Err(CatalogueError::message(format!(
+            "suite {} inspection plan pack version is not selected",
+            suite.id
+        )));
+    }
+    if inspection.extensions.is_empty() || inspection.classifications.is_empty() {
+        return Err(CatalogueError::message(format!(
+            "suite {} inspection plan has an empty selection or classification set",
+            suite.id
+        )));
+    }
+    validate_expected_diagnostic(
+        &suite.id,
+        "inspection default",
+        inspection.expected,
+        inspection.diagnostic_contains.as_deref(),
+    )?;
+
+    let mut extensions = BTreeSet::new();
+    for extension in &inspection.extensions {
+        if !matches!(extension.as_str(), ".j2k" | ".htj2k" | ".jp2" | ".jph") {
+            return Err(CatalogueError::message(format!(
+                "suite {} inspection plan has unsupported extension {extension:?}",
+                suite.id
+            )));
+        }
+        if !extensions.insert(extension.as_str()) {
+            return Err(CatalogueError::message(format!(
+                "suite {} inspection plan repeats extension {extension}",
+                suite.id
+            )));
+        }
+    }
+
+    for classification in &inspection.classifications {
+        match (&classification.path, &classification.path_prefix) {
+            (Some(path), None) => validate_relative_path("inspection classification path", path)?,
+            (None, Some(prefix)) => {
+                validate_relative_path("inspection classification path prefix", prefix)?
+            }
+            _ => {
+                return Err(CatalogueError::message(format!(
+                    "suite {} inspection classification must set exactly one of path or path_prefix",
+                    suite.id
+                )));
+            }
+        }
+        if classification.cohort.trim().is_empty() {
+            return Err(CatalogueError::message(format!(
+                "suite {} inspection classification has an empty cohort",
+                suite.id
+            )));
+        }
+    }
+
+    let candidates = pack
+        .manifest
+        .assets
+        .iter()
+        .filter(|asset| {
+            Path::new(&asset.path)
+                .extension()
+                .and_then(|extension| extension.to_str())
+                .map(|extension| format!(".{extension}").to_ascii_lowercase())
+                .is_some_and(|extension| extensions.contains(extension.as_str()))
+        })
+        .collect::<Vec<_>>();
+    if candidates.is_empty() {
+        return Err(CatalogueError::message(format!(
+            "suite {} inspection plan selects no inventory assets",
+            suite.id
+        )));
+    }
+
+    let candidate_paths = candidates
+        .iter()
+        .map(|asset| asset.path.as_str())
+        .collect::<BTreeSet<_>>();
+    let mut rule_matches = vec![0_usize; inspection.classifications.len()];
+    for asset in &candidates {
+        let matching = inspection
+            .classifications
+            .iter()
+            .enumerate()
+            .filter(|(_, classification)| {
+                classification
+                    .path
+                    .as_deref()
+                    .is_some_and(|path| path == asset.path)
+                    || classification
+                        .path_prefix
+                        .as_deref()
+                        .is_some_and(|prefix| asset.path.starts_with(prefix))
+            })
+            .map(|(index, _)| index)
+            .collect::<Vec<_>>();
+        if matching.len() != 1 {
+            return Err(CatalogueError::message(format!(
+                "suite {} inspection candidate {} matches {} classifications, expected one",
+                suite.id,
+                asset.path,
+                matching.len()
+            )));
+        }
+        rule_matches[matching[0]] += 1;
+    }
+    if let Some((index, _)) = rule_matches
+        .iter()
+        .enumerate()
+        .find(|(_, matches)| **matches == 0)
+    {
+        return Err(CatalogueError::message(format!(
+            "suite {} inspection classification {} matches no candidates",
+            suite.id, index
+        )));
+    }
+
+    let mut override_paths = BTreeSet::new();
+    for override_record in &inspection.overrides {
+        if !candidate_paths.contains(override_record.path.as_str()) {
+            return Err(CatalogueError::message(format!(
+                "suite {} inspection override names unselected path {}",
+                suite.id, override_record.path
+            )));
+        }
+        if !override_paths.insert(override_record.path.as_str()) {
+            return Err(CatalogueError::message(format!(
+                "suite {} inspection plan repeats override {}",
+                suite.id, override_record.path
+            )));
+        }
+        validate_expected_diagnostic(
+            &suite.id,
+            &format!("inspection override {}", override_record.path),
+            override_record.expected,
+            override_record.diagnostic_contains.as_deref(),
+        )?;
+    }
+    Ok(())
+}
+
+fn validate_expected_diagnostic(
+    suite_id: &str,
+    label: &str,
+    expected: InspectionExpectation,
+    diagnostic: Option<&str>,
+) -> Result<(), CatalogueError> {
+    match (expected, diagnostic) {
+        (InspectionExpectation::Reject, Some(diagnostic)) if !diagnostic.trim().is_empty() => {
+            Ok(())
+        }
+        (InspectionExpectation::Reject, _) => Err(CatalogueError::message(format!(
+            "suite {suite_id} rejected {label} lacks a diagnostic"
+        ))),
+        (InspectionExpectation::Accept, None) => Ok(()),
+        (InspectionExpectation::Accept, Some(_)) => Err(CatalogueError::message(format!(
+            "suite {suite_id} accepted {label} must not name a diagnostic"
+        ))),
     }
 }
 

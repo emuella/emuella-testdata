@@ -34,6 +34,51 @@
         }
       }
     },
+    "inspection": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["pack_id", "extensions", "expected", "classifications"],
+      "properties": {
+        "pack_id": { "type": "string", "minLength": 1 },
+        "extensions": {
+          "type": "array", "minItems": 1, "uniqueItems": true,
+          "items": { "enum": [".j2k", ".htj2k", ".jp2", ".jph"] }
+        },
+        "expected": { "enum": ["accept", "reject"] },
+        "diagnostic_contains": { "type": "string", "minLength": 1 },
+        "classifications": {
+          "type": "array", "minItems": 1,
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["format", "cohort"],
+            "oneOf": [
+              { "required": ["path"] },
+              { "required": ["path_prefix"] }
+            ],
+            "properties": {
+              "path": { "type": "string", "minLength": 1 },
+              "path_prefix": { "type": "string", "minLength": 1 },
+              "format": { "enum": ["j2k", "htj2k", "jp2", "jph"] },
+              "cohort": { "type": "string", "minLength": 1 }
+            }
+          }
+        },
+        "overrides": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["path", "expected"],
+            "properties": {
+              "path": { "type": "string", "minLength": 1 },
+              "expected": { "enum": ["accept", "reject"] },
+              "diagnostic_contains": { "type": "string", "minLength": 1 }
+            }
+          }
+        }
+      }
+    },
     "notes": {
       "type": "array",
       "items": { "type": "string" }

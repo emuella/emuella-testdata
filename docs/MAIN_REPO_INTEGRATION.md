@@ -19,6 +19,15 @@ The harness should report a skipped suite when data is absent, not silently
 download it. A separate user command may invoke the catalogue tool and review
 the relevant terms before materialization.
 
+When a suite supplies an `inspection` plan, select candidates from the named
+pack's locked inventory by its declared extensions. Apply exactly one path or
+path-prefix classification to every candidate, then apply any per-path outcome
+override. `emuella-corpus check` rejects empty selections, unclassified or
+multiply classified candidates, dead classification rules, duplicate or
+unselected overrides, and rejection expectations without a diagnostic. Codec
+harnesses should consume this catalogue-owned format, cohort, and acceptance
+contract rather than infer it from file names or observed codec behaviour.
+
 Do not embed external files with `include_bytes!`, copy them into crate test
 directories, or make a test-data repository a Cargo dependency. The harness
 should consume paths at runtime.

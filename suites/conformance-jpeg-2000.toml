@@ -1,6 +1,6 @@
 schema_version = 1
 id = "layer2/conformance-jpeg-2000"
-revision = 2
+revision = 3
 name = "JPEG 2000 and HTJ2K decoder conformance"
 description = "ISO/IEC 15444-4:2024 fourth-edition J2K, HTJ2K, JP2, and JPH qualification material."
 layer = 2
@@ -16,3 +16,53 @@ notes = [
 id = "jpeg-2000/conformance"
 version = "15444-4-2024-ed4"
 required = true
+
+[inspection]
+pack_id = "jpeg-2000/conformance"
+extensions = [".j2k", ".htj2k", ".jp2", ".jph"]
+expected = "accept"
+
+[[inspection.classifications]]
+path_prefix = "files/codestreams_extended/"
+format = "j2k"
+cohort = "annex-h/part2-extended"
+
+[[inspection.classifications]]
+path = "files/codestreams_hifi/hifi_ht1_02.j2k"
+format = "htj2k"
+cohort = "annex-c/class1hf-profile1"
+
+[[inspection.classifications]]
+path = "files/codestreams_hifi/hifi_p1_02.j2k"
+format = "j2k"
+cohort = "annex-c/class1hf-profile1"
+
+[[inspection.classifications]]
+path_prefix = "files/codestreams_profile0/"
+format = "j2k"
+cohort = "annex-c/class0-profile0"
+
+[[inspection.classifications]]
+path_prefix = "files/codestreams_profile1/"
+format = "j2k"
+cohort = "annex-c/class0-profile1"
+
+[[inspection.classifications]]
+path_prefix = "files/htj2k_bsets_profile0/"
+format = "htj2k"
+cohort = "annex-c/derived-profile0"
+
+[[inspection.classifications]]
+path_prefix = "files/htj2k_bsets_profile1/"
+format = "htj2k"
+cohort = "annex-c/derived-profile1"
+
+[[inspection.classifications]]
+path_prefix = "files/testfiles_jp2/"
+format = "jp2"
+cohort = "annex-g/jp2"
+
+[[inspection.classifications]]
+path_prefix = "files/testfiles_jph/"
+format = "jph"
+cohort = "annex-g/jph"

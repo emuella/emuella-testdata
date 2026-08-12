@@ -161,7 +161,58 @@ pub struct SuiteManifest {
     pub missing_policy: MissingPolicy,
     pub packs: Vec<SuitePack>,
     #[serde(default)]
+    pub inspection: Option<InspectionPlan>,
+    #[serde(default)]
     pub notes: Vec<String>,
+}
+
+#[derive(Clone, Debug, Deserialize, Serialize)]
+#[serde(deny_unknown_fields)]
+pub struct InspectionPlan {
+    pub pack_id: String,
+    pub extensions: Vec<String>,
+    pub expected: InspectionExpectation,
+    #[serde(default)]
+    pub diagnostic_contains: Option<String>,
+    pub classifications: Vec<InspectionClassification>,
+    #[serde(default)]
+    pub overrides: Vec<InspectionOverride>,
+}
+
+#[derive(Clone, Copy, Debug, Deserialize, Serialize, Eq, PartialEq)]
+#[serde(rename_all = "kebab-case")]
+pub enum InspectionExpectation {
+    Accept,
+    Reject,
+}
+
+#[derive(Clone, Copy, Debug, Deserialize, Serialize, Eq, PartialEq)]
+#[serde(rename_all = "kebab-case")]
+pub enum InspectionFormat {
+    J2k,
+    Htj2k,
+    Jp2,
+    Jph,
+}
+
+#[derive(Clone, Debug, Deserialize, Serialize)]
+#[serde(deny_unknown_fields)]
+pub struct InspectionClassification {
+    #[serde(default)]
+    pub path: Option<String>,
+    #[serde(default)]
+    pub path_prefix: Option<String>,
+    pub format: InspectionFormat,
+    pub cohort: String,
+}
+
+#[derive(Clone, Debug, Deserialize, Serialize)]
+#[serde(deny_unknown_fields)]
+pub struct InspectionOverride {
+    pub path: String,
+    pub expected: InspectionExpectation,
+    #[serde(default)]
+    pub diagnostic_contains: Option<String>,
 }
 
 #[derive(Clone, Copy, Debug, Deserialize, Serialize, Eq, PartialEq)]
