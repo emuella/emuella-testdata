@@ -176,6 +176,8 @@ pub struct DecodedPixelComparisonPlan {
     pub clauses: Vec<String>,
     pub retrieval_commit: String,
     pub cases: Vec<DecodedPixelComparisonCase>,
+    #[serde(default)]
+    pub choice_groups: Vec<DecodedPixelComparisonChoiceGroup>,
 }
 
 #[derive(Clone, Debug, Deserialize, Serialize)]
@@ -186,6 +188,32 @@ pub struct DecodedPixelComparisonCase {
     pub reference: String,
     pub component: u16,
     pub resolution_reduction: u8,
+    pub width: u32,
+    pub height: u32,
+    pub bits_per_sample: u8,
+    pub signed: bool,
+    pub peak_error_limit: u64,
+    pub mean_squared_error_limit: f64,
+}
+
+#[derive(Clone, Debug, Deserialize, Serialize)]
+#[serde(deny_unknown_fields)]
+pub struct DecodedPixelComparisonChoiceGroup {
+    pub id: String,
+    pub input: String,
+    pub minimum_passing_alternatives: u16,
+    pub alternatives: Vec<DecodedPixelComparisonAlternative>,
+}
+
+#[derive(Clone, Debug, Deserialize, Serialize)]
+#[serde(deny_unknown_fields)]
+pub struct DecodedPixelComparisonAlternative {
+    pub id: String,
+    pub reference: String,
+    pub component: u16,
+    pub resolution_reduction: u8,
+    pub output_origin_x: u32,
+    pub output_origin_y: u32,
     pub width: u32,
     pub height: u32,
     pub bits_per_sample: u8,
