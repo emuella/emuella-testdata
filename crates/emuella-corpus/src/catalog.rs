@@ -506,7 +506,8 @@ fn validate_decoded_pixel_comparison_plan(
                 suite.id, case.id
             )));
         }
-        if case.width == 0
+        if case.resolution_reduction != 0
+            || case.width == 0
             || case.height == 0
             || !(1..=32).contains(&case.bits_per_sample)
             || !case.mean_squared_error_limit.is_finite()
@@ -598,7 +599,8 @@ fn validate_decoded_pixel_comparison_plan(
                     suite.id, group.id, alternative.id
                 )));
             }
-            if alternative.width == 0
+            if alternative.resolution_reduction > 1
+                || alternative.width == 0
                 || alternative.height == 0
                 || !(1..=32).contains(&alternative.bits_per_sample)
                 || !alternative.mean_squared_error_limit.is_finite()
@@ -1322,6 +1324,33 @@ mod tests {
             .decoded_pixel_comparison
             .clone()
             .expect("comparison plan exists");
+        comparison.choice_groups[0].minimum_passing_alternatives = 3;
+        let error = validate_decoded_pixel_comparison_plan(&suite, &comparison, &catalogue.packs)
+            .expect_err("choice group cannot require more passes than alternatives");
+        assert!(error.to_string().contains("pass requirement"));
+
+        let mut comparison = suite
+            .decoded_pixel_comparison
+            .clone()
+            .expect("comparison plan exists");
+        comparison.cases[0].resolution_reduction = 1;
+        let error = validate_decoded_pixel_comparison_plan(&suite, &comparison, &catalogue.packs)
+            .expect_err("scalar cases remain full-resolution only");
+        assert!(error.to_string().contains("unsupported geometry"));
+
+        let mut comparison = suite
+            .decoded_pixel_comparison
+            .clone()
+            .expect("comparison plan exists");
+        comparison.choice_groups[0].alternatives[0].resolution_reduction = 2;
+        let error = validate_decoded_pixel_comparison_plan(&suite, &comparison, &catalogue.packs)
+            .expect_err("choice alternatives remain bounded to P0.03 reductions");
+        assert!(error.to_string().contains("unsupported geometry"));
+
+        let mut comparison = suite
+            .decoded_pixel_comparison
+            .clone()
+            .expect("comparison plan exists");
         comparison.choice_groups[0].alternatives[1].id =
             comparison.choice_groups[0].alternatives[0].id.clone();
         let error = validate_decoded_pixel_comparison_plan(&suite, &comparison, &catalogue.packs)
@@ -1342,6 +1371,41 @@ mod tests {
             error
                 .to_string()
                 .contains("repeats decoded-pixel reference")
+        );
+    }
+
+    #[test]
+    fn records_p0_03_window_and_resolution_choices() {
+        let root = Path::new(env!("CARGO_MANIFEST_DIR")).join("../..");
+        let catalogue = Catalogue::open(root).expect("repository catalogue opens");
+        let plan = catalogue
+            .suites
+            .get("layer2/conformance-jpeg-2000")
+            .expect("comparison suite exists")
+            .manifest
+            .decoded_pixel_comparison
+            .as_ref()
+            .expect("comparison plan exists");
+        let group = plan
+            .choice_groups
+            .iter()
+            .find(|group| group.id == "annex-c/class0-profile0/p0-03")
+            .expect("P0.03 choice group exists");
+        assert_eq!(group.minimum_passing_alternatives, 1);
+        assert_eq!(group.alternatives.len(), 2);
+        assert_eq!(
+            group
+                .alternatives
+                .iter()
+                .map(|alternative| (
+                    alternative.resolution_reduction,
+                    alternative.output_origin_x,
+                    alternative.output_origin_y,
+                    alternative.width,
+                    alternative.height,
+                ))
+                .collect::<Vec<_>>(),
+            vec![(0, 0, 0, 128, 128), (1, 0, 0, 128, 128)]
         );
     }
 

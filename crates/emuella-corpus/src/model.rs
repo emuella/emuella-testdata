@@ -212,6 +212,8 @@ pub struct DecodedPixelComparisonAlternative {
     pub reference: String,
     pub component: u16,
     pub resolution_reduction: u8,
+    pub output_origin_x: u32,
+    pub output_origin_y: u32,
     pub width: u32,
     pub height: u32,
     pub bits_per_sample: u8,
