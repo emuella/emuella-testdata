@@ -108,13 +108,50 @@
               "input": { "type": "string", "minLength": 1 },
               "reference": { "type": "string", "minLength": 1 },
               "component": { "type": "integer", "minimum": 0, "maximum": 65535 },
-              "resolution_reduction": { "const": 0 },
+              "resolution_reduction": { "type": "integer", "minimum": 0, "maximum": 255 },
               "width": { "type": "integer", "minimum": 1 },
               "height": { "type": "integer", "minimum": 1 },
               "bits_per_sample": { "type": "integer", "minimum": 1, "maximum": 32 },
               "signed": { "type": "boolean" },
               "peak_error_limit": { "type": "integer", "minimum": 0 },
               "mean_squared_error_limit": { "type": "number", "minimum": 0 }
+            }
+          }
+        },
+        "choice_groups": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["id", "input", "minimum_passing_alternatives", "alternatives"],
+            "properties": {
+              "id": { "type": "string", "pattern": "^[a-z0-9][a-z0-9./-]*[a-z0-9]$" },
+              "input": { "type": "string", "minLength": 1 },
+              "minimum_passing_alternatives": { "type": "integer", "minimum": 1, "maximum": 65535 },
+              "alternatives": {
+                "type": "array", "minItems": 1,
+                "items": {
+                  "type": "object",
+                  "additionalProperties": false,
+                  "required": [
+                    "id", "reference", "component", "resolution_reduction",
+                    "width", "height", "bits_per_sample", "signed",
+                    "peak_error_limit", "mean_squared_error_limit"
+                  ],
+                  "properties": {
+                    "id": { "type": "string", "pattern": "^[a-z0-9][a-z0-9./-]*[a-z0-9]$" },
+                    "reference": { "type": "string", "minLength": 1 },
+                    "component": { "type": "integer", "minimum": 0, "maximum": 65535 },
+                    "resolution_reduction": { "type": "integer", "minimum": 0, "maximum": 255 },
+                    "width": { "type": "integer", "minimum": 1 },
+                    "height": { "type": "integer", "minimum": 1 },
+                    "bits_per_sample": { "type": "integer", "minimum": 1, "maximum": 32 },
+                    "signed": { "type": "boolean" },
+                    "peak_error_limit": { "type": "integer", "minimum": 0 },
+                    "mean_squared_error_limit": { "type": "number", "minimum": 0 }
+                  }
+                }
+              }
             }
           }
         }

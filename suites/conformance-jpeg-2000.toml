@@ -1,6 +1,6 @@
 schema_version = 1
 id = "layer2/conformance-jpeg-2000"
-revision = 5
+revision = 6
 name = "JPEG 2000 and HTJ2K decoder conformance"
 description = "ISO/IEC 15444-4:2024 fourth-edition J2K, HTJ2K, JP2, and JPH qualification material."
 layer = 2
@@ -83,6 +83,35 @@ width = 128
 height = 128
 bits_per_sample = 8
 signed = false
+peak_error_limit = 0
+mean_squared_error_limit = 0.0
+
+[[decoded_pixel_comparison.choice_groups]]
+id = "annex-c/class0-profile0/p0-03"
+input = "files/codestreams_profile0/p0_03.j2k"
+minimum_passing_alternatives = 1
+
+[[decoded_pixel_comparison.choice_groups.alternatives]]
+id = "full-resolution-window"
+reference = "files/reference_class0_profile0/c0p0_03r0.pgx"
+component = 0
+resolution_reduction = 0
+width = 128
+height = 128
+bits_per_sample = 4
+signed = true
+peak_error_limit = 0
+mean_squared_error_limit = 0.0
+
+[[decoded_pixel_comparison.choice_groups.alternatives]]
+id = "one-level-reduced"
+reference = "files/reference_class0_profile0/c0p0_03r1.pgx"
+component = 0
+resolution_reduction = 1
+width = 128
+height = 128
+bits_per_sample = 4
+signed = true
 peak_error_limit = 0
 mean_squared_error_limit = 0.0
 

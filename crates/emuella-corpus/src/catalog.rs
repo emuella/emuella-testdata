@@ -435,7 +435,7 @@ fn validate_decoded_pixel_comparison_plan(
             .iter()
             .any(|clause| clause.trim().is_empty())
         || !is_lower_hex(&comparison.retrieval_commit, 40)
-        || comparison.cases.is_empty()
+        || (comparison.cases.is_empty() && comparison.choice_groups.is_empty())
     {
         return Err(CatalogueError::message(format!(
             "suite {} has incomplete decoded-pixel comparison authority or cases",
@@ -451,6 +451,7 @@ fn validate_decoded_pixel_comparison_plan(
         .collect::<BTreeMap<_, _>>();
     let mut case_ids = BTreeSet::new();
     let mut input_paths = BTreeSet::new();
+    let mut reference_paths = BTreeSet::new();
     for case in &comparison.cases {
         validate_id("decoded-pixel case", &case.id)?;
         if !case_ids.insert(case.id.as_str()) {
@@ -485,6 +486,12 @@ fn validate_decoded_pixel_comparison_plan(
                 suite.id, case.id
             ))
         })?;
+        if !reference_paths.insert(case.reference.as_str()) {
+            return Err(CatalogueError::message(format!(
+                "suite {} repeats decoded-pixel reference {}",
+                suite.id, case.reference
+            )));
+        }
         if Path::new(&input.path)
             .extension()
             .and_then(|extension| extension.to_str())
@@ -499,8 +506,7 @@ fn validate_decoded_pixel_comparison_plan(
                 suite.id, case.id
             )));
         }
-        if case.resolution_reduction != 0
-            || case.width == 0
+        if case.width == 0
             || case.height == 0
             || !(1..=32).contains(&case.bits_per_sample)
             || !case.mean_squared_error_limit.is_finite()
@@ -510,6 +516,99 @@ fn validate_decoded_pixel_comparison_plan(
                 "suite {} decoded-pixel case {} has unsupported geometry, sample format, resolution, or error limits",
                 suite.id, case.id
             )));
+        }
+    }
+    for group in &comparison.choice_groups {
+        validate_id("decoded-pixel choice group", &group.id)?;
+        if !case_ids.insert(group.id.as_str()) {
+            return Err(CatalogueError::message(format!(
+                "suite {} repeats decoded-pixel case or group ID {}",
+                suite.id, group.id
+            )));
+        }
+        validate_relative_path("decoded-pixel input", &group.input)?;
+        if !input_paths.insert(group.input.as_str()) {
+            return Err(CatalogueError::message(format!(
+                "suite {} repeats decoded-pixel input {}",
+                suite.id, group.input
+            )));
+        }
+        let input = inventory.get(group.input.as_str()).ok_or_else(|| {
+            CatalogueError::message(format!(
+                "suite {} decoded-pixel group {} input is absent from the locked inventory",
+                suite.id, group.id
+            ))
+        })?;
+        if Path::new(&input.path)
+            .extension()
+            .and_then(|extension| extension.to_str())
+            != Some("j2k")
+        {
+            return Err(CatalogueError::message(format!(
+                "suite {} decoded-pixel group {} requires a .j2k input",
+                suite.id, group.id
+            )));
+        }
+        if group.alternatives.is_empty()
+            || group.minimum_passing_alternatives == 0
+            || usize::from(group.minimum_passing_alternatives) > group.alternatives.len()
+        {
+            return Err(CatalogueError::message(format!(
+                "suite {} decoded-pixel group {} has an invalid alternative pass requirement",
+                suite.id, group.id
+            )));
+        }
+        let mut alternative_ids = BTreeSet::new();
+        for alternative in &group.alternatives {
+            validate_id("decoded-pixel alternative", &alternative.id)?;
+            if !alternative_ids.insert(alternative.id.as_str()) {
+                return Err(CatalogueError::message(format!(
+                    "suite {} decoded-pixel group {} repeats alternative ID {}",
+                    suite.id, group.id, alternative.id
+                )));
+            }
+            validate_relative_path("decoded-pixel reference", &alternative.reference)?;
+            if group.input == alternative.reference {
+                return Err(CatalogueError::message(format!(
+                    "suite {} decoded-pixel group {} uses one path as input and reference",
+                    suite.id, group.id
+                )));
+            }
+            let reference = inventory
+                .get(alternative.reference.as_str())
+                .ok_or_else(|| {
+                    CatalogueError::message(format!(
+                        "suite {} decoded-pixel group {} alternative {} reference is absent from the locked inventory",
+                        suite.id, group.id, alternative.id
+                    ))
+                })?;
+            if !reference_paths.insert(alternative.reference.as_str()) {
+                return Err(CatalogueError::message(format!(
+                    "suite {} repeats decoded-pixel reference {}",
+                    suite.id, alternative.reference
+                )));
+            }
+            if Path::new(&reference.path)
+                .extension()
+                .and_then(|extension| extension.to_str())
+                != Some("pgx")
+            {
+                return Err(CatalogueError::message(format!(
+                    "suite {} decoded-pixel group {} alternative {} requires a .pgx reference",
+                    suite.id, group.id, alternative.id
+                )));
+            }
+            if alternative.width == 0
+                || alternative.height == 0
+                || !(1..=32).contains(&alternative.bits_per_sample)
+                || !alternative.mean_squared_error_limit.is_finite()
+                || alternative.mean_squared_error_limit < 0.0
+            {
+                return Err(CatalogueError::message(format!(
+                    "suite {} decoded-pixel group {} alternative {} has unsupported geometry, sample format, resolution, or error limits",
+                    suite.id, group.id, alternative.id
+                )));
+            }
         }
     }
     Ok(())
@@ -1209,6 +1308,41 @@ mod tests {
         let error = validate_decoded_pixel_comparison_plan(&suite, &comparison, &catalogue.packs)
             .expect_err("non-finite limit must fail");
         assert!(error.to_string().contains("unsupported geometry"));
+
+        let mut comparison = suite
+            .decoded_pixel_comparison
+            .clone()
+            .expect("comparison plan exists");
+        comparison.choice_groups[0].minimum_passing_alternatives = 0;
+        let error = validate_decoded_pixel_comparison_plan(&suite, &comparison, &catalogue.packs)
+            .expect_err("choice group must require a passing alternative");
+        assert!(error.to_string().contains("pass requirement"));
+
+        let mut comparison = suite
+            .decoded_pixel_comparison
+            .clone()
+            .expect("comparison plan exists");
+        comparison.choice_groups[0].alternatives[1].id =
+            comparison.choice_groups[0].alternatives[0].id.clone();
+        let error = validate_decoded_pixel_comparison_plan(&suite, &comparison, &catalogue.packs)
+            .expect_err("choice group alternative IDs must be unique");
+        assert!(error.to_string().contains("repeats alternative ID"));
+
+        let mut comparison = suite
+            .decoded_pixel_comparison
+            .clone()
+            .expect("comparison plan exists");
+        comparison.choice_groups[0].alternatives[1].reference = comparison.choice_groups[0]
+            .alternatives[0]
+            .reference
+            .clone();
+        let error = validate_decoded_pixel_comparison_plan(&suite, &comparison, &catalogue.packs)
+            .expect_err("decoded-pixel references must be unique");
+        assert!(
+            error
+                .to_string()
+                .contains("repeats decoded-pixel reference")
+        );
     }
 
     #[test]

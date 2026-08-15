@@ -38,6 +38,12 @@ contract. Keep protected input, reference, and decoded samples in the
 authorised store and process memory, and report only factual identities,
 dimensions, pass/fail state, and aggregate errors.
 
+When one codestream has alternative authoritative outputs, consume its
+input-level `choice_group`. Each alternative independently declares its
+reference, component, resolution reduction, logical format, and limits. The
+group's `minimum_passing_alternatives` value defines how many alternatives must
+pass; alternatives are choices, not implicitly cumulative requirements.
+
 Do not embed external files with `include_bytes!`, copy them into crate test
 directories, or make a test-data repository a Cargo dependency. The harness
 should consume paths at runtime.
