@@ -187,6 +187,12 @@ pub struct DecodedPixelComparisonCase {
     pub input: String,
     pub reference: String,
     pub component: u16,
+    #[serde(default)]
+    pub output_window: bool,
+    #[serde(default)]
+    pub output_origin_x: u32,
+    #[serde(default)]
+    pub output_origin_y: u32,
     pub resolution_reduction: u8,
     pub width: u32,
     pub height: u32,
