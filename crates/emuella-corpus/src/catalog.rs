@@ -507,6 +507,7 @@ fn validate_decoded_pixel_comparison_plan(
             )));
         }
         if case.resolution_reduction > 3
+            || (!case.output_window && (case.output_origin_x != 0 || case.output_origin_y != 0))
             || case.width == 0
             || case.height == 0
             || !(1..=32).contains(&case.bits_per_sample)
@@ -1574,6 +1575,39 @@ mod tests {
         assert!(!case.signed);
         assert_eq!(case.peak_error_limit, 109);
         assert_eq!(case.mean_squared_error_limit, 743.0);
+    }
+
+    #[test]
+    fn records_p0_07_scalar_output_window_contract() {
+        let root = Path::new(env!("CARGO_MANIFEST_DIR")).join("../..");
+        let catalogue = Catalogue::open(root).expect("repository catalogue opens");
+        let plan = catalogue
+            .suites
+            .get("layer2/conformance-jpeg-2000")
+            .expect("comparison suite exists")
+            .manifest
+            .decoded_pixel_comparison
+            .as_ref()
+            .expect("comparison plan exists");
+        let case = plan
+            .cases
+            .iter()
+            .find(|case| case.id == "annex-c/class0-profile0/p0-07")
+            .expect("P0.07 scalar case exists");
+        assert_eq!(case.input, "files/codestreams_profile0/p0_07.j2k");
+        assert_eq!(
+            case.reference,
+            "files/reference_class0_profile0/c0p0_07.pgx"
+        );
+        assert_eq!(case.component, 0);
+        assert!(case.output_window);
+        assert_eq!((case.output_origin_x, case.output_origin_y), (0, 0));
+        assert_eq!(case.resolution_reduction, 0);
+        assert_eq!((case.width, case.height), (128, 128));
+        assert_eq!(case.bits_per_sample, 8);
+        assert!(case.signed);
+        assert_eq!(case.peak_error_limit, 10);
+        assert_eq!(case.mean_squared_error_limit, 0.34);
     }
 
     #[test]
