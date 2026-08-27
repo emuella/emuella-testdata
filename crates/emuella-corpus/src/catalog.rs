@@ -1441,6 +1441,77 @@ mod tests {
     }
 
     #[test]
+    fn records_p0_15_window_and_resolution_choices() {
+        let root = Path::new(env!("CARGO_MANIFEST_DIR")).join("../..");
+        let catalogue = Catalogue::open(root).expect("repository catalogue opens");
+        let plan = catalogue
+            .suites
+            .get("layer2/conformance-jpeg-2000")
+            .expect("comparison suite exists")
+            .manifest
+            .decoded_pixel_comparison
+            .as_ref()
+            .expect("comparison plan exists");
+        let group = plan
+            .choice_groups
+            .iter()
+            .find(|group| group.id == "annex-c/class0-profile0/p0-15")
+            .expect("P0.15 choice group exists");
+        assert_eq!(group.input, "files/codestreams_profile0/p0_15.j2k");
+        assert_eq!(group.minimum_passing_alternatives, 1);
+        assert_eq!(
+            group
+                .alternatives
+                .iter()
+                .map(|alternative| (
+                    alternative.id.as_str(),
+                    alternative.reference.as_str(),
+                    alternative.component,
+                    alternative.resolution_reduction,
+                    alternative.output_origin_x,
+                    alternative.output_origin_y,
+                    alternative.width,
+                    alternative.height,
+                    alternative.bits_per_sample,
+                    alternative.signed,
+                    alternative.peak_error_limit,
+                    alternative.mean_squared_error_limit,
+                ))
+                .collect::<Vec<_>>(),
+            vec![
+                (
+                    "full-resolution-window",
+                    "files/reference_class0_profile0/c0p0_15r0.pgx",
+                    0,
+                    0,
+                    0,
+                    0,
+                    128,
+                    128,
+                    4,
+                    true,
+                    0,
+                    0.0,
+                ),
+                (
+                    "one-level-reduced",
+                    "files/reference_class0_profile0/c0p0_15r1.pgx",
+                    0,
+                    1,
+                    0,
+                    0,
+                    128,
+                    128,
+                    4,
+                    true,
+                    0,
+                    0.0,
+                ),
+            ]
+        );
+    }
+
+    #[test]
     fn repository_catalogue_is_internally_consistent() {
         let root = Path::new(env!("CARGO_MANIFEST_DIR")).join("../..");
         let catalogue = Catalogue::open(root).expect("repository catalogue opens");
