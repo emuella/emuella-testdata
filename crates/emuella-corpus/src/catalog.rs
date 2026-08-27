@@ -1441,6 +1441,37 @@ mod tests {
     }
 
     #[test]
+    fn records_p0_09_reduced_scalar_contract() {
+        let root = Path::new(env!("CARGO_MANIFEST_DIR")).join("../..");
+        let catalogue = Catalogue::open(root).expect("repository catalogue opens");
+        let plan = catalogue
+            .suites
+            .get("layer2/conformance-jpeg-2000")
+            .expect("comparison suite exists")
+            .manifest
+            .decoded_pixel_comparison
+            .as_ref()
+            .expect("comparison plan exists");
+        let case = plan
+            .cases
+            .iter()
+            .find(|case| case.id == "annex-c/class0-profile0/p0-09")
+            .expect("P0.09 scalar case exists");
+        assert_eq!(case.input, "files/codestreams_profile0/p0_09.j2k");
+        assert_eq!(
+            case.reference,
+            "files/reference_class0_profile0/c0p0_09.pgx"
+        );
+        assert_eq!(case.component, 0);
+        assert_eq!(case.resolution_reduction, 2);
+        assert_eq!((case.width, case.height), (5, 10));
+        assert_eq!(case.bits_per_sample, 8);
+        assert!(!case.signed);
+        assert_eq!(case.peak_error_limit, 4);
+        assert_eq!(case.mean_squared_error_limit, 1.47);
+    }
+
+    #[test]
     fn records_p0_15_window_and_resolution_choices() {
         let root = Path::new(env!("CARGO_MANIFEST_DIR")).join("../..");
         let catalogue = Catalogue::open(root).expect("repository catalogue opens");
