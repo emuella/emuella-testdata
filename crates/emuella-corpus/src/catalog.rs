@@ -506,7 +506,7 @@ fn validate_decoded_pixel_comparison_plan(
                 suite.id, case.id
             )));
         }
-        if case.resolution_reduction > 3
+        if case.resolution_reduction > 5
             || (!case.output_window && (case.output_origin_x != 0 || case.output_origin_y != 0))
             || case.width == 0
             || case.height == 0
@@ -1335,7 +1335,7 @@ mod tests {
             .clone()
             .expect("comparison plan exists");
         validate_decoded_pixel_comparison_plan(&suite, &comparison, &catalogue.packs)
-            .expect("scalar cases support three reduction levels");
+            .expect("scalar cases support five reduction levels");
 
         let mut comparison = suite
             .decoded_pixel_comparison
@@ -1346,9 +1346,17 @@ mod tests {
             .iter_mut()
             .find(|case| case.id == "annex-c/class0-profile0/p0-04")
             .expect("P0.04 scalar case exists")
-            .resolution_reduction = 4;
+            .resolution_reduction = 5;
+        validate_decoded_pixel_comparison_plan(&suite, &comparison, &catalogue.packs)
+            .expect("scalar cases admit five reduction levels");
+        comparison
+            .cases
+            .iter_mut()
+            .find(|case| case.id == "annex-c/class0-profile0/p0-04")
+            .expect("P0.04 scalar case exists")
+            .resolution_reduction = 6;
         let error = validate_decoded_pixel_comparison_plan(&suite, &comparison, &catalogue.packs)
-            .expect_err("scalar cases remain bounded to three reduction levels");
+            .expect_err("scalar cases remain bounded to five reduction levels");
         assert!(error.to_string().contains("unsupported geometry"));
 
         let mut comparison = suite
@@ -1608,6 +1616,39 @@ mod tests {
         assert!(case.signed);
         assert_eq!(case.peak_error_limit, 10);
         assert_eq!(case.mean_squared_error_limit, 0.34);
+    }
+
+    #[test]
+    fn records_p0_08_reduction_five_scalar_contract() {
+        let root = Path::new(env!("CARGO_MANIFEST_DIR")).join("../..");
+        let catalogue = Catalogue::open(root).expect("repository catalogue opens");
+        let plan = catalogue
+            .suites
+            .get("layer2/conformance-jpeg-2000")
+            .expect("comparison suite exists")
+            .manifest
+            .decoded_pixel_comparison
+            .as_ref()
+            .expect("comparison plan exists");
+        let case = plan
+            .cases
+            .iter()
+            .find(|case| case.id == "annex-c/class0-profile0/p0-08")
+            .expect("P0.08 scalar case exists");
+        assert_eq!(case.input, "files/codestreams_profile0/p0_08.j2k");
+        assert_eq!(
+            case.reference,
+            "files/reference_class0_profile0/c0p0_08.pgx"
+        );
+        assert_eq!(case.component, 0);
+        assert!(!case.output_window);
+        assert_eq!((case.output_origin_x, case.output_origin_y), (0, 0));
+        assert_eq!(case.resolution_reduction, 5);
+        assert_eq!((case.width, case.height), (17, 96));
+        assert_eq!(case.bits_per_sample, 8);
+        assert!(case.signed);
+        assert_eq!(case.peak_error_limit, 7);
+        assert_eq!(case.mean_squared_error_limit, 6.72);
     }
 
     #[test]
