@@ -1,7 +1,8 @@
 use crate::model::{
     AssetInventoryManifest, AssetRecord, CatalogueManifest, DecodedPixelDerivedSetCodingMode,
     DecodedPixelDerivedSetId, DecodedPixelDerivedSetSelection, DecodedPixelNormalisationStep,
-    InspectionExpectation, PackKind, PackManifest, ReviewState, SuiteManifest,
+    InspectionExpectation, PackKind, PackManifest, RenderedColourSpace, RenderedReferenceLayout,
+    ReviewState, SuiteManifest,
 };
 use sha2::{Digest, Sha256};
 use std::collections::{BTreeMap, BTreeSet};
@@ -281,6 +282,9 @@ impl Catalogue {
             }
             if let Some(comparison) = &suite.decoded_pixel_comparison {
                 validate_decoded_pixel_comparison_plan(suite, comparison, &self.packs)?;
+            }
+            if let Some(comparison) = &suite.rendered_pixel_comparison {
+                validate_rendered_pixel_comparison_plan(suite, comparison, &self.packs)?;
             }
         }
 
@@ -662,6 +666,143 @@ const DS0_EXPECTED_CASES: &[ExpectedDs0Case] = &[
         }],
     },
 ];
+
+fn validate_rendered_pixel_comparison_plan(
+    suite: &SuiteManifest,
+    comparison: &crate::model::RenderedPixelComparisonPlan,
+    packs: &BTreeMap<String, LocatedPack>,
+) -> Result<(), CatalogueError> {
+    let selected = suite
+        .packs
+        .iter()
+        .find(|selected| selected.id == comparison.pack_id)
+        .ok_or_else(|| {
+            CatalogueError::message(format!(
+                "suite {} rendered-pixel plan names unselected pack {}",
+                suite.id, comparison.pack_id
+            ))
+        })?;
+    let pack = packs.get(&comparison.pack_id).ok_or_else(|| {
+        CatalogueError::message("rendered-pixel comparison pack disappeared from catalogue")
+    })?;
+    if selected.version != pack.manifest.version {
+        return Err(CatalogueError::message(format!(
+            "suite {} rendered-pixel plan pack version is not selected",
+            suite.id
+        )));
+    }
+    if pack.manifest.review_state != ReviewState::Locked {
+        return Err(CatalogueError::message(format!(
+            "suite {} rendered-pixel plan requires locked pack {}",
+            suite.id, comparison.pack_id
+        )));
+    }
+    if !has_ascii_graphic(&comparison.standard)
+        || comparison.clauses.is_empty()
+        || comparison
+            .clauses
+            .iter()
+            .any(|clause| !has_ascii_graphic(clause))
+        || comparison.clauses.iter().collect::<BTreeSet<_>>().len() != comparison.clauses.len()
+        || !is_lower_hex(&comparison.retrieval_commit, 40)
+        || comparison.cases.is_empty()
+    {
+        return Err(CatalogueError::message(format!(
+            "suite {} has incomplete rendered-pixel comparison authority or cases",
+            suite.id
+        )));
+    }
+
+    let inventory = pack
+        .manifest
+        .assets
+        .iter()
+        .map(|asset| (asset.path.as_str(), asset))
+        .collect::<BTreeMap<_, _>>();
+    let mut case_ids = BTreeSet::new();
+    let mut input_paths = BTreeSet::new();
+    let mut reference_paths = BTreeSet::new();
+    for case in &comparison.cases {
+        validate_id("rendered-pixel case", &case.id)?;
+        if !case_ids.insert(case.id.as_str()) {
+            return Err(CatalogueError::message(format!(
+                "suite {} repeats rendered-pixel case ID {}",
+                suite.id, case.id
+            )));
+        }
+        validate_relative_path("rendered-pixel input", &case.input)?;
+        validate_relative_path("rendered-pixel reference", &case.reference)?;
+        if case.input == case.reference {
+            return Err(CatalogueError::message(format!(
+                "suite {} rendered-pixel case {} uses one path as input and reference",
+                suite.id, case.id
+            )));
+        }
+        if !input_paths.insert(case.input.as_str()) {
+            return Err(CatalogueError::message(format!(
+                "suite {} repeats rendered-pixel input {}",
+                suite.id, case.input
+            )));
+        }
+        if !reference_paths.insert(case.reference.as_str()) {
+            return Err(CatalogueError::message(format!(
+                "suite {} repeats rendered-pixel reference {}",
+                suite.id, case.reference
+            )));
+        }
+        let input = inventory.get(case.input.as_str()).ok_or_else(|| {
+            CatalogueError::message(format!(
+                "suite {} rendered-pixel case {} input is absent from the locked inventory",
+                suite.id, case.id
+            ))
+        })?;
+        let reference = inventory.get(case.reference.as_str()).ok_or_else(|| {
+            CatalogueError::message(format!(
+                "suite {} rendered-pixel case {} reference is absent from the locked inventory",
+                suite.id, case.id
+            ))
+        })?;
+        if Path::new(&input.path)
+            .extension()
+            .and_then(|extension| extension.to_str())
+            != Some("jp2")
+            || Path::new(&reference.path)
+                .extension()
+                .and_then(|extension| extension.to_str())
+                != Some("tif")
+        {
+            return Err(CatalogueError::message(format!(
+                "suite {} rendered-pixel case {} requires a .jp2 input and .tif reference",
+                suite.id, case.id
+            )));
+        }
+        if input.media_type != "image/jp2" || reference.media_type != "image/tiff" {
+            return Err(CatalogueError::message(format!(
+                "suite {} rendered-pixel case {} has an unsupported inventory media type",
+                suite.id, case.id
+            )));
+        }
+        if case.width == 0
+            || case.height == 0
+            || case.components != 3
+            || case.bits_per_sample != 8
+            || case.rendered_colour_space != RenderedColourSpace::Srgb
+            || case.reference_layout != RenderedReferenceLayout::TiffRgbU8Contiguous
+            || !case.peak_error_limit.is_finite()
+            || case.peak_error_limit < 0.0
+        {
+            return Err(CatalogueError::message(format!(
+                "suite {} rendered-pixel case {} has unsupported full-frame shape, colour, layout, or error limit",
+                suite.id, case.id
+            )));
+        }
+    }
+    Ok(())
+}
+
+fn has_ascii_graphic(value: &str) -> bool {
+    value.bytes().any(|byte| (b'!'..=b'~').contains(&byte))
+}
 
 fn validate_decoded_pixel_comparison_plan(
     suite: &SuiteManifest,
@@ -1734,6 +1875,372 @@ mod tests {
         (suite, inspection, catalogue)
     }
 
+    fn rendered_fixture() -> (
+        SuiteManifest,
+        crate::model::RenderedPixelComparisonPlan,
+        Catalogue,
+    ) {
+        let root = Path::new(env!("CARGO_MANIFEST_DIR")).join("../..");
+        let catalogue = Catalogue::open(root).expect("repository catalogue opens");
+        let suite = catalogue
+            .suites
+            .get("layer2/conformance-jpeg-2000")
+            .expect("rendered comparison suite exists")
+            .manifest
+            .clone();
+        let comparison = suite
+            .rendered_pixel_comparison
+            .clone()
+            .expect("rendered comparison plan exists");
+        (suite, comparison, catalogue)
+    }
+
+    fn rendered_schema() -> serde_json::Value {
+        let schema: serde_json::Value =
+            serde_json::from_str(include_str!("../../../schema/suite.schema.json"))
+                .expect("suite schema is valid JSON");
+        schema["properties"]["rendered_pixel_comparison"].clone()
+    }
+
+    fn rendered_schema_instance() -> serde_json::Value {
+        let (_, comparison, _) = rendered_fixture();
+        serde_json::to_value(comparison).expect("rendered comparison serialises as JSON")
+    }
+
+    fn changed_schema_instance(
+        base: &serde_json::Value,
+        update: impl FnOnce(&mut serde_json::Value),
+    ) -> serde_json::Value {
+        let mut changed = base.clone();
+        update(&mut changed);
+        changed
+    }
+
+    fn changed_rendered_comparison(
+        base: &crate::model::RenderedPixelComparisonPlan,
+        update: impl FnOnce(&mut crate::model::RenderedPixelComparisonPlan),
+    ) -> crate::model::RenderedPixelComparisonPlan {
+        let mut changed = base.clone();
+        update(&mut changed);
+        changed
+    }
+
+    fn bounded_schema_accepts(schema: &serde_json::Value, instance: &serde_json::Value) -> bool {
+        validate_bounded_schema(schema);
+        bounded_schema_accepts_prevalidated(schema, instance)
+    }
+
+    fn validate_bounded_schema(schema: &serde_json::Value) {
+        let schema = schema
+            .as_object()
+            .expect("bounded schema node is an object");
+        for (keyword, value) in schema {
+            match keyword.as_str() {
+                "type" => assert!(
+                    value.as_str().is_some_and(|value| matches!(
+                        value,
+                        "object" | "array" | "string" | "integer" | "number"
+                    )),
+                    "bounded schema type must be one supported string"
+                ),
+                "additionalProperties" | "uniqueItems" => assert!(
+                    value.is_boolean(),
+                    "bounded schema {keyword} must be a boolean"
+                ),
+                "required" => assert!(
+                    value
+                        .as_array()
+                        .is_some_and(|values| values.iter().all(serde_json::Value::is_string)),
+                    "bounded schema required must be an array of strings"
+                ),
+                "properties" => {
+                    let properties = value
+                        .as_object()
+                        .expect("bounded schema properties must be an object");
+                    for property in properties.values() {
+                        validate_bounded_schema(property);
+                    }
+                }
+                "items" => {
+                    value
+                        .as_object()
+                        .expect("bounded schema items must be an object");
+                    validate_bounded_schema(value);
+                }
+                "minItems" | "minLength" => assert!(
+                    bounded_schema_u32(value).is_some(),
+                    "bounded schema {keyword} must be an unsigned 32-bit integer"
+                ),
+                "pattern" => {
+                    let pattern = value
+                        .as_str()
+                        .expect("bounded schema pattern must be a string");
+                    assert!(
+                        bounded_pattern_is_supported(pattern),
+                        "unsupported bounded schema pattern {pattern}"
+                    );
+                }
+                "minimum" | "maximum" => assert!(
+                    bounded_schema_u32(value).is_some(),
+                    "bounded schema {keyword} must be an unsigned 32-bit integer"
+                ),
+                "const" => assert!(
+                    value.is_string() || bounded_schema_u32(value).is_some(),
+                    "bounded schema const must be a string or unsigned 32-bit integer"
+                ),
+                _ => panic!("unsupported bounded schema keyword {keyword}"),
+            }
+        }
+
+        let Some(expected_type) = schema.get("type").map(|value| {
+            value
+                .as_str()
+                .expect("bounded schema type is a supported string")
+        }) else {
+            assert!(
+                schema.len() == 1 && schema.contains_key("const"),
+                "typeless bounded schema node must contain only const"
+            );
+            return;
+        };
+        let allowed_keywords: &[&str] = match expected_type {
+            "object" => &[
+                "type",
+                "const",
+                "additionalProperties",
+                "required",
+                "properties",
+            ],
+            "array" => &["type", "const", "minItems", "uniqueItems", "items"],
+            "string" => &["type", "const", "minLength", "pattern"],
+            "integer" | "number" => &["type", "const", "minimum", "maximum"],
+            _ => unreachable!("bounded schema type was validated above"),
+        };
+        for keyword in schema.keys() {
+            assert!(
+                allowed_keywords.contains(&keyword.as_str()),
+                "bounded schema keyword {keyword} is not evaluated for type {expected_type}"
+            );
+        }
+        if schema
+            .get("uniqueItems")
+            .is_some_and(|unique| unique == true)
+        {
+            let items = schema
+                .get("items")
+                .and_then(serde_json::Value::as_object)
+                .expect("bounded schema uniqueItems requires an items schema");
+            assert_eq!(
+                items.get("type").and_then(serde_json::Value::as_str),
+                Some("string"),
+                "bounded schema uniqueItems requires string items with exact equality"
+            );
+        }
+    }
+
+    fn bounded_schema_u32(value: &serde_json::Value) -> Option<u32> {
+        value.as_u64().and_then(|value| u32::try_from(value).ok())
+    }
+
+    fn bounded_instance_u32(value: &serde_json::Value) -> Option<u32> {
+        if let Some(value) = bounded_schema_u32(value) {
+            return Some(value);
+        }
+        value.as_f64().and_then(|value| {
+            (value.is_finite()
+                && value >= 0.0
+                && value.fract() == 0.0
+                && value <= f64::from(u32::MAX))
+            .then_some(value as u32)
+        })
+    }
+
+    fn bounded_const_matches(expected: &serde_json::Value, instance: &serde_json::Value) -> bool {
+        bounded_schema_u32(expected).map_or_else(
+            || expected == instance,
+            |expected| bounded_instance_u32(instance) == Some(expected),
+        )
+    }
+
+    fn bounded_schema_accepts_prevalidated(
+        schema: &serde_json::Value,
+        instance: &serde_json::Value,
+    ) -> bool {
+        let schema = schema
+            .as_object()
+            .expect("prevalidated bounded schema node is an object");
+        if schema
+            .get("const")
+            .is_some_and(|expected| !bounded_const_matches(expected, instance))
+        {
+            return false;
+        }
+        let Some(expected_type) = schema.get("type").and_then(serde_json::Value::as_str) else {
+            return true;
+        };
+        match expected_type {
+            "object" => {
+                let Some(instance) = instance.as_object() else {
+                    return false;
+                };
+                let properties = schema
+                    .get("properties")
+                    .and_then(serde_json::Value::as_object)
+                    .expect("object schema has properties");
+                if schema
+                    .get("required")
+                    .and_then(serde_json::Value::as_array)
+                    .is_some_and(|required| {
+                        required.iter().any(|field| {
+                            !instance.contains_key(
+                                field.as_str().expect("required field name is a string"),
+                            )
+                        })
+                    })
+                {
+                    return false;
+                }
+                for (field, value) in instance {
+                    if let Some(field_schema) = properties.get(field) {
+                        if !bounded_schema_accepts_prevalidated(field_schema, value) {
+                            return false;
+                        }
+                    } else if schema
+                        .get("additionalProperties")
+                        .is_some_and(|allowed| allowed == false)
+                    {
+                        return false;
+                    }
+                }
+                true
+            }
+            "array" => {
+                let Some(instance) = instance.as_array() else {
+                    return false;
+                };
+                if schema
+                    .get("minItems")
+                    .and_then(serde_json::Value::as_u64)
+                    .is_some_and(|minimum| instance.len() < minimum as usize)
+                {
+                    return false;
+                }
+                if schema
+                    .get("uniqueItems")
+                    .is_some_and(|unique| unique == true)
+                    && instance.iter().enumerate().any(|(index, value)| {
+                        instance[index + 1..]
+                            .iter()
+                            .any(|candidate| candidate == value)
+                    })
+                {
+                    return false;
+                }
+                let item_schema = schema.get("items").expect("array schema has items");
+                instance
+                    .iter()
+                    .all(|value| bounded_schema_accepts_prevalidated(item_schema, value))
+            }
+            "string" => {
+                let Some(instance) = instance.as_str() else {
+                    return false;
+                };
+                if schema
+                    .get("minLength")
+                    .and_then(serde_json::Value::as_u64)
+                    .is_some_and(|minimum| instance.chars().count() < minimum as usize)
+                {
+                    return false;
+                }
+                schema
+                    .get("pattern")
+                    .and_then(serde_json::Value::as_str)
+                    .is_none_or(|pattern| bounded_pattern_matches(pattern, instance))
+            }
+            "integer" => {
+                let Some(value) = instance.as_f64().filter(|value| value.fract() == 0.0) else {
+                    return false;
+                };
+                bounded_numeric_limits_accept(schema, value)
+            }
+            "number" => instance
+                .as_f64()
+                .is_some_and(|value| bounded_numeric_limits_accept(schema, value)),
+            other => panic!("unsupported bounded schema type {other}"),
+        }
+    }
+
+    fn bounded_numeric_limits_accept(
+        schema: &serde_json::Map<String, serde_json::Value>,
+        value: f64,
+    ) -> bool {
+        !schema
+            .get("minimum")
+            .and_then(serde_json::Value::as_f64)
+            .is_some_and(|minimum| value < minimum)
+            && !schema
+                .get("maximum")
+                .and_then(serde_json::Value::as_f64)
+                .is_some_and(|maximum| value > maximum)
+    }
+
+    fn bounded_pattern_is_supported(pattern: &str) -> bool {
+        matches!(
+            pattern,
+            r"[!-~]"
+                | r"^[0-9a-f]{40}(?![\s\S])"
+                | r"^(?!.*(?:^|/)\.\.(?:/|$))[a-z0-9](?:[a-z0-9./-]*[a-z0-9.-])?(?![\s\S])"
+                | r"^(?:[A-Za-z0-9_-][A-Za-z0-9._-]*/)*[A-Za-z0-9_-][A-Za-z0-9._-]*\.jp2(?![\s\S])"
+                | r"^(?:[A-Za-z0-9_-][A-Za-z0-9._-]*/)*[A-Za-z0-9_-][A-Za-z0-9._-]*\.tif(?![\s\S])"
+        )
+    }
+
+    fn bounded_pattern_matches(pattern: &str, value: &str) -> bool {
+        match pattern {
+            r"[!-~]" => has_ascii_graphic(value),
+            r"^[0-9a-f]{40}(?![\s\S])" => {
+                value.len() == 40
+                    && value
+                        .bytes()
+                        .all(|byte| byte.is_ascii_digit() || (b'a'..=b'f').contains(&byte))
+            }
+            r"^(?!.*(?:^|/)\.\.(?:/|$))[a-z0-9](?:[a-z0-9./-]*[a-z0-9.-])?(?![\s\S])" => {
+                !value.is_empty()
+                    && value
+                        .bytes()
+                        .next()
+                        .is_some_and(|byte| byte.is_ascii_lowercase() || byte.is_ascii_digit())
+                    && !value.ends_with('/')
+                    && value.bytes().all(|byte| {
+                        byte.is_ascii_lowercase()
+                            || byte.is_ascii_digit()
+                            || matches!(byte, b'-' | b'/' | b'.')
+                    })
+                    && value.split('/').all(|component| component != "..")
+            }
+            r"^(?:[A-Za-z0-9_-][A-Za-z0-9._-]*/)*[A-Za-z0-9_-][A-Za-z0-9._-]*\.jp2(?![\s\S])" => {
+                bounded_portable_path_matches(value, ".jp2")
+            }
+            r"^(?:[A-Za-z0-9_-][A-Za-z0-9._-]*/)*[A-Za-z0-9_-][A-Za-z0-9._-]*\.tif(?![\s\S])" => {
+                bounded_portable_path_matches(value, ".tif")
+            }
+            other => panic!("unsupported bounded schema pattern {other}"),
+        }
+    }
+
+    fn bounded_portable_path_matches(value: &str, extension: &str) -> bool {
+        value.ends_with(extension)
+            && value.split('/').all(|component| {
+                component
+                    .bytes()
+                    .next()
+                    .is_some_and(|byte| byte.is_ascii_alphanumeric() || matches!(byte, b'_' | b'-'))
+                    && component.bytes().all(|byte| {
+                        byte.is_ascii_alphanumeric() || matches!(byte, b'.' | b'_' | b'-')
+                    })
+            })
+    }
+
     #[test]
     fn rejects_parent_traversal() {
         assert!(validate_relative_path("test", "../escape").is_err());
@@ -1810,6 +2317,959 @@ mod tests {
         let error = validate_inspection_plan(&suite, &inspection, &catalogue.packs)
             .expect_err("unselected override must fail");
         assert!(error.to_string().contains("names unselected path"));
+    }
+
+    #[test]
+    fn deserialises_and_validates_annex_g_rendered_contract() {
+        let root = Path::new(env!("CARGO_MANIFEST_DIR")).join("../..");
+        let source = fs::read_to_string(root.join("suites/conformance-jpeg-2000.toml"))
+            .expect("suite source is readable");
+        let suite: SuiteManifest = toml::from_str(&source).expect("suite deserialises");
+        assert_eq!(suite.revision, 20);
+        let comparison = suite
+            .rendered_pixel_comparison
+            .as_ref()
+            .expect("rendered comparison plan exists");
+        assert_eq!(comparison.pack_id, "jpeg-2000/conformance");
+        assert_eq!(comparison.standard, "ISO/IEC 15444-4:2024");
+        assert_eq!(
+            comparison.clauses,
+            [
+                "Annex G",
+                "G.1",
+                "G.2",
+                "G.3",
+                "G.4.2",
+                "G.4.3",
+                "Table G.1"
+            ]
+        );
+        assert_eq!(
+            comparison.retrieval_commit,
+            "725ecba70e5d03eff3f6ce9626bb9cb08dd4e0c7"
+        );
+        assert_eq!(comparison.cases.len(), 1);
+        let case = &comparison.cases[0];
+        assert_eq!(case.id, "annex-g/jp2/file3");
+        assert_eq!(case.input, "files/testfiles_jp2/file3.jp2");
+        assert_eq!(case.reference, "files/reference_jp2/jp2_3.tif");
+        assert_eq!((case.width, case.height), (480, 640));
+        assert_eq!((case.components, case.bits_per_sample), (3, 8));
+        assert_eq!(case.rendered_colour_space, RenderedColourSpace::Srgb);
+        assert_eq!(
+            case.reference_layout,
+            RenderedReferenceLayout::TiffRgbU8Contiguous
+        );
+        assert_eq!(case.peak_error_limit, 4.0);
+
+        let catalogue = Catalogue::open(root).expect("repository catalogue opens");
+        catalogue.check().expect("repository catalogue checks");
+        let assets = &catalogue.packs["jpeg-2000/conformance"].manifest.assets;
+        let input = assets
+            .iter()
+            .find(|asset| asset.path == case.input)
+            .expect("input is locked");
+        let reference = assets
+            .iter()
+            .find(|asset| asset.path == case.reference)
+            .expect("reference is locked");
+        assert_eq!(
+            input.sha256,
+            "fe922461d6928f9b9c86c222a133c42c19d119351400d5e8dd6a1e60db437e66"
+        );
+        assert_eq!(
+            reference.sha256,
+            "512a8827b98d71051c3cba52b96a323e879870ba90dc254016befaa1aa90dbd5"
+        );
+    }
+
+    #[test]
+    fn rendered_contract_schema_executes_valid_and_adversarial_instances() {
+        let schema = rendered_schema();
+        let valid = rendered_schema_instance();
+        assert!(bounded_schema_accepts(&schema, &valid));
+
+        let one_character_id = changed_schema_instance(&valid, |instance| {
+            instance["cases"][0]["id"] = serde_json::json!("a");
+        });
+        validate_id("rendered-pixel case", "a")
+            .expect("catalogue accepts a one-character rendered case ID");
+        assert!(
+            bounded_schema_accepts(&schema, &one_character_id),
+            "schema must accept every one-character ID accepted by validate_id"
+        );
+
+        let model_overflow = changed_schema_instance(&valid, |instance| {
+            instance["cases"][0]["width"] = serde_json::json!(4_294_967_296_u64);
+        });
+        serde_json::from_value::<crate::model::RenderedPixelComparisonPlan>(model_overflow)
+            .expect_err("u32 model must reject overflowing geometry");
+
+        let invalid = [
+            (
+                "missing required plan field",
+                changed_schema_instance(&valid, |instance| {
+                    instance
+                        .as_object_mut()
+                        .expect("plan is an object")
+                        .remove("standard");
+                }),
+            ),
+            (
+                "wrong geometry type",
+                changed_schema_instance(&valid, |instance| {
+                    instance["cases"][0]["width"] = serde_json::json!("480");
+                }),
+            ),
+            (
+                "wrong component constant",
+                changed_schema_instance(&valid, |instance| {
+                    instance["cases"][0]["components"] = serde_json::json!(2);
+                }),
+            ),
+            (
+                "wrong colour constant",
+                changed_schema_instance(&valid, |instance| {
+                    instance["cases"][0]["rendered_colour_space"] = serde_json::json!("Display P3");
+                }),
+            ),
+            (
+                "blank standard",
+                changed_schema_instance(&valid, |instance| {
+                    instance["standard"] = serde_json::json!(" \t\n");
+                }),
+            ),
+            (
+                "blank clause",
+                changed_schema_instance(&valid, |instance| {
+                    instance["clauses"][0] = serde_json::json!("   ");
+                }),
+            ),
+            (
+                "duplicate clause",
+                changed_schema_instance(&valid, |instance| {
+                    instance["clauses"] = serde_json::json!(["G.1", "G.1"]);
+                }),
+            ),
+            (
+                "invalid retrieval commit",
+                changed_schema_instance(&valid, |instance| {
+                    instance["retrieval_commit"] =
+                        serde_json::json!("725ECBA70E5D03EFF3F6CE9626BB9CB08DD4E0C7");
+                }),
+            ),
+            (
+                "unsafe case ID",
+                changed_schema_instance(&valid, |instance| {
+                    instance["cases"][0]["id"] = serde_json::json!("a/../b");
+                }),
+            ),
+            (
+                "zero width",
+                changed_schema_instance(&valid, |instance| {
+                    instance["cases"][0]["width"] = serde_json::json!(0);
+                }),
+            ),
+            (
+                "zero height",
+                changed_schema_instance(&valid, |instance| {
+                    instance["cases"][0]["height"] = serde_json::json!(0);
+                }),
+            ),
+            (
+                "u32-overflow width",
+                changed_schema_instance(&valid, |instance| {
+                    instance["cases"][0]["width"] = serde_json::json!(4_294_967_296_u64);
+                }),
+            ),
+            (
+                "u32-overflow height",
+                changed_schema_instance(&valid, |instance| {
+                    instance["cases"][0]["height"] = serde_json::json!(4_294_967_296_u64);
+                }),
+            ),
+            (
+                "negative peak limit",
+                changed_schema_instance(&valid, |instance| {
+                    instance["cases"][0]["peak_error_limit"] = serde_json::json!(-0.1);
+                }),
+            ),
+            (
+                "unknown plan field",
+                changed_schema_instance(&valid, |instance| {
+                    instance
+                        .as_object_mut()
+                        .expect("plan is an object")
+                        .insert("unknown".to_owned(), serde_json::json!(true));
+                }),
+            ),
+            (
+                "unknown case field",
+                changed_schema_instance(&valid, |instance| {
+                    instance["cases"][0]
+                        .as_object_mut()
+                        .expect("case is an object")
+                        .insert("unknown".to_owned(), serde_json::json!(true));
+                }),
+            ),
+            (
+                "parent-traversing input",
+                changed_schema_instance(&valid, |instance| {
+                    instance["cases"][0]["input"] = serde_json::json!("../file3.jp2");
+                }),
+            ),
+            (
+                "absolute input",
+                changed_schema_instance(&valid, |instance| {
+                    instance["cases"][0]["input"] =
+                        serde_json::json!("/files/testfiles_jp2/file3.jp2");
+                }),
+            ),
+            (
+                "Windows-absolute input",
+                changed_schema_instance(&valid, |instance| {
+                    instance["cases"][0]["input"] = serde_json::json!("C:/files/file3.jp2");
+                }),
+            ),
+            (
+                "backslash input",
+                changed_schema_instance(&valid, |instance| {
+                    instance["cases"][0]["input"] =
+                        serde_json::json!(r"files\testfiles_jp2\file3.jp2");
+                }),
+            ),
+            (
+                "uppercase input extension",
+                changed_schema_instance(&valid, |instance| {
+                    instance["cases"][0]["input"] =
+                        serde_json::json!("files/testfiles_jp2/file3.JP2");
+                }),
+            ),
+            (
+                "parent-traversing reference",
+                changed_schema_instance(&valid, |instance| {
+                    instance["cases"][0]["reference"] = serde_json::json!("../jp2_3.tif");
+                }),
+            ),
+            (
+                "absolute reference",
+                changed_schema_instance(&valid, |instance| {
+                    instance["cases"][0]["reference"] =
+                        serde_json::json!("/files/reference_jp2/jp2_3.tif");
+                }),
+            ),
+            (
+                "backslash reference",
+                changed_schema_instance(&valid, |instance| {
+                    instance["cases"][0]["reference"] =
+                        serde_json::json!(r"files\reference_jp2\jp2_3.tif");
+                }),
+            ),
+            (
+                "uppercase reference extension",
+                changed_schema_instance(&valid, |instance| {
+                    instance["cases"][0]["reference"] =
+                        serde_json::json!("files/reference_jp2/jp2_3.TIF");
+                }),
+            ),
+        ];
+        for (label, instance) in invalid {
+            assert!(
+                !bounded_schema_accepts(&schema, &instance),
+                "schema accepted {label}"
+            );
+        }
+    }
+
+    #[test]
+    fn rendered_integer_representations_match_schema_and_model() {
+        let schema = rendered_schema();
+        let valid = rendered_schema_instance();
+
+        for (field, expected) in [
+            ("width", 480_u64),
+            ("height", 640),
+            ("components", 3),
+            ("bits_per_sample", 8),
+        ] {
+            assert_eq!(valid["cases"][0][field].as_u64(), Some(expected));
+        }
+        let integer_model =
+            serde_json::from_value::<crate::model::RenderedPixelComparisonPlan>(valid.clone())
+                .expect("integer tokens remain accepted by the rendered model");
+        assert_eq!(
+            serde_json::to_value(integer_model).expect("rendered model serialises"),
+            valid
+        );
+
+        let integral_floats = changed_schema_instance(&valid, |instance| {
+            instance["cases"][0]["width"] = serde_json::json!(480.0);
+            instance["cases"][0]["height"] = serde_json::json!(640.0);
+            instance["cases"][0]["components"] = serde_json::json!(3.0);
+            instance["cases"][0]["bits_per_sample"] = serde_json::json!(8.0);
+        });
+        assert!(bounded_schema_accepts(&schema, &integral_floats));
+        let integral_model =
+            serde_json::from_value::<crate::model::RenderedPixelComparisonPlan>(integral_floats)
+                .expect("integral floating tokens satisfy rendered integer fields");
+        assert_eq!(
+            (
+                integral_model.cases[0].width,
+                integral_model.cases[0].height,
+                integral_model.cases[0].components,
+                integral_model.cases[0].bits_per_sample,
+            ),
+            (480, 640, 3, 8)
+        );
+
+        let u32_maximum = changed_schema_instance(&valid, |instance| {
+            instance["cases"][0]["width"] = serde_json::json!(f64::from(u32::MAX));
+            instance["cases"][0]["height"] = serde_json::json!(u32::MAX);
+        });
+        assert!(bounded_schema_accepts(&schema, &u32_maximum));
+        let maximum_model =
+            serde_json::from_value::<crate::model::RenderedPixelComparisonPlan>(u32_maximum)
+                .expect("u32 boundaries satisfy rendered geometry fields");
+        assert_eq!(maximum_model.cases[0].width, u32::MAX);
+        assert_eq!(maximum_model.cases[0].height, u32::MAX);
+
+        let unsigned_schema = serde_json::json!({
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 4294967295_u64
+        });
+        assert!(bounded_schema_accepts(
+            &unsigned_schema,
+            &serde_json::json!(-0.0)
+        ));
+        for (expected, instance) in [(0_u32, -0.0), (u8::MAX.into(), f64::from(u8::MAX))] {
+            assert!(bounded_schema_accepts(
+                &serde_json::json!({ "const": expected }),
+                &serde_json::json!(instance)
+            ));
+        }
+        let u8_boundaries = changed_schema_instance(&valid, |instance| {
+            instance["cases"][0]["width"] = serde_json::json!(-0.0);
+            instance["cases"][0]["height"] = serde_json::json!(-0.0);
+            instance["cases"][0]["components"] = serde_json::json!(-0.0);
+            instance["cases"][0]["bits_per_sample"] = serde_json::json!(f64::from(u8::MAX));
+        });
+        let boundary_model =
+            serde_json::from_value::<crate::model::RenderedPixelComparisonPlan>(u8_boundaries)
+                .expect("unsigned boundaries are valid integer representations");
+        assert_eq!(
+            (
+                boundary_model.cases[0].width,
+                boundary_model.cases[0].height,
+                boundary_model.cases[0].components,
+                boundary_model.cases[0].bits_per_sample,
+            ),
+            (0, 0, 0, u8::MAX)
+        );
+
+        let invalid = [
+            (
+                "fractional u32",
+                changed_schema_instance(&valid, |instance| {
+                    instance["cases"][0]["width"] = serde_json::json!(480.5);
+                }),
+            ),
+            (
+                "negative u32",
+                changed_schema_instance(&valid, |instance| {
+                    instance["cases"][0]["height"] = serde_json::json!(-1.0);
+                }),
+            ),
+            (
+                "overflowing u32",
+                changed_schema_instance(&valid, |instance| {
+                    instance["cases"][0]["width"] = serde_json::json!(4_294_967_296.0);
+                }),
+            ),
+            (
+                "fractional u8",
+                changed_schema_instance(&valid, |instance| {
+                    instance["cases"][0]["components"] = serde_json::json!(3.5);
+                }),
+            ),
+            (
+                "negative u8",
+                changed_schema_instance(&valid, |instance| {
+                    instance["cases"][0]["bits_per_sample"] = serde_json::json!(-1.0);
+                }),
+            ),
+            (
+                "overflowing u8",
+                changed_schema_instance(&valid, |instance| {
+                    instance["cases"][0]["components"] = serde_json::json!(256.0);
+                }),
+            ),
+        ];
+        for (label, instance) in invalid {
+            assert!(
+                !bounded_schema_accepts(&schema, &instance),
+                "schema accepted {label}"
+            );
+            assert!(
+                serde_json::from_value::<crate::model::RenderedPixelComparisonPlan>(instance)
+                    .is_err(),
+                "model accepted {label}"
+            );
+        }
+    }
+
+    #[test]
+    fn rendered_schema_evaluator_rejects_malformed_supported_keywords() {
+        let schema = rendered_schema();
+        let valid = rendered_schema_instance();
+        let clauses_schema = &schema["properties"]["clauses"];
+        assert!(bounded_schema_accepts(
+            clauses_schema,
+            &serde_json::json!(["G.1", "G.2"])
+        ));
+        assert!(!bounded_schema_accepts(
+            clauses_schema,
+            &serde_json::json!(["G.1", "G.1"])
+        ));
+        let numeric_unique_schema = serde_json::json!({
+            "type": "array",
+            "uniqueItems": true,
+            "items": { "type": "number" }
+        });
+        for representations in [serde_json::json!([1, 1.0]), serde_json::json!([0, -0.0])] {
+            assert!(
+                std::panic::catch_unwind(|| {
+                    bounded_schema_accepts(&numeric_unique_schema, &representations)
+                })
+                .is_err(),
+                "numeric representations must not enter the bounded uniqueItems evaluator"
+            );
+        }
+        let malformed = [
+            (
+                "type union",
+                changed_schema_instance(&schema, |schema| {
+                    schema["type"] = serde_json::json!(["object", "null"]);
+                }),
+            ),
+            (
+                "additionalProperties subschema",
+                changed_schema_instance(&schema, |schema| {
+                    schema["additionalProperties"] = serde_json::json!({});
+                }),
+            ),
+            (
+                "required with non-string member",
+                changed_schema_instance(&schema, |schema| {
+                    schema["required"] = serde_json::json!(["pack_id", 1]);
+                }),
+            ),
+            (
+                "non-object properties",
+                changed_schema_instance(&schema, |schema| {
+                    schema["properties"] = serde_json::json!([]);
+                }),
+            ),
+            (
+                "non-object items",
+                changed_schema_instance(&schema, |schema| {
+                    schema["properties"]["cases"]["items"] = serde_json::json!(true);
+                }),
+            ),
+            (
+                "string minItems",
+                changed_schema_instance(&schema, |schema| {
+                    schema["properties"]["cases"]["minItems"] = serde_json::json!("1");
+                }),
+            ),
+            (
+                "string minLength",
+                changed_schema_instance(&schema, |schema| {
+                    schema["properties"]["standard"]["minLength"] = serde_json::json!("1");
+                }),
+            ),
+            (
+                "string minimum",
+                changed_schema_instance(&schema, |schema| {
+                    schema["properties"]["cases"]["items"]["properties"]["peak_error_limit"]["minimum"] =
+                        serde_json::json!("0");
+                }),
+            ),
+            (
+                "string maximum",
+                changed_schema_instance(&schema, |schema| {
+                    schema["properties"]["cases"]["items"]["properties"]["width"]["maximum"] =
+                        serde_json::json!("4294967295");
+                }),
+            ),
+            (
+                "non-boolean uniqueItems",
+                changed_schema_instance(&schema, |schema| {
+                    schema["properties"]["clauses"]["uniqueItems"] = serde_json::json!(1);
+                }),
+            ),
+            (
+                "unique numeric items",
+                changed_schema_instance(&schema, |schema| {
+                    schema["properties"]["clauses"]["items"] =
+                        serde_json::json!({ "type": "number" });
+                }),
+            ),
+            (
+                "unique integer items",
+                changed_schema_instance(&schema, |schema| {
+                    schema["properties"]["clauses"]["items"] =
+                        serde_json::json!({ "type": "integer" });
+                }),
+            ),
+            (
+                "unique object items",
+                changed_schema_instance(&schema, |schema| {
+                    schema["properties"]["clauses"]["items"] =
+                        serde_json::json!({ "type": "object", "properties": {} });
+                }),
+            ),
+            (
+                "non-string pattern",
+                changed_schema_instance(&schema, |schema| {
+                    schema["properties"]["standard"]["pattern"] = serde_json::json!([]);
+                }),
+            ),
+            (
+                "unsupported string pattern",
+                changed_schema_instance(&schema, |schema| {
+                    schema["properties"]["standard"]["pattern"] = serde_json::json!(".*");
+                }),
+            ),
+            (
+                "constraint beside typeless const",
+                changed_schema_instance(&schema, |schema| {
+                    schema["properties"]["cases"]["items"]["properties"]["components"]["minimum"] =
+                        serde_json::json!(4);
+                }),
+            ),
+            (
+                "pattern on integer",
+                changed_schema_instance(&schema, |schema| {
+                    schema["properties"]["cases"]["items"]["properties"]["width"]["pattern"] =
+                        serde_json::json!("[!-~]");
+                }),
+            ),
+            (
+                "pattern on object",
+                changed_schema_instance(&schema, |schema| {
+                    schema["pattern"] = serde_json::json!("[!-~]");
+                }),
+            ),
+            (
+                "required on string",
+                changed_schema_instance(&schema, |schema| {
+                    schema["properties"]["standard"]["required"] = serde_json::json!(["ignored"]);
+                }),
+            ),
+            (
+                "minItems on object",
+                changed_schema_instance(&schema, |schema| {
+                    schema["minItems"] = serde_json::json!(1);
+                }),
+            ),
+            (
+                "fractional numeric limit",
+                changed_schema_instance(&schema, |schema| {
+                    schema["properties"]["cases"]["items"]["properties"]["peak_error_limit"]["minimum"] =
+                        serde_json::json!(0.1);
+                }),
+            ),
+            (
+                "negative numeric limit",
+                changed_schema_instance(&schema, |schema| {
+                    schema["properties"]["cases"]["items"]["properties"]["peak_error_limit"]["minimum"] =
+                        serde_json::json!(-1);
+                }),
+            ),
+            (
+                "imprecise numeric limit",
+                changed_schema_instance(&schema, |schema| {
+                    schema["properties"]["cases"]["items"]["properties"]["width"]["maximum"] =
+                        serde_json::json!(9_007_199_254_740_992_u64);
+                }),
+            ),
+            (
+                "floating-point const",
+                changed_schema_instance(&schema, |schema| {
+                    schema["properties"]["cases"]["items"]["properties"]["components"]["const"] =
+                        serde_json::json!(3.0);
+                }),
+            ),
+        ];
+
+        for (label, schema) in malformed {
+            let result = std::panic::catch_unwind(|| bounded_schema_accepts(&schema, &valid));
+            assert!(result.is_err(), "evaluator accepted malformed {label}");
+        }
+    }
+
+    #[test]
+    fn rendered_schema_leaves_cross_record_relations_to_catalogue() {
+        let schema = rendered_schema();
+        let valid = rendered_schema_instance();
+
+        let duplicate_identity = changed_schema_instance(&valid, |instance| {
+            let mut second = instance["cases"][0].clone();
+            second["input"] = serde_json::json!("files/testfiles_jp2/file4.jp2");
+            second["reference"] = serde_json::json!("files/reference_jp2/jp2_4.tif");
+            instance["cases"]
+                .as_array_mut()
+                .expect("cases is an array")
+                .push(second);
+        });
+        assert!(bounded_schema_accepts(&schema, &duplicate_identity));
+
+        let duplicate_input = changed_schema_instance(&valid, |instance| {
+            let mut second = instance["cases"][0].clone();
+            second["id"] = serde_json::json!("annex-g/jp2/file4");
+            second["reference"] = serde_json::json!("files/reference_jp2/jp2_4.tif");
+            instance["cases"]
+                .as_array_mut()
+                .expect("cases is an array")
+                .push(second);
+        });
+        assert!(bounded_schema_accepts(&schema, &duplicate_input));
+
+        let duplicate_reference = changed_schema_instance(&valid, |instance| {
+            let mut second = instance["cases"][0].clone();
+            second["id"] = serde_json::json!("annex-g/jp2/file4");
+            second["input"] = serde_json::json!("files/testfiles_jp2/file4.jp2");
+            instance["cases"]
+                .as_array_mut()
+                .expect("cases is an array")
+                .push(second);
+        });
+        assert!(bounded_schema_accepts(&schema, &duplicate_reference));
+
+        let (suite, comparison, catalogue) = rendered_fixture();
+        let mut duplicate_identity = comparison.clone();
+        let mut second = comparison.cases[0].clone();
+        second.input = "files/testfiles_jp2/file4.jp2".to_owned();
+        second.reference = "files/reference_jp2/jp2_4.tif".to_owned();
+        duplicate_identity.cases.push(second);
+        let error =
+            validate_rendered_pixel_comparison_plan(&suite, &duplicate_identity, &catalogue.packs)
+                .expect_err("catalogue must reject a repeated case ID");
+        assert!(error.to_string().contains("repeats rendered-pixel case ID"));
+
+        let mut duplicate_input = comparison.clone();
+        let mut second = comparison.cases[0].clone();
+        second.id = "annex-g/jp2/file4".to_owned();
+        second.reference = "files/reference_jp2/jp2_4.tif".to_owned();
+        duplicate_input.cases.push(second);
+        let error =
+            validate_rendered_pixel_comparison_plan(&suite, &duplicate_input, &catalogue.packs)
+                .expect_err("catalogue must reject a repeated input");
+        assert!(error.to_string().contains("repeats rendered-pixel input"));
+
+        let mut duplicate_reference = comparison;
+        let mut second = duplicate_reference.cases[0].clone();
+        second.id = "annex-g/jp2/file4".to_owned();
+        second.input = "files/testfiles_jp2/file4.jp2".to_owned();
+        duplicate_reference.cases.push(second);
+        let error =
+            validate_rendered_pixel_comparison_plan(&suite, &duplicate_reference, &catalogue.packs)
+                .expect_err("catalogue must reject a repeated reference");
+        assert!(
+            error
+                .to_string()
+                .contains("repeats rendered-pixel reference")
+        );
+    }
+
+    #[test]
+    fn rejects_missing_or_unlocked_rendered_pack() {
+        let (suite, mut comparison, catalogue) = rendered_fixture();
+        comparison.pack_id = "jpeg-2000/missing".to_owned();
+        let error = validate_rendered_pixel_comparison_plan(&suite, &comparison, &catalogue.packs)
+            .expect_err("unselected pack must fail");
+        assert!(error.to_string().contains("names unselected pack"));
+
+        let (mut suite, mut comparison, catalogue) = rendered_fixture();
+        comparison.pack_id = "jpeg-2000/missing".to_owned();
+        suite.packs.push(crate::model::SuitePack {
+            id: comparison.pack_id.clone(),
+            version: "1".to_owned(),
+            required: true,
+        });
+        let error = validate_rendered_pixel_comparison_plan(&suite, &comparison, &catalogue.packs)
+            .expect_err("missing catalogue pack must fail");
+        assert!(error.to_string().contains("disappeared from catalogue"));
+
+        let (suite, comparison, mut catalogue) = rendered_fixture();
+        catalogue
+            .packs
+            .get_mut("jpeg-2000/conformance")
+            .expect("pack exists")
+            .manifest
+            .review_state = ReviewState::Reviewed;
+        let error = validate_rendered_pixel_comparison_plan(&suite, &comparison, &catalogue.packs)
+            .expect_err("unlocked pack must fail");
+        assert!(error.to_string().contains("requires locked pack"));
+    }
+
+    #[test]
+    fn rendered_authority_requires_ascii_graphic_across_schema_and_catalogue() {
+        let schema = rendered_schema();
+        let valid = rendered_schema_instance();
+        let (suite, comparison, catalogue) = rendered_fixture();
+        assert!(has_ascii_graphic(&comparison.standard));
+        assert!(
+            comparison
+                .clauses
+                .iter()
+                .all(|clause| has_ascii_graphic(clause))
+        );
+
+        let surrounded = "\u{85}\u{feff}ISO/IEC 15444-4:2024\u{a0}\u{2003}";
+        let surrounded_clause = "\u{85}\u{feff}Annex G\u{a0}\u{2003}";
+        let surrounded_schema = changed_schema_instance(&valid, |instance| {
+            instance["standard"] = serde_json::json!(surrounded);
+            instance["clauses"][0] = serde_json::json!(surrounded_clause);
+        });
+        assert!(bounded_schema_accepts(&schema, &surrounded_schema));
+        let surrounded_catalogue = changed_rendered_comparison(&comparison, |comparison| {
+            comparison.standard = surrounded.to_owned();
+            comparison.clauses[0] = surrounded_clause.to_owned();
+        });
+        validate_rendered_pixel_comparison_plan(&suite, &surrounded_catalogue, &catalogue.packs)
+            .expect("surrounding Unicode is permitted around ASCII graphic authority text");
+
+        for authority in [" \t\r\n", "\u{85}", "\u{feff}", "\u{a0}", "\u{2003}"] {
+            assert!(!has_ascii_graphic(authority));
+
+            let invalid_standard = changed_schema_instance(&valid, |instance| {
+                instance["standard"] = serde_json::json!(authority);
+            });
+            assert!(!bounded_schema_accepts(&schema, &invalid_standard));
+            let invalid_clause = changed_schema_instance(&valid, |instance| {
+                instance["clauses"][0] = serde_json::json!(authority);
+            });
+            assert!(!bounded_schema_accepts(&schema, &invalid_clause));
+
+            for invalid in [
+                changed_rendered_comparison(&comparison, |comparison| {
+                    comparison.standard = authority.to_owned();
+                }),
+                changed_rendered_comparison(&comparison, |comparison| {
+                    comparison.clauses[0] = authority.to_owned();
+                }),
+            ] {
+                let error =
+                    validate_rendered_pixel_comparison_plan(&suite, &invalid, &catalogue.packs)
+                        .expect_err("authority without an ASCII graphic byte must fail");
+                assert!(error.to_string().contains("incomplete rendered-pixel"));
+            }
+        }
+    }
+
+    #[test]
+    fn rejects_absent_or_unsafe_rendered_paths() {
+        let (suite, comparison, catalogue) = rendered_fixture();
+        for (input, reference) in [
+            ("files/missing.jp2", comparison.cases[0].reference.as_str()),
+            (comparison.cases[0].input.as_str(), "files/missing.tif"),
+        ] {
+            let mut invalid = comparison.clone();
+            invalid.cases[0].input = input.to_owned();
+            invalid.cases[0].reference = reference.to_owned();
+            let error = validate_rendered_pixel_comparison_plan(&suite, &invalid, &catalogue.packs)
+                .expect_err("absent inventory path must fail");
+            assert!(
+                error
+                    .to_string()
+                    .contains("absent from the locked inventory")
+            );
+        }
+
+        for (input, reference) in [
+            ("../file3.jp2", comparison.cases[0].reference.as_str()),
+            (comparison.cases[0].input.as_str(), "/tmp/jp2_3.tif"),
+        ] {
+            let mut invalid = comparison.clone();
+            invalid.cases[0].input = input.to_owned();
+            invalid.cases[0].reference = reference.to_owned();
+            let error = validate_rendered_pixel_comparison_plan(&suite, &invalid, &catalogue.packs)
+                .expect_err("unsafe path must fail");
+            assert!(
+                error.to_string().contains("unsafe traversal")
+                    || error.to_string().contains("non-empty relative path")
+            );
+        }
+    }
+
+    #[test]
+    fn rejects_duplicate_or_same_rendered_paths_and_cases() {
+        let (suite, comparison, catalogue) = rendered_fixture();
+
+        let mut invalid = comparison.clone();
+        invalid.cases.push(invalid.cases[0].clone());
+        let error = validate_rendered_pixel_comparison_plan(&suite, &invalid, &catalogue.packs)
+            .expect_err("duplicate case ID must fail");
+        assert!(error.to_string().contains("repeats rendered-pixel case ID"));
+
+        let mut invalid = comparison.clone();
+        let mut second = invalid.cases[0].clone();
+        second.id = "annex-g/jp2/file4".to_owned();
+        second.reference = "files/reference_jp2/jp2_4.tif".to_owned();
+        invalid.cases.push(second);
+        let error = validate_rendered_pixel_comparison_plan(&suite, &invalid, &catalogue.packs)
+            .expect_err("duplicate input must fail");
+        assert!(error.to_string().contains("repeats rendered-pixel input"));
+
+        let mut invalid = comparison.clone();
+        let mut second = invalid.cases[0].clone();
+        second.id = "annex-g/jp2/file4".to_owned();
+        second.input = "files/testfiles_jp2/file4.jp2".to_owned();
+        invalid.cases.push(second);
+        let error = validate_rendered_pixel_comparison_plan(&suite, &invalid, &catalogue.packs)
+            .expect_err("duplicate reference must fail");
+        assert!(
+            error
+                .to_string()
+                .contains("repeats rendered-pixel reference")
+        );
+
+        let mut invalid = comparison;
+        invalid.cases[0].reference = invalid.cases[0].input.clone();
+        let error = validate_rendered_pixel_comparison_plan(&suite, &invalid, &catalogue.packs)
+            .expect_err("same input and reference must fail");
+        assert!(
+            error
+                .to_string()
+                .contains("one path as input and reference")
+        );
+    }
+
+    #[test]
+    fn rejects_wrong_rendered_extensions_or_inventory_media_types() {
+        let (suite, comparison, catalogue) = rendered_fixture();
+        for (input, reference) in [
+            (
+                "files/testfiles_jph/file1_b11.jph",
+                comparison.cases[0].reference.as_str(),
+            ),
+            (
+                comparison.cases[0].input.as_str(),
+                "files/reference_class0_profile0/c0p0_01.pgx",
+            ),
+        ] {
+            let mut invalid = comparison.clone();
+            invalid.cases[0].input = input.to_owned();
+            invalid.cases[0].reference = reference.to_owned();
+            let error = validate_rendered_pixel_comparison_plan(&suite, &invalid, &catalogue.packs)
+                .expect_err("wrong extension must fail");
+            assert!(
+                error
+                    .to_string()
+                    .contains("requires a .jp2 input and .tif reference")
+            );
+        }
+
+        for path in [
+            comparison.cases[0].input.as_str(),
+            comparison.cases[0].reference.as_str(),
+        ] {
+            let (suite, comparison, mut catalogue) = rendered_fixture();
+            catalogue
+                .packs
+                .get_mut("jpeg-2000/conformance")
+                .expect("pack exists")
+                .manifest
+                .assets
+                .iter_mut()
+                .find(|asset| asset.path == path)
+                .expect("asset exists")
+                .media_type = "application/octet-stream".to_owned();
+            let error =
+                validate_rendered_pixel_comparison_plan(&suite, &comparison, &catalogue.packs)
+                    .expect_err("wrong inventory media type must fail");
+            assert!(error.to_string().contains("inventory media type"));
+        }
+    }
+
+    #[test]
+    fn rejects_wrong_rendered_shape_and_error_limits() {
+        let (suite, comparison, catalogue) = rendered_fixture();
+        for (width, height, components, bits_per_sample) in [
+            (0, 640, 3, 8),
+            (480, 0, 3, 8),
+            (480, 640, 2, 8),
+            (480, 640, 3, 16),
+        ] {
+            let mut invalid = comparison.clone();
+            let case = &mut invalid.cases[0];
+            (
+                case.width,
+                case.height,
+                case.components,
+                case.bits_per_sample,
+            ) = (width, height, components, bits_per_sample);
+            let error = validate_rendered_pixel_comparison_plan(&suite, &invalid, &catalogue.packs)
+                .expect_err("unsupported shape must fail");
+            assert!(error.to_string().contains("unsupported full-frame shape"));
+        }
+
+        for limit in [-0.1, f64::INFINITY, f64::NAN] {
+            let mut invalid = comparison.clone();
+            invalid.cases[0].peak_error_limit = limit;
+            let error = validate_rendered_pixel_comparison_plan(&suite, &invalid, &catalogue.packs)
+                .expect_err("negative or non-finite limit must fail");
+            assert!(error.to_string().contains("error limit"));
+        }
+    }
+
+    #[test]
+    fn rejects_wrong_rendered_colour_layout_and_unknown_fields_during_deserialisation() {
+        let root = Path::new(env!("CARGO_MANIFEST_DIR")).join("../..");
+        let source = fs::read_to_string(root.join("suites/conformance-jpeg-2000.toml"))
+            .expect("suite source is readable");
+        for invalid in [
+            source.replacen(
+                "rendered_colour_space = \"sRGB\"",
+                "rendered_colour_space = \"Display P3\"",
+                1,
+            ),
+            source.replacen(
+                "reference_layout = \"tiff-rgb-u8-contiguous\"",
+                "reference_layout = \"tiff-planar\"",
+                1,
+            ),
+            source.replacen(
+                "[rendered_pixel_comparison]\n",
+                "[rendered_pixel_comparison]\nunknown_plan_field = true\n",
+                1,
+            ),
+            source.replacen(
+                "[[rendered_pixel_comparison.cases]]\n",
+                "[[rendered_pixel_comparison.cases]]\nunknown_case_field = true\n",
+                1,
+            ),
+        ] {
+            toml::from_str::<SuiteManifest>(&invalid)
+                .expect_err("invalid rendered contract must not deserialise");
+        }
+    }
+
+    #[test]
+    fn rendered_contract_preserves_native_and_derived_set_plans() {
+        let (suite, _, catalogue) = rendered_fixture();
+        let decoded = suite
+            .decoded_pixel_comparison
+            .as_ref()
+            .expect("native comparison plan remains present");
+        assert_eq!(decoded.cases.len(), 14);
+        assert_eq!(decoded.choice_groups.len(), 2);
+        assert_eq!(decoded.derived_sets.len(), 1);
+        assert_eq!(decoded.derived_sets[0].cases.len(), 18);
+        validate_decoded_pixel_comparison_plan(&suite, decoded, &catalogue.packs)
+            .expect("native and DS0 contracts remain valid");
     }
 
     #[test]

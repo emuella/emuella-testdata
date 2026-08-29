@@ -38,6 +38,27 @@ contract. Keep protected input, reference, and decoded samples in the
 authorised store and process memory, and report only factual identities,
 dimensions, pass/fail state, and aggregate errors.
 
+When a suite supplies a `rendered_pixel_comparison` plan, hand it to a
+dedicated rendered-output codec worker or runner rather than the native PGX
+comparison path. The initial Annex G case is full-frame only: decode the named
+JP2 through the codec's rendered API, compare its 8-bit sRGB output with the
+named contiguous RGB TIFF, and apply the inclusive aggregate peak-error limit.
+The plan intentionally has no component selector, native reduction or region,
+mean-squared-error bound, interpolation parameters, decoded digest or pixel
+payload. Resolve both paths from the selected locked inventory before opening
+them, keep protected and derived pixels in the authorised store and process
+memory, and report only pack and case identities, dimensions, pass/fail state
+and aggregate peak error. Missing data must skip or fail according to the suite
+policy; the worker must not acquire it, copy it into a fallback location or
+fall back to a different decode route.
+
+Treat schema validation as a portable shape check, not as inventory or
+cross-record validation. `emuella-corpus check` additionally proves that the
+selected pack is locked, each path is an exact inventory member, the input and
+reference are semantically distinct, and rendered case IDs, inputs and
+references are unique across the plan. Consumers should fail closed if either
+layer rejects the plan.
+
 When one codestream has alternative authoritative outputs, consume its
 input-level `choice_group`. Each alternative independently declares its
 reference, component, resolution reduction, comparison-window origin in that

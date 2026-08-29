@@ -1,4 +1,9 @@
-use serde::{Deserialize, Serialize};
+use std::fmt;
+
+use serde::{
+    Deserialize, Serialize,
+    de::{self, Deserializer, Unexpected, Visitor},
+};
 
 #[derive(Clone, Debug, Deserialize)]
 #[serde(deny_unknown_fields)]
@@ -165,7 +170,152 @@ pub struct SuiteManifest {
     #[serde(default)]
     pub decoded_pixel_comparison: Option<DecodedPixelComparisonPlan>,
     #[serde(default)]
+    pub rendered_pixel_comparison: Option<RenderedPixelComparisonPlan>,
+    #[serde(default)]
     pub notes: Vec<String>,
+}
+
+#[derive(Clone, Debug, Deserialize, Serialize)]
+#[serde(deny_unknown_fields)]
+pub struct RenderedPixelComparisonPlan {
+    pub pack_id: String,
+    pub standard: String,
+    pub clauses: Vec<String>,
+    pub retrieval_commit: String,
+    pub cases: Vec<RenderedPixelComparisonCase>,
+}
+
+#[derive(Clone, Debug, Deserialize, Serialize)]
+#[serde(deny_unknown_fields)]
+pub struct RenderedPixelComparisonCase {
+    pub id: String,
+    pub input: String,
+    pub reference: String,
+    #[serde(deserialize_with = "deserialize_rendered_u32")]
+    pub width: u32,
+    #[serde(deserialize_with = "deserialize_rendered_u32")]
+    pub height: u32,
+    #[serde(deserialize_with = "deserialize_rendered_u8")]
+    pub components: u8,
+    #[serde(deserialize_with = "deserialize_rendered_u8")]
+    pub bits_per_sample: u8,
+    pub rendered_colour_space: RenderedColourSpace,
+    pub reference_layout: RenderedReferenceLayout,
+    pub peak_error_limit: f64,
+}
+
+/// Deserialises rendered-case integer fields using JSON Schema's mathematical
+/// integer model, including finite integral floating values and negative zero.
+fn deserialize_rendered_u32<'de, D>(deserializer: D) -> Result<u32, D::Error>
+where
+    D: Deserializer<'de>,
+{
+    deserializer
+        .deserialize_any(RenderedUnsignedIntegerVisitor::new(
+            u64::from(u32::MAX),
+            "an unsigned 32-bit mathematical integer",
+        ))
+        .and_then(|value| u32::try_from(value).map_err(de::Error::custom))
+}
+
+fn deserialize_rendered_u8<'de, D>(deserializer: D) -> Result<u8, D::Error>
+where
+    D: Deserializer<'de>,
+{
+    deserializer
+        .deserialize_any(RenderedUnsignedIntegerVisitor::new(
+            u64::from(u8::MAX),
+            "an unsigned 8-bit mathematical integer",
+        ))
+        .and_then(|value| u8::try_from(value).map_err(de::Error::custom))
+}
+
+struct RenderedUnsignedIntegerVisitor {
+    maximum: u64,
+    description: &'static str,
+}
+
+impl RenderedUnsignedIntegerVisitor {
+    const fn new(maximum: u64, description: &'static str) -> Self {
+        Self {
+            maximum,
+            description,
+        }
+    }
+}
+
+impl<'de> Visitor<'de> for RenderedUnsignedIntegerVisitor {
+    type Value = u64;
+
+    fn expecting(&self, formatter: &mut fmt::Formatter<'_>) -> fmt::Result {
+        formatter.write_str(self.description)
+    }
+
+    fn visit_u64<E>(self, value: u64) -> Result<Self::Value, E>
+    where
+        E: de::Error,
+    {
+        if value <= self.maximum {
+            Ok(value)
+        } else {
+            Err(E::invalid_value(Unexpected::Unsigned(value), &self))
+        }
+    }
+
+    fn visit_i64<E>(self, value: i64) -> Result<Self::Value, E>
+    where
+        E: de::Error,
+    {
+        u64::try_from(value)
+            .ok()
+            .filter(|value| *value <= self.maximum)
+            .ok_or_else(|| E::invalid_value(Unexpected::Signed(value), &self))
+    }
+
+    fn visit_f64<E>(self, value: f64) -> Result<Self::Value, E>
+    where
+        E: de::Error,
+    {
+        if value.is_finite() && value >= 0.0 && value.fract() == 0.0 && value <= self.maximum as f64
+        {
+            Ok(value as u64)
+        } else {
+            Err(E::invalid_value(Unexpected::Float(value), &self))
+        }
+    }
+}
+
+#[cfg(test)]
+mod tests {
+    use serde::de::value::{Error, F64Deserializer};
+
+    use super::*;
+
+    #[test]
+    fn rendered_unsigned_integer_fields_reject_non_finite_values() {
+        for value in [f64::NAN, f64::INFINITY, f64::NEG_INFINITY] {
+            assert!(
+                deserialize_rendered_u32(F64Deserializer::<Error>::new(value)).is_err(),
+                "u32 visitor accepted {value}"
+            );
+            assert!(
+                deserialize_rendered_u8(F64Deserializer::<Error>::new(value)).is_err(),
+                "u8 visitor accepted {value}"
+            );
+        }
+    }
+}
+
+#[derive(Clone, Copy, Debug, Deserialize, Serialize, Eq, PartialEq)]
+pub enum RenderedColourSpace {
+    #[serde(rename = "sRGB")]
+    Srgb,
+}
+
+#[derive(Clone, Copy, Debug, Deserialize, Serialize, Eq, PartialEq)]
+#[serde(rename_all = "kebab-case")]
+pub enum RenderedReferenceLayout {
+    TiffRgbU8Contiguous,
 }
 
 #[derive(Clone, Debug, Deserialize, Serialize)]

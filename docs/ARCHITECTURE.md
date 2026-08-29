@@ -37,6 +37,30 @@ The catalogue never assumes that access implies redistribution. A pack whose
 terms require acknowledgement or manual acquisition is resolved by the user,
 then verified locally.
 
+Rendered-pixel comparisons are a sibling contract to native component
+comparisons. The initial Annex G contract binds a locked JP2 input and TIFF
+reference by inventory path, describes one full-frame 8-bit sRGB result, and
+sets one inclusive aggregate peak-error limit. It does not select a native
+component, reduction or region, prescribe interpolation, or record decoded
+pixels, decoded digests, per-pixel results or mean-squared error. A dedicated
+codec worker or runner must execute this plan later against an already
+materialised and verified pack; the catalogue neither acquires missing data
+nor supplies a decoder fallback.
+
+The JSON Schema owns portable per-field shape: required fields, types, fixed
+rendering values, numeric bounds, authority text containing at least one ASCII
+graphic byte (`!` to `~`), and safe lexical path forms. Other surrounding text
+is permitted. Rendered integer fields follow JSON Schema's mathematical
+integer model: finite integral numbers within their declared range are
+accepted regardless of integer or floating token form and serialise as
+integers. Catalogue validation remains authoritative for selected-pack and
+locked-inventory membership, input/reference inequality, and uniqueness of
+case IDs, inputs and references across records. Standard JSON Schema cannot
+portably express those inventory lookups or relational uniqueness rules. The
+current `.jp2` and `.tif` lexical patterns also make a valid case's two paths
+different by construction, but the catalogue retains the explicit semantic
+inequality check as a defence if the admitted formats later broaden.
+
 ### Layer 3: pinned CI qualification
 
 A Layer 3 result is identified by all of:

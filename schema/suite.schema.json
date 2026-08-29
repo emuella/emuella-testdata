@@ -79,6 +79,46 @@
         }
       }
     },
+    "rendered_pixel_comparison": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["pack_id", "standard", "clauses", "retrieval_commit", "cases"],
+      "properties": {
+        "pack_id": { "type": "string", "minLength": 1 },
+        "standard": { "type": "string", "minLength": 1, "pattern": "[!-~]" },
+        "clauses": {
+          "type": "array", "minItems": 1, "uniqueItems": true,
+          "items": { "type": "string", "minLength": 1, "pattern": "[!-~]" }
+        },
+        "retrieval_commit": {
+          "type": "string", "pattern": "^[0-9a-f]{40}(?![\\s\\S])"
+        },
+        "cases": {
+          "type": "array", "minItems": 1,
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "id", "input", "reference", "width", "height", "components",
+              "bits_per_sample", "rendered_colour_space", "reference_layout",
+              "peak_error_limit"
+            ],
+            "properties": {
+              "id": { "type": "string", "pattern": "^(?!.*(?:^|/)\\.\\.(?:/|$))[a-z0-9](?:[a-z0-9./-]*[a-z0-9.-])?(?![\\s\\S])" },
+              "input": { "type": "string", "pattern": "^(?:[A-Za-z0-9_-][A-Za-z0-9._-]*/)*[A-Za-z0-9_-][A-Za-z0-9._-]*\\.jp2(?![\\s\\S])" },
+              "reference": { "type": "string", "pattern": "^(?:[A-Za-z0-9_-][A-Za-z0-9._-]*/)*[A-Za-z0-9_-][A-Za-z0-9._-]*\\.tif(?![\\s\\S])" },
+              "width": { "type": "integer", "minimum": 1, "maximum": 4294967295 },
+              "height": { "type": "integer", "minimum": 1, "maximum": 4294967295 },
+              "components": { "const": 3 },
+              "bits_per_sample": { "const": 8 },
+              "rendered_colour_space": { "const": "sRGB" },
+              "reference_layout": { "const": "tiff-rgb-u8-contiguous" },
+              "peak_error_limit": { "type": "number", "minimum": 0 }
+            }
+          }
+        }
+      }
+    },
     "decoded_pixel_comparison": {
       "type": "object",
       "additionalProperties": false,
