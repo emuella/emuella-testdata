@@ -1968,8 +1968,8 @@ mod tests {
                     validate_bounded_schema(value);
                 }
                 "minItems" | "minLength" => assert!(
-                    value.as_u64().is_some(),
-                    "bounded schema {keyword} must be an unsigned integer"
+                    bounded_schema_u32(value).is_some(),
+                    "bounded schema {keyword} must be an unsigned 32-bit integer"
                 ),
                 "pattern" => {
                     let pattern = value
@@ -1981,10 +1981,13 @@ mod tests {
                     );
                 }
                 "minimum" | "maximum" => assert!(
-                    value.is_number(),
-                    "bounded schema {keyword} must be numeric"
+                    bounded_schema_u32(value).is_some(),
+                    "bounded schema {keyword} must be an unsigned 32-bit integer"
                 ),
-                "const" => {}
+                "const" => assert!(
+                    value.is_string() || bounded_schema_u32(value).is_some(),
+                    "bounded schema const must be a string or unsigned 32-bit integer"
+                ),
                 _ => panic!("unsupported bounded schema keyword {keyword}"),
             }
         }
@@ -2019,6 +2022,24 @@ mod tests {
                 "bounded schema keyword {keyword} is not evaluated for type {expected_type}"
             );
         }
+        if schema
+            .get("uniqueItems")
+            .is_some_and(|unique| unique == true)
+        {
+            let items = schema
+                .get("items")
+                .and_then(serde_json::Value::as_object)
+                .expect("bounded schema uniqueItems requires an items schema");
+            assert_eq!(
+                items.get("type").and_then(serde_json::Value::as_str),
+                Some("string"),
+                "bounded schema uniqueItems requires string items with exact equality"
+            );
+        }
+    }
+
+    fn bounded_schema_u32(value: &serde_json::Value) -> Option<u32> {
+        value.as_u64().and_then(|value| u32::try_from(value).ok())
     }
 
     fn bounded_schema_accepts_prevalidated(
@@ -2544,6 +2565,29 @@ mod tests {
     fn rendered_schema_evaluator_rejects_malformed_supported_keywords() {
         let schema = rendered_schema();
         let valid = rendered_schema_instance();
+        let clauses_schema = &schema["properties"]["clauses"];
+        assert!(bounded_schema_accepts(
+            clauses_schema,
+            &serde_json::json!(["G.1", "G.2"])
+        ));
+        assert!(!bounded_schema_accepts(
+            clauses_schema,
+            &serde_json::json!(["G.1", "G.1"])
+        ));
+        let numeric_unique_schema = serde_json::json!({
+            "type": "array",
+            "uniqueItems": true,
+            "items": { "type": "number" }
+        });
+        for representations in [serde_json::json!([1, 1.0]), serde_json::json!([0, -0.0])] {
+            assert!(
+                std::panic::catch_unwind(|| {
+                    bounded_schema_accepts(&numeric_unique_schema, &representations)
+                })
+                .is_err(),
+                "numeric representations must not enter the bounded uniqueItems evaluator"
+            );
+        }
         let malformed = [
             (
                 "type union",
@@ -2608,6 +2652,27 @@ mod tests {
                 }),
             ),
             (
+                "unique numeric items",
+                changed_schema_instance(&schema, |schema| {
+                    schema["properties"]["clauses"]["items"] =
+                        serde_json::json!({ "type": "number" });
+                }),
+            ),
+            (
+                "unique integer items",
+                changed_schema_instance(&schema, |schema| {
+                    schema["properties"]["clauses"]["items"] =
+                        serde_json::json!({ "type": "integer" });
+                }),
+            ),
+            (
+                "unique object items",
+                changed_schema_instance(&schema, |schema| {
+                    schema["properties"]["clauses"]["items"] =
+                        serde_json::json!({ "type": "object", "properties": {} });
+                }),
+            ),
+            (
                 "non-string pattern",
                 changed_schema_instance(&schema, |schema| {
                     schema["properties"]["standard"]["pattern"] = serde_json::json!([]);
@@ -2649,6 +2714,34 @@ mod tests {
                 "minItems on object",
                 changed_schema_instance(&schema, |schema| {
                     schema["minItems"] = serde_json::json!(1);
+                }),
+            ),
+            (
+                "fractional numeric limit",
+                changed_schema_instance(&schema, |schema| {
+                    schema["properties"]["cases"]["items"]["properties"]["peak_error_limit"]["minimum"] =
+                        serde_json::json!(0.1);
+                }),
+            ),
+            (
+                "negative numeric limit",
+                changed_schema_instance(&schema, |schema| {
+                    schema["properties"]["cases"]["items"]["properties"]["peak_error_limit"]["minimum"] =
+                        serde_json::json!(-1);
+                }),
+            ),
+            (
+                "imprecise numeric limit",
+                changed_schema_instance(&schema, |schema| {
+                    schema["properties"]["cases"]["items"]["properties"]["width"]["maximum"] =
+                        serde_json::json!(9_007_199_254_740_992_u64);
+                }),
+            ),
+            (
+                "floating-point const",
+                changed_schema_instance(&schema, |schema| {
+                    schema["properties"]["cases"]["items"]["properties"]["components"]["const"] =
+                        serde_json::json!(3.0);
                 }),
             ),
         ];
