@@ -1988,6 +1988,37 @@ mod tests {
                 _ => panic!("unsupported bounded schema keyword {keyword}"),
             }
         }
+
+        let Some(expected_type) = schema.get("type").map(|value| {
+            value
+                .as_str()
+                .expect("bounded schema type is a supported string")
+        }) else {
+            assert!(
+                schema.len() == 1 && schema.contains_key("const"),
+                "typeless bounded schema node must contain only const"
+            );
+            return;
+        };
+        let allowed_keywords: &[&str] = match expected_type {
+            "object" => &[
+                "type",
+                "const",
+                "additionalProperties",
+                "required",
+                "properties",
+            ],
+            "array" => &["type", "const", "minItems", "uniqueItems", "items"],
+            "string" => &["type", "const", "minLength", "pattern"],
+            "integer" | "number" => &["type", "const", "minimum", "maximum"],
+            _ => unreachable!("bounded schema type was validated above"),
+        };
+        for keyword in schema.keys() {
+            assert!(
+                allowed_keywords.contains(&keyword.as_str()),
+                "bounded schema keyword {keyword} is not evaluated for type {expected_type}"
+            );
+        }
     }
 
     fn bounded_schema_accepts_prevalidated(
@@ -2586,6 +2617,38 @@ mod tests {
                 "unsupported string pattern",
                 changed_schema_instance(&schema, |schema| {
                     schema["properties"]["standard"]["pattern"] = serde_json::json!(".*");
+                }),
+            ),
+            (
+                "constraint beside typeless const",
+                changed_schema_instance(&schema, |schema| {
+                    schema["properties"]["cases"]["items"]["properties"]["components"]["minimum"] =
+                        serde_json::json!(4);
+                }),
+            ),
+            (
+                "pattern on integer",
+                changed_schema_instance(&schema, |schema| {
+                    schema["properties"]["cases"]["items"]["properties"]["width"]["pattern"] =
+                        serde_json::json!("[!-~]");
+                }),
+            ),
+            (
+                "pattern on object",
+                changed_schema_instance(&schema, |schema| {
+                    schema["pattern"] = serde_json::json!("[!-~]");
+                }),
+            ),
+            (
+                "required on string",
+                changed_schema_instance(&schema, |schema| {
+                    schema["properties"]["standard"]["required"] = serde_json::json!(["ignored"]);
+                }),
+            ),
+            (
+                "minItems on object",
+                changed_schema_instance(&schema, |schema| {
+                    schema["minItems"] = serde_json::json!(1);
                 }),
             ),
         ];
