@@ -48,8 +48,9 @@ materialised and verified pack; the catalogue neither acquires missing data
 nor supplies a decoder fallback.
 
 The JSON Schema owns portable per-field shape: required fields, types, fixed
-rendering values, numeric bounds, non-blank authority text and safe lexical
-path forms. Catalogue validation remains authoritative for selected-pack and
+rendering values, numeric bounds, authority text containing at least one ASCII
+graphic byte (`!` to `~`), and safe lexical path forms. Other surrounding text
+is permitted. Catalogue validation remains authoritative for selected-pack and
 locked-inventory membership, input/reference inequality, and uniqueness of
 case IDs, inputs and references across records. Standard JSON Schema cannot
 portably express those inventory lookups or relational uniqueness rules. The

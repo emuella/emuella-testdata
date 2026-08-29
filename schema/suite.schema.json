@@ -85,10 +85,10 @@
       "required": ["pack_id", "standard", "clauses", "retrieval_commit", "cases"],
       "properties": {
         "pack_id": { "type": "string", "minLength": 1 },
-        "standard": { "type": "string", "minLength": 1, "pattern": "\\S" },
+        "standard": { "type": "string", "minLength": 1, "pattern": "[!-~]" },
         "clauses": {
           "type": "array", "minItems": 1, "uniqueItems": true,
-          "items": { "type": "string", "minLength": 1, "pattern": "\\S" }
+          "items": { "type": "string", "minLength": 1, "pattern": "[!-~]" }
         },
         "retrieval_commit": {
           "type": "string", "pattern": "^[0-9a-f]{40}(?![\\s\\S])"

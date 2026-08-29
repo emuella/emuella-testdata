@@ -697,12 +697,12 @@ fn validate_rendered_pixel_comparison_plan(
             suite.id, comparison.pack_id
         )));
     }
-    if comparison.standard.trim().is_empty()
+    if !has_ascii_graphic(&comparison.standard)
         || comparison.clauses.is_empty()
         || comparison
             .clauses
             .iter()
-            .any(|clause| clause.trim().is_empty())
+            .any(|clause| !has_ascii_graphic(clause))
         || comparison.clauses.iter().collect::<BTreeSet<_>>().len() != comparison.clauses.len()
         || !is_lower_hex(&comparison.retrieval_commit, 40)
         || comparison.cases.is_empty()
@@ -798,6 +798,10 @@ fn validate_rendered_pixel_comparison_plan(
         }
     }
     Ok(())
+}
+
+fn has_ascii_graphic(value: &str) -> bool {
+    value.bytes().any(|byte| (b'!'..=b'~').contains(&byte))
 }
 
 fn validate_decoded_pixel_comparison_plan(
@@ -1922,30 +1926,77 @@ mod tests {
     }
 
     fn bounded_schema_accepts(schema: &serde_json::Value, instance: &serde_json::Value) -> bool {
+        validate_bounded_schema(schema);
+        bounded_schema_accepts_prevalidated(schema, instance)
+    }
+
+    fn validate_bounded_schema(schema: &serde_json::Value) {
         let schema = schema
             .as_object()
             .expect("bounded schema node is an object");
-        for keyword in schema.keys() {
-            assert!(
-                matches!(
-                    keyword.as_str(),
-                    "type"
-                        | "additionalProperties"
-                        | "required"
-                        | "properties"
-                        | "minItems"
-                        | "uniqueItems"
-                        | "items"
-                        | "minLength"
-                        | "pattern"
-                        | "const"
-                        | "minimum"
-                        | "maximum"
+        for (keyword, value) in schema {
+            match keyword.as_str() {
+                "type" => assert!(
+                    value.as_str().is_some_and(|value| matches!(
+                        value,
+                        "object" | "array" | "string" | "integer" | "number"
+                    )),
+                    "bounded schema type must be one supported string"
                 ),
-                "unsupported bounded schema keyword {keyword}"
-            );
+                "additionalProperties" | "uniqueItems" => assert!(
+                    value.is_boolean(),
+                    "bounded schema {keyword} must be a boolean"
+                ),
+                "required" => assert!(
+                    value
+                        .as_array()
+                        .is_some_and(|values| values.iter().all(serde_json::Value::is_string)),
+                    "bounded schema required must be an array of strings"
+                ),
+                "properties" => {
+                    let properties = value
+                        .as_object()
+                        .expect("bounded schema properties must be an object");
+                    for property in properties.values() {
+                        validate_bounded_schema(property);
+                    }
+                }
+                "items" => {
+                    value
+                        .as_object()
+                        .expect("bounded schema items must be an object");
+                    validate_bounded_schema(value);
+                }
+                "minItems" | "minLength" => assert!(
+                    value.as_u64().is_some(),
+                    "bounded schema {keyword} must be an unsigned integer"
+                ),
+                "pattern" => {
+                    let pattern = value
+                        .as_str()
+                        .expect("bounded schema pattern must be a string");
+                    assert!(
+                        bounded_pattern_is_supported(pattern),
+                        "unsupported bounded schema pattern {pattern}"
+                    );
+                }
+                "minimum" | "maximum" => assert!(
+                    value.is_number(),
+                    "bounded schema {keyword} must be numeric"
+                ),
+                "const" => {}
+                _ => panic!("unsupported bounded schema keyword {keyword}"),
+            }
         }
+    }
 
+    fn bounded_schema_accepts_prevalidated(
+        schema: &serde_json::Value,
+        instance: &serde_json::Value,
+    ) -> bool {
+        let schema = schema
+            .as_object()
+            .expect("prevalidated bounded schema node is an object");
         if schema
             .get("const")
             .is_some_and(|expected| expected != instance)
@@ -1979,7 +2030,7 @@ mod tests {
                 }
                 for (field, value) in instance {
                     if let Some(field_schema) = properties.get(field) {
-                        if !bounded_schema_accepts(field_schema, value) {
+                        if !bounded_schema_accepts_prevalidated(field_schema, value) {
                             return false;
                         }
                     } else if schema
@@ -2016,7 +2067,7 @@ mod tests {
                 let item_schema = schema.get("items").expect("array schema has items");
                 instance
                     .iter()
-                    .all(|value| bounded_schema_accepts(item_schema, value))
+                    .all(|value| bounded_schema_accepts_prevalidated(item_schema, value))
             }
             "string" => {
                 let Some(instance) = instance.as_str() else {
@@ -2061,9 +2112,20 @@ mod tests {
                 .is_some_and(|maximum| value > maximum)
     }
 
+    fn bounded_pattern_is_supported(pattern: &str) -> bool {
+        matches!(
+            pattern,
+            r"[!-~]"
+                | r"^[0-9a-f]{40}(?![\s\S])"
+                | r"^(?!.*(?:^|/)\.\.(?:/|$))[a-z0-9](?:[a-z0-9./-]*[a-z0-9.-])?(?![\s\S])"
+                | r"^(?:[A-Za-z0-9_-][A-Za-z0-9._-]*/)*[A-Za-z0-9_-][A-Za-z0-9._-]*\.jp2(?![\s\S])"
+                | r"^(?:[A-Za-z0-9_-][A-Za-z0-9._-]*/)*[A-Za-z0-9_-][A-Za-z0-9._-]*\.tif(?![\s\S])"
+        )
+    }
+
     fn bounded_pattern_matches(pattern: &str, value: &str) -> bool {
         match pattern {
-            r"\S" => value.chars().any(|character| !character.is_whitespace()),
+            r"[!-~]" => has_ascii_graphic(value),
             r"^[0-9a-f]{40}(?![\s\S])" => {
                 value.len() == 40
                     && value
@@ -2448,6 +2510,93 @@ mod tests {
     }
 
     #[test]
+    fn rendered_schema_evaluator_rejects_malformed_supported_keywords() {
+        let schema = rendered_schema();
+        let valid = rendered_schema_instance();
+        let malformed = [
+            (
+                "type union",
+                changed_schema_instance(&schema, |schema| {
+                    schema["type"] = serde_json::json!(["object", "null"]);
+                }),
+            ),
+            (
+                "additionalProperties subschema",
+                changed_schema_instance(&schema, |schema| {
+                    schema["additionalProperties"] = serde_json::json!({});
+                }),
+            ),
+            (
+                "required with non-string member",
+                changed_schema_instance(&schema, |schema| {
+                    schema["required"] = serde_json::json!(["pack_id", 1]);
+                }),
+            ),
+            (
+                "non-object properties",
+                changed_schema_instance(&schema, |schema| {
+                    schema["properties"] = serde_json::json!([]);
+                }),
+            ),
+            (
+                "non-object items",
+                changed_schema_instance(&schema, |schema| {
+                    schema["properties"]["cases"]["items"] = serde_json::json!(true);
+                }),
+            ),
+            (
+                "string minItems",
+                changed_schema_instance(&schema, |schema| {
+                    schema["properties"]["cases"]["minItems"] = serde_json::json!("1");
+                }),
+            ),
+            (
+                "string minLength",
+                changed_schema_instance(&schema, |schema| {
+                    schema["properties"]["standard"]["minLength"] = serde_json::json!("1");
+                }),
+            ),
+            (
+                "string minimum",
+                changed_schema_instance(&schema, |schema| {
+                    schema["properties"]["cases"]["items"]["properties"]["peak_error_limit"]["minimum"] =
+                        serde_json::json!("0");
+                }),
+            ),
+            (
+                "string maximum",
+                changed_schema_instance(&schema, |schema| {
+                    schema["properties"]["cases"]["items"]["properties"]["width"]["maximum"] =
+                        serde_json::json!("4294967295");
+                }),
+            ),
+            (
+                "non-boolean uniqueItems",
+                changed_schema_instance(&schema, |schema| {
+                    schema["properties"]["clauses"]["uniqueItems"] = serde_json::json!(1);
+                }),
+            ),
+            (
+                "non-string pattern",
+                changed_schema_instance(&schema, |schema| {
+                    schema["properties"]["standard"]["pattern"] = serde_json::json!([]);
+                }),
+            ),
+            (
+                "unsupported string pattern",
+                changed_schema_instance(&schema, |schema| {
+                    schema["properties"]["standard"]["pattern"] = serde_json::json!(".*");
+                }),
+            ),
+        ];
+
+        for (label, schema) in malformed {
+            let result = std::panic::catch_unwind(|| bounded_schema_accepts(&schema, &valid));
+            assert!(result.is_err(), "evaluator accepted malformed {label}");
+        }
+    }
+
+    #[test]
     fn rendered_schema_leaves_cross_record_relations_to_catalogue() {
         let schema = rendered_schema();
         let valid = rendered_schema_instance();
@@ -2553,19 +2702,57 @@ mod tests {
     }
 
     #[test]
-    fn rejects_blank_rendered_authority() {
+    fn rendered_authority_requires_ascii_graphic_across_schema_and_catalogue() {
+        let schema = rendered_schema();
+        let valid = rendered_schema_instance();
         let (suite, comparison, catalogue) = rendered_fixture();
-        for invalid in [
-            changed_rendered_comparison(&comparison, |comparison| {
-                comparison.standard = " \t".to_owned();
-            }),
-            changed_rendered_comparison(&comparison, |comparison| {
-                comparison.clauses[0] = " \n".to_owned();
-            }),
-        ] {
-            let error = validate_rendered_pixel_comparison_plan(&suite, &invalid, &catalogue.packs)
-                .expect_err("blank rendered authority must fail");
-            assert!(error.to_string().contains("incomplete rendered-pixel"));
+        assert!(has_ascii_graphic(&comparison.standard));
+        assert!(
+            comparison
+                .clauses
+                .iter()
+                .all(|clause| has_ascii_graphic(clause))
+        );
+
+        let surrounded = "\u{85}\u{feff}ISO/IEC 15444-4:2024\u{a0}\u{2003}";
+        let surrounded_clause = "\u{85}\u{feff}Annex G\u{a0}\u{2003}";
+        let surrounded_schema = changed_schema_instance(&valid, |instance| {
+            instance["standard"] = serde_json::json!(surrounded);
+            instance["clauses"][0] = serde_json::json!(surrounded_clause);
+        });
+        assert!(bounded_schema_accepts(&schema, &surrounded_schema));
+        let surrounded_catalogue = changed_rendered_comparison(&comparison, |comparison| {
+            comparison.standard = surrounded.to_owned();
+            comparison.clauses[0] = surrounded_clause.to_owned();
+        });
+        validate_rendered_pixel_comparison_plan(&suite, &surrounded_catalogue, &catalogue.packs)
+            .expect("surrounding Unicode is permitted around ASCII graphic authority text");
+
+        for authority in [" \t\r\n", "\u{85}", "\u{feff}", "\u{a0}", "\u{2003}"] {
+            assert!(!has_ascii_graphic(authority));
+
+            let invalid_standard = changed_schema_instance(&valid, |instance| {
+                instance["standard"] = serde_json::json!(authority);
+            });
+            assert!(!bounded_schema_accepts(&schema, &invalid_standard));
+            let invalid_clause = changed_schema_instance(&valid, |instance| {
+                instance["clauses"][0] = serde_json::json!(authority);
+            });
+            assert!(!bounded_schema_accepts(&schema, &invalid_clause));
+
+            for invalid in [
+                changed_rendered_comparison(&comparison, |comparison| {
+                    comparison.standard = authority.to_owned();
+                }),
+                changed_rendered_comparison(&comparison, |comparison| {
+                    comparison.clauses[0] = authority.to_owned();
+                }),
+            ] {
+                let error =
+                    validate_rendered_pixel_comparison_plan(&suite, &invalid, &catalogue.packs)
+                        .expect_err("authority without an ASCII graphic byte must fail");
+                assert!(error.to_string().contains("incomplete rendered-pixel"));
+            }
         }
     }
 
