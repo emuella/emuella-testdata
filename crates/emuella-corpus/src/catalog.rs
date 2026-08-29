@@ -2042,6 +2042,26 @@ mod tests {
         value.as_u64().and_then(|value| u32::try_from(value).ok())
     }
 
+    fn bounded_instance_u32(value: &serde_json::Value) -> Option<u32> {
+        if let Some(value) = bounded_schema_u32(value) {
+            return Some(value);
+        }
+        value.as_f64().and_then(|value| {
+            (value.is_finite()
+                && value >= 0.0
+                && value.fract() == 0.0
+                && value <= f64::from(u32::MAX))
+            .then_some(value as u32)
+        })
+    }
+
+    fn bounded_const_matches(expected: &serde_json::Value, instance: &serde_json::Value) -> bool {
+        bounded_schema_u32(expected).map_or_else(
+            || expected == instance,
+            |expected| bounded_instance_u32(instance) == Some(expected),
+        )
+    }
+
     fn bounded_schema_accepts_prevalidated(
         schema: &serde_json::Value,
         instance: &serde_json::Value,
@@ -2051,7 +2071,7 @@ mod tests {
             .expect("prevalidated bounded schema node is an object");
         if schema
             .get("const")
-            .is_some_and(|expected| expected != instance)
+            .is_some_and(|expected| !bounded_const_matches(expected, instance))
         {
             return false;
         }
@@ -2557,6 +2577,143 @@ mod tests {
             assert!(
                 !bounded_schema_accepts(&schema, &instance),
                 "schema accepted {label}"
+            );
+        }
+    }
+
+    #[test]
+    fn rendered_integer_representations_match_schema_and_model() {
+        let schema = rendered_schema();
+        let valid = rendered_schema_instance();
+
+        for (field, expected) in [
+            ("width", 480_u64),
+            ("height", 640),
+            ("components", 3),
+            ("bits_per_sample", 8),
+        ] {
+            assert_eq!(valid["cases"][0][field].as_u64(), Some(expected));
+        }
+        let integer_model =
+            serde_json::from_value::<crate::model::RenderedPixelComparisonPlan>(valid.clone())
+                .expect("integer tokens remain accepted by the rendered model");
+        assert_eq!(
+            serde_json::to_value(integer_model).expect("rendered model serialises"),
+            valid
+        );
+
+        let integral_floats = changed_schema_instance(&valid, |instance| {
+            instance["cases"][0]["width"] = serde_json::json!(480.0);
+            instance["cases"][0]["height"] = serde_json::json!(640.0);
+            instance["cases"][0]["components"] = serde_json::json!(3.0);
+            instance["cases"][0]["bits_per_sample"] = serde_json::json!(8.0);
+        });
+        assert!(bounded_schema_accepts(&schema, &integral_floats));
+        let integral_model =
+            serde_json::from_value::<crate::model::RenderedPixelComparisonPlan>(integral_floats)
+                .expect("integral floating tokens satisfy rendered integer fields");
+        assert_eq!(
+            (
+                integral_model.cases[0].width,
+                integral_model.cases[0].height,
+                integral_model.cases[0].components,
+                integral_model.cases[0].bits_per_sample,
+            ),
+            (480, 640, 3, 8)
+        );
+
+        let u32_maximum = changed_schema_instance(&valid, |instance| {
+            instance["cases"][0]["width"] = serde_json::json!(f64::from(u32::MAX));
+            instance["cases"][0]["height"] = serde_json::json!(u32::MAX);
+        });
+        assert!(bounded_schema_accepts(&schema, &u32_maximum));
+        let maximum_model =
+            serde_json::from_value::<crate::model::RenderedPixelComparisonPlan>(u32_maximum)
+                .expect("u32 boundaries satisfy rendered geometry fields");
+        assert_eq!(maximum_model.cases[0].width, u32::MAX);
+        assert_eq!(maximum_model.cases[0].height, u32::MAX);
+
+        let unsigned_schema = serde_json::json!({
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 4294967295_u64
+        });
+        assert!(bounded_schema_accepts(
+            &unsigned_schema,
+            &serde_json::json!(-0.0)
+        ));
+        for (expected, instance) in [(0_u32, -0.0), (u8::MAX.into(), f64::from(u8::MAX))] {
+            assert!(bounded_schema_accepts(
+                &serde_json::json!({ "const": expected }),
+                &serde_json::json!(instance)
+            ));
+        }
+        let u8_boundaries = changed_schema_instance(&valid, |instance| {
+            instance["cases"][0]["width"] = serde_json::json!(-0.0);
+            instance["cases"][0]["height"] = serde_json::json!(-0.0);
+            instance["cases"][0]["components"] = serde_json::json!(-0.0);
+            instance["cases"][0]["bits_per_sample"] = serde_json::json!(f64::from(u8::MAX));
+        });
+        let boundary_model =
+            serde_json::from_value::<crate::model::RenderedPixelComparisonPlan>(u8_boundaries)
+                .expect("unsigned boundaries are valid integer representations");
+        assert_eq!(
+            (
+                boundary_model.cases[0].width,
+                boundary_model.cases[0].height,
+                boundary_model.cases[0].components,
+                boundary_model.cases[0].bits_per_sample,
+            ),
+            (0, 0, 0, u8::MAX)
+        );
+
+        let invalid = [
+            (
+                "fractional u32",
+                changed_schema_instance(&valid, |instance| {
+                    instance["cases"][0]["width"] = serde_json::json!(480.5);
+                }),
+            ),
+            (
+                "negative u32",
+                changed_schema_instance(&valid, |instance| {
+                    instance["cases"][0]["height"] = serde_json::json!(-1.0);
+                }),
+            ),
+            (
+                "overflowing u32",
+                changed_schema_instance(&valid, |instance| {
+                    instance["cases"][0]["width"] = serde_json::json!(4_294_967_296.0);
+                }),
+            ),
+            (
+                "fractional u8",
+                changed_schema_instance(&valid, |instance| {
+                    instance["cases"][0]["components"] = serde_json::json!(3.5);
+                }),
+            ),
+            (
+                "negative u8",
+                changed_schema_instance(&valid, |instance| {
+                    instance["cases"][0]["bits_per_sample"] = serde_json::json!(-1.0);
+                }),
+            ),
+            (
+                "overflowing u8",
+                changed_schema_instance(&valid, |instance| {
+                    instance["cases"][0]["components"] = serde_json::json!(256.0);
+                }),
+            ),
+        ];
+        for (label, instance) in invalid {
+            assert!(
+                !bounded_schema_accepts(&schema, &instance),
+                "schema accepted {label}"
+            );
+            assert!(
+                serde_json::from_value::<crate::model::RenderedPixelComparisonPlan>(instance)
+                    .is_err(),
+                "model accepted {label}"
             );
         }
     }
