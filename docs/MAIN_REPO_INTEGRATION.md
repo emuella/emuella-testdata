@@ -52,6 +52,13 @@ and aggregate peak error. Missing data must skip or fail according to the suite
 policy; the worker must not acquire it, copy it into a fallback location or
 fall back to a different decode route.
 
+Treat schema validation as a portable shape check, not as inventory or
+cross-record validation. `emuella-corpus check` additionally proves that the
+selected pack is locked, each path is an exact inventory member, the input and
+reference are semantically distinct, and rendered case IDs, inputs and
+references are unique across the plan. Consumers should fail closed if either
+layer rejects the plan.
+
 When one codestream has alternative authoritative outputs, consume its
 input-level `choice_group`. Each alternative independently declares its
 reference, component, resolution reduction, comparison-window origin in that

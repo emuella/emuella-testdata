@@ -47,6 +47,16 @@ codec worker or runner must execute this plan later against an already
 materialised and verified pack; the catalogue neither acquires missing data
 nor supplies a decoder fallback.
 
+The JSON Schema owns portable per-field shape: required fields, types, fixed
+rendering values, numeric bounds, non-blank authority text and safe lexical
+path forms. Catalogue validation remains authoritative for selected-pack and
+locked-inventory membership, input/reference inequality, and uniqueness of
+case IDs, inputs and references across records. Standard JSON Schema cannot
+portably express those inventory lookups or relational uniqueness rules. The
+current `.jp2` and `.tif` lexical patterns also make a valid case's two paths
+different by construction, but the catalogue retains the explicit semantic
+inequality check as a defence if the admitted formats later broaden.
+
 ### Layer 3: pinned CI qualification
 
 A Layer 3 result is identified by all of:
