@@ -46,7 +46,42 @@ come from the declared logical dimensions. The group's
 `minimum_passing_alternatives` value defines how many alternatives must pass;
 alternatives are choices, not implicitly cumulative requirements. The current
 choice-group contract accepts only the zero- and one-level reductions required
-by P0.03; broader reduction contracts require a separate schema change.
+by P0.03 and P0.15; broader reduction contracts require a separate schema
+change.
+
+When the plan supplies a `derived_set`, match its declared set, profile,
+compliance class, and coding mode to the decoder capability being qualified.
+For each case point, use the caller-declared `M_MAGB` capability to select the
+variant with the greatest `B_MAGB` that does not exceed it. A case is not
+applicable when no variant satisfies that rule; do not substitute the nearest
+higher variant. `M_MAGB` belongs to the decoder claim and is deliberately not
+fixed by the catalogue, even when a particular qualification run uses 18.
+
+Each derived-set case resolves its `reference_case_id` to exactly one scalar
+case or choice group in the same plan. The selected variant then supplies the
+final inclusive peak-error and mean-squared-error limits for every required
+component or every reference alternative. These are complete comparison
+limits, including any applicable Part 4 addition, rather than deltas for the
+harness to reinterpret. Apply the plan's conditional output-normalisation
+steps before comparison: order-dependent steps remain ordered, while the
+order-independent steps may be applied in any convenient order. The catalogue
+step to recover the first codestream component includes reversing decoded
+ICT/RCT output when necessary; it does not mean selecting the first
+display-colour component. The catalogue contract describes standards-owned
+inputs and acceptance bounds; it does not predict whether a particular codec
+will pass or reject them.
+
+For suite schema version 1 compatibility, plans without `derived_sets` may omit
+`output_normalisation`; existing scalar-only consumers therefore remain valid.
+A non-empty `derived_sets` array requires the complete normalisation contract,
+and catalogue validation fails closed when it is absent or altered.
+
+The DS0 contract is based on ISO/IEC 15444-4:2024 | ITU-T T.803 (V3), B.2 and
+B.2.2 to B.2.5 (PDF pages 24 to 26), C.2.1 and Tables C.1 and C.1bis (PDF pages
+31 and 32), at retrieval revision
+`725ecba70e5d03eff3f6ce9626bb9cb08dd4e0c7` and reviewed bundle revision
+`7b3d8d60cd4d4f6c056cd108d928b7f99f492aa9`. DS1, Class 1, Class 1HF,
+Profile 1, and Annex G remain outside this contract.
 
 Do not embed external files with `include_bytes!`, copy them into crate test
 directories, or make a test-data repository a Cargo dependency. The harness
