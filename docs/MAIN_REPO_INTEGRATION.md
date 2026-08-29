@@ -71,6 +71,11 @@ display-colour component. The catalogue contract describes standards-owned
 inputs and acceptance bounds; it does not predict whether a particular codec
 will pass or reject them.
 
+For suite schema version 1 compatibility, plans without `derived_sets` may omit
+`output_normalisation`; existing scalar-only consumers therefore remain valid.
+A non-empty `derived_sets` array requires the complete normalisation contract,
+and catalogue validation fails closed when it is absent or altered.
+
 The DS0 contract is based on ISO/IEC 15444-4:2024 | ITU-T T.803 (V3), B.2 and
 B.2.2 to B.2.5 (PDF pages 24 to 26), C.2.1 and Tables C.1 and C.1bis (PDF pages
 31 and 32), at retrieval revision

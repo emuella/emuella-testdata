@@ -82,9 +82,15 @@
     "decoded_pixel_comparison": {
       "type": "object",
       "additionalProperties": false,
-      "required": [
-        "pack_id", "standard", "clauses", "retrieval_commit",
-        "output_normalisation", "cases"
+      "required": ["pack_id", "standard", "clauses", "retrieval_commit", "cases"],
+      "allOf": [
+        {
+          "if": {
+            "required": ["derived_sets"],
+            "properties": { "derived_sets": { "minItems": 1 } }
+          },
+          "then": { "required": ["output_normalisation"] }
+        }
       ],
       "properties": {
         "pack_id": { "type": "string", "minLength": 1 },

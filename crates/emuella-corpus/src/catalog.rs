@@ -405,6 +405,264 @@ impl Catalogue {
     }
 }
 
+struct ExpectedDs0Case {
+    reference_number: &'static str,
+    coding_mode: DecodedPixelDerivedSetCodingMode,
+    variants: &'static [ExpectedDs0Variant],
+}
+
+struct ExpectedDs0Variant {
+    b_magb: u8,
+    peak_error_limit: u64,
+    mean_squared_error_limit: f64,
+}
+
+// Fail-closed transcription of the Class-0 Profile-0 DS0 BSET matrix and final
+// inclusive limits from ISO/IEC 15444-4:2024, Tables C.1 and C.1bis (PDF pages
+// 31 and 32). Limits include the bit-depth-scaled Part 4 additions.
+const DS0_EXPECTED_CASES: &[ExpectedDs0Case] = &[
+    ExpectedDs0Case {
+        reference_number: "01",
+        coding_mode: DecodedPixelDerivedSetCodingMode::HtOnly,
+        variants: &[ExpectedDs0Variant {
+            b_magb: 11,
+            peak_error_limit: 0,
+            mean_squared_error_limit: 0.0,
+        }],
+    },
+    ExpectedDs0Case {
+        reference_number: "02",
+        coding_mode: DecodedPixelDerivedSetCodingMode::HtOnly,
+        variants: &[
+            ExpectedDs0Variant {
+                b_magb: 11,
+                peak_error_limit: 1,
+                mean_squared_error_limit: 0.001,
+            },
+            ExpectedDs0Variant {
+                b_magb: 12,
+                peak_error_limit: 0,
+                mean_squared_error_limit: 0.0,
+            },
+        ],
+    },
+    ExpectedDs0Case {
+        reference_number: "03",
+        coding_mode: DecodedPixelDerivedSetCodingMode::HtOnly,
+        variants: &[
+            ExpectedDs0Variant {
+                b_magb: 11,
+                peak_error_limit: 17,
+                mean_squared_error_limit: 0.15,
+            },
+            ExpectedDs0Variant {
+                b_magb: 14,
+                peak_error_limit: 0,
+                mean_squared_error_limit: 0.0,
+            },
+        ],
+    },
+    ExpectedDs0Case {
+        reference_number: "04",
+        coding_mode: DecodedPixelDerivedSetCodingMode::HtOnly,
+        variants: &[
+            ExpectedDs0Variant {
+                b_magb: 11,
+                peak_error_limit: 35,
+                mean_squared_error_limit: 55.9,
+            },
+            ExpectedDs0Variant {
+                b_magb: 12,
+                peak_error_limit: 33,
+                mean_squared_error_limit: 55.8,
+            },
+        ],
+    },
+    ExpectedDs0Case {
+        reference_number: "05",
+        coding_mode: DecodedPixelDerivedSetCodingMode::HtOnly,
+        variants: &[
+            ExpectedDs0Variant {
+                b_magb: 11,
+                peak_error_limit: 54,
+                mean_squared_error_limit: 68.0,
+            },
+            ExpectedDs0Variant {
+                b_magb: 12,
+                peak_error_limit: 54,
+                mean_squared_error_limit: 68.0,
+            },
+        ],
+    },
+    ExpectedDs0Case {
+        reference_number: "06",
+        coding_mode: DecodedPixelDerivedSetCodingMode::HtOnly,
+        variants: &[
+            ExpectedDs0Variant {
+                b_magb: 11,
+                peak_error_limit: 266,
+                mean_squared_error_limit: 1035.96875,
+            },
+            ExpectedDs0Variant {
+                b_magb: 15,
+                peak_error_limit: 109,
+                mean_squared_error_limit: 743.0,
+            },
+            ExpectedDs0Variant {
+                b_magb: 18,
+                peak_error_limit: 109,
+                mean_squared_error_limit: 743.0,
+            },
+        ],
+    },
+    ExpectedDs0Case {
+        reference_number: "06",
+        coding_mode: DecodedPixelDerivedSetCodingMode::HtMix,
+        variants: &[
+            ExpectedDs0Variant {
+                b_magb: 11,
+                peak_error_limit: 109,
+                mean_squared_error_limit: 743.0,
+            },
+            ExpectedDs0Variant {
+                b_magb: 18,
+                peak_error_limit: 109,
+                mean_squared_error_limit: 743.0,
+            },
+        ],
+    },
+    ExpectedDs0Case {
+        reference_number: "07",
+        coding_mode: DecodedPixelDerivedSetCodingMode::HtOnly,
+        variants: &[
+            ExpectedDs0Variant {
+                b_magb: 11,
+                peak_error_limit: 13,
+                mean_squared_error_limit: 0.43765625,
+            },
+            ExpectedDs0Variant {
+                b_magb: 15,
+                peak_error_limit: 11,
+                mean_squared_error_limit: 0.34029296875,
+            },
+            ExpectedDs0Variant {
+                b_magb: 16,
+                peak_error_limit: 10,
+                mean_squared_error_limit: 0.34,
+            },
+        ],
+    },
+    ExpectedDs0Case {
+        reference_number: "08",
+        coding_mode: DecodedPixelDerivedSetCodingMode::HtOnly,
+        variants: &[
+            ExpectedDs0Variant {
+                b_magb: 11,
+                peak_error_limit: 10,
+                mean_squared_error_limit: 6.89578125,
+            },
+            ExpectedDs0Variant {
+                b_magb: 15,
+                peak_error_limit: 7,
+                mean_squared_error_limit: 6.72,
+            },
+            ExpectedDs0Variant {
+                b_magb: 16,
+                peak_error_limit: 7,
+                mean_squared_error_limit: 6.72,
+            },
+        ],
+    },
+    ExpectedDs0Case {
+        reference_number: "09",
+        coding_mode: DecodedPixelDerivedSetCodingMode::HtOnly,
+        variants: &[ExpectedDs0Variant {
+            b_magb: 11,
+            peak_error_limit: 4,
+            mean_squared_error_limit: 1.47,
+        }],
+    },
+    ExpectedDs0Case {
+        reference_number: "10",
+        coding_mode: DecodedPixelDerivedSetCodingMode::HtOnly,
+        variants: &[ExpectedDs0Variant {
+            b_magb: 11,
+            peak_error_limit: 10,
+            mean_squared_error_limit: 2.84,
+        }],
+    },
+    ExpectedDs0Case {
+        reference_number: "11",
+        coding_mode: DecodedPixelDerivedSetCodingMode::HtOnly,
+        variants: &[ExpectedDs0Variant {
+            b_magb: 10,
+            peak_error_limit: 0,
+            mean_squared_error_limit: 0.0,
+        }],
+    },
+    ExpectedDs0Case {
+        reference_number: "12",
+        coding_mode: DecodedPixelDerivedSetCodingMode::HtOnly,
+        variants: &[ExpectedDs0Variant {
+            b_magb: 11,
+            peak_error_limit: 0,
+            mean_squared_error_limit: 0.0,
+        }],
+    },
+    ExpectedDs0Case {
+        reference_number: "13",
+        coding_mode: DecodedPixelDerivedSetCodingMode::HtOnly,
+        variants: &[ExpectedDs0Variant {
+            b_magb: 11,
+            peak_error_limit: 0,
+            mean_squared_error_limit: 0.0,
+        }],
+    },
+    ExpectedDs0Case {
+        reference_number: "14",
+        coding_mode: DecodedPixelDerivedSetCodingMode::HtOnly,
+        variants: &[ExpectedDs0Variant {
+            b_magb: 11,
+            peak_error_limit: 0,
+            mean_squared_error_limit: 0.0,
+        }],
+    },
+    ExpectedDs0Case {
+        reference_number: "15",
+        coding_mode: DecodedPixelDerivedSetCodingMode::HtOnly,
+        variants: &[
+            ExpectedDs0Variant {
+                b_magb: 11,
+                peak_error_limit: 17,
+                mean_squared_error_limit: 0.15,
+            },
+            ExpectedDs0Variant {
+                b_magb: 14,
+                peak_error_limit: 0,
+                mean_squared_error_limit: 0.0,
+            },
+        ],
+    },
+    ExpectedDs0Case {
+        reference_number: "15",
+        coding_mode: DecodedPixelDerivedSetCodingMode::HtMix,
+        variants: &[ExpectedDs0Variant {
+            b_magb: 8,
+            peak_error_limit: 0,
+            mean_squared_error_limit: 0.0,
+        }],
+    },
+    ExpectedDs0Case {
+        reference_number: "16",
+        coding_mode: DecodedPixelDerivedSetCodingMode::HtOnly,
+        variants: &[ExpectedDs0Variant {
+            b_magb: 11,
+            peak_error_limit: 0,
+            mean_squared_error_limit: 0.0,
+        }],
+    },
+];
+
 fn validate_decoded_pixel_comparison_plan(
     suite: &SuiteManifest,
     comparison: &crate::model::DecodedPixelComparisonPlan,
@@ -457,19 +715,24 @@ fn validate_decoded_pixel_comparison_plan(
         DecodedPixelNormalisationStep::BigEndianByteOrder,
         DecodedPixelNormalisationStep::SignExtendToByteBoundary,
     ]);
-    if comparison.output_normalisation.order_dependent != required_order_dependent
-        || comparison
-            .output_normalisation
-            .order_independent
-            .iter()
-            .copied()
-            .collect::<BTreeSet<_>>()
-            != required_order_independent
-        || comparison.output_normalisation.order_independent.len()
-            != required_order_independent.len()
-    {
+    if let Some(normalisation) = &comparison.output_normalisation {
+        if normalisation.order_dependent != required_order_dependent
+            || normalisation
+                .order_independent
+                .iter()
+                .copied()
+                .collect::<BTreeSet<_>>()
+                != required_order_independent
+            || normalisation.order_independent.len() != required_order_independent.len()
+        {
+            return Err(CatalogueError::message(format!(
+                "suite {} has an incomplete or incorrectly ordered decoded-output normalisation contract",
+                suite.id
+            )));
+        }
+    } else if !comparison.derived_sets.is_empty() {
         return Err(CatalogueError::message(format!(
-            "suite {} has an incomplete or incorrectly ordered decoded-output normalisation contract",
+            "suite {} derived-set contract lacks decoded-output normalisation",
             suite.id
         )));
     }
@@ -676,11 +939,19 @@ fn validate_decoded_pixel_comparison_plan(
                 suite.id
             )));
         }
-        let mut expected_case_ids = (1..=16)
-            .map(|number| format!("annex-c/class0-profile0/ds0-htonly/p0-{number:02}"))
+        let expected_case_ids = DS0_EXPECTED_CASES
+            .iter()
+            .map(|case| {
+                let mode = match case.coding_mode {
+                    DecodedPixelDerivedSetCodingMode::HtOnly => "htonly",
+                    DecodedPixelDerivedSetCodingMode::HtMix => "htmix",
+                };
+                format!(
+                    "annex-c/class0-profile0/ds0-{mode}/p0-{}",
+                    case.reference_number
+                )
+            })
             .collect::<BTreeSet<_>>();
-        expected_case_ids.insert("annex-c/class0-profile0/ds0-htmix/p0-06".to_owned());
-        expected_case_ids.insert("annex-c/class0-profile0/ds0-htmix/p0-15".to_owned());
         let actual_case_ids = derived_set
             .cases
             .iter()
@@ -752,8 +1023,30 @@ fn validate_decoded_pixel_comparison_plan(
                     suite.id, derived_case.id
                 )));
             }
+            let expected_case = DS0_EXPECTED_CASES
+                .iter()
+                .find(|expected| {
+                    expected.reference_number == reference_number
+                        && expected.coding_mode == derived_case.coding_mode
+                })
+                .ok_or_else(|| {
+                    CatalogueError::message(format!(
+                        "suite {} derived-set case {} is absent from the canonical DS0 matrix",
+                        suite.id, derived_case.id
+                    ))
+                })?;
+            if derived_case.variants.len() != expected_case.variants.len() {
+                return Err(CatalogueError::message(format!(
+                    "suite {} derived-set case {} does not contain the canonical DS0 variant matrix",
+                    suite.id, derived_case.id
+                )));
+            }
             let mut previous_b_magb = None;
-            for variant in &derived_case.variants {
+            for (variant, expected_variant) in derived_case
+                .variants
+                .iter()
+                .zip(expected_case.variants.iter())
+            {
                 validate_relative_path("decoded-pixel derived-set input", &variant.input)?;
                 if previous_b_magb.is_some_and(|previous| previous >= variant.b_magb) {
                     return Err(CatalogueError::message(format!(
@@ -780,11 +1073,11 @@ fn validate_decoded_pixel_comparison_plan(
                 };
                 let expected_input = format!(
                     "files/htj2k_bsets_profile0/p0_{reference_number}_bset/ds0_{mode_prefix}_{reference_number}_b{}.j2k",
-                    variant.b_magb
+                    expected_variant.b_magb
                 );
-                if input.path != expected_input {
+                if variant.b_magb != expected_variant.b_magb || input.path != expected_input {
                     return Err(CatalogueError::message(format!(
-                        "suite {} derived-set case {} input does not match its mode, profile, case, or B_MAGB identity",
+                        "suite {} derived-set case {} input does not match the canonical mode, profile, case, or B_MAGB variant",
                         suite.id, derived_case.id
                     )));
                 }
@@ -795,6 +1088,12 @@ fn validate_decoded_pixel_comparison_plan(
                         || variant.component_limits[0].peak_error_limit < reference.peak_error_limit
                         || variant.component_limits[0].mean_squared_error_limit
                             < reference.mean_squared_error_limit
+                        || variant.component_limits[0].peak_error_limit
+                            != expected_variant.peak_error_limit
+                        || variant.component_limits[0]
+                            .mean_squared_error_limit
+                            .to_bits()
+                            != expected_variant.mean_squared_error_limit.to_bits()
                         || !valid_derived_limits(
                             variant.component_limits[0].mean_squared_error_limit,
                         )
@@ -829,6 +1128,9 @@ fn validate_decoded_pixel_comparison_plan(
                             limits.peak_error_limit < alternative.peak_error_limit
                                 || limits.mean_squared_error_limit
                                     < alternative.mean_squared_error_limit
+                                || limits.peak_error_limit != expected_variant.peak_error_limit
+                                || limits.mean_squared_error_limit.to_bits()
+                                    != expected_variant.mean_squared_error_limit.to_bits()
                                 || !valid_derived_limits(limits.mean_squared_error_limit)
                         })
                     {
@@ -2204,7 +2506,57 @@ mod tests {
         comparison.derived_sets[0].cases[1].variants.reverse();
         let error = validate_decoded_pixel_comparison_plan(&suite, &comparison, &catalogue.packs)
             .expect_err("descending B_MAGB variants must fail");
-        assert!(error.to_string().contains("not strictly ordered by B_MAGB"));
+        assert!(error.to_string().contains("canonical"));
+
+        let mut comparison = suite
+            .decoded_pixel_comparison
+            .clone()
+            .expect("comparison plan exists");
+        comparison.derived_sets[0]
+            .cases
+            .iter_mut()
+            .find(|case| case.id == "annex-c/class0-profile0/ds0-htonly/p0-06")
+            .expect("P0.06 exists")
+            .variants
+            .pop();
+        let error = validate_decoded_pixel_comparison_plan(&suite, &comparison, &catalogue.packs)
+            .expect_err("removing the highest B_MAGB variant must fail");
+        assert!(error.to_string().contains("canonical DS0 variant matrix"));
+
+        let mut comparison = suite
+            .decoded_pixel_comparison
+            .clone()
+            .expect("comparison plan exists");
+        let p0_06 = comparison.derived_sets[0]
+            .cases
+            .iter_mut()
+            .find(|case| case.id == "annex-c/class0-profile0/ds0-htonly/p0-06")
+            .expect("P0.06 exists");
+        p0_06
+            .variants
+            .push(p0_06.variants.last().expect("P0.06 has variants").clone());
+        let error = validate_decoded_pixel_comparison_plan(&suite, &comparison, &catalogue.packs)
+            .expect_err("adding a DS0 variant must fail");
+        assert!(error.to_string().contains("canonical DS0 variant matrix"));
+
+        let mut comparison = suite
+            .decoded_pixel_comparison
+            .clone()
+            .expect("comparison plan exists");
+        comparison.derived_sets[0].cases[1].variants[1].b_magb = 13;
+        let error = validate_decoded_pixel_comparison_plan(&suite, &comparison, &catalogue.packs)
+            .expect_err("changing a canonical B_MAGB variant must fail");
+        assert!(error.to_string().contains("canonical mode"));
+
+        let mut comparison = suite
+            .decoded_pixel_comparison
+            .clone()
+            .expect("comparison plan exists");
+        comparison.derived_sets[0].cases[1].variants[0].input =
+            "files/htj2k_bsets_profile0/p0_02_bset/ds0_ht_02_b12.j2k".to_owned();
+        let error = validate_decoded_pixel_comparison_plan(&suite, &comparison, &catalogue.packs)
+            .expect_err("a locked but non-canonical variant path must fail");
+        assert!(error.to_string().contains("canonical mode"));
 
         let mut comparison = suite
             .decoded_pixel_comparison
@@ -2240,6 +2592,78 @@ mod tests {
         let error = validate_decoded_pixel_comparison_plan(&suite, &comparison, &catalogue.packs)
             .expect_err("duplicate choice alternative limits must fail");
         assert!(error.to_string().contains("choice reference"));
+
+        let mut comparison = suite
+            .decoded_pixel_comparison
+            .clone()
+            .expect("comparison plan exists");
+        comparison.derived_sets[0].cases[1].variants[0].component_limits[0].peak_error_limit += 1;
+        let error = validate_decoded_pixel_comparison_plan(&suite, &comparison, &catalogue.packs)
+            .expect_err("increasing a scalar peak limit must fail");
+        assert!(error.to_string().contains("component reference"));
+
+        let mut comparison = suite
+            .decoded_pixel_comparison
+            .clone()
+            .expect("comparison plan exists");
+        comparison.derived_sets[0].cases[1].variants[0].component_limits[0]
+            .mean_squared_error_limit = 0.0;
+        let error = validate_decoded_pixel_comparison_plan(&suite, &comparison, &catalogue.packs)
+            .expect_err("decreasing a scalar MSE limit must fail");
+        assert!(error.to_string().contains("component reference"));
+
+        let mut comparison = suite
+            .decoded_pixel_comparison
+            .clone()
+            .expect("comparison plan exists");
+        comparison.derived_sets[0].cases[2].variants[0].alternative_limits[0]
+            .mean_squared_error_limit = 0.16;
+        let error = validate_decoded_pixel_comparison_plan(&suite, &comparison, &catalogue.packs)
+            .expect_err("increasing an alternative MSE limit must fail");
+        assert!(error.to_string().contains("choice reference"));
+
+        let mut comparison = suite
+            .decoded_pixel_comparison
+            .clone()
+            .expect("comparison plan exists");
+        comparison.derived_sets[0].cases[2].variants[0].alternative_limits[0].peak_error_limit = 16;
+        let error = validate_decoded_pixel_comparison_plan(&suite, &comparison, &catalogue.packs)
+            .expect_err("decreasing an alternative peak limit must fail");
+        assert!(error.to_string().contains("choice reference"));
+    }
+
+    #[test]
+    fn keeps_v1_scalar_plans_compatible_but_requires_derived_normalisation() {
+        let root = Path::new(env!("CARGO_MANIFEST_DIR")).join("../..");
+        let catalogue = Catalogue::open(root).expect("repository catalogue opens");
+        let suite = catalogue
+            .suites
+            .get("layer2/conformance-jpeg-2000")
+            .expect("comparison suite exists")
+            .manifest
+            .clone();
+
+        let mut comparison = suite
+            .decoded_pixel_comparison
+            .clone()
+            .expect("comparison plan exists");
+        comparison.derived_sets.clear();
+        comparison.output_normalisation = None;
+        validate_decoded_pixel_comparison_plan(&suite, &comparison, &catalogue.packs)
+            .expect("schema-v1 scalar-only plans may omit normalisation");
+
+        let mut comparison = suite
+            .decoded_pixel_comparison
+            .clone()
+            .expect("comparison plan exists");
+        comparison.output_normalisation = None;
+        let error = validate_decoded_pixel_comparison_plan(&suite, &comparison, &catalogue.packs)
+            .expect_err("derived-set plans require normalisation");
+        assert!(
+            error
+                .to_string()
+                .contains("lacks decoded-output normalisation")
+        );
     }
 
     #[test]

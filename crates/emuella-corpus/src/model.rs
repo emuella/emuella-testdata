@@ -175,7 +175,8 @@ pub struct DecodedPixelComparisonPlan {
     pub standard: String,
     pub clauses: Vec<String>,
     pub retrieval_commit: String,
-    pub output_normalisation: DecodedPixelOutputNormalisation,
+    #[serde(default)]
+    pub output_normalisation: Option<DecodedPixelOutputNormalisation>,
     pub cases: Vec<DecodedPixelComparisonCase>,
     #[serde(default)]
     pub choice_groups: Vec<DecodedPixelComparisonChoiceGroup>,
