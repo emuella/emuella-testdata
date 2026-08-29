@@ -1,6 +1,6 @@
 schema_version = 1
 id = "layer2/conformance-jpeg-2000"
-revision = 18
+revision = 19
 name = "JPEG 2000 and HTJ2K decoder conformance"
 description = "ISO/IEC 15444-4:2024 fourth-edition J2K, HTJ2K, JP2, and JPH qualification material."
 layer = 2
@@ -70,8 +70,24 @@ cohort = "annex-g/jph"
 [decoded_pixel_comparison]
 pack_id = "jpeg-2000/conformance"
 standard = "ISO/IEC 15444-4:2024"
-clauses = ["B.2", "C.2.1.1", "C.2.1.2", "C.2.1.3", "Table C.1"]
+clauses = ["B.2", "B.2.2", "B.2.3", "B.2.4", "B.2.5", "C.2.1", "C.2.1.1", "C.2.1.2", "C.2.1.3", "Table C.1", "Table C.1bis"]
 retrieval_commit = "725ecba70e5d03eff3f6ce9626bb9cb08dd4e0c7"
+
+[decoded_pixel_comparison.output_normalisation]
+order_dependent = [
+  "resolution-reduction",
+  "recover-first-codestream-component",
+  "round-to-nearest-integer",
+  "clip-to-declared-sample-range",
+  "reference-bit-depth-arithmetic-shift",
+  "reference-grid-subsampling",
+  "upper-left-reference-crop",
+]
+order_independent = [
+  "planar-component-deinterleave",
+  "big-endian-byte-order",
+  "sign-extend-to-byte-boundary",
+]
 
 [[decoded_pixel_comparison.cases]]
 id = "annex-c/class0-profile0/p0-01"
@@ -321,5 +337,396 @@ width = 128
 height = 128
 bits_per_sample = 8
 signed = false
+peak_error_limit = 0
+mean_squared_error_limit = 0.0
+
+[[decoded_pixel_comparison.derived_sets]]
+id = "DS0"
+profile = 0
+compliance_class = 0
+selection = "greatest-b-magb-not-exceeding-m-magb"
+
+[[decoded_pixel_comparison.derived_sets.cases]]
+id = "annex-c/class0-profile0/ds0-htonly/p0-01"
+coding_mode = "HTONLY"
+reference_case_id = "annex-c/class0-profile0/p0-01"
+
+[[decoded_pixel_comparison.derived_sets.cases.variants]]
+input = "files/htj2k_bsets_profile0/p0_01_bset/ds0_ht_01_b11.j2k"
+b_magb = 11
+
+[[decoded_pixel_comparison.derived_sets.cases.variants.component_limits]]
+component = 0
+peak_error_limit = 0
+mean_squared_error_limit = 0.0
+
+[[decoded_pixel_comparison.derived_sets.cases]]
+id = "annex-c/class0-profile0/ds0-htonly/p0-02"
+coding_mode = "HTONLY"
+reference_case_id = "annex-c/class0-profile0/p0-02"
+
+[[decoded_pixel_comparison.derived_sets.cases.variants]]
+input = "files/htj2k_bsets_profile0/p0_02_bset/ds0_ht_02_b11.j2k"
+b_magb = 11
+
+[[decoded_pixel_comparison.derived_sets.cases.variants.component_limits]]
+component = 0
+peak_error_limit = 1
+mean_squared_error_limit = 0.001
+
+[[decoded_pixel_comparison.derived_sets.cases.variants]]
+input = "files/htj2k_bsets_profile0/p0_02_bset/ds0_ht_02_b12.j2k"
+b_magb = 12
+
+[[decoded_pixel_comparison.derived_sets.cases.variants.component_limits]]
+component = 0
+peak_error_limit = 0
+mean_squared_error_limit = 0.0
+
+[[decoded_pixel_comparison.derived_sets.cases]]
+id = "annex-c/class0-profile0/ds0-htonly/p0-03"
+coding_mode = "HTONLY"
+reference_case_id = "annex-c/class0-profile0/p0-03"
+
+[[decoded_pixel_comparison.derived_sets.cases.variants]]
+input = "files/htj2k_bsets_profile0/p0_03_bset/ds0_ht_03_b11.j2k"
+b_magb = 11
+
+[[decoded_pixel_comparison.derived_sets.cases.variants.alternative_limits]]
+alternative_id = "full-resolution-window"
+peak_error_limit = 17
+mean_squared_error_limit = 0.15
+
+[[decoded_pixel_comparison.derived_sets.cases.variants.alternative_limits]]
+alternative_id = "one-level-reduced"
+peak_error_limit = 17
+mean_squared_error_limit = 0.15
+
+[[decoded_pixel_comparison.derived_sets.cases.variants]]
+input = "files/htj2k_bsets_profile0/p0_03_bset/ds0_ht_03_b14.j2k"
+b_magb = 14
+
+[[decoded_pixel_comparison.derived_sets.cases.variants.alternative_limits]]
+alternative_id = "full-resolution-window"
+peak_error_limit = 0
+mean_squared_error_limit = 0.0
+
+[[decoded_pixel_comparison.derived_sets.cases.variants.alternative_limits]]
+alternative_id = "one-level-reduced"
+peak_error_limit = 0
+mean_squared_error_limit = 0.0
+
+[[decoded_pixel_comparison.derived_sets.cases]]
+id = "annex-c/class0-profile0/ds0-htonly/p0-04"
+coding_mode = "HTONLY"
+reference_case_id = "annex-c/class0-profile0/p0-04"
+
+[[decoded_pixel_comparison.derived_sets.cases.variants]]
+input = "files/htj2k_bsets_profile0/p0_04_bset/ds0_ht_04_b11.j2k"
+b_magb = 11
+
+[[decoded_pixel_comparison.derived_sets.cases.variants.component_limits]]
+component = 0
+peak_error_limit = 35
+mean_squared_error_limit = 55.9
+
+[[decoded_pixel_comparison.derived_sets.cases.variants]]
+input = "files/htj2k_bsets_profile0/p0_04_bset/ds0_ht_04_b12.j2k"
+b_magb = 12
+
+[[decoded_pixel_comparison.derived_sets.cases.variants.component_limits]]
+component = 0
+peak_error_limit = 33
+mean_squared_error_limit = 55.8
+
+[[decoded_pixel_comparison.derived_sets.cases]]
+id = "annex-c/class0-profile0/ds0-htonly/p0-05"
+coding_mode = "HTONLY"
+reference_case_id = "annex-c/class0-profile0/p0-05"
+
+[[decoded_pixel_comparison.derived_sets.cases.variants]]
+input = "files/htj2k_bsets_profile0/p0_05_bset/ds0_ht_05_b11.j2k"
+b_magb = 11
+
+[[decoded_pixel_comparison.derived_sets.cases.variants.component_limits]]
+component = 0
+peak_error_limit = 54
+mean_squared_error_limit = 68.0
+
+[[decoded_pixel_comparison.derived_sets.cases.variants]]
+input = "files/htj2k_bsets_profile0/p0_05_bset/ds0_ht_05_b12.j2k"
+b_magb = 12
+
+[[decoded_pixel_comparison.derived_sets.cases.variants.component_limits]]
+component = 0
+peak_error_limit = 54
+mean_squared_error_limit = 68.0
+
+[[decoded_pixel_comparison.derived_sets.cases]]
+id = "annex-c/class0-profile0/ds0-htonly/p0-06"
+coding_mode = "HTONLY"
+reference_case_id = "annex-c/class0-profile0/p0-06"
+
+[[decoded_pixel_comparison.derived_sets.cases.variants]]
+input = "files/htj2k_bsets_profile0/p0_06_bset/ds0_ht_06_b11.j2k"
+b_magb = 11
+
+[[decoded_pixel_comparison.derived_sets.cases.variants.component_limits]]
+component = 0
+peak_error_limit = 266
+mean_squared_error_limit = 1035.96875
+
+[[decoded_pixel_comparison.derived_sets.cases.variants]]
+input = "files/htj2k_bsets_profile0/p0_06_bset/ds0_ht_06_b15.j2k"
+b_magb = 15
+
+[[decoded_pixel_comparison.derived_sets.cases.variants.component_limits]]
+component = 0
+peak_error_limit = 109
+mean_squared_error_limit = 743.0
+
+[[decoded_pixel_comparison.derived_sets.cases.variants]]
+input = "files/htj2k_bsets_profile0/p0_06_bset/ds0_ht_06_b18.j2k"
+b_magb = 18
+
+[[decoded_pixel_comparison.derived_sets.cases.variants.component_limits]]
+component = 0
+peak_error_limit = 109
+mean_squared_error_limit = 743.0
+
+[[decoded_pixel_comparison.derived_sets.cases]]
+id = "annex-c/class0-profile0/ds0-htmix/p0-06"
+coding_mode = "HTMIX"
+reference_case_id = "annex-c/class0-profile0/p0-06"
+
+[[decoded_pixel_comparison.derived_sets.cases.variants]]
+input = "files/htj2k_bsets_profile0/p0_06_bset/ds0_hm_06_b11.j2k"
+b_magb = 11
+
+[[decoded_pixel_comparison.derived_sets.cases.variants.component_limits]]
+component = 0
+peak_error_limit = 109
+mean_squared_error_limit = 743.0
+
+[[decoded_pixel_comparison.derived_sets.cases.variants]]
+input = "files/htj2k_bsets_profile0/p0_06_bset/ds0_hm_06_b18.j2k"
+b_magb = 18
+
+[[decoded_pixel_comparison.derived_sets.cases.variants.component_limits]]
+component = 0
+peak_error_limit = 109
+mean_squared_error_limit = 743.0
+
+[[decoded_pixel_comparison.derived_sets.cases]]
+id = "annex-c/class0-profile0/ds0-htonly/p0-07"
+coding_mode = "HTONLY"
+reference_case_id = "annex-c/class0-profile0/p0-07"
+
+[[decoded_pixel_comparison.derived_sets.cases.variants]]
+input = "files/htj2k_bsets_profile0/p0_07_bset/ds0_ht_07_b11.j2k"
+b_magb = 11
+
+[[decoded_pixel_comparison.derived_sets.cases.variants.component_limits]]
+component = 0
+peak_error_limit = 13
+mean_squared_error_limit = 0.43765625
+
+[[decoded_pixel_comparison.derived_sets.cases.variants]]
+input = "files/htj2k_bsets_profile0/p0_07_bset/ds0_ht_07_b15.j2k"
+b_magb = 15
+
+[[decoded_pixel_comparison.derived_sets.cases.variants.component_limits]]
+component = 0
+peak_error_limit = 11
+mean_squared_error_limit = 0.34029296875
+
+[[decoded_pixel_comparison.derived_sets.cases.variants]]
+input = "files/htj2k_bsets_profile0/p0_07_bset/ds0_ht_07_b16.j2k"
+b_magb = 16
+
+[[decoded_pixel_comparison.derived_sets.cases.variants.component_limits]]
+component = 0
+peak_error_limit = 10
+mean_squared_error_limit = 0.34
+
+[[decoded_pixel_comparison.derived_sets.cases]]
+id = "annex-c/class0-profile0/ds0-htonly/p0-08"
+coding_mode = "HTONLY"
+reference_case_id = "annex-c/class0-profile0/p0-08"
+
+[[decoded_pixel_comparison.derived_sets.cases.variants]]
+input = "files/htj2k_bsets_profile0/p0_08_bset/ds0_ht_08_b11.j2k"
+b_magb = 11
+
+[[decoded_pixel_comparison.derived_sets.cases.variants.component_limits]]
+component = 0
+peak_error_limit = 10
+mean_squared_error_limit = 6.89578125
+
+[[decoded_pixel_comparison.derived_sets.cases.variants]]
+input = "files/htj2k_bsets_profile0/p0_08_bset/ds0_ht_08_b15.j2k"
+b_magb = 15
+
+[[decoded_pixel_comparison.derived_sets.cases.variants.component_limits]]
+component = 0
+peak_error_limit = 7
+mean_squared_error_limit = 6.72
+
+[[decoded_pixel_comparison.derived_sets.cases.variants]]
+input = "files/htj2k_bsets_profile0/p0_08_bset/ds0_ht_08_b16.j2k"
+b_magb = 16
+
+[[decoded_pixel_comparison.derived_sets.cases.variants.component_limits]]
+component = 0
+peak_error_limit = 7
+mean_squared_error_limit = 6.72
+
+[[decoded_pixel_comparison.derived_sets.cases]]
+id = "annex-c/class0-profile0/ds0-htonly/p0-09"
+coding_mode = "HTONLY"
+reference_case_id = "annex-c/class0-profile0/p0-09"
+
+[[decoded_pixel_comparison.derived_sets.cases.variants]]
+input = "files/htj2k_bsets_profile0/p0_09_bset/ds0_ht_09_b11.j2k"
+b_magb = 11
+
+[[decoded_pixel_comparison.derived_sets.cases.variants.component_limits]]
+component = 0
+peak_error_limit = 4
+mean_squared_error_limit = 1.47
+
+[[decoded_pixel_comparison.derived_sets.cases]]
+id = "annex-c/class0-profile0/ds0-htonly/p0-10"
+coding_mode = "HTONLY"
+reference_case_id = "annex-c/class0-profile0/p0-10"
+
+[[decoded_pixel_comparison.derived_sets.cases.variants]]
+input = "files/htj2k_bsets_profile0/p0_10_bset/ds0_ht_10_b11.j2k"
+b_magb = 11
+
+[[decoded_pixel_comparison.derived_sets.cases.variants.component_limits]]
+component = 0
+peak_error_limit = 10
+mean_squared_error_limit = 2.84
+
+[[decoded_pixel_comparison.derived_sets.cases]]
+id = "annex-c/class0-profile0/ds0-htonly/p0-11"
+coding_mode = "HTONLY"
+reference_case_id = "annex-c/class0-profile0/p0-11"
+
+[[decoded_pixel_comparison.derived_sets.cases.variants]]
+input = "files/htj2k_bsets_profile0/p0_11_bset/ds0_ht_11_b10.j2k"
+b_magb = 10
+
+[[decoded_pixel_comparison.derived_sets.cases.variants.component_limits]]
+component = 0
+peak_error_limit = 0
+mean_squared_error_limit = 0.0
+
+[[decoded_pixel_comparison.derived_sets.cases]]
+id = "annex-c/class0-profile0/ds0-htonly/p0-12"
+coding_mode = "HTONLY"
+reference_case_id = "annex-c/class0-profile0/p0-12"
+
+[[decoded_pixel_comparison.derived_sets.cases.variants]]
+input = "files/htj2k_bsets_profile0/p0_12_bset/ds0_ht_12_b11.j2k"
+b_magb = 11
+
+[[decoded_pixel_comparison.derived_sets.cases.variants.component_limits]]
+component = 0
+peak_error_limit = 0
+mean_squared_error_limit = 0.0
+
+[[decoded_pixel_comparison.derived_sets.cases]]
+id = "annex-c/class0-profile0/ds0-htonly/p0-13"
+coding_mode = "HTONLY"
+reference_case_id = "annex-c/class0-profile0/p0-13"
+
+[[decoded_pixel_comparison.derived_sets.cases.variants]]
+input = "files/htj2k_bsets_profile0/p0_13_bset/ds0_ht_13_b11.j2k"
+b_magb = 11
+
+[[decoded_pixel_comparison.derived_sets.cases.variants.component_limits]]
+component = 0
+peak_error_limit = 0
+mean_squared_error_limit = 0.0
+
+[[decoded_pixel_comparison.derived_sets.cases]]
+id = "annex-c/class0-profile0/ds0-htonly/p0-14"
+coding_mode = "HTONLY"
+reference_case_id = "annex-c/class0-profile0/p0-14"
+
+[[decoded_pixel_comparison.derived_sets.cases.variants]]
+input = "files/htj2k_bsets_profile0/p0_14_bset/ds0_ht_14_b11.j2k"
+b_magb = 11
+
+[[decoded_pixel_comparison.derived_sets.cases.variants.component_limits]]
+component = 0
+peak_error_limit = 0
+mean_squared_error_limit = 0.0
+
+[[decoded_pixel_comparison.derived_sets.cases]]
+id = "annex-c/class0-profile0/ds0-htonly/p0-15"
+coding_mode = "HTONLY"
+reference_case_id = "annex-c/class0-profile0/p0-15"
+
+[[decoded_pixel_comparison.derived_sets.cases.variants]]
+input = "files/htj2k_bsets_profile0/p0_15_bset/ds0_ht_15_b11.j2k"
+b_magb = 11
+
+[[decoded_pixel_comparison.derived_sets.cases.variants.alternative_limits]]
+alternative_id = "full-resolution-window"
+peak_error_limit = 17
+mean_squared_error_limit = 0.15
+
+[[decoded_pixel_comparison.derived_sets.cases.variants.alternative_limits]]
+alternative_id = "one-level-reduced"
+peak_error_limit = 17
+mean_squared_error_limit = 0.15
+
+[[decoded_pixel_comparison.derived_sets.cases.variants]]
+input = "files/htj2k_bsets_profile0/p0_15_bset/ds0_ht_15_b14.j2k"
+b_magb = 14
+
+[[decoded_pixel_comparison.derived_sets.cases.variants.alternative_limits]]
+alternative_id = "full-resolution-window"
+peak_error_limit = 0
+mean_squared_error_limit = 0.0
+
+[[decoded_pixel_comparison.derived_sets.cases.variants.alternative_limits]]
+alternative_id = "one-level-reduced"
+peak_error_limit = 0
+mean_squared_error_limit = 0.0
+
+[[decoded_pixel_comparison.derived_sets.cases]]
+id = "annex-c/class0-profile0/ds0-htmix/p0-15"
+coding_mode = "HTMIX"
+reference_case_id = "annex-c/class0-profile0/p0-15"
+
+[[decoded_pixel_comparison.derived_sets.cases.variants]]
+input = "files/htj2k_bsets_profile0/p0_15_bset/ds0_hm_15_b8.j2k"
+b_magb = 8
+
+[[decoded_pixel_comparison.derived_sets.cases.variants.alternative_limits]]
+alternative_id = "full-resolution-window"
+peak_error_limit = 0
+mean_squared_error_limit = 0.0
+
+[[decoded_pixel_comparison.derived_sets.cases.variants.alternative_limits]]
+alternative_id = "one-level-reduced"
+peak_error_limit = 0
+mean_squared_error_limit = 0.0
+
+[[decoded_pixel_comparison.derived_sets.cases]]
+id = "annex-c/class0-profile0/ds0-htonly/p0-16"
+coding_mode = "HTONLY"
+reference_case_id = "annex-c/class0-profile0/p0-16"
+
+[[decoded_pixel_comparison.derived_sets.cases.variants]]
+input = "files/htj2k_bsets_profile0/p0_16_bset/ds0_ht_16_b11.j2k"
+b_magb = 11
+
+[[decoded_pixel_comparison.derived_sets.cases.variants.component_limits]]
+component = 0
 peak_error_limit = 0
 mean_squared_error_limit = 0.0

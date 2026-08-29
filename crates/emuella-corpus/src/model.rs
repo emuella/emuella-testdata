@@ -175,9 +175,109 @@ pub struct DecodedPixelComparisonPlan {
     pub standard: String,
     pub clauses: Vec<String>,
     pub retrieval_commit: String,
+    pub output_normalisation: DecodedPixelOutputNormalisation,
     pub cases: Vec<DecodedPixelComparisonCase>,
     #[serde(default)]
     pub choice_groups: Vec<DecodedPixelComparisonChoiceGroup>,
+    #[serde(default)]
+    pub derived_sets: Vec<DecodedPixelDerivedSet>,
+}
+
+#[derive(Clone, Debug, Deserialize, Serialize)]
+#[serde(deny_unknown_fields)]
+pub struct DecodedPixelOutputNormalisation {
+    pub order_dependent: Vec<DecodedPixelNormalisationStep>,
+    pub order_independent: Vec<DecodedPixelNormalisationStep>,
+}
+
+#[derive(Clone, Copy, Debug, Deserialize, Serialize, Eq, Ord, PartialEq, PartialOrd)]
+#[serde(rename_all = "kebab-case")]
+pub enum DecodedPixelNormalisationStep {
+    ResolutionReduction,
+    RecoverFirstCodestreamComponent,
+    RoundToNearestInteger,
+    ClipToDeclaredSampleRange,
+    ReferenceBitDepthArithmeticShift,
+    ReferenceGridSubsampling,
+    UpperLeftReferenceCrop,
+    PlanarComponentDeinterleave,
+    BigEndianByteOrder,
+    SignExtendToByteBoundary,
+}
+
+#[derive(Clone, Debug, Deserialize, Serialize)]
+#[serde(deny_unknown_fields)]
+pub struct DecodedPixelDerivedSet {
+    pub id: DecodedPixelDerivedSetId,
+    pub profile: u8,
+    pub compliance_class: u8,
+    pub selection: DecodedPixelDerivedSetSelection,
+    pub cases: Vec<DecodedPixelDerivedSetCase>,
+}
+
+#[derive(Clone, Copy, Debug, Deserialize, Serialize, Eq, Ord, PartialEq, PartialOrd)]
+pub enum DecodedPixelDerivedSetId {
+    #[serde(rename = "DS0")]
+    Ds0,
+}
+
+#[derive(Clone, Copy, Debug, Deserialize, Serialize, Eq, PartialEq)]
+#[serde(rename_all = "kebab-case")]
+pub enum DecodedPixelDerivedSetSelection {
+    GreatestBMagbNotExceedingMMagb,
+}
+
+#[derive(Clone, Debug, Deserialize, Serialize)]
+#[serde(deny_unknown_fields)]
+pub struct DecodedPixelDerivedSetCase {
+    pub id: String,
+    pub coding_mode: DecodedPixelDerivedSetCodingMode,
+    pub reference_case_id: String,
+    pub variants: Vec<DecodedPixelDerivedSetVariant>,
+}
+
+impl DecodedPixelDerivedSetCase {
+    pub fn select_variant(&self, m_magb: u8) -> Option<&DecodedPixelDerivedSetVariant> {
+        self.variants
+            .iter()
+            .rev()
+            .find(|variant| variant.b_magb <= m_magb)
+    }
+}
+
+#[derive(Clone, Copy, Debug, Deserialize, Serialize, Eq, Ord, PartialEq, PartialOrd)]
+pub enum DecodedPixelDerivedSetCodingMode {
+    #[serde(rename = "HTONLY")]
+    HtOnly,
+    #[serde(rename = "HTMIX")]
+    HtMix,
+}
+
+#[derive(Clone, Debug, Deserialize, Serialize)]
+#[serde(deny_unknown_fields)]
+pub struct DecodedPixelDerivedSetVariant {
+    pub input: String,
+    pub b_magb: u8,
+    #[serde(default)]
+    pub component_limits: Vec<DecodedPixelDerivedSetComponentLimits>,
+    #[serde(default)]
+    pub alternative_limits: Vec<DecodedPixelDerivedSetAlternativeLimits>,
+}
+
+#[derive(Clone, Debug, Deserialize, Serialize)]
+#[serde(deny_unknown_fields)]
+pub struct DecodedPixelDerivedSetComponentLimits {
+    pub component: u16,
+    pub peak_error_limit: u64,
+    pub mean_squared_error_limit: f64,
+}
+
+#[derive(Clone, Debug, Deserialize, Serialize)]
+#[serde(deny_unknown_fields)]
+pub struct DecodedPixelDerivedSetAlternativeLimits {
+    pub alternative_id: String,
+    pub peak_error_limit: u64,
+    pub mean_squared_error_limit: f64,
 }
 
 #[derive(Clone, Debug, Deserialize, Serialize)]

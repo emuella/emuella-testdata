@@ -1,6 +1,7 @@
 use crate::model::{
-    AssetInventoryManifest, AssetRecord, CatalogueManifest, InspectionExpectation, PackKind,
-    PackManifest, ReviewState, SuiteManifest,
+    AssetInventoryManifest, AssetRecord, CatalogueManifest, DecodedPixelDerivedSetCodingMode,
+    DecodedPixelDerivedSetId, DecodedPixelDerivedSetSelection, DecodedPixelNormalisationStep,
+    InspectionExpectation, PackKind, PackManifest, ReviewState, SuiteManifest,
 };
 use sha2::{Digest, Sha256};
 use std::collections::{BTreeMap, BTreeSet};
@@ -442,6 +443,36 @@ fn validate_decoded_pixel_comparison_plan(
             suite.id
         )));
     }
+    let required_order_dependent = [
+        DecodedPixelNormalisationStep::ResolutionReduction,
+        DecodedPixelNormalisationStep::RecoverFirstCodestreamComponent,
+        DecodedPixelNormalisationStep::RoundToNearestInteger,
+        DecodedPixelNormalisationStep::ClipToDeclaredSampleRange,
+        DecodedPixelNormalisationStep::ReferenceBitDepthArithmeticShift,
+        DecodedPixelNormalisationStep::ReferenceGridSubsampling,
+        DecodedPixelNormalisationStep::UpperLeftReferenceCrop,
+    ];
+    let required_order_independent = BTreeSet::from([
+        DecodedPixelNormalisationStep::PlanarComponentDeinterleave,
+        DecodedPixelNormalisationStep::BigEndianByteOrder,
+        DecodedPixelNormalisationStep::SignExtendToByteBoundary,
+    ]);
+    if comparison.output_normalisation.order_dependent != required_order_dependent
+        || comparison
+            .output_normalisation
+            .order_independent
+            .iter()
+            .copied()
+            .collect::<BTreeSet<_>>()
+            != required_order_independent
+        || comparison.output_normalisation.order_independent.len()
+            != required_order_independent.len()
+    {
+        return Err(CatalogueError::message(format!(
+            "suite {} has an incomplete or incorrectly ordered decoded-output normalisation contract",
+            suite.id
+        )));
+    }
 
     let inventory = pack
         .manifest
@@ -614,7 +645,207 @@ fn validate_decoded_pixel_comparison_plan(
             }
         }
     }
+    let base_cases = comparison
+        .cases
+        .iter()
+        .map(|case| (case.id.as_str(), case))
+        .collect::<BTreeMap<_, _>>();
+    let base_choice_groups = comparison
+        .choice_groups
+        .iter()
+        .map(|group| (group.id.as_str(), group))
+        .collect::<BTreeMap<_, _>>();
+    let mut derived_set_ids = BTreeSet::new();
+    let mut derived_case_keys = BTreeSet::new();
+    for derived_set in &comparison.derived_sets {
+        if !derived_set_ids.insert(derived_set.id) {
+            return Err(CatalogueError::message(format!(
+                "suite {} repeats decoded-pixel derived set {:?}",
+                suite.id, derived_set.id
+            )));
+        }
+        if derived_set.id != DecodedPixelDerivedSetId::Ds0
+            || derived_set.profile != 0
+            || derived_set.compliance_class != 0
+            || derived_set.selection
+                != DecodedPixelDerivedSetSelection::GreatestBMagbNotExceedingMMagb
+            || derived_set.cases.is_empty()
+        {
+            return Err(CatalogueError::message(format!(
+                "suite {} has an unsupported derived-set identity, profile, class, or selection rule",
+                suite.id
+            )));
+        }
+        let mut expected_case_ids = (1..=16)
+            .map(|number| format!("annex-c/class0-profile0/ds0-htonly/p0-{number:02}"))
+            .collect::<BTreeSet<_>>();
+        expected_case_ids.insert("annex-c/class0-profile0/ds0-htmix/p0-06".to_owned());
+        expected_case_ids.insert("annex-c/class0-profile0/ds0-htmix/p0-15".to_owned());
+        let actual_case_ids = derived_set
+            .cases
+            .iter()
+            .map(|case| case.id.as_str())
+            .collect::<BTreeSet<_>>();
+        if actual_case_ids
+            != expected_case_ids
+                .iter()
+                .map(String::as_str)
+                .collect::<BTreeSet<_>>()
+        {
+            return Err(CatalogueError::message(format!(
+                "suite {} DS0 Class-0 Profile-0 contract does not contain the exact 18 HTONLY and HTMIX case points",
+                suite.id
+            )));
+        }
+        for derived_case in &derived_set.cases {
+            validate_id("decoded-pixel derived-set case", &derived_case.id)?;
+            validate_id(
+                "decoded-pixel derived-set reference case",
+                &derived_case.reference_case_id,
+            )?;
+            if !case_ids.insert(derived_case.id.as_str()) {
+                return Err(CatalogueError::message(format!(
+                    "suite {} repeats decoded-pixel case, group, or derived-set ID {}",
+                    suite.id, derived_case.id
+                )));
+            }
+            if !derived_case_keys.insert((
+                derived_case.reference_case_id.as_str(),
+                derived_case.coding_mode,
+            )) {
+                return Err(CatalogueError::message(format!(
+                    "suite {} repeats coding mode for decoded-pixel reference case {}",
+                    suite.id, derived_case.reference_case_id
+                )));
+            }
+            let reference_number = derived_case
+                .reference_case_id
+                .strip_prefix("annex-c/class0-profile0/p0-")
+                .filter(|number| {
+                    number.len() == 2 && number.bytes().all(|byte| byte.is_ascii_digit())
+                })
+                .ok_or_else(|| {
+                    CatalogueError::message(format!(
+                        "suite {} derived-set case {} does not reference a Class-0 Profile-0 case",
+                        suite.id, derived_case.id
+                    ))
+                })?;
+            let expected_case_id = match derived_case.coding_mode {
+                DecodedPixelDerivedSetCodingMode::HtOnly => {
+                    format!("annex-c/class0-profile0/ds0-htonly/p0-{reference_number}")
+                }
+                DecodedPixelDerivedSetCodingMode::HtMix => {
+                    format!("annex-c/class0-profile0/ds0-htmix/p0-{reference_number}")
+                }
+            };
+            if derived_case.id != expected_case_id || derived_case.variants.is_empty() {
+                return Err(CatalogueError::message(format!(
+                    "suite {} derived-set case {} has an inconsistent identity or no variants",
+                    suite.id, derived_case.id
+                )));
+            }
+            let scalar_reference = base_cases.get(derived_case.reference_case_id.as_str());
+            let choice_reference = base_choice_groups.get(derived_case.reference_case_id.as_str());
+            if scalar_reference.is_some() == choice_reference.is_some() {
+                return Err(CatalogueError::message(format!(
+                    "suite {} derived-set case {} must resolve to exactly one scalar or choice reference contract",
+                    suite.id, derived_case.id
+                )));
+            }
+            let mut previous_b_magb = None;
+            for variant in &derived_case.variants {
+                validate_relative_path("decoded-pixel derived-set input", &variant.input)?;
+                if previous_b_magb.is_some_and(|previous| previous >= variant.b_magb) {
+                    return Err(CatalogueError::message(format!(
+                        "suite {} derived-set case {} variants are not strictly ordered by B_MAGB",
+                        suite.id, derived_case.id
+                    )));
+                }
+                previous_b_magb = Some(variant.b_magb);
+                if !input_paths.insert(variant.input.as_str()) {
+                    return Err(CatalogueError::message(format!(
+                        "suite {} repeats decoded-pixel input {}",
+                        suite.id, variant.input
+                    )));
+                }
+                let input = inventory.get(variant.input.as_str()).ok_or_else(|| {
+                    CatalogueError::message(format!(
+                        "suite {} derived-set case {} input is absent from the locked inventory",
+                        suite.id, derived_case.id
+                    ))
+                })?;
+                let mode_prefix = match derived_case.coding_mode {
+                    DecodedPixelDerivedSetCodingMode::HtOnly => "ht",
+                    DecodedPixelDerivedSetCodingMode::HtMix => "hm",
+                };
+                let expected_input = format!(
+                    "files/htj2k_bsets_profile0/p0_{reference_number}_bset/ds0_{mode_prefix}_{reference_number}_b{}.j2k",
+                    variant.b_magb
+                );
+                if input.path != expected_input {
+                    return Err(CatalogueError::message(format!(
+                        "suite {} derived-set case {} input does not match its mode, profile, case, or B_MAGB identity",
+                        suite.id, derived_case.id
+                    )));
+                }
+                if scalar_reference.is_some_and(|reference| {
+                    !variant.alternative_limits.is_empty()
+                        || variant.component_limits.len() != 1
+                        || variant.component_limits[0].component != reference.component
+                        || variant.component_limits[0].peak_error_limit < reference.peak_error_limit
+                        || variant.component_limits[0].mean_squared_error_limit
+                            < reference.mean_squared_error_limit
+                        || !valid_derived_limits(
+                            variant.component_limits[0].mean_squared_error_limit,
+                        )
+                }) {
+                    return Err(CatalogueError::message(format!(
+                        "suite {} derived-set case {} has limits inconsistent with its component reference",
+                        suite.id, derived_case.id
+                    )));
+                }
+                if let Some(reference) = choice_reference {
+                    let expected_alternatives = reference
+                        .alternatives
+                        .iter()
+                        .map(|alternative| alternative.id.as_str())
+                        .collect::<BTreeSet<_>>();
+                    let actual_alternatives = variant
+                        .alternative_limits
+                        .iter()
+                        .map(|limits| limits.alternative_id.as_str())
+                        .collect::<BTreeSet<_>>();
+                    if !variant.component_limits.is_empty()
+                        || variant.alternative_limits.len() != reference.alternatives.len()
+                        || actual_alternatives != expected_alternatives
+                        || variant.alternative_limits.iter().any(|limits| {
+                            let Some(alternative) = reference
+                                .alternatives
+                                .iter()
+                                .find(|alternative| alternative.id == limits.alternative_id)
+                            else {
+                                return true;
+                            };
+                            limits.peak_error_limit < alternative.peak_error_limit
+                                || limits.mean_squared_error_limit
+                                    < alternative.mean_squared_error_limit
+                                || !valid_derived_limits(limits.mean_squared_error_limit)
+                        })
+                    {
+                        return Err(CatalogueError::message(format!(
+                            "suite {} derived-set case {} has limits inconsistent with its choice reference",
+                            suite.id, derived_case.id
+                        )));
+                    }
+                }
+            }
+        }
+    }
     Ok(())
+}
+
+fn valid_derived_limits(mean_squared_error_limit: f64) -> bool {
+    mean_squared_error_limit.is_finite() && mean_squared_error_limit >= 0.0
 }
 
 fn validate_inspection_plan(
@@ -1786,6 +2017,229 @@ mod tests {
                 ),
             ]
         );
+    }
+
+    #[test]
+    fn records_and_selects_all_ds0_profile0_case_points() {
+        let root = Path::new(env!("CARGO_MANIFEST_DIR")).join("../..");
+        let catalogue = Catalogue::open(root).expect("repository catalogue opens");
+        let plan = catalogue
+            .suites
+            .get("layer2/conformance-jpeg-2000")
+            .expect("comparison suite exists")
+            .manifest
+            .decoded_pixel_comparison
+            .as_ref()
+            .expect("comparison plan exists");
+        assert_eq!(plan.derived_sets.len(), 1);
+        let derived_set = &plan.derived_sets[0];
+        assert_eq!(derived_set.id, DecodedPixelDerivedSetId::Ds0);
+        assert_eq!(derived_set.profile, 0);
+        assert_eq!(derived_set.compliance_class, 0);
+        assert_eq!(derived_set.cases.len(), 18);
+        assert_eq!(
+            derived_set
+                .cases
+                .iter()
+                .map(|case| case.id.as_str())
+                .collect::<Vec<_>>(),
+            vec![
+                "annex-c/class0-profile0/ds0-htonly/p0-01",
+                "annex-c/class0-profile0/ds0-htonly/p0-02",
+                "annex-c/class0-profile0/ds0-htonly/p0-03",
+                "annex-c/class0-profile0/ds0-htonly/p0-04",
+                "annex-c/class0-profile0/ds0-htonly/p0-05",
+                "annex-c/class0-profile0/ds0-htonly/p0-06",
+                "annex-c/class0-profile0/ds0-htmix/p0-06",
+                "annex-c/class0-profile0/ds0-htonly/p0-07",
+                "annex-c/class0-profile0/ds0-htonly/p0-08",
+                "annex-c/class0-profile0/ds0-htonly/p0-09",
+                "annex-c/class0-profile0/ds0-htonly/p0-10",
+                "annex-c/class0-profile0/ds0-htonly/p0-11",
+                "annex-c/class0-profile0/ds0-htonly/p0-12",
+                "annex-c/class0-profile0/ds0-htonly/p0-13",
+                "annex-c/class0-profile0/ds0-htonly/p0-14",
+                "annex-c/class0-profile0/ds0-htonly/p0-15",
+                "annex-c/class0-profile0/ds0-htmix/p0-15",
+                "annex-c/class0-profile0/ds0-htonly/p0-16",
+            ]
+        );
+        assert_eq!(
+            derived_set
+                .cases
+                .iter()
+                .map(|case| case.variants.len())
+                .sum::<usize>(),
+            30
+        );
+        let derived_cases = derived_set
+            .cases
+            .iter()
+            .map(|case| (case.id.as_str(), case))
+            .collect::<BTreeMap<_, _>>();
+
+        let p0_02_b11 = &derived_cases["annex-c/class0-profile0/ds0-htonly/p0-02"].variants[0]
+            .component_limits[0];
+        assert_eq!(
+            (
+                p0_02_b11.peak_error_limit,
+                p0_02_b11.mean_squared_error_limit
+            ),
+            (1, 0.001)
+        );
+        let p0_03_b11 = &derived_cases["annex-c/class0-profile0/ds0-htonly/p0-03"].variants[0]
+            .alternative_limits;
+        assert!(p0_03_b11.iter().all(|limits| {
+            limits.peak_error_limit == 17 && limits.mean_squared_error_limit == 0.15
+        }));
+        let p0_04_b11 = &derived_cases["annex-c/class0-profile0/ds0-htonly/p0-04"].variants[0]
+            .component_limits[0];
+        assert_eq!(
+            (
+                p0_04_b11.peak_error_limit,
+                p0_04_b11.mean_squared_error_limit
+            ),
+            (35, 55.9)
+        );
+
+        let p0_06 = derived_cases["annex-c/class0-profile0/ds0-htonly/p0-06"];
+        assert!(p0_06.select_variant(10).is_none());
+        assert_eq!(p0_06.select_variant(11).expect("B11 selected").b_magb, 11);
+        assert_eq!(p0_06.select_variant(14).expect("B11 selected").b_magb, 11);
+        assert_eq!(p0_06.select_variant(15).expect("B15 selected").b_magb, 15);
+        assert_eq!(p0_06.select_variant(17).expect("B15 selected").b_magb, 15);
+        assert_eq!(p0_06.select_variant(18).expect("B18 selected").b_magb, 18);
+        assert_eq!(
+            p0_06.select_variant(u8::MAX).expect("B18 selected").b_magb,
+            18
+        );
+        let b11_limits = &p0_06.variants[0].component_limits[0];
+        assert_eq!(b11_limits.peak_error_limit, 266);
+        assert_eq!(b11_limits.mean_squared_error_limit, 1035.96875);
+
+        let p0_07 = derived_cases["annex-c/class0-profile0/ds0-htonly/p0-07"];
+        assert_eq!(
+            p0_07
+                .variants
+                .iter()
+                .map(|variant| {
+                    let limits = &variant.component_limits[0];
+                    (
+                        variant.b_magb,
+                        limits.peak_error_limit,
+                        limits.mean_squared_error_limit,
+                    )
+                })
+                .collect::<Vec<_>>(),
+            vec![
+                (11, 13, 0.43765625),
+                (15, 11, 0.34029296875),
+                (16, 10, 0.34),
+            ]
+        );
+        let p0_08 = derived_cases["annex-c/class0-profile0/ds0-htonly/p0-08"];
+        assert_eq!(
+            p0_08
+                .variants
+                .iter()
+                .map(|variant| {
+                    let limits = &variant.component_limits[0];
+                    (
+                        variant.b_magb,
+                        limits.peak_error_limit,
+                        limits.mean_squared_error_limit,
+                    )
+                })
+                .collect::<Vec<_>>(),
+            vec![(11, 10, 6.89578125), (15, 7, 6.72), (16, 7, 6.72)]
+        );
+
+        let p0_15_htonly = derived_cases["annex-c/class0-profile0/ds0-htonly/p0-15"];
+        assert!(
+            p0_15_htonly.variants[0]
+                .alternative_limits
+                .iter()
+                .all(|limits| {
+                    limits.peak_error_limit == 17 && limits.mean_squared_error_limit == 0.15
+                })
+        );
+        let p0_15_htmix = derived_cases["annex-c/class0-profile0/ds0-htmix/p0-15"];
+        assert!(p0_15_htmix.select_variant(7).is_none());
+        let selected = p0_15_htmix.select_variant(18).expect("B8 selected");
+        assert_eq!(selected.b_magb, 8);
+        assert_eq!(selected.alternative_limits.len(), 2);
+        assert!(selected.alternative_limits.iter().all(|limits| {
+            limits.peak_error_limit == 0 && limits.mean_squared_error_limit == 0.0
+        }));
+    }
+
+    #[test]
+    fn rejects_invalid_ds0_derived_set_contracts() {
+        let root = Path::new(env!("CARGO_MANIFEST_DIR")).join("../..");
+        let catalogue = Catalogue::open(root).expect("repository catalogue opens");
+        let suite = catalogue
+            .suites
+            .get("layer2/conformance-jpeg-2000")
+            .expect("comparison suite exists")
+            .manifest
+            .clone();
+
+        let mut comparison = suite
+            .decoded_pixel_comparison
+            .clone()
+            .expect("comparison plan exists");
+        comparison.derived_sets[0].profile = 1;
+        let error = validate_decoded_pixel_comparison_plan(&suite, &comparison, &catalogue.packs)
+            .expect_err("DS0 Profile-1 contract must fail");
+        assert!(
+            error
+                .to_string()
+                .contains("unsupported derived-set identity")
+        );
+
+        let mut comparison = suite
+            .decoded_pixel_comparison
+            .clone()
+            .expect("comparison plan exists");
+        comparison.derived_sets[0].cases[1].variants.reverse();
+        let error = validate_decoded_pixel_comparison_plan(&suite, &comparison, &catalogue.packs)
+            .expect_err("descending B_MAGB variants must fail");
+        assert!(error.to_string().contains("not strictly ordered by B_MAGB"));
+
+        let mut comparison = suite
+            .decoded_pixel_comparison
+            .clone()
+            .expect("comparison plan exists");
+        comparison.derived_sets[0].cases[0].variants[0].input =
+            "files/htj2k_bsets_profile0/not-in-inventory.j2k".to_owned();
+        let error = validate_decoded_pixel_comparison_plan(&suite, &comparison, &catalogue.packs)
+            .expect_err("unlocked derived input must fail");
+        assert!(
+            error
+                .to_string()
+                .contains("absent from the locked inventory")
+        );
+
+        let mut comparison = suite
+            .decoded_pixel_comparison
+            .clone()
+            .expect("comparison plan exists");
+        comparison.derived_sets[0].cases[0].variants[0]
+            .component_limits
+            .clear();
+        let error = validate_decoded_pixel_comparison_plan(&suite, &comparison, &catalogue.packs)
+            .expect_err("missing component limits must fail");
+        assert!(error.to_string().contains("component reference"));
+
+        let mut comparison = suite
+            .decoded_pixel_comparison
+            .clone()
+            .expect("comparison plan exists");
+        comparison.derived_sets[0].cases[2].variants[0].alternative_limits[1].alternative_id =
+            "full-resolution-window".to_owned();
+        let error = validate_decoded_pixel_comparison_plan(&suite, &comparison, &catalogue.packs)
+            .expect_err("duplicate choice alternative limits must fail");
+        assert!(error.to_string().contains("choice reference"));
     }
 
     #[test]
