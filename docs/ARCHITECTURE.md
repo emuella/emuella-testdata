@@ -37,6 +37,16 @@ The catalogue never assumes that access implies redistribution. A pack whose
 terms require acknowledgement or manual acquisition is resolved by the user,
 then verified locally.
 
+Rendered-pixel comparisons are a sibling contract to native component
+comparisons. The initial Annex G contract binds a locked JP2 input and TIFF
+reference by inventory path, describes one full-frame 8-bit sRGB result, and
+sets one inclusive aggregate peak-error limit. It does not select a native
+component, reduction or region, prescribe interpolation, or record decoded
+pixels, decoded digests, per-pixel results or mean-squared error. A dedicated
+codec worker or runner must execute this plan later against an already
+materialised and verified pack; the catalogue neither acquires missing data
+nor supplies a decoder fallback.
+
 ### Layer 3: pinned CI qualification
 
 A Layer 3 result is identified by all of:

@@ -1,7 +1,8 @@
 use crate::model::{
     AssetInventoryManifest, AssetRecord, CatalogueManifest, DecodedPixelDerivedSetCodingMode,
     DecodedPixelDerivedSetId, DecodedPixelDerivedSetSelection, DecodedPixelNormalisationStep,
-    InspectionExpectation, PackKind, PackManifest, ReviewState, SuiteManifest,
+    InspectionExpectation, PackKind, PackManifest, RenderedColourSpace, RenderedReferenceLayout,
+    ReviewState, SuiteManifest,
 };
 use sha2::{Digest, Sha256};
 use std::collections::{BTreeMap, BTreeSet};
@@ -281,6 +282,9 @@ impl Catalogue {
             }
             if let Some(comparison) = &suite.decoded_pixel_comparison {
                 validate_decoded_pixel_comparison_plan(suite, comparison, &self.packs)?;
+            }
+            if let Some(comparison) = &suite.rendered_pixel_comparison {
+                validate_rendered_pixel_comparison_plan(suite, comparison, &self.packs)?;
             }
         }
 
@@ -662,6 +666,139 @@ const DS0_EXPECTED_CASES: &[ExpectedDs0Case] = &[
         }],
     },
 ];
+
+fn validate_rendered_pixel_comparison_plan(
+    suite: &SuiteManifest,
+    comparison: &crate::model::RenderedPixelComparisonPlan,
+    packs: &BTreeMap<String, LocatedPack>,
+) -> Result<(), CatalogueError> {
+    let selected = suite
+        .packs
+        .iter()
+        .find(|selected| selected.id == comparison.pack_id)
+        .ok_or_else(|| {
+            CatalogueError::message(format!(
+                "suite {} rendered-pixel plan names unselected pack {}",
+                suite.id, comparison.pack_id
+            ))
+        })?;
+    let pack = packs.get(&comparison.pack_id).ok_or_else(|| {
+        CatalogueError::message("rendered-pixel comparison pack disappeared from catalogue")
+    })?;
+    if selected.version != pack.manifest.version {
+        return Err(CatalogueError::message(format!(
+            "suite {} rendered-pixel plan pack version is not selected",
+            suite.id
+        )));
+    }
+    if pack.manifest.review_state != ReviewState::Locked {
+        return Err(CatalogueError::message(format!(
+            "suite {} rendered-pixel plan requires locked pack {}",
+            suite.id, comparison.pack_id
+        )));
+    }
+    if comparison.standard.trim().is_empty()
+        || comparison.clauses.is_empty()
+        || comparison
+            .clauses
+            .iter()
+            .any(|clause| clause.trim().is_empty())
+        || comparison.clauses.iter().collect::<BTreeSet<_>>().len() != comparison.clauses.len()
+        || !is_lower_hex(&comparison.retrieval_commit, 40)
+        || comparison.cases.is_empty()
+    {
+        return Err(CatalogueError::message(format!(
+            "suite {} has incomplete rendered-pixel comparison authority or cases",
+            suite.id
+        )));
+    }
+
+    let inventory = pack
+        .manifest
+        .assets
+        .iter()
+        .map(|asset| (asset.path.as_str(), asset))
+        .collect::<BTreeMap<_, _>>();
+    let mut case_ids = BTreeSet::new();
+    let mut input_paths = BTreeSet::new();
+    let mut reference_paths = BTreeSet::new();
+    for case in &comparison.cases {
+        validate_id("rendered-pixel case", &case.id)?;
+        if !case_ids.insert(case.id.as_str()) {
+            return Err(CatalogueError::message(format!(
+                "suite {} repeats rendered-pixel case ID {}",
+                suite.id, case.id
+            )));
+        }
+        validate_relative_path("rendered-pixel input", &case.input)?;
+        validate_relative_path("rendered-pixel reference", &case.reference)?;
+        if case.input == case.reference {
+            return Err(CatalogueError::message(format!(
+                "suite {} rendered-pixel case {} uses one path as input and reference",
+                suite.id, case.id
+            )));
+        }
+        if !input_paths.insert(case.input.as_str()) {
+            return Err(CatalogueError::message(format!(
+                "suite {} repeats rendered-pixel input {}",
+                suite.id, case.input
+            )));
+        }
+        if !reference_paths.insert(case.reference.as_str()) {
+            return Err(CatalogueError::message(format!(
+                "suite {} repeats rendered-pixel reference {}",
+                suite.id, case.reference
+            )));
+        }
+        let input = inventory.get(case.input.as_str()).ok_or_else(|| {
+            CatalogueError::message(format!(
+                "suite {} rendered-pixel case {} input is absent from the locked inventory",
+                suite.id, case.id
+            ))
+        })?;
+        let reference = inventory.get(case.reference.as_str()).ok_or_else(|| {
+            CatalogueError::message(format!(
+                "suite {} rendered-pixel case {} reference is absent from the locked inventory",
+                suite.id, case.id
+            ))
+        })?;
+        if Path::new(&input.path)
+            .extension()
+            .and_then(|extension| extension.to_str())
+            != Some("jp2")
+            || Path::new(&reference.path)
+                .extension()
+                .and_then(|extension| extension.to_str())
+                != Some("tif")
+        {
+            return Err(CatalogueError::message(format!(
+                "suite {} rendered-pixel case {} requires a .jp2 input and .tif reference",
+                suite.id, case.id
+            )));
+        }
+        if input.media_type != "image/jp2" || reference.media_type != "image/tiff" {
+            return Err(CatalogueError::message(format!(
+                "suite {} rendered-pixel case {} has an unsupported inventory media type",
+                suite.id, case.id
+            )));
+        }
+        if case.width == 0
+            || case.height == 0
+            || case.components != 3
+            || case.bits_per_sample != 8
+            || case.rendered_colour_space != RenderedColourSpace::Srgb
+            || case.reference_layout != RenderedReferenceLayout::TiffRgbU8Contiguous
+            || !case.peak_error_limit.is_finite()
+            || case.peak_error_limit < 0.0
+        {
+            return Err(CatalogueError::message(format!(
+                "suite {} rendered-pixel case {} has unsupported full-frame shape, colour, layout, or error limit",
+                suite.id, case.id
+            )));
+        }
+    }
+    Ok(())
+}
 
 fn validate_decoded_pixel_comparison_plan(
     suite: &SuiteManifest,
@@ -1734,6 +1871,26 @@ mod tests {
         (suite, inspection, catalogue)
     }
 
+    fn rendered_fixture() -> (
+        SuiteManifest,
+        crate::model::RenderedPixelComparisonPlan,
+        Catalogue,
+    ) {
+        let root = Path::new(env!("CARGO_MANIFEST_DIR")).join("../..");
+        let catalogue = Catalogue::open(root).expect("repository catalogue opens");
+        let suite = catalogue
+            .suites
+            .get("layer2/conformance-jpeg-2000")
+            .expect("rendered comparison suite exists")
+            .manifest
+            .clone();
+        let comparison = suite
+            .rendered_pixel_comparison
+            .clone()
+            .expect("rendered comparison plan exists");
+        (suite, comparison, catalogue)
+    }
+
     #[test]
     fn rejects_parent_traversal() {
         assert!(validate_relative_path("test", "../escape").is_err());
@@ -1810,6 +1967,354 @@ mod tests {
         let error = validate_inspection_plan(&suite, &inspection, &catalogue.packs)
             .expect_err("unselected override must fail");
         assert!(error.to_string().contains("names unselected path"));
+    }
+
+    #[test]
+    fn deserialises_and_validates_annex_g_rendered_contract() {
+        let root = Path::new(env!("CARGO_MANIFEST_DIR")).join("../..");
+        let source = fs::read_to_string(root.join("suites/conformance-jpeg-2000.toml"))
+            .expect("suite source is readable");
+        let suite: SuiteManifest = toml::from_str(&source).expect("suite deserialises");
+        assert_eq!(suite.revision, 20);
+        let comparison = suite
+            .rendered_pixel_comparison
+            .as_ref()
+            .expect("rendered comparison plan exists");
+        assert_eq!(comparison.pack_id, "jpeg-2000/conformance");
+        assert_eq!(comparison.standard, "ISO/IEC 15444-4:2024");
+        assert_eq!(
+            comparison.clauses,
+            [
+                "Annex G",
+                "G.1",
+                "G.2",
+                "G.3",
+                "G.4.2",
+                "G.4.3",
+                "Table G.1"
+            ]
+        );
+        assert_eq!(
+            comparison.retrieval_commit,
+            "725ecba70e5d03eff3f6ce9626bb9cb08dd4e0c7"
+        );
+        assert_eq!(comparison.cases.len(), 1);
+        let case = &comparison.cases[0];
+        assert_eq!(case.id, "annex-g/jp2/file3");
+        assert_eq!(case.input, "files/testfiles_jp2/file3.jp2");
+        assert_eq!(case.reference, "files/reference_jp2/jp2_3.tif");
+        assert_eq!((case.width, case.height), (480, 640));
+        assert_eq!((case.components, case.bits_per_sample), (3, 8));
+        assert_eq!(case.rendered_colour_space, RenderedColourSpace::Srgb);
+        assert_eq!(
+            case.reference_layout,
+            RenderedReferenceLayout::TiffRgbU8Contiguous
+        );
+        assert_eq!(case.peak_error_limit, 4.0);
+
+        let catalogue = Catalogue::open(root).expect("repository catalogue opens");
+        catalogue.check().expect("repository catalogue checks");
+        let assets = &catalogue.packs["jpeg-2000/conformance"].manifest.assets;
+        let input = assets
+            .iter()
+            .find(|asset| asset.path == case.input)
+            .expect("input is locked");
+        let reference = assets
+            .iter()
+            .find(|asset| asset.path == case.reference)
+            .expect("reference is locked");
+        assert_eq!(
+            input.sha256,
+            "fe922461d6928f9b9c86c222a133c42c19d119351400d5e8dd6a1e60db437e66"
+        );
+        assert_eq!(
+            reference.sha256,
+            "512a8827b98d71051c3cba52b96a323e879870ba90dc254016befaa1aa90dbd5"
+        );
+    }
+
+    #[test]
+    fn rendered_contract_has_strict_json_schema_representation() {
+        let schema: serde_json::Value =
+            serde_json::from_str(include_str!("../../../schema/suite.schema.json"))
+                .expect("suite schema is valid JSON");
+        let rendered = &schema["properties"]["rendered_pixel_comparison"];
+        assert_eq!(rendered["additionalProperties"].as_bool(), Some(false));
+        let required = rendered["required"]
+            .as_array()
+            .expect("rendered plan has required fields");
+        assert_eq!(required.len(), 5);
+        for field in [
+            "pack_id",
+            "standard",
+            "clauses",
+            "retrieval_commit",
+            "cases",
+        ] {
+            assert!(required.iter().any(|candidate| candidate == field));
+        }
+        let case = &rendered["properties"]["cases"]["items"];
+        assert_eq!(case["additionalProperties"].as_bool(), Some(false));
+        let required = case["required"]
+            .as_array()
+            .expect("rendered case has required fields");
+        assert_eq!(required.len(), 10);
+        for field in [
+            "id",
+            "input",
+            "reference",
+            "width",
+            "height",
+            "components",
+            "bits_per_sample",
+            "rendered_colour_space",
+            "reference_layout",
+            "peak_error_limit",
+        ] {
+            assert!(required.iter().any(|candidate| candidate == field));
+        }
+        assert_eq!(case["properties"]["components"]["const"], 3);
+        assert_eq!(case["properties"]["bits_per_sample"]["const"], 8);
+        assert_eq!(case["properties"]["rendered_colour_space"]["const"], "sRGB");
+        assert_eq!(
+            case["properties"]["reference_layout"]["const"],
+            "tiff-rgb-u8-contiguous"
+        );
+        assert_eq!(case["properties"]["peak_error_limit"]["minimum"], 0);
+    }
+
+    #[test]
+    fn rejects_missing_or_unlocked_rendered_pack() {
+        let (suite, mut comparison, catalogue) = rendered_fixture();
+        comparison.pack_id = "jpeg-2000/missing".to_owned();
+        let error = validate_rendered_pixel_comparison_plan(&suite, &comparison, &catalogue.packs)
+            .expect_err("unselected pack must fail");
+        assert!(error.to_string().contains("names unselected pack"));
+
+        let (mut suite, mut comparison, catalogue) = rendered_fixture();
+        comparison.pack_id = "jpeg-2000/missing".to_owned();
+        suite.packs.push(crate::model::SuitePack {
+            id: comparison.pack_id.clone(),
+            version: "1".to_owned(),
+            required: true,
+        });
+        let error = validate_rendered_pixel_comparison_plan(&suite, &comparison, &catalogue.packs)
+            .expect_err("missing catalogue pack must fail");
+        assert!(error.to_string().contains("disappeared from catalogue"));
+
+        let (suite, comparison, mut catalogue) = rendered_fixture();
+        catalogue
+            .packs
+            .get_mut("jpeg-2000/conformance")
+            .expect("pack exists")
+            .manifest
+            .review_state = ReviewState::Reviewed;
+        let error = validate_rendered_pixel_comparison_plan(&suite, &comparison, &catalogue.packs)
+            .expect_err("unlocked pack must fail");
+        assert!(error.to_string().contains("requires locked pack"));
+    }
+
+    #[test]
+    fn rejects_absent_or_unsafe_rendered_paths() {
+        let (suite, comparison, catalogue) = rendered_fixture();
+        for (input, reference) in [
+            ("files/missing.jp2", comparison.cases[0].reference.as_str()),
+            (comparison.cases[0].input.as_str(), "files/missing.tif"),
+        ] {
+            let mut invalid = comparison.clone();
+            invalid.cases[0].input = input.to_owned();
+            invalid.cases[0].reference = reference.to_owned();
+            let error = validate_rendered_pixel_comparison_plan(&suite, &invalid, &catalogue.packs)
+                .expect_err("absent inventory path must fail");
+            assert!(
+                error
+                    .to_string()
+                    .contains("absent from the locked inventory")
+            );
+        }
+
+        for (input, reference) in [
+            ("../file3.jp2", comparison.cases[0].reference.as_str()),
+            (comparison.cases[0].input.as_str(), "/tmp/jp2_3.tif"),
+        ] {
+            let mut invalid = comparison.clone();
+            invalid.cases[0].input = input.to_owned();
+            invalid.cases[0].reference = reference.to_owned();
+            let error = validate_rendered_pixel_comparison_plan(&suite, &invalid, &catalogue.packs)
+                .expect_err("unsafe path must fail");
+            assert!(
+                error.to_string().contains("unsafe traversal")
+                    || error.to_string().contains("non-empty relative path")
+            );
+        }
+    }
+
+    #[test]
+    fn rejects_duplicate_or_same_rendered_paths_and_cases() {
+        let (suite, comparison, catalogue) = rendered_fixture();
+
+        let mut invalid = comparison.clone();
+        invalid.cases.push(invalid.cases[0].clone());
+        let error = validate_rendered_pixel_comparison_plan(&suite, &invalid, &catalogue.packs)
+            .expect_err("duplicate case ID must fail");
+        assert!(error.to_string().contains("repeats rendered-pixel case ID"));
+
+        let mut invalid = comparison.clone();
+        let mut second = invalid.cases[0].clone();
+        second.id = "annex-g/jp2/file4".to_owned();
+        second.reference = "files/reference_jp2/jp2_4.tif".to_owned();
+        invalid.cases.push(second);
+        let error = validate_rendered_pixel_comparison_plan(&suite, &invalid, &catalogue.packs)
+            .expect_err("duplicate input must fail");
+        assert!(error.to_string().contains("repeats rendered-pixel input"));
+
+        let mut invalid = comparison.clone();
+        let mut second = invalid.cases[0].clone();
+        second.id = "annex-g/jp2/file4".to_owned();
+        second.input = "files/testfiles_jp2/file4.jp2".to_owned();
+        invalid.cases.push(second);
+        let error = validate_rendered_pixel_comparison_plan(&suite, &invalid, &catalogue.packs)
+            .expect_err("duplicate reference must fail");
+        assert!(
+            error
+                .to_string()
+                .contains("repeats rendered-pixel reference")
+        );
+
+        let mut invalid = comparison;
+        invalid.cases[0].reference = invalid.cases[0].input.clone();
+        let error = validate_rendered_pixel_comparison_plan(&suite, &invalid, &catalogue.packs)
+            .expect_err("same input and reference must fail");
+        assert!(
+            error
+                .to_string()
+                .contains("one path as input and reference")
+        );
+    }
+
+    #[test]
+    fn rejects_wrong_rendered_extensions_or_inventory_media_types() {
+        let (suite, comparison, catalogue) = rendered_fixture();
+        for (input, reference) in [
+            (
+                "files/testfiles_jph/file1_b11.jph",
+                comparison.cases[0].reference.as_str(),
+            ),
+            (
+                comparison.cases[0].input.as_str(),
+                "files/reference_class0_profile0/c0p0_01.pgx",
+            ),
+        ] {
+            let mut invalid = comparison.clone();
+            invalid.cases[0].input = input.to_owned();
+            invalid.cases[0].reference = reference.to_owned();
+            let error = validate_rendered_pixel_comparison_plan(&suite, &invalid, &catalogue.packs)
+                .expect_err("wrong extension must fail");
+            assert!(
+                error
+                    .to_string()
+                    .contains("requires a .jp2 input and .tif reference")
+            );
+        }
+
+        for path in [
+            comparison.cases[0].input.as_str(),
+            comparison.cases[0].reference.as_str(),
+        ] {
+            let (suite, comparison, mut catalogue) = rendered_fixture();
+            catalogue
+                .packs
+                .get_mut("jpeg-2000/conformance")
+                .expect("pack exists")
+                .manifest
+                .assets
+                .iter_mut()
+                .find(|asset| asset.path == path)
+                .expect("asset exists")
+                .media_type = "application/octet-stream".to_owned();
+            let error =
+                validate_rendered_pixel_comparison_plan(&suite, &comparison, &catalogue.packs)
+                    .expect_err("wrong inventory media type must fail");
+            assert!(error.to_string().contains("inventory media type"));
+        }
+    }
+
+    #[test]
+    fn rejects_wrong_rendered_shape_and_error_limits() {
+        let (suite, comparison, catalogue) = rendered_fixture();
+        for (width, height, components, bits_per_sample) in [
+            (0, 640, 3, 8),
+            (480, 0, 3, 8),
+            (480, 640, 2, 8),
+            (480, 640, 3, 16),
+        ] {
+            let mut invalid = comparison.clone();
+            let case = &mut invalid.cases[0];
+            (
+                case.width,
+                case.height,
+                case.components,
+                case.bits_per_sample,
+            ) = (width, height, components, bits_per_sample);
+            let error = validate_rendered_pixel_comparison_plan(&suite, &invalid, &catalogue.packs)
+                .expect_err("unsupported shape must fail");
+            assert!(error.to_string().contains("unsupported full-frame shape"));
+        }
+
+        for limit in [-0.1, f64::INFINITY, f64::NAN] {
+            let mut invalid = comparison.clone();
+            invalid.cases[0].peak_error_limit = limit;
+            let error = validate_rendered_pixel_comparison_plan(&suite, &invalid, &catalogue.packs)
+                .expect_err("negative or non-finite limit must fail");
+            assert!(error.to_string().contains("error limit"));
+        }
+    }
+
+    #[test]
+    fn rejects_wrong_rendered_colour_layout_and_unknown_fields_during_deserialisation() {
+        let root = Path::new(env!("CARGO_MANIFEST_DIR")).join("../..");
+        let source = fs::read_to_string(root.join("suites/conformance-jpeg-2000.toml"))
+            .expect("suite source is readable");
+        for invalid in [
+            source.replacen(
+                "rendered_colour_space = \"sRGB\"",
+                "rendered_colour_space = \"Display P3\"",
+                1,
+            ),
+            source.replacen(
+                "reference_layout = \"tiff-rgb-u8-contiguous\"",
+                "reference_layout = \"tiff-planar\"",
+                1,
+            ),
+            source.replacen(
+                "[rendered_pixel_comparison]\n",
+                "[rendered_pixel_comparison]\nunknown_plan_field = true\n",
+                1,
+            ),
+            source.replacen(
+                "[[rendered_pixel_comparison.cases]]\n",
+                "[[rendered_pixel_comparison.cases]]\nunknown_case_field = true\n",
+                1,
+            ),
+        ] {
+            toml::from_str::<SuiteManifest>(&invalid)
+                .expect_err("invalid rendered contract must not deserialise");
+        }
+    }
+
+    #[test]
+    fn rendered_contract_preserves_native_and_derived_set_plans() {
+        let (suite, _, catalogue) = rendered_fixture();
+        let decoded = suite
+            .decoded_pixel_comparison
+            .as_ref()
+            .expect("native comparison plan remains present");
+        assert_eq!(decoded.cases.len(), 14);
+        assert_eq!(decoded.choice_groups.len(), 2);
+        assert_eq!(decoded.derived_sets.len(), 1);
+        assert_eq!(decoded.derived_sets[0].cases.len(), 18);
+        validate_decoded_pixel_comparison_plan(&suite, decoded, &catalogue.packs)
+            .expect("native and DS0 contracts remain valid");
     }
 
     #[test]

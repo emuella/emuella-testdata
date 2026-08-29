@@ -165,7 +165,46 @@ pub struct SuiteManifest {
     #[serde(default)]
     pub decoded_pixel_comparison: Option<DecodedPixelComparisonPlan>,
     #[serde(default)]
+    pub rendered_pixel_comparison: Option<RenderedPixelComparisonPlan>,
+    #[serde(default)]
     pub notes: Vec<String>,
+}
+
+#[derive(Clone, Debug, Deserialize, Serialize)]
+#[serde(deny_unknown_fields)]
+pub struct RenderedPixelComparisonPlan {
+    pub pack_id: String,
+    pub standard: String,
+    pub clauses: Vec<String>,
+    pub retrieval_commit: String,
+    pub cases: Vec<RenderedPixelComparisonCase>,
+}
+
+#[derive(Clone, Debug, Deserialize, Serialize)]
+#[serde(deny_unknown_fields)]
+pub struct RenderedPixelComparisonCase {
+    pub id: String,
+    pub input: String,
+    pub reference: String,
+    pub width: u32,
+    pub height: u32,
+    pub components: u8,
+    pub bits_per_sample: u8,
+    pub rendered_colour_space: RenderedColourSpace,
+    pub reference_layout: RenderedReferenceLayout,
+    pub peak_error_limit: f64,
+}
+
+#[derive(Clone, Copy, Debug, Deserialize, Serialize, Eq, PartialEq)]
+pub enum RenderedColourSpace {
+    #[serde(rename = "sRGB")]
+    Srgb,
+}
+
+#[derive(Clone, Copy, Debug, Deserialize, Serialize, Eq, PartialEq)]
+#[serde(rename_all = "kebab-case")]
+pub enum RenderedReferenceLayout {
+    TiffRgbU8Contiguous,
 }
 
 #[derive(Clone, Debug, Deserialize, Serialize)]
