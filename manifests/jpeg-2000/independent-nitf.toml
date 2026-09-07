@@ -1,0 +1,111 @@
+schema_version = 1
+id = "jpeg-2000/independent-nitf"
+version = "1"
+name = "Independent arithmetic NITF and JPEG 2000 fixtures"
+description = "Small deterministic project-authored 11-bit PAN, U16 grey, RGB8 and RGB16 source imagery, independently encoded by GDAL/OpenJPEG into NITF 2.1 C8 and matching raw JPEG 2000 codestreams."
+review_state = "locked"
+kind = "generated"
+codecs = ["jpeg-2000"]
+purposes = ["regression", "interoperability", "microbenchmark"]
+
+[license]
+expression = "Apache-2.0"
+name = "Apache License 2.0"
+local_files = ["LICENSE"]
+evidence_url = "https://www.apache.org/licenses/LICENSE-2.0"
+reviewed_on = "2026-09-08"
+notes = "All source samples arise solely from project-authored arithmetic. No protected or third-party imagery or derivatives contribute. The root Apache-2.0 grant covers the recipe and generated assets."
+
+[rights]
+access = "permitted"
+redistribution = "permitted"
+modification = "permitted"
+commercial_use = "permitted"
+publish_derivatives = "permitted"
+publish_benchmarks = "permitted"
+ml_training = "permitted"
+weights_redistribution = "permitted"
+notes = "Independent GDAL/OpenJPEG tools encode project-authored samples; no external imagery contributes. Tool licensing does not transfer third-party imagery into this pack."
+
+[materialization]
+directory = "generated/jpeg-2000/independent-nitf"
+generator = "python3 recipes/independent-nitf-v1.py (explicit pinned GDAL/OpenJPEG and NumPy)"
+layout = "Five NITF C8 files, their exact extracted raw codestreams, and PROVENANCE.json."
+notes = "External-tool generation is documented in recipes/independent-nitf-v1.md; this pack has no built-in cargo generate implementation. NPJE option names are provenance, not conformance claims."
+
+[[assets]]
+path = "PROVENANCE.json"
+bytes = 12294
+sha256 = "993820dccf80e8a7259eb9c7935405419730aebc55ac43b5c662c07564aeef51"
+media_type = "application/json"
+semantics = "Pinned recipe/tool identities, exact encoding settings, source and complete independent decoded pixel hashes, and aggregate errors."
+
+[[assets]]
+path = "grey16-lossless.j2k"
+bytes = 1519
+sha256 = "0f78a2246143b2264e36b2aa363b9eff5bdc8d5590d370a5b7888359ea012b52"
+media_type = "image/j2c"
+semantics = "97x65, 1 unsigned 16-bit component(s); reversible; 1024-square tiles, D5, LRCP, 64-square code blocks, no MCT; Exact raw codestream extracted from the matching NITF image segment."
+
+[[assets]]
+path = "grey16-lossless.ntf"
+bytes = 2631
+sha256 = "733a26819ce074d59934c506dee4e7eac83f5b9c4a49c0f8e7bbc5973fc57c7b"
+media_type = "application/vnd.nitf"
+semantics = "97x65, 1 unsigned 16-bit component(s); reversible; 1024-square tiles, D5, LRCP, 64-square code blocks, no MCT; NITF 2.1 C8."
+
+[[assets]]
+path = "pan11-lossless.j2k"
+bytes = 8294
+sha256 = "eab53affe5e3f715c225b770d611fe0adaf025d143f7a7b4315e66111514300f"
+media_type = "image/j2c"
+semantics = "1057x65, 1 unsigned 11-bit component(s); reversible; 1024-square tiles, D5, LRCP, 64-square code blocks, no MCT; Exact raw codestream extracted from the matching NITF image segment."
+
+[[assets]]
+path = "pan11-lossless.ntf"
+bytes = 9406
+sha256 = "aeb89af1fe2090bc89b8c8a4899cf81c65f0d903e91f94eb1c5f180f6af7babc"
+media_type = "application/vnd.nitf"
+semantics = "1057x65, 1 unsigned 11-bit component(s); reversible; 1024-square tiles, D5, LRCP, 64-square code blocks, no MCT; NITF 2.1 C8."
+
+[[assets]]
+path = "pan11-lossy.j2k"
+bytes = 11310
+sha256 = "fc10d857ccd82852806212cc3a8aa0728b2f5a38afd277f0f3aba54d3ff117f8"
+media_type = "image/j2c"
+semantics = "1057x65, 1 unsigned 11-bit component(s); irreversible; 1024-square tiles, D5, LRCP, 64-square code blocks, no MCT; Exact raw codestream extracted from the matching NITF image segment."
+
+[[assets]]
+path = "pan11-lossy.ntf"
+bytes = 12410
+sha256 = "a33ff720f1775d257bc1893a645340b2604cbd1e0670887756a99240d4364040"
+media_type = "application/vnd.nitf"
+semantics = "1057x65, 1 unsigned 11-bit component(s); irreversible; 1024-square tiles, D5, LRCP, 64-square code blocks, no MCT; NITF 2.1 C8."
+
+[[assets]]
+path = "rgb16-lossless.j2k"
+bytes = 4260
+sha256 = "0a5044c40e69a8970b615255461529196a29d74ce1c25d58d9b75b2f49cb64cc"
+media_type = "image/j2c"
+semantics = "97x65, 3 unsigned 16-bit component(s); reversible; 1024-square tiles, D5, LRCP, 64-square code blocks, no MCT; Exact raw codestream extracted from the matching NITF image segment."
+
+[[assets]]
+path = "rgb16-lossless.ntf"
+bytes = 5398
+sha256 = "91c77af97c1dfeccf48b03ae6647253c92a3a2cded5937a3f2b0a1bd73a3fbe1"
+media_type = "application/vnd.nitf"
+semantics = "97x65, 3 unsigned 16-bit component(s); reversible; 1024-square tiles, D5, LRCP, 64-square code blocks, no MCT; NITF 2.1 C8."
+
+[[assets]]
+path = "rgb8-lossless.j2k"
+bytes = 5987
+sha256 = "74e5f370cf0bed49b36d9d58dff4e625027f551ef224bedb1363fe65910f0f33"
+media_type = "image/j2c"
+semantics = "97x65, 3 unsigned 8-bit component(s); reversible; 1024-square tiles, D5, LRCP, 64-square code blocks, no MCT; Exact raw codestream extracted from the matching NITF image segment."
+
+[[assets]]
+path = "rgb8-lossless.ntf"
+bytes = 7125
+sha256 = "a8117b3ed821d746f09c896beca5f47204b033a1b7c4e9a7693cdac266f7f6a6"
+media_type = "application/vnd.nitf"
+semantics = "97x65, 3 unsigned 8-bit component(s); reversible; 1024-square tiles, D5, LRCP, 64-square code blocks, no MCT; NITF 2.1 C8."

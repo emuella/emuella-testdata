@@ -74,8 +74,17 @@ cargo test --workspace
 cargo run -p emuella-corpus -- check
 cargo run -p emuella-corpus -- verify common/generated-core
 ./scripts/check-generated.sh
+python3 recipes/check-independent-nitf.py
 cargo deny check
 ```
+
+The small independent NITF/JPEG 2000 pack includes native 11-bit PAN, U16 grey,
+RGB8 and RGB16 arithmetic fixtures. Its
+[recipe and verification instructions](recipes/independent-nitf-v1.md) describe
+optional complete OpenJPEG CLI decoding, pinned regeneration and bounded-tile
+large-source generation. The ordinary catalogue checks need no GDAL bindings
+or NumPy; regeneration requires NumPy and an explicitly selected GDAL shared
+library with OpenJPEG support.
 
 ## Licensing
 

@@ -1,0 +1,492 @@
+{
+  "cases": [
+    {
+      "bands": 1,
+      "bits": 11,
+      "coding": {
+        "codeblock_height": 64,
+        "codeblock_style": 0,
+        "codeblock_width": 64,
+        "decompositions": 5,
+        "height": 65,
+        "layers": 20,
+        "mct": 0,
+        "precincts": [
+          [
+            32768,
+            32768
+          ],
+          [
+            32768,
+            32768
+          ],
+          [
+            32768,
+            32768
+          ],
+          [
+            32768,
+            32768
+          ],
+          [
+            32768,
+            32768
+          ],
+          [
+            32768,
+            32768
+          ]
+        ],
+        "precision": [
+          11
+        ],
+        "progression": 0,
+        "reversible": true,
+        "rsiz": 2,
+        "signed": [
+          false
+        ],
+        "tile_height": 1024,
+        "tile_width": 1024,
+        "width": 1057
+      },
+      "creation_options": [
+        "IC=C8",
+        "JPEG2000_DRIVER=JP2OpenJPEG",
+        "FHDR=NITF02.10",
+        "PROFILE=NPJE_NUMERICALLY_LOSSLESS",
+        "BLOCKXSIZE=1024",
+        "BLOCKYSIZE=1024",
+        "NBITS=11",
+        "FDT=20000101000000",
+        "IDATIM=20000101000000",
+        "OSTAID=EMUELLA",
+        "FTITLE=Independent arithmetic fixture v1",
+        "ISORCE=Project-authored integer arithmetic",
+        "ICAT=VIS",
+        "IREP=MONO",
+        "USE_SRC_NITF_METADATA=NO"
+      ],
+      "files": {
+        "pan11-lossless.j2k": {
+          "bytes": 8294,
+          "sha256": "eab53affe5e3f715c225b770d611fe0adaf025d143f7a7b4315e66111514300f"
+        },
+        "pan11-lossless.ntf": {
+          "bytes": 9406,
+          "sha256": "aeb89af1fe2090bc89b8c8a4899cf81c65f0d903e91f94eb1c5f180f6af7babc"
+        }
+      },
+      "height": 65,
+      "id": "pan11-lossless",
+      "lossy": false,
+      "nitf_metadata": {
+        "NITF_ABPP": "11",
+        "NITF_FHDR": "NITF02.10",
+        "NITF_IC": "C8",
+        "NITF_IREP": "MONO",
+        "NITF_PVTYPE": "INT"
+      },
+      "openjpeg_decoded_pixels_sha256": "cc36989aa2a4d571d7a156fa003881523853a44799d094e4a116bf5976a65a25",
+      "peak_error": 0,
+      "samples": 68705,
+      "source_pixels_sha256": "cc36989aa2a4d571d7a156fa003881523853a44799d094e4a116bf5976a65a25",
+      "squared_error": 0,
+      "width": 1057
+    },
+    {
+      "bands": 1,
+      "bits": 11,
+      "coding": {
+        "codeblock_height": 64,
+        "codeblock_style": 0,
+        "codeblock_width": 64,
+        "decompositions": 5,
+        "height": 65,
+        "layers": 19,
+        "mct": 0,
+        "precincts": [
+          [
+            32768,
+            32768
+          ],
+          [
+            32768,
+            32768
+          ],
+          [
+            32768,
+            32768
+          ],
+          [
+            32768,
+            32768
+          ],
+          [
+            32768,
+            32768
+          ],
+          [
+            32768,
+            32768
+          ]
+        ],
+        "precision": [
+          11
+        ],
+        "progression": 0,
+        "reversible": false,
+        "rsiz": 2,
+        "signed": [
+          false
+        ],
+        "tile_height": 1024,
+        "tile_width": 1024,
+        "width": 1057
+      },
+      "creation_options": [
+        "IC=C8",
+        "JPEG2000_DRIVER=JP2OpenJPEG",
+        "FHDR=NITF02.10",
+        "PROFILE=NPJE_VISUALLY_LOSSLESS",
+        "BLOCKXSIZE=1024",
+        "BLOCKYSIZE=1024",
+        "NBITS=11",
+        "FDT=20000101000000",
+        "IDATIM=20000101000000",
+        "OSTAID=EMUELLA",
+        "FTITLE=Independent arithmetic fixture v1",
+        "ISORCE=Project-authored integer arithmetic",
+        "ICAT=VIS",
+        "IREP=MONO",
+        "USE_SRC_NITF_METADATA=NO"
+      ],
+      "files": {
+        "pan11-lossy.j2k": {
+          "bytes": 11310,
+          "sha256": "fc10d857ccd82852806212cc3a8aa0728b2f5a38afd277f0f3aba54d3ff117f8"
+        },
+        "pan11-lossy.ntf": {
+          "bytes": 12410,
+          "sha256": "a33ff720f1775d257bc1893a645340b2604cbd1e0670887756a99240d4364040"
+        }
+      },
+      "height": 65,
+      "id": "pan11-lossy",
+      "lossy": true,
+      "nitf_metadata": {
+        "NITF_ABPP": "11",
+        "NITF_FHDR": "NITF02.10",
+        "NITF_IC": "C8",
+        "NITF_IREP": "MONO",
+        "NITF_PVTYPE": "INT"
+      },
+      "openjpeg_decoded_pixels_sha256": "e9f2a6eb484710dc023a788c1dbe93fda8e948835c38c954db60ca559a62fca8",
+      "peak_error": 1,
+      "samples": 68705,
+      "source_pixels_sha256": "cc36989aa2a4d571d7a156fa003881523853a44799d094e4a116bf5976a65a25",
+      "squared_error": 1995,
+      "width": 1057
+    },
+    {
+      "bands": 1,
+      "bits": 16,
+      "coding": {
+        "codeblock_height": 64,
+        "codeblock_style": 0,
+        "codeblock_width": 64,
+        "decompositions": 5,
+        "height": 65,
+        "layers": 20,
+        "mct": 0,
+        "precincts": [
+          [
+            32768,
+            32768
+          ],
+          [
+            32768,
+            32768
+          ],
+          [
+            32768,
+            32768
+          ],
+          [
+            32768,
+            32768
+          ],
+          [
+            32768,
+            32768
+          ],
+          [
+            32768,
+            32768
+          ]
+        ],
+        "precision": [
+          16
+        ],
+        "progression": 0,
+        "reversible": true,
+        "rsiz": 2,
+        "signed": [
+          false
+        ],
+        "tile_height": 1024,
+        "tile_width": 1024,
+        "width": 97
+      },
+      "creation_options": [
+        "IC=C8",
+        "JPEG2000_DRIVER=JP2OpenJPEG",
+        "FHDR=NITF02.10",
+        "PROFILE=NPJE_NUMERICALLY_LOSSLESS",
+        "BLOCKXSIZE=1024",
+        "BLOCKYSIZE=1024",
+        "NBITS=16",
+        "FDT=20000101000000",
+        "IDATIM=20000101000000",
+        "OSTAID=EMUELLA",
+        "FTITLE=Independent arithmetic fixture v1",
+        "ISORCE=Project-authored integer arithmetic",
+        "ICAT=VIS",
+        "IREP=MONO",
+        "USE_SRC_NITF_METADATA=NO"
+      ],
+      "files": {
+        "grey16-lossless.j2k": {
+          "bytes": 1519,
+          "sha256": "0f78a2246143b2264e36b2aa363b9eff5bdc8d5590d370a5b7888359ea012b52"
+        },
+        "grey16-lossless.ntf": {
+          "bytes": 2631,
+          "sha256": "733a26819ce074d59934c506dee4e7eac83f5b9c4a49c0f8e7bbc5973fc57c7b"
+        }
+      },
+      "height": 65,
+      "id": "grey16-lossless",
+      "lossy": false,
+      "nitf_metadata": {
+        "NITF_ABPP": "16",
+        "NITF_FHDR": "NITF02.10",
+        "NITF_IC": "C8",
+        "NITF_IREP": "MONO",
+        "NITF_PVTYPE": "INT"
+      },
+      "openjpeg_decoded_pixels_sha256": "f9a8fd4e128710203f423d13afded56564e045165f849a9b12d8017566b41239",
+      "peak_error": 0,
+      "samples": 6305,
+      "source_pixels_sha256": "f9a8fd4e128710203f423d13afded56564e045165f849a9b12d8017566b41239",
+      "squared_error": 0,
+      "width": 97
+    },
+    {
+      "bands": 3,
+      "bits": 8,
+      "coding": {
+        "codeblock_height": 64,
+        "codeblock_style": 0,
+        "codeblock_width": 64,
+        "decompositions": 5,
+        "height": 65,
+        "layers": 20,
+        "mct": 0,
+        "precincts": [
+          [
+            32768,
+            32768
+          ],
+          [
+            32768,
+            32768
+          ],
+          [
+            32768,
+            32768
+          ],
+          [
+            32768,
+            32768
+          ],
+          [
+            32768,
+            32768
+          ],
+          [
+            32768,
+            32768
+          ]
+        ],
+        "precision": [
+          8,
+          8,
+          8
+        ],
+        "progression": 0,
+        "reversible": true,
+        "rsiz": 2,
+        "signed": [
+          false,
+          false,
+          false
+        ],
+        "tile_height": 1024,
+        "tile_width": 1024,
+        "width": 97
+      },
+      "creation_options": [
+        "IC=C8",
+        "JPEG2000_DRIVER=JP2OpenJPEG",
+        "FHDR=NITF02.10",
+        "PROFILE=NPJE_NUMERICALLY_LOSSLESS",
+        "BLOCKXSIZE=1024",
+        "BLOCKYSIZE=1024",
+        "NBITS=8",
+        "FDT=20000101000000",
+        "IDATIM=20000101000000",
+        "OSTAID=EMUELLA",
+        "FTITLE=Independent arithmetic fixture v1",
+        "ISORCE=Project-authored integer arithmetic",
+        "ICAT=VIS",
+        "IREP=RGB",
+        "USE_SRC_NITF_METADATA=NO"
+      ],
+      "files": {
+        "rgb8-lossless.j2k": {
+          "bytes": 5987,
+          "sha256": "74e5f370cf0bed49b36d9d58dff4e625027f551ef224bedb1363fe65910f0f33"
+        },
+        "rgb8-lossless.ntf": {
+          "bytes": 7125,
+          "sha256": "a8117b3ed821d746f09c896beca5f47204b033a1b7c4e9a7693cdac266f7f6a6"
+        }
+      },
+      "height": 65,
+      "id": "rgb8-lossless",
+      "lossy": false,
+      "nitf_metadata": {
+        "NITF_ABPP": "08",
+        "NITF_FHDR": "NITF02.10",
+        "NITF_IC": "C8",
+        "NITF_IREP": "RGB",
+        "NITF_PVTYPE": "INT"
+      },
+      "openjpeg_decoded_pixels_sha256": "f8befd320fce0751848d8cc0cd696229294904b5428cc6d868403d0a79e838c6",
+      "peak_error": 0,
+      "samples": 18915,
+      "source_pixels_sha256": "f8befd320fce0751848d8cc0cd696229294904b5428cc6d868403d0a79e838c6",
+      "squared_error": 0,
+      "width": 97
+    },
+    {
+      "bands": 3,
+      "bits": 16,
+      "coding": {
+        "codeblock_height": 64,
+        "codeblock_style": 0,
+        "codeblock_width": 64,
+        "decompositions": 5,
+        "height": 65,
+        "layers": 20,
+        "mct": 0,
+        "precincts": [
+          [
+            32768,
+            32768
+          ],
+          [
+            32768,
+            32768
+          ],
+          [
+            32768,
+            32768
+          ],
+          [
+            32768,
+            32768
+          ],
+          [
+            32768,
+            32768
+          ],
+          [
+            32768,
+            32768
+          ]
+        ],
+        "precision": [
+          16,
+          16,
+          16
+        ],
+        "progression": 0,
+        "reversible": true,
+        "rsiz": 2,
+        "signed": [
+          false,
+          false,
+          false
+        ],
+        "tile_height": 1024,
+        "tile_width": 1024,
+        "width": 97
+      },
+      "creation_options": [
+        "IC=C8",
+        "JPEG2000_DRIVER=JP2OpenJPEG",
+        "FHDR=NITF02.10",
+        "PROFILE=NPJE_NUMERICALLY_LOSSLESS",
+        "BLOCKXSIZE=1024",
+        "BLOCKYSIZE=1024",
+        "NBITS=16",
+        "FDT=20000101000000",
+        "IDATIM=20000101000000",
+        "OSTAID=EMUELLA",
+        "FTITLE=Independent arithmetic fixture v1",
+        "ISORCE=Project-authored integer arithmetic",
+        "ICAT=VIS",
+        "IREP=RGB",
+        "USE_SRC_NITF_METADATA=NO"
+      ],
+      "files": {
+        "rgb16-lossless.j2k": {
+          "bytes": 4260,
+          "sha256": "0a5044c40e69a8970b615255461529196a29d74ce1c25d58d9b75b2f49cb64cc"
+        },
+        "rgb16-lossless.ntf": {
+          "bytes": 5398,
+          "sha256": "91c77af97c1dfeccf48b03ae6647253c92a3a2cded5937a3f2b0a1bd73a3fbe1"
+        }
+      },
+      "height": 65,
+      "id": "rgb16-lossless",
+      "lossy": false,
+      "nitf_metadata": {
+        "NITF_ABPP": "16",
+        "NITF_FHDR": "NITF02.10",
+        "NITF_IC": "C8",
+        "NITF_IREP": "RGB",
+        "NITF_PVTYPE": "INT"
+      },
+      "openjpeg_decoded_pixels_sha256": "dbf4011c409056171a91c0e069ff285eb1587e11d1c93d7c9e14215743459008",
+      "peak_error": 0,
+      "samples": 18915,
+      "source_pixels_sha256": "dbf4011c409056171a91c0e069ff285eb1587e11d1c93d7c9e14215743459008",
+      "squared_error": 0,
+      "width": 97
+    }
+  ],
+  "gdal_source_revision": "1af54d99959f3b62ba10451a357a969075374663",
+  "gdal_version": "3.14.0dev-1af54d9995",
+  "independent_backend": "GDAL NITF CreateCopy / JP2OpenJPEG; separate raw JP2OpenJPEG decode",
+  "licence": "Apache-2.0",
+  "numpy_version": "2.5.1",
+  "openjpeg_version": "2.5.4",
+  "pixel_order": "1024-square tiles top-to-bottom then left-to-right; row-major interleaved U8 or U16 little-endian within each tile",
+  "qualification": "Arithmetic interoperability fixtures; no NPJE or real-world imagery conformance claim",
+  "recipe": "independent-nitf-v1",
+  "recipe_sha256": "90c3b17d60581a11e516cdd083cba9f7ccc594f62e5ac31dbb73eb176c3511da"
+}

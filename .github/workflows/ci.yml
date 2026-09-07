@@ -25,3 +25,5 @@ jobs:
       - run: cargo run -p emuella-corpus -- check
       - run: cargo run -p emuella-corpus -- verify common/generated-core
       - run: ./scripts/check-generated.sh
+      - run: python3 recipes/check-independent-nitf.py
+      - run: cargo run -p emuella-corpus -- verify jpeg-2000/independent-nitf
