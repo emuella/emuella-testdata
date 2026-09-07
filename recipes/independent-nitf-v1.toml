@@ -1,0 +1,13 @@
+schema_version = 1
+id = "independent-nitf-v1"
+implementation = "recipes/independent-nitf-v1.py"
+pack = "jpeg-2000/independent-nitf"
+pack_version = "1"
+deterministic = true
+timestamped = false
+formats = ["NITF 2.1 C8", "JPEG 2000 Part 1 codestream"]
+license = "Apache-2.0"
+gdal_source_revision = "1af54d99959f3b62ba10451a357a969075374663"
+openjpeg_version = "2.5.4"
+numpy_version = "2.5.1"
+notes = "Integer-coordinate arithmetic is the sole pixel source. GDAL/OpenJPEG encode independent references. NPJE creation option names do not establish NPJE conformance. Exact options, recipe and source-pixel hashes, encoded identities and complete native decode errors are in the generated PROVENANCE.json."

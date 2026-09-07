@@ -1,0 +1,15 @@
+schema_version = 1
+id = "interoperability/independent-nitf"
+revision = 1
+name = "Independent arithmetic NITF and JPEG 2000 fixtures"
+description = "Small project-authored native 11-bit PAN, U16 grey, RGB8 and RGB16 fixtures independently encoded by GDAL/OpenJPEG."
+layer = 2
+purposes = ["regression", "interoperability"]
+gating = true
+missing_policy = "fail"
+notes = ["Source pixels and encoding are independently reproducible; no NPJE conformance, original satellite-product qualification or large-image resource claim follows.", "Consumers resolve fixture names, sample semantics and reference identities from the locked pack and PROVENANCE.json."]
+
+[[packs]]
+id = "jpeg-2000/independent-nitf"
+version = "1"
+required = true

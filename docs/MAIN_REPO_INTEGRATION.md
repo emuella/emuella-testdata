@@ -108,6 +108,20 @@ Do not embed external files with `include_bytes!`, copy them into crate test
 directories, or make a test-data repository a Cargo dependency. The harness
 should consume paths at runtime.
 
+### Independent generated NITF sources
+
+The generated `jpeg-2000/independent-nitf` pack is an optional Layer 2 source
+for NITF C8 ingestion and native JPEG 2000 interoperability. Its
+`PROVENANCE.json` binds each NITF image to an exact raw codestream, source
+sample semantics, independent decoder identity and pixel hashes. Lossless
+consumers may compare against the recipe's coordinate-based arithmetic oracle;
+lossy consumers must compare against independently decoded source samples.
+Use the [recipe instructions](../recipes/independent-nitf-v1.md) for hash order
+and regeneration. Large instances generated from this recipe require their
+own retained provenance and qualification evidence; they are not members of
+the locked small pack. No NPJE conformance or satellite-product qualification
+follows from this suite.
+
 ## Layer 3
 
 Commit a small `testdata.lock.toml` to the codec repository. It should contain
