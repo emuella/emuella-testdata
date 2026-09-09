@@ -1,0 +1,103 @@
+{
+  "assets": [
+    {
+      "bytes": 20605,
+      "etag": "\"9b81ab399ce30a004a02916b63b0a712\"",
+      "path": "LICENSE.txt",
+      "sha256": "f627ad059128fa5246a21e25759c1d33e35c4bb6287d636c4b970f7df57e7eba",
+      "url": "https://rareplanes-public.s3.us-west-2.amazonaws.com/LICENSE.txt"
+    },
+    {
+      "bytes": 48458,
+      "etag": "\"310eccb63fc4e916b4a7211769aaed7e\"",
+      "path": "real/metadata_annotations/RarePlanes_Public_Metadata.csv",
+      "sha256": "005eb9c6c4ab0f0fea1f8402f202066b6f4d29617ef263f72b1be34dea35edec",
+      "url": "https://rareplanes-public.s3.us-west-2.amazonaws.com/real/metadata_annotations/RarePlanes_Public_Metadata.csv"
+    },
+    {
+      "bytes": 15350144,
+      "etag": "\"ac0b50cc995eba29438439c7801989f3-2\"",
+      "path": "real/train/MS/30_104001002394E000.tif",
+      "sha256": "bf526ed88bd0566735aecedb45b7f5f872b6f6001ccbeccce4c594cd54a0df3e",
+      "url": "https://rareplanes-public.s3.us-west-2.amazonaws.com/real/train/MS/30_104001002394E000.tif"
+    },
+    {
+      "bytes": 30692118,
+      "etag": "\"9eeed606992cd0f736c7d7bb77b48016-4\"",
+      "path": "real/train/PAN/30_104001002394E000.tif",
+      "sha256": "c6339a41b6e4569627996f02c3381b4f7e55bd473037cf10607a3d7959432fc0",
+      "url": "https://rareplanes-public.s3.us-west-2.amazonaws.com/real/train/PAN/30_104001002394E000.tif"
+    },
+    {
+      "bytes": 46034748,
+      "etag": "\"5b7f23f61a7e1ee4e8742cb15cc4b208-6\"",
+      "path": "real/train/PS-RGB/30_104001002394E000.tif",
+      "sha256": "1afb38115b6146679b7a79513b38f3457f8a18a827fd00dafb2c8a0f381d5127",
+      "url": "https://rareplanes-public.s3.us-west-2.amazonaws.com/real/train/PS-RGB/30_104001002394E000.tif"
+    },
+    {
+      "bytes": 46921666,
+      "etag": "\"aa2bc83152914219fe8c4d400714daa1-6\"",
+      "path": "real/train/MS/47_104001001D2C7A00.tif",
+      "sha256": "73510618fd0f306f969e0a61ee3f212a7c8190d58f454c4068cc70b3afc2714a",
+      "url": "https://rareplanes-public.s3.us-west-2.amazonaws.com/real/train/MS/47_104001001D2C7A00.tif"
+    },
+    {
+      "bytes": 93861650,
+      "etag": "\"dfb728ded5a5b6fc48126de38a67bc72-12\"",
+      "path": "real/train/PAN/47_104001001D2C7A00.tif",
+      "sha256": "673803c7bc5fc16fbe723ff184d066fc91c994e4bd3699f68f124011648e6c62",
+      "url": "https://rareplanes-public.s3.us-west-2.amazonaws.com/real/train/PAN/47_104001001D2C7A00.tif"
+    },
+    {
+      "bytes": 140784870,
+      "etag": "\"d66e4c0542eb849ae517a40431243111-17\"",
+      "path": "real/train/PS-RGB/47_104001001D2C7A00.tif",
+      "sha256": "f071e2671f1b55f85254454f80ee4da69b38eaeeba2a658fe0d75a61592f6b48",
+      "url": "https://rareplanes-public.s3.us-west-2.amazonaws.com/real/train/PS-RGB/47_104001001D2C7A00.tif"
+    }
+  ],
+  "band_evidence": {
+    "mapping": "WorldView-3 VNIR: coastal, blue, green, yellow, red, red edge, NIR1, NIR2.",
+    "reviewed_on": "2026-09-09",
+    "rgb16_indices": [
+      5,
+      3,
+      2
+    ],
+    "source_observation": "Metadata CSV sensor WV03 for both image_id values; eight U16 MS bands; TIFF colour interpretations Gray then Undefined, with empty descriptions. PS-RGB tags Red, Green, Blue. MS spectral names derive from documented WV03 band order, not self-describing TIFF metadata.",
+    "sources": [
+      "https://www.cosmiqworks.org/rareplanes/",
+      "https://pro.arcgis.com/en/pro-app/3.5/help/data/imagery/satellite-sensor-raster-types.htm",
+      "https://csda-maxar-pdfs.s3.amazonaws.com/Radiometric_Use_of_WorldView-3_v1.pdf"
+    ]
+  },
+  "bundles": [
+    {
+      "id": "30_104001002394E000",
+      "location": "Aeroporto di Magadino, Ticino, Switzerland",
+      "ms_dimensions": [
+        1332,
+        720
+      ],
+      "pan_dimensions": [
+        5329,
+        2878
+      ]
+    },
+    {
+      "id": "47_104001001D2C7A00",
+      "location": "Apple Valley Airport, California, USA",
+      "ms_dimensions": [
+        1663,
+        1763
+      ],
+      "pan_dimensions": [
+        6650,
+        7054
+      ]
+    }
+  ],
+  "retrieved_on": "2026-09-09",
+  "schema_version": 1
+}
