@@ -1,0 +1,40 @@
+schema_version = 1
+id = "common/rareplanes-calibration"
+version = "1"
+name = "RarePlanes two-location real imagery calibration"
+description = "Two preselected WorldView-3 full-location PAN, PS-RGB and native eight-band MS acquisitions, with unchanged licence and metadata; a small local calibration rather than a representative sample."
+review_state = "reviewed"
+kind = "external"
+codecs = ["common", "jpeg-2000", "htj2k"]
+purposes = ["quality-benchmark", "throughput-benchmark"]
+asset_inventory = "inventories/common/rareplanes-calibration-v1.toml"
+
+[license]
+expression = "CC-BY-SA-4.0"
+name = "Creative Commons Attribution-ShareAlike 4.0 International"
+local_files = []
+evidence_url = "https://rareplanes-public.s3.us-west-2.amazonaws.com/LICENSE.txt"
+reviewed_on = "2026-09-09"
+notes = "The unchanged bucket LICENSE.txt identifies the RarePlanes Dataset, June 2020, and supplies CC BY-SA 4.0. It is locked in the external inventory and must remain with the source. Attribution: J. Shermeyer, T. Hossler, A. Van Etten, D. Hogan, R. Lewis and D. Kim; In-Q-Tel - CosmiQ Works and AI.Reverie. This imagery licence is separate from the Apache-2.0 catalogue software."
+
+[rights]
+access = "permitted"
+redistribution = "conditional"
+modification = "conditional"
+commercial_use = "conditional"
+publish_derivatives = "conditional"
+publish_benchmarks = "conditional"
+ml_training = "conditional"
+weights_redistribution = "unknown"
+notes = "Preserve attribution, licence, source lineage and change notices; ShareAlike applies to shared adaptations. Local acquisition and derivative benchmarking of these two selections are authorised; no image or derivative redistribution is part of this calibration. Only factual measurements and identities enter Git. Training is not this pack's purpose, and learned-weight rights require separate review."
+
+[source]
+landing_page = "https://www.cosmiqworks.org/rareplanes/"
+terms_url = "https://rareplanes-public.s3.us-west-2.amazonaws.com/LICENSE.txt"
+requires_manual_acquisition = true
+
+[materialization]
+directory = "artifacts/rareplanes-calibration-v1/source"
+expected_tree_sha256 = "569478775c7083a3862d7e6fadde1b546d9a657f3f84b9f9d4cdd82dec45f3ea"
+layout = "Unchanged LICENSE.txt, real/metadata_annotations/RarePlanes_Public_Metadata.csv, and PAN, PS-RGB and MS TIFFs under real/train for image IDs 30_104001002394E000 and 47_104001001D2C7A00."
+notes = "Retain all eight upstream objects unchanged. Preparation consumes this tree without network access and places derivatives in a separate child of the same explicitly supplied local store. See recipes/rareplanes-calibration-v1.md."

@@ -1,0 +1,516 @@
+{
+  "assets": [
+    {
+      "band_indices": [
+        1
+      ],
+      "bundle_id": "30_104001002394E000",
+      "bytes": 30673724,
+      "id": "30_104001002394E000-PAN16",
+      "image": {
+        "components": 1,
+        "height": 2878,
+        "precision": 16,
+        "signed": false,
+        "width": 5329
+      },
+      "product": "PAN16",
+      "sha256": "a563aee05eaf8b5be9772da6003068c0d8c7f8cac9cb95751dfebb2734c3dd6b",
+      "source_sha256": "c6339a41b6e4569627996f02c3381b4f7e55bd473037cf10607a3d7959432fc0",
+      "statistics": [
+        {
+          "maximum": 10000,
+          "minimum": 2,
+          "nodata": 0.0,
+          "nodata_count": 0,
+          "samples": 15336862,
+          "source_band": 1,
+          "storage_maximum_count": 0,
+          "zero_count": 0
+        }
+      ],
+      "verification": "all samples: reopened per-band ReadRaster"
+    },
+    {
+      "band_indices": [
+        1,
+        2,
+        3
+      ],
+      "bundle_id": "30_104001002394E000",
+      "bytes": 46010586,
+      "id": "30_104001002394E000-RGB8",
+      "image": {
+        "components": 3,
+        "height": 2878,
+        "precision": 8,
+        "signed": false,
+        "width": 5329
+      },
+      "product": "RGB8",
+      "sha256": "80cd029af329d13a1d06189c1a039511b36d305c9e804e0e6aa971246847e436",
+      "source_sha256": "1afb38115b6146679b7a79513b38f3457f8a18a827fd00dafb2c8a0f381d5127",
+      "statistics": [
+        {
+          "maximum": 255,
+          "minimum": 1,
+          "nodata": 0.0,
+          "nodata_count": 0,
+          "samples": 15336862,
+          "source_band": 1,
+          "storage_maximum_count": 3338,
+          "zero_count": 0
+        },
+        {
+          "maximum": 255,
+          "minimum": 1,
+          "nodata": 0.0,
+          "nodata_count": 0,
+          "samples": 15336862,
+          "source_band": 2,
+          "storage_maximum_count": 206,
+          "zero_count": 0
+        },
+        {
+          "maximum": 255,
+          "minimum": 1,
+          "nodata": 0.0,
+          "nodata_count": 0,
+          "samples": 15336862,
+          "source_band": 3,
+          "storage_maximum_count": 399,
+          "zero_count": 0
+        }
+      ],
+      "verification": "all samples: reopened per-band ReadRaster"
+    },
+    {
+      "band_indices": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "bundle_id": "30_104001002394E000",
+      "bytes": 15344640,
+      "id": "30_104001002394E000-MS16",
+      "image": {
+        "components": 8,
+        "height": 720,
+        "precision": 16,
+        "signed": false,
+        "width": 1332
+      },
+      "product": "MS16",
+      "sha256": "3e9492968a14f6a5b67d572f8b11b31cf1c5723ff59285fbac8f3b3dba108a60",
+      "source_sha256": "bf526ed88bd0566735aecedb45b7f5f872b6f6001ccbeccce4c594cd54a0df3e",
+      "statistics": [
+        {
+          "maximum": 10000,
+          "minimum": 1,
+          "nodata": 0.0,
+          "nodata_count": 0,
+          "samples": 959040,
+          "source_band": 1,
+          "storage_maximum_count": 0,
+          "zero_count": 0
+        },
+        {
+          "maximum": 10000,
+          "minimum": 1,
+          "nodata": 0.0,
+          "nodata_count": 0,
+          "samples": 959040,
+          "source_band": 2,
+          "storage_maximum_count": 0,
+          "zero_count": 0
+        },
+        {
+          "maximum": 10000,
+          "minimum": 2,
+          "nodata": 0.0,
+          "nodata_count": 0,
+          "samples": 959040,
+          "source_band": 3,
+          "storage_maximum_count": 0,
+          "zero_count": 0
+        },
+        {
+          "maximum": 10000,
+          "minimum": 2,
+          "nodata": 0.0,
+          "nodata_count": 0,
+          "samples": 959040,
+          "source_band": 4,
+          "storage_maximum_count": 0,
+          "zero_count": 0
+        },
+        {
+          "maximum": 10000,
+          "minimum": 3,
+          "nodata": 0.0,
+          "nodata_count": 0,
+          "samples": 959040,
+          "source_band": 5,
+          "storage_maximum_count": 0,
+          "zero_count": 0
+        },
+        {
+          "maximum": 10000,
+          "minimum": 3,
+          "nodata": 0.0,
+          "nodata_count": 0,
+          "samples": 959040,
+          "source_band": 6,
+          "storage_maximum_count": 0,
+          "zero_count": 0
+        },
+        {
+          "maximum": 10000,
+          "minimum": 3,
+          "nodata": 0.0,
+          "nodata_count": 0,
+          "samples": 959040,
+          "source_band": 7,
+          "storage_maximum_count": 0,
+          "zero_count": 0
+        },
+        {
+          "maximum": 10000,
+          "minimum": 5,
+          "nodata": 0.0,
+          "nodata_count": 0,
+          "samples": 959040,
+          "source_band": 8,
+          "storage_maximum_count": 0,
+          "zero_count": 0
+        }
+      ],
+      "verification": "all samples: reopened per-band ReadRaster"
+    },
+    {
+      "band_indices": [
+        5,
+        3,
+        2
+      ],
+      "bundle_id": "30_104001002394E000",
+      "bytes": 5754240,
+      "id": "30_104001002394E000-RGB16",
+      "image": {
+        "components": 3,
+        "height": 720,
+        "precision": 16,
+        "signed": false,
+        "width": 1332
+      },
+      "product": "RGB16",
+      "sha256": "3faf0be9dffeb0f3b5fab3675704a3b8f292755ef2ce7d6bfeb22beadd74a15c",
+      "source_sha256": "bf526ed88bd0566735aecedb45b7f5f872b6f6001ccbeccce4c594cd54a0df3e",
+      "statistics": [
+        {
+          "maximum": 10000,
+          "minimum": 3,
+          "nodata": 0.0,
+          "nodata_count": 0,
+          "samples": 959040,
+          "source_band": 5,
+          "storage_maximum_count": 0,
+          "zero_count": 0
+        },
+        {
+          "maximum": 10000,
+          "minimum": 2,
+          "nodata": 0.0,
+          "nodata_count": 0,
+          "samples": 959040,
+          "source_band": 3,
+          "storage_maximum_count": 0,
+          "zero_count": 0
+        },
+        {
+          "maximum": 10000,
+          "minimum": 1,
+          "nodata": 0.0,
+          "nodata_count": 0,
+          "samples": 959040,
+          "source_band": 2,
+          "storage_maximum_count": 0,
+          "zero_count": 0
+        }
+      ],
+      "verification": "all samples: reopened per-band ReadRaster"
+    },
+    {
+      "band_indices": [
+        1
+      ],
+      "bundle_id": "47_104001001D2C7A00",
+      "bytes": 93818200,
+      "id": "47_104001001D2C7A00-PAN16",
+      "image": {
+        "components": 1,
+        "height": 7054,
+        "precision": 16,
+        "signed": false,
+        "width": 6650
+      },
+      "product": "PAN16",
+      "sha256": "6affa15b8d178c78ec44e0360a619bac307a2f91a3d05011927f2a048adf0cef",
+      "source_sha256": "673803c7bc5fc16fbe723ff184d066fc91c994e4bd3699f68f124011648e6c62",
+      "statistics": [
+        {
+          "maximum": 9370,
+          "minimum": 3,
+          "nodata": 0.0,
+          "nodata_count": 0,
+          "samples": 46909100,
+          "source_band": 1,
+          "storage_maximum_count": 0,
+          "zero_count": 0
+        }
+      ],
+      "verification": "all samples: reopened per-band ReadRaster"
+    },
+    {
+      "band_indices": [
+        1,
+        2,
+        3
+      ],
+      "bundle_id": "47_104001001D2C7A00",
+      "bytes": 140727300,
+      "id": "47_104001001D2C7A00-RGB8",
+      "image": {
+        "components": 3,
+        "height": 7054,
+        "precision": 8,
+        "signed": false,
+        "width": 6650
+      },
+      "product": "RGB8",
+      "sha256": "3e4b6b0ebbde9ed997a4dbc7141f917e7b3bebb78192a49ac45a946e44a747e1",
+      "source_sha256": "f071e2671f1b55f85254454f80ee4da69b38eaeeba2a658fe0d75a61592f6b48",
+      "statistics": [
+        {
+          "maximum": 255,
+          "minimum": 1,
+          "nodata": 0.0,
+          "nodata_count": 0,
+          "samples": 46909100,
+          "source_band": 1,
+          "storage_maximum_count": 70465,
+          "zero_count": 0
+        },
+        {
+          "maximum": 255,
+          "minimum": 1,
+          "nodata": 0.0,
+          "nodata_count": 0,
+          "samples": 46909100,
+          "source_band": 2,
+          "storage_maximum_count": 6026,
+          "zero_count": 0
+        },
+        {
+          "maximum": 255,
+          "minimum": 1,
+          "nodata": 0.0,
+          "nodata_count": 0,
+          "samples": 46909100,
+          "source_band": 3,
+          "storage_maximum_count": 1804,
+          "zero_count": 0
+        }
+      ],
+      "verification": "all samples: reopened per-band ReadRaster"
+    },
+    {
+      "band_indices": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "bundle_id": "47_104001001D2C7A00",
+      "bytes": 46909904,
+      "id": "47_104001001D2C7A00-MS16",
+      "image": {
+        "components": 8,
+        "height": 1763,
+        "precision": 16,
+        "signed": false,
+        "width": 1663
+      },
+      "product": "MS16",
+      "sha256": "70fadf84efa21905593d5385f5e9917a6005fbe8ca56e07edc89ca1dd63cf539",
+      "source_sha256": "73510618fd0f306f969e0a61ee3f212a7c8190d58f454c4068cc70b3afc2714a",
+      "statistics": [
+        {
+          "maximum": 8619,
+          "minimum": 1,
+          "nodata": 0.0,
+          "nodata_count": 0,
+          "samples": 2931869,
+          "source_band": 1,
+          "storage_maximum_count": 0,
+          "zero_count": 0
+        },
+        {
+          "maximum": 8252,
+          "minimum": 1,
+          "nodata": 0.0,
+          "nodata_count": 0,
+          "samples": 2931869,
+          "source_band": 2,
+          "storage_maximum_count": 0,
+          "zero_count": 0
+        },
+        {
+          "maximum": 8427,
+          "minimum": 2,
+          "nodata": 0.0,
+          "nodata_count": 0,
+          "samples": 2931869,
+          "source_band": 3,
+          "storage_maximum_count": 0,
+          "zero_count": 0
+        },
+        {
+          "maximum": 8277,
+          "minimum": 3,
+          "nodata": 0.0,
+          "nodata_count": 0,
+          "samples": 2931869,
+          "source_band": 4,
+          "storage_maximum_count": 0,
+          "zero_count": 0
+        },
+        {
+          "maximum": 8974,
+          "minimum": 4,
+          "nodata": 0.0,
+          "nodata_count": 0,
+          "samples": 2931869,
+          "source_band": 5,
+          "storage_maximum_count": 0,
+          "zero_count": 0
+        },
+        {
+          "maximum": 9320,
+          "minimum": 4,
+          "nodata": 0.0,
+          "nodata_count": 0,
+          "samples": 2931869,
+          "source_band": 6,
+          "storage_maximum_count": 0,
+          "zero_count": 0
+        },
+        {
+          "maximum": 9437,
+          "minimum": 4,
+          "nodata": 0.0,
+          "nodata_count": 0,
+          "samples": 2931869,
+          "source_band": 7,
+          "storage_maximum_count": 0,
+          "zero_count": 0
+        },
+        {
+          "maximum": 9364,
+          "minimum": 6,
+          "nodata": 0.0,
+          "nodata_count": 0,
+          "samples": 2931869,
+          "source_band": 8,
+          "storage_maximum_count": 0,
+          "zero_count": 0
+        }
+      ],
+      "verification": "all samples: reopened per-band ReadRaster"
+    },
+    {
+      "band_indices": [
+        5,
+        3,
+        2
+      ],
+      "bundle_id": "47_104001001D2C7A00",
+      "bytes": 17591214,
+      "id": "47_104001001D2C7A00-RGB16",
+      "image": {
+        "components": 3,
+        "height": 1763,
+        "precision": 16,
+        "signed": false,
+        "width": 1663
+      },
+      "product": "RGB16",
+      "sha256": "4325b30f121cd290995a7ce85830055d83f695bab8046366191716df4d47b748",
+      "source_sha256": "73510618fd0f306f969e0a61ee3f212a7c8190d58f454c4068cc70b3afc2714a",
+      "statistics": [
+        {
+          "maximum": 8974,
+          "minimum": 4,
+          "nodata": 0.0,
+          "nodata_count": 0,
+          "samples": 2931869,
+          "source_band": 5,
+          "storage_maximum_count": 0,
+          "zero_count": 0
+        },
+        {
+          "maximum": 8427,
+          "minimum": 2,
+          "nodata": 0.0,
+          "nodata_count": 0,
+          "samples": 2931869,
+          "source_band": 3,
+          "storage_maximum_count": 0,
+          "zero_count": 0
+        },
+        {
+          "maximum": 8252,
+          "minimum": 1,
+          "nodata": 0.0,
+          "nodata_count": 0,
+          "samples": 2931869,
+          "source_band": 2,
+          "storage_maximum_count": 0,
+          "zero_count": 0
+        }
+      ],
+      "verification": "all samples: reopened per-band ReadRaster"
+    }
+  ],
+  "decision": "retain for bounded calibration",
+  "prepared_manifest_sha256": "1e90dbbe6d121777ba3f7e1ce0a836b522491aa5e0e3c86f210f00ea941303e5",
+  "provenance": {
+    "catalogue_revision": "9bc5eea5ff480a51b5fdde4704a3b7fc9775eb05",
+    "recipe": {
+      "path": "recipes/rareplanes-calibration-v1.py",
+      "sha256": "b5987ce12c7446d233652c6a5c2f31f93db51dee5d200264662ce9519f1755a8"
+    },
+    "source_lock": {
+      "path": "recipes/rareplanes-calibration-v1.sources.json",
+      "sha256": "723883d5e66b9fb5ab2b54033670d78dc6ab9ff3d1c89104de4a6a956c913235"
+    },
+    "tools": {
+      "gdal": "3.13.0",
+      "numpy": "2.5.1",
+      "python": "3.14.4"
+    }
+  },
+  "recorded_on": "2026-09-09",
+  "schema_version": 1,
+  "source_tree_sha256": "569478775c7083a3862d7e6fadde1b546d9a657f3f84b9f9d4cdd82dec45f3ea",
+  "total_raw_bytes": 396829808
+}
