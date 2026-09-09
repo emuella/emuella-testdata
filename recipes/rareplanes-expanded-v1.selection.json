@@ -1,0 +1,470 @@
+{
+  "algorithm": "Anchors first; Snow then Cloud Cover or Haze then Clear Skies. Greedy maximum minimum mean L1 distance over three population midrank percentiles and country/state mismatch indicators, with exact rational arithmetic and ascending image_id ties. One acquisition per loc_id; geography caps 8 USA and 4 non-USA.",
+  "anchors": [
+    "30_104001002394E000",
+    "47_104001001D2C7A00"
+  ],
+  "bundles": [
+    {
+      "id": "30_104001002394E000",
+      "location": "Aeroporto di Magadino, Ticino, Switzerland",
+      "metadata": {
+        "Air_Field": "Aeroporto di Magadino",
+        "Country": "Switzerland",
+        "State_Province": "Ticino",
+        "Test": "0",
+        "Train": "1",
+        "Weather": "Clear Skies",
+        "avg_sun_elevation_angle": "32.515224",
+        "cat_id": "1.04E+11",
+        "cloud_cover_percentage": "62",
+        "collection_time_end": "10/21/16 10:44",
+        "collection_time_start": "10/21/16 10:43",
+        "image_id": "30_104001002394E000",
+        "loc_id": "30",
+        "off_nadir_max": "20.460209",
+        "pan_resolution_maximum": "0.347425",
+        "pan_resolution_minimum": "0.345755",
+        "scan_direction": "Forward",
+        "sensor": "WV03",
+        "target_azimuth_maximum": "206.46828"
+      },
+      "split": "train"
+    },
+    {
+      "id": "47_104001001D2C7A00",
+      "location": "Apple Valley Airport, California, USA",
+      "metadata": {
+        "Air_Field": "Apple Valley Airport",
+        "Country": "USA",
+        "State_Province": "California",
+        "Test": "0",
+        "Train": "1",
+        "Weather": "Clear Skies",
+        "avg_sun_elevation_angle": "73.516151",
+        "cat_id": "104001001D2C7A00",
+        "cloud_cover_percentage": "0",
+        "collection_time_end": "6/7/16 18:53",
+        "collection_time_start": "6/7/16 18:53",
+        "image_id": "47_104001001D2C7A00",
+        "loc_id": "47",
+        "off_nadir_max": "24.799374",
+        "pan_resolution_maximum": "0.364969",
+        "pan_resolution_minimum": "0.363626",
+        "scan_direction": "Forward",
+        "sensor": "WV03",
+        "target_azimuth_maximum": "202.535568"
+      },
+      "split": "train"
+    },
+    {
+      "id": "103_104001004890F500",
+      "location": "Jackson Hole Airport, Wyoming, USA",
+      "metadata": {
+        "Air_Field": "Jackson Hole Airport",
+        "Country": "USA",
+        "State_Province": "Wyoming",
+        "Test": "0",
+        "Train": "1",
+        "Weather": "Snow",
+        "avg_sun_elevation_angle": "37.56202",
+        "cat_id": "104001004890F500",
+        "cloud_cover_percentage": "0",
+        "collection_time_end": "3/1/19 18:39",
+        "collection_time_start": "3/1/19 18:39",
+        "image_id": "103_104001004890F500",
+        "loc_id": "103",
+        "off_nadir_max": "8.619391",
+        "pan_resolution_maximum": "0.315597",
+        "pan_resolution_minimum": "0.315481",
+        "scan_direction": "Forward",
+        "sensor": "WV03",
+        "target_azimuth_maximum": "337.2924"
+      },
+      "split": "train"
+    },
+    {
+      "id": "9_1040010008607D00",
+      "location": "Aerodromede Toussus-le-Noble, Ile-de-France, France",
+      "metadata": {
+        "Air_Field": "Aerodromede Toussus-le-Noble",
+        "Country": "France",
+        "State_Province": "Ile-de-France",
+        "Test": "0",
+        "Train": "1",
+        "Weather": "Cloud Cover or Haze",
+        "avg_sun_elevation_angle": "33.868473",
+        "cat_id": "1040010008607D00",
+        "cloud_cover_percentage": "6",
+        "collection_time_end": "3/5/15 11:04",
+        "collection_time_start": "3/5/15 11:04",
+        "image_id": "9_1040010008607D00",
+        "loc_id": "9",
+        "off_nadir_max": "28.619303",
+        "pan_resolution_maximum": "0.392829",
+        "pan_resolution_minimum": "0.39064",
+        "scan_direction": "Forward",
+        "sensor": "WV03",
+        "target_azimuth_maximum": "42.061249"
+      },
+      "split": "train"
+    },
+    {
+      "id": "6_1040010009874E00",
+      "location": "Roskilde Airport, Roskilde, Denmark",
+      "metadata": {
+        "Air_Field": "Roskilde Airport",
+        "Country": "Denmark",
+        "State_Province": "Roskilde",
+        "Test": "0",
+        "Train": "1",
+        "Weather": "Cloud Cover or Haze",
+        "avg_sun_elevation_angle": "39.875862",
+        "cat_id": "1.04E+12",
+        "cloud_cover_percentage": "25",
+        "collection_time_end": "4/4/15 10:39",
+        "collection_time_start": "4/4/15 10:38",
+        "image_id": "6_1040010009874E00",
+        "loc_id": "6",
+        "off_nadir_max": "25.4655",
+        "pan_resolution_maximum": "0.371944",
+        "pan_resolution_minimum": "0.360904",
+        "scan_direction": "Forward",
+        "sensor": "WV03",
+        "target_azimuth_maximum": "157.850388"
+      },
+      "split": "train"
+    },
+    {
+      "id": "23_104001002E8B7900",
+      "location": "Viale di Porto, Lazio, Italy",
+      "metadata": {
+        "Air_Field": "Viale di Porto",
+        "Country": "Italy",
+        "State_Province": "Lazio",
+        "Test": "0",
+        "Train": "1",
+        "Weather": "Clear Skies",
+        "avg_sun_elevation_angle": "69.01081",
+        "cat_id": "104001002E8B7900",
+        "cloud_cover_percentage": "0",
+        "collection_time_end": "7/8/17 10:38",
+        "collection_time_start": "7/8/17 10:38",
+        "image_id": "23_104001002E8B7900",
+        "loc_id": "23",
+        "off_nadir_max": "16.324696",
+        "pan_resolution_maximum": "0.332874",
+        "pan_resolution_minimum": "0.326794",
+        "scan_direction": "Forward",
+        "sensor": "WV03",
+        "target_azimuth_maximum": "74.97182"
+      },
+      "split": "train"
+    },
+    {
+      "id": "125_10400100363EC000",
+      "location": "Long Island MacArthur Airport, New York, USA",
+      "metadata": {
+        "Air_Field": "Long Island MacArthur Airport",
+        "Country": "USA",
+        "State_Province": "New York",
+        "Test": "0",
+        "Train": "1",
+        "Weather": "Clear Skies",
+        "avg_sun_elevation_angle": "28.036615",
+        "cat_id": "10400100363EC000",
+        "cloud_cover_percentage": "0",
+        "collection_time_end": "11/24/17 15:57",
+        "collection_time_start": "11/24/17 15:57",
+        "image_id": "125_10400100363EC000",
+        "loc_id": "125",
+        "off_nadir_max": "27.81025",
+        "pan_resolution_maximum": "0.384132",
+        "pan_resolution_minimum": "0.379599",
+        "scan_direction": "Forward",
+        "sensor": "WV03",
+        "target_azimuth_maximum": "256.6425"
+      },
+      "split": "train"
+    },
+    {
+      "id": "94_104001000B823500",
+      "location": "Mansfield Municipal Airport, Massachusetts, USA",
+      "metadata": {
+        "Air_Field": "Mansfield Municipal Airport",
+        "Country": "USA",
+        "State_Province": "Massachusetts",
+        "Test": "0",
+        "Train": "1",
+        "Weather": "Clear Skies",
+        "avg_sun_elevation_angle": "63.523228",
+        "cat_id": "104001000B823500",
+        "cloud_cover_percentage": "0",
+        "collection_time_end": "5/7/15 15:56",
+        "collection_time_start": "5/7/15 15:56",
+        "image_id": "94_104001000B823500",
+        "loc_id": "94",
+        "off_nadir_max": "29.059441",
+        "pan_resolution_maximum": "0.393041",
+        "pan_resolution_minimum": "0.385669",
+        "scan_direction": "Forward",
+        "sensor": "WV03",
+        "target_azimuth_maximum": "60.169853"
+      },
+      "split": "train"
+    },
+    {
+      "id": "100_1040010046CD1500",
+      "location": "Billings Logan International Airport, Montana, USA",
+      "metadata": {
+        "Air_Field": "Billings Logan International Airport",
+        "Country": "USA",
+        "State_Province": "Montana",
+        "Test": "0",
+        "Train": "1",
+        "Weather": "Clear Skies",
+        "avg_sun_elevation_angle": "21.145557",
+        "cat_id": "1040010046CD1500",
+        "cloud_cover_percentage": "0",
+        "collection_time_end": "12/16/18 18:44",
+        "collection_time_start": "12/16/18 18:44",
+        "image_id": "100_1040010046CD1500",
+        "loc_id": "100",
+        "off_nadir_max": "20.87677",
+        "pan_resolution_maximum": "0.349313",
+        "pan_resolution_minimum": "0.341219",
+        "scan_direction": "Forward",
+        "sensor": "WV03",
+        "target_azimuth_maximum": "57.67064"
+      },
+      "split": "train"
+    },
+    {
+      "id": "106_10400100413CDF00",
+      "location": "Boca Raton Airport, Florida, USA",
+      "metadata": {
+        "Air_Field": "Boca Raton Airport",
+        "Country": "USA",
+        "State_Province": "Florida",
+        "Test": "0",
+        "Train": "1",
+        "Weather": "Clear Skies",
+        "avg_sun_elevation_angle": "70.47449",
+        "cat_id": "10400100413CDF00",
+        "cloud_cover_percentage": "0",
+        "collection_time_end": "8/22/18 16:25",
+        "collection_time_start": "8/22/18 16:24",
+        "image_id": "106_10400100413CDF00",
+        "loc_id": "106",
+        "off_nadir_max": "15.287237",
+        "pan_resolution_maximum": "0.328539",
+        "pan_resolution_minimum": "0.324323",
+        "scan_direction": "Forward",
+        "sensor": "WV03",
+        "target_azimuth_maximum": "208.8404"
+      },
+      "split": "train"
+    },
+    {
+      "id": "105_104001002F92BB00",
+      "location": "Tok Junction Airport, Alaska, USA",
+      "metadata": {
+        "Air_Field": "Tok Junction Airport",
+        "Country": "USA",
+        "State_Province": "Alaska",
+        "Test": "0",
+        "Train": "1",
+        "Weather": "Clear Skies",
+        "avg_sun_elevation_angle": "47.451363",
+        "cat_id": "104001002F92BB00",
+        "cloud_cover_percentage": "1",
+        "collection_time_end": "7/18/17 21:13",
+        "collection_time_start": "7/18/17 21:13",
+        "image_id": "105_104001002F92BB00",
+        "loc_id": "105",
+        "off_nadir_max": "18.226088",
+        "pan_resolution_maximum": "0.341562",
+        "pan_resolution_minimum": "0.336423",
+        "scan_direction": "Forward",
+        "sensor": "WV03",
+        "target_azimuth_maximum": "324.51483"
+      },
+      "split": "train"
+    },
+    {
+      "id": "45_10400100202A2200",
+      "location": "Manassas Regional Airport, Virginia, USA",
+      "metadata": {
+        "Air_Field": "Manassas Regional Airport",
+        "Country": "USA",
+        "State_Province": "Virginia",
+        "Test": "0",
+        "Train": "1",
+        "Weather": "Clear Skies",
+        "avg_sun_elevation_angle": "61.116737",
+        "cat_id": "10400100202A2200",
+        "cloud_cover_percentage": "4",
+        "collection_time_end": "8/24/16 16:35",
+        "collection_time_start": "8/24/16 16:35",
+        "image_id": "45_10400100202A2200",
+        "loc_id": "45",
+        "off_nadir_max": "27.280035",
+        "pan_resolution_maximum": "0.381447",
+        "pan_resolution_minimum": "0.368962",
+        "scan_direction": "Forward",
+        "sensor": "WV03",
+        "target_azimuth_maximum": "124.300888"
+      },
+      "split": "train"
+    }
+  ],
+  "geography_quotas": {
+    "USA": 8,
+    "non-USA": 4
+  },
+  "metadata_sha256": "005eb9c6c4ab0f0fea1f8402f202066b6f4d29617ef263f72b1be34dea35edec",
+  "population": {
+    "acquisitions": 253,
+    "countries": [
+      "Albania",
+      "Bahamas",
+      "Belgium",
+      "Brazil",
+      "Croatia",
+      "Denmark",
+      "France",
+      "Germany",
+      "India",
+      "Ireland",
+      "Italy",
+      "Lithuania",
+      "Mexico",
+      "PRC",
+      "Portugal",
+      "Spain",
+      "Sudan",
+      "Switzerland",
+      "Tanzania",
+      "UK",
+      "USA"
+    ],
+    "locations": 112,
+    "numeric_ranges": {
+      "avg_sun_elevation_angle": [
+        10.661138,
+        79.01855
+      ],
+      "off_nadir_max": [
+        3.215833,
+        29.637547
+      ],
+      "pan_resolution_maximum": [
+        0.311046,
+        0.39817
+      ]
+    },
+    "weather": {
+      "Clear Skies": 198,
+      "Cloud Cover or Haze": 32,
+      "Snow": 23
+    }
+  },
+  "schema_version": 1,
+  "selected": {
+    "acquisitions": 12,
+    "countries": [
+      "Denmark",
+      "France",
+      "Italy",
+      "Switzerland",
+      "USA"
+    ],
+    "locations": 12,
+    "numeric_ranges": {
+      "avg_sun_elevation_angle": [
+        21.145557,
+        73.516151
+      ],
+      "off_nadir_max": [
+        8.619391,
+        29.059441
+      ],
+      "pan_resolution_maximum": [
+        0.315597,
+        0.393041
+      ]
+    },
+    "weather": {
+      "Clear Skies": 9,
+      "Cloud Cover or Haze": 2,
+      "Snow": 1
+    }
+  },
+  "trace": [
+    {
+      "eligible_candidates": 23,
+      "image_id": "103_104001004890F500",
+      "minimum_distance": "19/35",
+      "weather": "Snow"
+    },
+    {
+      "eligible_candidates": 32,
+      "image_id": "9_1040010008607D00",
+      "minimum_distance": "9/14",
+      "weather": "Cloud Cover or Haze"
+    },
+    {
+      "eligible_candidates": 31,
+      "image_id": "6_1040010009874E00",
+      "minimum_distance": "113/210",
+      "weather": "Cloud Cover or Haze"
+    },
+    {
+      "eligible_candidates": 191,
+      "image_id": "23_104001002E8B7900",
+      "minimum_distance": "239/420",
+      "weather": "Clear Skies"
+    },
+    {
+      "eligible_candidates": 130,
+      "image_id": "125_10400100363EC000",
+      "minimum_distance": "7/15",
+      "weather": "Clear Skies"
+    },
+    {
+      "eligible_candidates": 129,
+      "image_id": "94_104001000B823500",
+      "minimum_distance": "257/630",
+      "weather": "Clear Skies"
+    },
+    {
+      "eligible_candidates": 126,
+      "image_id": "100_1040010046CD1500",
+      "minimum_distance": "239/630",
+      "weather": "Clear Skies"
+    },
+    {
+      "eligible_candidates": 124,
+      "image_id": "106_10400100413CDF00",
+      "minimum_distance": "133/360",
+      "weather": "Clear Skies"
+    },
+    {
+      "eligible_candidates": 119,
+      "image_id": "105_104001002F92BB00",
+      "minimum_distance": "55/168",
+      "weather": "Clear Skies"
+    },
+    {
+      "eligible_candidates": 115,
+      "image_id": "45_10400100202A2200",
+      "minimum_distance": "32/105",
+      "weather": "Clear Skies"
+    }
+  ],
+  "weather_quotas": {
+    "Clear Skies": 9,
+    "Cloud Cover or Haze": 2,
+    "Snow": 1
+  }
+}
