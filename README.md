@@ -86,6 +86,11 @@ large-source generation. The ordinary catalogue checks need no GDAL bindings
 or NumPy; regeneration requires NumPy and an explicitly selected GDAL shared
 library with OpenJPEG support.
 
+The local-only [RarePlanes calibration recipe](recipes/rareplanes-calibration-v1.md)
+prepares two authorised full-location PAN, RGB and native multispectral bundles,
+with exact source locks and independent full-sample verification. GDAL/NumPy
+are optional preparation dependencies; ordinary catalogue checks stay offline.
+
 ## Licensing
 
 There is intentionally no single licence for every materialized corpus. Read

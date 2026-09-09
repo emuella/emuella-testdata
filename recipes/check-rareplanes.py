@@ -1,6 +1,9 @@
 #!/usr/bin/env python3
 """Offline tests using only project-authored arithmetic GeoTIFFs."""
 import importlib.util
+import hashlib
+import json
+import tomllib
 import os
 from pathlib import Path
 import struct
@@ -95,6 +98,26 @@ class PreparationTests(unittest.TestCase):
         (self.root / "link").symlink_to(self.root / "missing")
         with self.assertRaises(ValueError):
             recipe.child(self.root, "link")
+
+    def test_source_lock_inventory_and_tree_agree(self):
+        lock = json.loads(recipe.LOCK.read_text())
+        inventory = tomllib.loads((recipe.ROOT / "inventories/common/rareplanes-calibration-v1.toml").read_text())
+        source = {a["path"]: (a["bytes"], a["sha256"]) for a in lock["assets"]}
+        indexed = {a["path"]: (a["bytes"], a["sha256"]) for a in inventory["assets"]}
+        self.assertEqual(len(source), 8)
+        self.assertEqual(source, indexed)
+        encoded = "".join(f"{digest}\t{size}\t{path}\n" for path, (size, digest) in sorted(source.items()))
+        manifest = tomllib.loads((recipe.ROOT / "manifests/common/rareplanes-calibration.toml").read_text())
+        self.assertEqual(hashlib.sha256(encoded.encode()).hexdigest(), manifest["materialization"]["expected_tree_sha256"])
+
+    def test_gdal_vrt_is_rejected_even_with_valid_pixels(self):
+        source, _ = self.make_tiff()
+        vrt = self.root / "source.vrt"
+        dataset = gdal.Translate(str(vrt), str(source), format="VRT")
+        dataset = None
+        with self.assertRaises((ValueError, RuntimeError)):
+            recipe.write_raster(vrt, self.root / "bad.raw", [1], 16, 8)
+        self.assertFalse((self.root / "bad.raw").exists())
 
     def test_planar_order_and_endianness(self):
         source, _ = self.make_tiff()
