@@ -96,3 +96,20 @@ sample. Statistics include nodata. Planar mode copies unchanged little-endian
 sample words and compares every planar sample to the interleaved input; retain
 its JSON stdout in the approved store. These checks establish source equality,
 not codec round-trip, performance, geodetic accuracy or generalisation claims.
+
+## Preparation evidence
+
+[The factual preparation record](rareplanes-expanded-v1.evidence.json) binds
+the exact committed candidate and all 48 output identities and statistics.
+The 38 source objects total 6,285,955,836 bytes; the full raw arrays total
+6,677,286,431 bytes. Every sample passed independent comparison, and all eight
+anchor arrays exactly match the retained calibration hashes and lengths.
+
+PAN/RGB8 dimensions range from 4,851 × 2,752 at Mansfield to
+20,737 × 25,297 at Viale di Porto; the latter's native MS is 5,184 × 6,324.
+Nodata occurs in the selected Boca Raton acquisition and is preserved in all
+four products. No U16 sample reaches the storage maximum; observed U16 values
+reach 10000. RGB8 storage-maximum counts remain per-band facts, not inferred
+sensor clipping. The host repeated its existing PROJ database lookup warnings;
+spatial references were present and no reprojection was performed. This does
+not affect the proved stored-sample equality or claim geodetic accuracy.
