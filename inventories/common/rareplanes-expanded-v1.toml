@@ -1,0 +1,269 @@
+schema_version = 1
+pack_id = "common/rareplanes-expanded"
+pack_version = "1"
+
+[[assets]]
+path = "LICENSE.txt"
+bytes = 20605
+sha256 = "f627ad059128fa5246a21e25759c1d33e35c4bb6287d636c4b970f7df57e7eba"
+media_type = "text/plain"
+semantics = "Unchanged upstream CC BY-SA 4.0 licence and attribution notice."
+
+[[assets]]
+path = "real/metadata_annotations/RarePlanes_Public_Metadata.csv"
+bytes = 48458
+sha256 = "005eb9c6c4ab0f0fea1f8402f202066b6f4d29617ef263f72b1be34dea35edec"
+media_type = "text/csv"
+semantics = "Unchanged upstream metadata; select by image_id."
+
+[[assets]]
+path = "real/train/MS/100_1040010046CD1500.tif"
+bytes = 120129368
+sha256 = "2f6e03dc55b1763d5e99b4a1d99b314db4a9a1e82616cf4d136c387039e7d078"
+media_type = "image/tiff"
+semantics = "Unchanged selected RarePlanes WorldView-3 full-location source product."
+
+[[assets]]
+path = "real/train/MS/103_104001004890F500.tif"
+bytes = 61388930
+sha256 = "fb11c9dfe2cefb2ecd1391092ffe9d129c6a928e81dcbae7d515915cc3bef757"
+media_type = "image/tiff"
+semantics = "Unchanged selected RarePlanes WorldView-3 full-location source product."
+
+[[assets]]
+path = "real/train/MS/105_104001002F92BB00.tif"
+bytes = 16833714
+sha256 = "535fcfc4a6a4ab2c87a35696f569a07d6ee0e891f51c3adfdc35af66c1711ca0"
+media_type = "image/tiff"
+semantics = "Unchanged selected RarePlanes WorldView-3 full-location source product."
+
+[[assets]]
+path = "real/train/MS/106_10400100413CDF00.tif"
+bytes = 28089474
+sha256 = "9eba58b792268823475f0c35fa2e1ad3512a274d6aebe5434e8a7a7fc175c356"
+media_type = "image/tiff"
+semantics = "Unchanged selected RarePlanes WorldView-3 full-location source product."
+
+[[assets]]
+path = "real/train/MS/125_10400100363EC000.tif"
+bytes = 72708522
+sha256 = "9f30171a990c784baffabd7ef577b41a074629a9d88e16bec5fe791e2cf52c78"
+media_type = "image/tiff"
+semantics = "Unchanged selected RarePlanes WorldView-3 full-location source product."
+
+[[assets]]
+path = "real/train/MS/23_104001002E8B7900.tif"
+bytes = 524589632
+sha256 = "11407335f5dccc8c2faa2453d65220838ee689c5ed4fd273b83346ee3e138c68"
+media_type = "image/tiff"
+semantics = "Unchanged selected RarePlanes WorldView-3 full-location source product."
+
+[[assets]]
+path = "real/train/MS/30_104001002394E000.tif"
+bytes = 15350144
+sha256 = "bf526ed88bd0566735aecedb45b7f5f872b6f6001ccbeccce4c594cd54a0df3e"
+media_type = "image/tiff"
+semantics = "Unchanged selected RarePlanes WorldView-3 full-location source product."
+
+[[assets]]
+path = "real/train/MS/45_10400100202A2200.tif"
+bytes = 38210118
+sha256 = "b5200aebcec63fab9960067f5488645107d21f3174aa68cb847835c0b40699f3"
+media_type = "image/tiff"
+semantics = "Unchanged selected RarePlanes WorldView-3 full-location source product."
+
+[[assets]]
+path = "real/train/MS/47_104001001D2C7A00.tif"
+bytes = 46921666
+sha256 = "73510618fd0f306f969e0a61ee3f212a7c8190d58f454c4068cc70b3afc2714a"
+media_type = "image/tiff"
+semantics = "Unchanged selected RarePlanes WorldView-3 full-location source product."
+
+[[assets]]
+path = "real/train/MS/6_1040010009874E00.tif"
+bytes = 82357106
+sha256 = "a2252bd73e0ec4d39a6f742dbf1c2aaf7f89bb1df38da72a06eeeae68e327889"
+media_type = "image/tiff"
+semantics = "Unchanged selected RarePlanes WorldView-3 full-location source product."
+
+[[assets]]
+path = "real/train/MS/94_104001000B823500.tif"
+bytes = 13358016
+sha256 = "f26c61bcb3e6c750619993bcd77ba3cbe4f1fd13ee53e50c137896c5ed46391e"
+media_type = "image/tiff"
+semantics = "Unchanged selected RarePlanes WorldView-3 full-location source product."
+
+[[assets]]
+path = "real/train/MS/9_1040010008607D00.tif"
+bytes = 27615232
+sha256 = "94982d881f0dd1192bbd3f0028cbfee2b227ee9fe22fd3e2a9aa3335ea3320f7"
+media_type = "image/tiff"
+semantics = "Unchanged selected RarePlanes WorldView-3 full-location source product."
+
+[[assets]]
+path = "real/train/PAN/100_1040010046CD1500.tif"
+bytes = 240255396
+sha256 = "0afadd070f5b67586b2514aaa61a5421b41cb9e38dcfb0d883a73027293398e2"
+media_type = "image/tiff"
+semantics = "Unchanged selected RarePlanes WorldView-3 full-location source product."
+
+[[assets]]
+path = "real/train/PAN/103_104001004890F500.tif"
+bytes = 122793504
+sha256 = "c468c56f4cb4d2a6c9ffd0e949f944ee45d531bbbd9f6888b297cfcf5996bd04"
+media_type = "image/tiff"
+semantics = "Unchanged selected RarePlanes WorldView-3 full-location source product."
+
+[[assets]]
+path = "real/train/PAN/105_104001002F92BB00.tif"
+bytes = 33689074
+sha256 = "24dcd5f958e98469cddc0777bc7b07494988fda3266d116e94c1777a72c6eace"
+media_type = "image/tiff"
+semantics = "Unchanged selected RarePlanes WorldView-3 full-location source product."
+
+[[assets]]
+path = "real/train/PAN/106_10400100413CDF00.tif"
+bytes = 56202886
+sha256 = "56cb43dfd8b2d76fe13e3033392d6b53bc1341cbc8b4c0b25db1e517671e93e9"
+media_type = "image/tiff"
+semantics = "Unchanged selected RarePlanes WorldView-3 full-location source product."
+
+[[assets]]
+path = "real/train/PAN/125_10400100363EC000.tif"
+bytes = 145437358
+sha256 = "0b23c88e2eff186eb1c925cbf2a7d644bfae45b0b485c8645228d5d7d46ff707"
+media_type = "image/tiff"
+semantics = "Unchanged selected RarePlanes WorldView-3 full-location source product."
+
+[[assets]]
+path = "real/train/PAN/23_104001002E8B7900.tif"
+bytes = 1049320686
+sha256 = "948a66849643ec48651116bec8111459766aee96c695674ffc4c9c3dd081e1d1"
+media_type = "image/tiff"
+semantics = "Unchanged selected RarePlanes WorldView-3 full-location source product."
+
+[[assets]]
+path = "real/train/PAN/30_104001002394E000.tif"
+bytes = 30692118
+sha256 = "c6339a41b6e4569627996f02c3381b4f7e55bd473037cf10607a3d7959432fc0"
+media_type = "image/tiff"
+semantics = "Unchanged selected RarePlanes WorldView-3 full-location source product."
+
+[[assets]]
+path = "real/train/PAN/45_10400100202A2200.tif"
+bytes = 76453012
+sha256 = "80ce69dbb13e201a338fdd68fd5e79232f9f768bd97e6133a1838b07a8f3c5d5"
+media_type = "image/tiff"
+semantics = "Unchanged selected RarePlanes WorldView-3 full-location source product."
+
+[[assets]]
+path = "real/train/PAN/47_104001001D2C7A00.tif"
+bytes = 93861650
+sha256 = "673803c7bc5fc16fbe723ff184d066fc91c994e4bd3699f68f124011648e6c62"
+media_type = "image/tiff"
+semantics = "Unchanged selected RarePlanes WorldView-3 full-location source product."
+
+[[assets]]
+path = "real/train/PAN/6_1040010009874E00.tif"
+bytes = 164708696
+sha256 = "57395701418903c276a0561ad5fd45bb5027142d0ab0fc8bfd66f8ab32500f6d"
+media_type = "image/tiff"
+semantics = "Unchanged selected RarePlanes WorldView-3 full-location source product."
+
+[[assets]]
+path = "real/train/PAN/94_104001000B823500.tif"
+bytes = 26717542
+sha256 = "328ec70ec0227effb92f25605b64df9bcf42fdd2ab142555a3e70ec543881aa3"
+media_type = "image/tiff"
+semantics = "Unchanged selected RarePlanes WorldView-3 full-location source product."
+
+[[assets]]
+path = "real/train/PAN/9_1040010008607D00.tif"
+bytes = 55238630
+sha256 = "c567db4c59265825b695c67df984b4293de275ab8ab534d23cb145860f2633e2"
+media_type = "image/tiff"
+semantics = "Unchanged selected RarePlanes WorldView-3 full-location source product."
+
+[[assets]]
+path = "real/train/PS-RGB/100_1040010046CD1500.tif"
+bytes = 360376388
+sha256 = "e5934aebc06336355e0f1eb0b924c4db9a39743bf1cb40e2cda5e329d8adf30d"
+media_type = "image/tiff"
+semantics = "Unchanged selected RarePlanes WorldView-3 full-location source product."
+
+[[assets]]
+path = "real/train/PS-RGB/103_104001004890F500.tif"
+bytes = 184179902
+sha256 = "61db15b014f5b2dc44e32bd1c4d250af39c9258577d7960e3e9c5ab69385b27f"
+media_type = "image/tiff"
+semantics = "Unchanged selected RarePlanes WorldView-3 full-location source product."
+
+[[assets]]
+path = "real/train/PS-RGB/105_104001002F92BB00.tif"
+bytes = 50531479
+sha256 = "8337c700fa45605a8c6074b4dfae6d311a7d42644726a35921373cecee6c2f69"
+media_type = "image/tiff"
+semantics = "Unchanged selected RarePlanes WorldView-3 full-location source product."
+
+[[assets]]
+path = "real/train/PS-RGB/106_10400100413CDF00.tif"
+bytes = 84298742
+sha256 = "10acbd932f18fbf1a2a12cef04f577a4b35781b97f4ad8421ad4711c2a8e4aaa"
+media_type = "image/tiff"
+semantics = "Unchanged selected RarePlanes WorldView-3 full-location source product."
+
+[[assets]]
+path = "real/train/PS-RGB/125_10400100363EC000.tif"
+bytes = 218147523
+sha256 = "5c0a2c5f4e38637c1ba8ed93ee759070f586d3a0a3bf837f4404cf0bd7aeb514"
+media_type = "image/tiff"
+semantics = "Unchanged selected RarePlanes WorldView-3 full-location source product."
+
+[[assets]]
+path = "real/train/PS-RGB/23_104001002E8B7900.tif"
+bytes = 1573955181
+sha256 = "9a2164d9717c17fbc8481a4abcf311809cc679dd47ca52fd6c5b89cb532866da"
+media_type = "image/tiff"
+semantics = "Unchanged selected RarePlanes WorldView-3 full-location source product."
+
+[[assets]]
+path = "real/train/PS-RGB/30_104001002394E000.tif"
+bytes = 46034748
+sha256 = "1afb38115b6146679b7a79513b38f3457f8a18a827fd00dafb2c8a0f381d5127"
+media_type = "image/tiff"
+semantics = "Unchanged selected RarePlanes WorldView-3 full-location source product."
+
+[[assets]]
+path = "real/train/PS-RGB/45_10400100202A2200.tif"
+bytes = 114672436
+sha256 = "3d6371e6be892e030db2ae32e38860b0872cd98a41e5c0338d0bf4a0a278dd4c"
+media_type = "image/tiff"
+semantics = "Unchanged selected RarePlanes WorldView-3 full-location source product."
+
+[[assets]]
+path = "real/train/PS-RGB/47_104001001D2C7A00.tif"
+bytes = 140784870
+sha256 = "f071e2671f1b55f85254454f80ee4da69b38eaeeba2a658fe0d75a61592f6b48"
+media_type = "image/tiff"
+semantics = "Unchanged selected RarePlanes WorldView-3 full-location source product."
+
+[[assets]]
+path = "real/train/PS-RGB/6_1040010009874E00.tif"
+bytes = 247055762
+sha256 = "10dd40e34960c49982b301461f9c501bac8ebee77e3fd961d496fdafa93a39f7"
+media_type = "image/tiff"
+semantics = "Unchanged selected RarePlanes WorldView-3 full-location source product."
+
+[[assets]]
+path = "real/train/PS-RGB/94_104001000B823500.tif"
+bytes = 40073010
+sha256 = "a3d8c33b1fc1ba32212be7296bba8d47c1165ed51b322dc8277115bc6ff39e9e"
+media_type = "image/tiff"
+semantics = "Unchanged selected RarePlanes WorldView-3 full-location source product."
+
+[[assets]]
+path = "real/train/PS-RGB/9_1040010008607D00.tif"
+bytes = 82854258
+sha256 = "029efbfee54ead9bdc9d56cfb42a403050eabd37a4c96475b9b91cb8899c1e87"
+media_type = "image/tiff"
+semantics = "Unchanged selected RarePlanes WorldView-3 full-location source product."

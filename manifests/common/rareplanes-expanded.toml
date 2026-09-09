@@ -1,0 +1,40 @@
+schema_version = 1
+id = "common/rareplanes-expanded"
+version = "1"
+name = "RarePlanes twelve-location real imagery benchmark"
+description = "Twelve distinct WorldView-3 locations selected for metadata coverage before timing, with full PAN, PS-RGB and native eight-band MS acquisitions and unchanged licence and metadata; not a statistically representative sample."
+review_state = "reviewed"
+kind = "external"
+codecs = ["common", "jpeg-2000", "htj2k"]
+purposes = ["quality-benchmark", "throughput-benchmark"]
+asset_inventory = "inventories/common/rareplanes-expanded-v1.toml"
+
+[license]
+expression = "CC-BY-SA-4.0"
+name = "Creative Commons Attribution-ShareAlike 4.0 International"
+local_files = []
+evidence_url = "https://rareplanes-public.s3.us-west-2.amazonaws.com/LICENSE.txt"
+reviewed_on = "2026-09-09"
+notes = "The unchanged bucket LICENSE.txt identifies the RarePlanes Dataset, June 2020, and supplies CC BY-SA 4.0. It is locked in the external inventory and must remain with the source. Attribution: J. Shermeyer, T. Hossler, A. Van Etten, D. Hogan, R. Lewis and D. Kim; In-Q-Tel - CosmiQ Works and AI.Reverie. This imagery licence is separate from the Apache-2.0 catalogue software."
+
+[rights]
+access = "permitted"
+redistribution = "conditional"
+modification = "conditional"
+commercial_use = "conditional"
+publish_derivatives = "conditional"
+publish_benchmarks = "conditional"
+ml_training = "conditional"
+weights_redistribution = "unknown"
+notes = "Preserve attribution, licence, source lineage and change notices; ShareAlike applies to shared adaptations. Local acquisition and derivative benchmarking of these twelve selections are authorised; no image or derivative redistribution is part of this local benchmark. Only factual measurements and identities enter Git. Training is not this pack's purpose, and learned-weight rights require separate review."
+
+[source]
+landing_page = "https://www.cosmiqworks.org/rareplanes/"
+terms_url = "https://rareplanes-public.s3.us-west-2.amazonaws.com/LICENSE.txt"
+requires_manual_acquisition = true
+
+[materialization]
+directory = "artifacts/rareplanes-expanded-v1/source"
+expected_tree_sha256 = "a2a17ad210637a2f8a785ffff073f1964c5f26147160477dbf09c989258c691a"
+layout = "Unchanged LICENSE.txt, real/metadata_annotations/RarePlanes_Public_Metadata.csv, and three full-location TIFFs per acquisition under real/train, exactly as enumerated by the source lock and inventory."
+notes = "Retain all 38 upstream objects unchanged. Preparation consumes this tree without network access and places derivatives in a separate child of the same explicitly supplied local store. See recipes/rareplanes-expanded-v1.md."

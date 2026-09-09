@@ -91,6 +91,10 @@ prepares two authorised full-location PAN, RGB and native multispectral bundles,
 with exact source locks and independent full-sample verification. GDAL/NumPy
 are optional preparation dependencies; ordinary catalogue checks stay offline.
 
+The separate [twelve-location RarePlanes recipe](recipes/rareplanes-expanded-v1.md)
+freezes metadata coverage before timing and prepares 48 complete sample arrays.
+Its source locks and selection remain separate from the original calibration.
+
 ## Licensing
 
 There is intentionally no single licence for every materialized corpus. Read

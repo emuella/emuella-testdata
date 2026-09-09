@@ -1,0 +1,701 @@
+{
+  "assets": [
+    {
+      "bytes": 20605,
+      "etag": "\"9b81ab399ce30a004a02916b63b0a712\"",
+      "path": "LICENSE.txt",
+      "sha256": "f627ad059128fa5246a21e25759c1d33e35c4bb6287d636c4b970f7df57e7eba",
+      "url": "https://rareplanes-public.s3.us-west-2.amazonaws.com/LICENSE.txt"
+    },
+    {
+      "bytes": 48458,
+      "etag": "\"310eccb63fc4e916b4a7211769aaed7e\"",
+      "path": "real/metadata_annotations/RarePlanes_Public_Metadata.csv",
+      "sha256": "005eb9c6c4ab0f0fea1f8402f202066b6f4d29617ef263f72b1be34dea35edec",
+      "url": "https://rareplanes-public.s3.us-west-2.amazonaws.com/real/metadata_annotations/RarePlanes_Public_Metadata.csv"
+    },
+    {
+      "bytes": 120129368,
+      "etag": "\"5ddda0e00108c33043bbad7db36d3cb8-15\"",
+      "path": "real/train/MS/100_1040010046CD1500.tif",
+      "sha256": "2f6e03dc55b1763d5e99b4a1d99b314db4a9a1e82616cf4d136c387039e7d078",
+      "url": "https://rareplanes-public.s3.us-west-2.amazonaws.com/real/train/MS/100_1040010046CD1500.tif"
+    },
+    {
+      "bytes": 61388930,
+      "etag": "\"384fbc853b700b3044b8db8daa6aee81-8\"",
+      "path": "real/train/MS/103_104001004890F500.tif",
+      "sha256": "fb11c9dfe2cefb2ecd1391092ffe9d129c6a928e81dcbae7d515915cc3bef757",
+      "url": "https://rareplanes-public.s3.us-west-2.amazonaws.com/real/train/MS/103_104001004890F500.tif"
+    },
+    {
+      "bytes": 16833714,
+      "etag": "\"fb8d1a851cdf4a581ddda60a705e971f-3\"",
+      "path": "real/train/MS/105_104001002F92BB00.tif",
+      "sha256": "535fcfc4a6a4ab2c87a35696f569a07d6ee0e891f51c3adfdc35af66c1711ca0",
+      "url": "https://rareplanes-public.s3.us-west-2.amazonaws.com/real/train/MS/105_104001002F92BB00.tif"
+    },
+    {
+      "bytes": 28089474,
+      "etag": "\"570b19f641defeb087cca6385caef52b-4\"",
+      "path": "real/train/MS/106_10400100413CDF00.tif",
+      "sha256": "9eba58b792268823475f0c35fa2e1ad3512a274d6aebe5434e8a7a7fc175c356",
+      "url": "https://rareplanes-public.s3.us-west-2.amazonaws.com/real/train/MS/106_10400100413CDF00.tif"
+    },
+    {
+      "bytes": 72708522,
+      "etag": "\"1f989a1610eae4b3e20d125e7d63558b-9\"",
+      "path": "real/train/MS/125_10400100363EC000.tif",
+      "sha256": "9f30171a990c784baffabd7ef577b41a074629a9d88e16bec5fe791e2cf52c78",
+      "url": "https://rareplanes-public.s3.us-west-2.amazonaws.com/real/train/MS/125_10400100363EC000.tif"
+    },
+    {
+      "bytes": 524589632,
+      "etag": "\"365e793dade1325476318bef1e2e6587-63\"",
+      "path": "real/train/MS/23_104001002E8B7900.tif",
+      "sha256": "11407335f5dccc8c2faa2453d65220838ee689c5ed4fd273b83346ee3e138c68",
+      "url": "https://rareplanes-public.s3.us-west-2.amazonaws.com/real/train/MS/23_104001002E8B7900.tif"
+    },
+    {
+      "bytes": 15350144,
+      "etag": "\"ac0b50cc995eba29438439c7801989f3-2\"",
+      "path": "real/train/MS/30_104001002394E000.tif",
+      "sha256": "bf526ed88bd0566735aecedb45b7f5f872b6f6001ccbeccce4c594cd54a0df3e",
+      "url": "https://rareplanes-public.s3.us-west-2.amazonaws.com/real/train/MS/30_104001002394E000.tif"
+    },
+    {
+      "bytes": 38210118,
+      "etag": "\"6fa06419bbd6cef4f2b2aea9d27930dd-5\"",
+      "path": "real/train/MS/45_10400100202A2200.tif",
+      "sha256": "b5200aebcec63fab9960067f5488645107d21f3174aa68cb847835c0b40699f3",
+      "url": "https://rareplanes-public.s3.us-west-2.amazonaws.com/real/train/MS/45_10400100202A2200.tif"
+    },
+    {
+      "bytes": 46921666,
+      "etag": "\"aa2bc83152914219fe8c4d400714daa1-6\"",
+      "path": "real/train/MS/47_104001001D2C7A00.tif",
+      "sha256": "73510618fd0f306f969e0a61ee3f212a7c8190d58f454c4068cc70b3afc2714a",
+      "url": "https://rareplanes-public.s3.us-west-2.amazonaws.com/real/train/MS/47_104001001D2C7A00.tif"
+    },
+    {
+      "bytes": 82357106,
+      "etag": "\"686a892e4f09e2e55caabaeaf8be69f3-10\"",
+      "path": "real/train/MS/6_1040010009874E00.tif",
+      "sha256": "a2252bd73e0ec4d39a6f742dbf1c2aaf7f89bb1df38da72a06eeeae68e327889",
+      "url": "https://rareplanes-public.s3.us-west-2.amazonaws.com/real/train/MS/6_1040010009874E00.tif"
+    },
+    {
+      "bytes": 13358016,
+      "etag": "\"15456d3307ca5f913b6ecec085d2b6d3-2\"",
+      "path": "real/train/MS/94_104001000B823500.tif",
+      "sha256": "f26c61bcb3e6c750619993bcd77ba3cbe4f1fd13ee53e50c137896c5ed46391e",
+      "url": "https://rareplanes-public.s3.us-west-2.amazonaws.com/real/train/MS/94_104001000B823500.tif"
+    },
+    {
+      "bytes": 27615232,
+      "etag": "\"54de28a57a221177472fee4cd0c30892-4\"",
+      "path": "real/train/MS/9_1040010008607D00.tif",
+      "sha256": "94982d881f0dd1192bbd3f0028cbfee2b227ee9fe22fd3e2a9aa3335ea3320f7",
+      "url": "https://rareplanes-public.s3.us-west-2.amazonaws.com/real/train/MS/9_1040010008607D00.tif"
+    },
+    {
+      "bytes": 240255396,
+      "etag": "\"e677ae5746b58e8983740c8d018dad8d-29\"",
+      "path": "real/train/PAN/100_1040010046CD1500.tif",
+      "sha256": "0afadd070f5b67586b2514aaa61a5421b41cb9e38dcfb0d883a73027293398e2",
+      "url": "https://rareplanes-public.s3.us-west-2.amazonaws.com/real/train/PAN/100_1040010046CD1500.tif"
+    },
+    {
+      "bytes": 122793504,
+      "etag": "\"74df3668b12d4cc9cdc8a822a1441690-15\"",
+      "path": "real/train/PAN/103_104001004890F500.tif",
+      "sha256": "c468c56f4cb4d2a6c9ffd0e949f944ee45d531bbbd9f6888b297cfcf5996bd04",
+      "url": "https://rareplanes-public.s3.us-west-2.amazonaws.com/real/train/PAN/103_104001004890F500.tif"
+    },
+    {
+      "bytes": 33689074,
+      "etag": "\"17b09766a4430a082983192bab42e14d-5\"",
+      "path": "real/train/PAN/105_104001002F92BB00.tif",
+      "sha256": "24dcd5f958e98469cddc0777bc7b07494988fda3266d116e94c1777a72c6eace",
+      "url": "https://rareplanes-public.s3.us-west-2.amazonaws.com/real/train/PAN/105_104001002F92BB00.tif"
+    },
+    {
+      "bytes": 56202886,
+      "etag": "\"c3d3d30ad29dc51f3046d84e574e86e4-7\"",
+      "path": "real/train/PAN/106_10400100413CDF00.tif",
+      "sha256": "56cb43dfd8b2d76fe13e3033392d6b53bc1341cbc8b4c0b25db1e517671e93e9",
+      "url": "https://rareplanes-public.s3.us-west-2.amazonaws.com/real/train/PAN/106_10400100413CDF00.tif"
+    },
+    {
+      "bytes": 145437358,
+      "etag": "\"de7d0e81cbf8bc09aac6133144e4f722-18\"",
+      "path": "real/train/PAN/125_10400100363EC000.tif",
+      "sha256": "0b23c88e2eff186eb1c925cbf2a7d644bfae45b0b485c8645228d5d7d46ff707",
+      "url": "https://rareplanes-public.s3.us-west-2.amazonaws.com/real/train/PAN/125_10400100363EC000.tif"
+    },
+    {
+      "bytes": 1049320686,
+      "etag": "\"f30b85fe0e3d7fed59a5b781c9ed4916-126\"",
+      "path": "real/train/PAN/23_104001002E8B7900.tif",
+      "sha256": "948a66849643ec48651116bec8111459766aee96c695674ffc4c9c3dd081e1d1",
+      "url": "https://rareplanes-public.s3.us-west-2.amazonaws.com/real/train/PAN/23_104001002E8B7900.tif"
+    },
+    {
+      "bytes": 30692118,
+      "etag": "\"9eeed606992cd0f736c7d7bb77b48016-4\"",
+      "path": "real/train/PAN/30_104001002394E000.tif",
+      "sha256": "c6339a41b6e4569627996f02c3381b4f7e55bd473037cf10607a3d7959432fc0",
+      "url": "https://rareplanes-public.s3.us-west-2.amazonaws.com/real/train/PAN/30_104001002394E000.tif"
+    },
+    {
+      "bytes": 76453012,
+      "etag": "\"a7fc0503e39628c5b54271c5b3f80cff-10\"",
+      "path": "real/train/PAN/45_10400100202A2200.tif",
+      "sha256": "80ce69dbb13e201a338fdd68fd5e79232f9f768bd97e6133a1838b07a8f3c5d5",
+      "url": "https://rareplanes-public.s3.us-west-2.amazonaws.com/real/train/PAN/45_10400100202A2200.tif"
+    },
+    {
+      "bytes": 93861650,
+      "etag": "\"dfb728ded5a5b6fc48126de38a67bc72-12\"",
+      "path": "real/train/PAN/47_104001001D2C7A00.tif",
+      "sha256": "673803c7bc5fc16fbe723ff184d066fc91c994e4bd3699f68f124011648e6c62",
+      "url": "https://rareplanes-public.s3.us-west-2.amazonaws.com/real/train/PAN/47_104001001D2C7A00.tif"
+    },
+    {
+      "bytes": 164708696,
+      "etag": "\"727b4aad4b2fe42999ff085307bf3559-20\"",
+      "path": "real/train/PAN/6_1040010009874E00.tif",
+      "sha256": "57395701418903c276a0561ad5fd45bb5027142d0ab0fc8bfd66f8ab32500f6d",
+      "url": "https://rareplanes-public.s3.us-west-2.amazonaws.com/real/train/PAN/6_1040010009874E00.tif"
+    },
+    {
+      "bytes": 26717542,
+      "etag": "\"bfc4cc8079b350c6358261c1b4729ffb-4\"",
+      "path": "real/train/PAN/94_104001000B823500.tif",
+      "sha256": "328ec70ec0227effb92f25605b64df9bcf42fdd2ab142555a3e70ec543881aa3",
+      "url": "https://rareplanes-public.s3.us-west-2.amazonaws.com/real/train/PAN/94_104001000B823500.tif"
+    },
+    {
+      "bytes": 55238630,
+      "etag": "\"beecbec7a5c8a96af3c1115642eafd0c-7\"",
+      "path": "real/train/PAN/9_1040010008607D00.tif",
+      "sha256": "c567db4c59265825b695c67df984b4293de275ab8ab534d23cb145860f2633e2",
+      "url": "https://rareplanes-public.s3.us-west-2.amazonaws.com/real/train/PAN/9_1040010008607D00.tif"
+    },
+    {
+      "bytes": 360376388,
+      "etag": "\"2460d01c0ab1345a69ec2d986ab8cabd-43\"",
+      "path": "real/train/PS-RGB/100_1040010046CD1500.tif",
+      "sha256": "e5934aebc06336355e0f1eb0b924c4db9a39743bf1cb40e2cda5e329d8adf30d",
+      "url": "https://rareplanes-public.s3.us-west-2.amazonaws.com/real/train/PS-RGB/100_1040010046CD1500.tif"
+    },
+    {
+      "bytes": 184179902,
+      "etag": "\"aed0fb032a26d25a3774e4b0ce02bf8a-22\"",
+      "path": "real/train/PS-RGB/103_104001004890F500.tif",
+      "sha256": "61db15b014f5b2dc44e32bd1c4d250af39c9258577d7960e3e9c5ab69385b27f",
+      "url": "https://rareplanes-public.s3.us-west-2.amazonaws.com/real/train/PS-RGB/103_104001004890F500.tif"
+    },
+    {
+      "bytes": 50531479,
+      "etag": "\"c7d7bd67186ba69f9f6139faab743c65-7\"",
+      "path": "real/train/PS-RGB/105_104001002F92BB00.tif",
+      "sha256": "8337c700fa45605a8c6074b4dfae6d311a7d42644726a35921373cecee6c2f69",
+      "url": "https://rareplanes-public.s3.us-west-2.amazonaws.com/real/train/PS-RGB/105_104001002F92BB00.tif"
+    },
+    {
+      "bytes": 84298742,
+      "etag": "\"4dd5a4af9e55a378540ee00a17ef8f07-11\"",
+      "path": "real/train/PS-RGB/106_10400100413CDF00.tif",
+      "sha256": "10acbd932f18fbf1a2a12cef04f577a4b35781b97f4ad8421ad4711c2a8e4aaa",
+      "url": "https://rareplanes-public.s3.us-west-2.amazonaws.com/real/train/PS-RGB/106_10400100413CDF00.tif"
+    },
+    {
+      "bytes": 218147523,
+      "etag": "\"a746910c2eb22d267acfb45964e22a7c-27\"",
+      "path": "real/train/PS-RGB/125_10400100363EC000.tif",
+      "sha256": "5c0a2c5f4e38637c1ba8ed93ee759070f586d3a0a3bf837f4404cf0bd7aeb514",
+      "url": "https://rareplanes-public.s3.us-west-2.amazonaws.com/real/train/PS-RGB/125_10400100363EC000.tif"
+    },
+    {
+      "bytes": 1573955181,
+      "etag": "\"830a5e60b00ea7edad2399dbc66cd754-188\"",
+      "path": "real/train/PS-RGB/23_104001002E8B7900.tif",
+      "sha256": "9a2164d9717c17fbc8481a4abcf311809cc679dd47ca52fd6c5b89cb532866da",
+      "url": "https://rareplanes-public.s3.us-west-2.amazonaws.com/real/train/PS-RGB/23_104001002E8B7900.tif"
+    },
+    {
+      "bytes": 46034748,
+      "etag": "\"5b7f23f61a7e1ee4e8742cb15cc4b208-6\"",
+      "path": "real/train/PS-RGB/30_104001002394E000.tif",
+      "sha256": "1afb38115b6146679b7a79513b38f3457f8a18a827fd00dafb2c8a0f381d5127",
+      "url": "https://rareplanes-public.s3.us-west-2.amazonaws.com/real/train/PS-RGB/30_104001002394E000.tif"
+    },
+    {
+      "bytes": 114672436,
+      "etag": "\"316fd2f4c10d5b131ae0cd600b301d5c-14\"",
+      "path": "real/train/PS-RGB/45_10400100202A2200.tif",
+      "sha256": "3d6371e6be892e030db2ae32e38860b0872cd98a41e5c0338d0bf4a0a278dd4c",
+      "url": "https://rareplanes-public.s3.us-west-2.amazonaws.com/real/train/PS-RGB/45_10400100202A2200.tif"
+    },
+    {
+      "bytes": 140784870,
+      "etag": "\"d66e4c0542eb849ae517a40431243111-17\"",
+      "path": "real/train/PS-RGB/47_104001001D2C7A00.tif",
+      "sha256": "f071e2671f1b55f85254454f80ee4da69b38eaeeba2a658fe0d75a61592f6b48",
+      "url": "https://rareplanes-public.s3.us-west-2.amazonaws.com/real/train/PS-RGB/47_104001001D2C7A00.tif"
+    },
+    {
+      "bytes": 247055762,
+      "etag": "\"2658c748aa8efdc48bfcc1503bfcf886-30\"",
+      "path": "real/train/PS-RGB/6_1040010009874E00.tif",
+      "sha256": "10dd40e34960c49982b301461f9c501bac8ebee77e3fd961d496fdafa93a39f7",
+      "url": "https://rareplanes-public.s3.us-west-2.amazonaws.com/real/train/PS-RGB/6_1040010009874E00.tif"
+    },
+    {
+      "bytes": 40073010,
+      "etag": "\"9b05af6df58c56372848cf4afacbe1f7-5\"",
+      "path": "real/train/PS-RGB/94_104001000B823500.tif",
+      "sha256": "a3d8c33b1fc1ba32212be7296bba8d47c1165ed51b322dc8277115bc6ff39e9e",
+      "url": "https://rareplanes-public.s3.us-west-2.amazonaws.com/real/train/PS-RGB/94_104001000B823500.tif"
+    },
+    {
+      "bytes": 82854258,
+      "etag": "\"450637e19b43be713d65763204bf712d-10\"",
+      "path": "real/train/PS-RGB/9_1040010008607D00.tif",
+      "sha256": "029efbfee54ead9bdc9d56cfb42a403050eabd37a4c96475b9b91cb8899c1e87",
+      "url": "https://rareplanes-public.s3.us-west-2.amazonaws.com/real/train/PS-RGB/9_1040010008607D00.tif"
+    }
+  ],
+  "band_evidence": {
+    "mapping": "WorldView-3 VNIR: coastal, blue, green, yellow, red, red edge, NIR1, NIR2.",
+    "reviewed_on": "2026-09-09",
+    "rgb16_indices": [
+      5,
+      3,
+      2
+    ],
+    "source_observation": "Metadata CSV sensor WV03 for every selected image_id; recipe verifies eight U16 MS bands and PS-RGB Red, Green, Blue tags. MS spectral names are an explicit inference from documented WV03 band order, scoped to these exact source digests.",
+    "sources": [
+      "https://www.cosmiqworks.org/rareplanes/",
+      "https://pro.arcgis.com/en/pro-app/3.5/help/data/imagery/satellite-sensor-raster-types.htm",
+      "https://csda-maxar-pdfs.s3.amazonaws.com/Radiometric_Use_of_WorldView-3_v1.pdf"
+    ]
+  },
+  "bundles": [
+    {
+      "id": "30_104001002394E000",
+      "location": "Aeroporto di Magadino, Ticino, Switzerland",
+      "metadata": {
+        "Air_Field": "Aeroporto di Magadino",
+        "Country": "Switzerland",
+        "State_Province": "Ticino",
+        "Test": "0",
+        "Train": "1",
+        "Weather": "Clear Skies",
+        "avg_sun_elevation_angle": "32.515224",
+        "cat_id": "1.04E+11",
+        "cloud_cover_percentage": "62",
+        "collection_time_end": "10/21/16 10:44",
+        "collection_time_start": "10/21/16 10:43",
+        "image_id": "30_104001002394E000",
+        "loc_id": "30",
+        "off_nadir_max": "20.460209",
+        "pan_resolution_maximum": "0.347425",
+        "pan_resolution_minimum": "0.345755",
+        "scan_direction": "Forward",
+        "sensor": "WV03",
+        "target_azimuth_maximum": "206.46828"
+      },
+      "ms_dimensions": [
+        1332,
+        720
+      ],
+      "pan_dimensions": [
+        5329,
+        2878
+      ],
+      "split": "train"
+    },
+    {
+      "id": "47_104001001D2C7A00",
+      "location": "Apple Valley Airport, California, USA",
+      "metadata": {
+        "Air_Field": "Apple Valley Airport",
+        "Country": "USA",
+        "State_Province": "California",
+        "Test": "0",
+        "Train": "1",
+        "Weather": "Clear Skies",
+        "avg_sun_elevation_angle": "73.516151",
+        "cat_id": "104001001D2C7A00",
+        "cloud_cover_percentage": "0",
+        "collection_time_end": "6/7/16 18:53",
+        "collection_time_start": "6/7/16 18:53",
+        "image_id": "47_104001001D2C7A00",
+        "loc_id": "47",
+        "off_nadir_max": "24.799374",
+        "pan_resolution_maximum": "0.364969",
+        "pan_resolution_minimum": "0.363626",
+        "scan_direction": "Forward",
+        "sensor": "WV03",
+        "target_azimuth_maximum": "202.535568"
+      },
+      "ms_dimensions": [
+        1663,
+        1763
+      ],
+      "pan_dimensions": [
+        6650,
+        7054
+      ],
+      "split": "train"
+    },
+    {
+      "id": "103_104001004890F500",
+      "location": "Jackson Hole Airport, Wyoming, USA",
+      "metadata": {
+        "Air_Field": "Jackson Hole Airport",
+        "Country": "USA",
+        "State_Province": "Wyoming",
+        "Test": "0",
+        "Train": "1",
+        "Weather": "Snow",
+        "avg_sun_elevation_angle": "37.56202",
+        "cat_id": "104001004890F500",
+        "cloud_cover_percentage": "0",
+        "collection_time_end": "3/1/19 18:39",
+        "collection_time_start": "3/1/19 18:39",
+        "image_id": "103_104001004890F500",
+        "loc_id": "103",
+        "off_nadir_max": "8.619391",
+        "pan_resolution_maximum": "0.315597",
+        "pan_resolution_minimum": "0.315481",
+        "scan_direction": "Forward",
+        "sensor": "WV03",
+        "target_azimuth_maximum": "337.2924"
+      },
+      "ms_dimensions": [
+        1565,
+        2451
+      ],
+      "pan_dimensions": [
+        6260,
+        9803
+      ],
+      "split": "train"
+    },
+    {
+      "id": "9_1040010008607D00",
+      "location": "Aerodromede Toussus-le-Noble, Ile-de-France, France",
+      "metadata": {
+        "Air_Field": "Aerodromede Toussus-le-Noble",
+        "Country": "France",
+        "State_Province": "Ile-de-France",
+        "Test": "0",
+        "Train": "1",
+        "Weather": "Cloud Cover or Haze",
+        "avg_sun_elevation_angle": "33.868473",
+        "cat_id": "1040010008607D00",
+        "cloud_cover_percentage": "6",
+        "collection_time_end": "3/5/15 11:04",
+        "collection_time_start": "3/5/15 11:04",
+        "image_id": "9_1040010008607D00",
+        "loc_id": "9",
+        "off_nadir_max": "28.619303",
+        "pan_resolution_maximum": "0.392829",
+        "pan_resolution_minimum": "0.39064",
+        "scan_direction": "Forward",
+        "sensor": "WV03",
+        "target_azimuth_maximum": "42.061249"
+      },
+      "ms_dimensions": [
+        2201,
+        784
+      ],
+      "pan_dimensions": [
+        8804,
+        3136
+      ],
+      "split": "train"
+    },
+    {
+      "id": "6_1040010009874E00",
+      "location": "Roskilde Airport, Roskilde, Denmark",
+      "metadata": {
+        "Air_Field": "Roskilde Airport",
+        "Country": "Denmark",
+        "State_Province": "Roskilde",
+        "Test": "0",
+        "Train": "1",
+        "Weather": "Cloud Cover or Haze",
+        "avg_sun_elevation_angle": "39.875862",
+        "cat_id": "1.04E+12",
+        "cloud_cover_percentage": "25",
+        "collection_time_end": "4/4/15 10:39",
+        "collection_time_start": "4/4/15 10:38",
+        "image_id": "6_1040010009874E00",
+        "loc_id": "6",
+        "off_nadir_max": "25.4655",
+        "pan_resolution_maximum": "0.371944",
+        "pan_resolution_minimum": "0.360904",
+        "scan_direction": "Forward",
+        "sensor": "WV03",
+        "target_azimuth_maximum": "157.850388"
+      },
+      "ms_dimensions": [
+        3058,
+        1683
+      ],
+      "pan_dimensions": [
+        12232,
+        6731
+      ],
+      "split": "train"
+    },
+    {
+      "id": "23_104001002E8B7900",
+      "location": "Viale di Porto, Lazio, Italy",
+      "metadata": {
+        "Air_Field": "Viale di Porto",
+        "Country": "Italy",
+        "State_Province": "Lazio",
+        "Test": "0",
+        "Train": "1",
+        "Weather": "Clear Skies",
+        "avg_sun_elevation_angle": "69.01081",
+        "cat_id": "104001002E8B7900",
+        "cloud_cover_percentage": "0",
+        "collection_time_end": "7/8/17 10:38",
+        "collection_time_start": "7/8/17 10:38",
+        "image_id": "23_104001002E8B7900",
+        "loc_id": "23",
+        "off_nadir_max": "16.324696",
+        "pan_resolution_maximum": "0.332874",
+        "pan_resolution_minimum": "0.326794",
+        "scan_direction": "Forward",
+        "sensor": "WV03",
+        "target_azimuth_maximum": "74.97182"
+      },
+      "ms_dimensions": [
+        5184,
+        6324
+      ],
+      "pan_dimensions": [
+        20737,
+        25297
+      ],
+      "split": "train"
+    },
+    {
+      "id": "125_10400100363EC000",
+      "location": "Long Island MacArthur Airport, New York, USA",
+      "metadata": {
+        "Air_Field": "Long Island MacArthur Airport",
+        "Country": "USA",
+        "State_Province": "New York",
+        "Test": "0",
+        "Train": "1",
+        "Weather": "Clear Skies",
+        "avg_sun_elevation_angle": "28.036615",
+        "cat_id": "10400100363EC000",
+        "cloud_cover_percentage": "0",
+        "collection_time_end": "11/24/17 15:57",
+        "collection_time_start": "11/24/17 15:57",
+        "image_id": "125_10400100363EC000",
+        "loc_id": "125",
+        "off_nadir_max": "27.81025",
+        "pan_resolution_maximum": "0.384132",
+        "pan_resolution_minimum": "0.379599",
+        "scan_direction": "Forward",
+        "sensor": "WV03",
+        "target_azimuth_maximum": "256.6425"
+      },
+      "ms_dimensions": [
+        2282,
+        1991
+      ],
+      "pan_dimensions": [
+        9129,
+        7963
+      ],
+      "split": "train"
+    },
+    {
+      "id": "94_104001000B823500",
+      "location": "Mansfield Municipal Airport, Massachusetts, USA",
+      "metadata": {
+        "Air_Field": "Mansfield Municipal Airport",
+        "Country": "USA",
+        "State_Province": "Massachusetts",
+        "Test": "0",
+        "Train": "1",
+        "Weather": "Clear Skies",
+        "avg_sun_elevation_angle": "63.523228",
+        "cat_id": "104001000B823500",
+        "cloud_cover_percentage": "0",
+        "collection_time_end": "5/7/15 15:56",
+        "collection_time_start": "5/7/15 15:56",
+        "image_id": "94_104001000B823500",
+        "loc_id": "94",
+        "off_nadir_max": "29.059441",
+        "pan_resolution_maximum": "0.393041",
+        "pan_resolution_minimum": "0.385669",
+        "scan_direction": "Forward",
+        "sensor": "WV03",
+        "target_azimuth_maximum": "60.169853"
+      },
+      "ms_dimensions": [
+        1213,
+        688
+      ],
+      "pan_dimensions": [
+        4851,
+        2752
+      ],
+      "split": "train"
+    },
+    {
+      "id": "100_1040010046CD1500",
+      "location": "Billings Logan International Airport, Montana, USA",
+      "metadata": {
+        "Air_Field": "Billings Logan International Airport",
+        "Country": "USA",
+        "State_Province": "Montana",
+        "Test": "0",
+        "Train": "1",
+        "Weather": "Clear Skies",
+        "avg_sun_elevation_angle": "21.145557",
+        "cat_id": "1040010046CD1500",
+        "cloud_cover_percentage": "0",
+        "collection_time_end": "12/16/18 18:44",
+        "collection_time_start": "12/16/18 18:44",
+        "image_id": "100_1040010046CD1500",
+        "loc_id": "100",
+        "off_nadir_max": "20.87677",
+        "pan_resolution_maximum": "0.349313",
+        "pan_resolution_minimum": "0.341219",
+        "scan_direction": "Forward",
+        "sensor": "WV03",
+        "target_azimuth_maximum": "57.67064"
+      },
+      "ms_dimensions": [
+        4878,
+        1539
+      ],
+      "pan_dimensions": [
+        19514,
+        6155
+      ],
+      "split": "train"
+    },
+    {
+      "id": "106_10400100413CDF00",
+      "location": "Boca Raton Airport, Florida, USA",
+      "metadata": {
+        "Air_Field": "Boca Raton Airport",
+        "Country": "USA",
+        "State_Province": "Florida",
+        "Test": "0",
+        "Train": "1",
+        "Weather": "Clear Skies",
+        "avg_sun_elevation_angle": "70.47449",
+        "cat_id": "10400100413CDF00",
+        "cloud_cover_percentage": "0",
+        "collection_time_end": "8/22/18 16:25",
+        "collection_time_start": "8/22/18 16:24",
+        "image_id": "106_10400100413CDF00",
+        "loc_id": "106",
+        "off_nadir_max": "15.287237",
+        "pan_resolution_maximum": "0.328539",
+        "pan_resolution_minimum": "0.324323",
+        "scan_direction": "Forward",
+        "sensor": "WV03",
+        "target_azimuth_maximum": "208.8404"
+      },
+      "ms_dimensions": [
+        1394,
+        1259
+      ],
+      "pan_dimensions": [
+        5577,
+        5036
+      ],
+      "split": "train"
+    },
+    {
+      "id": "105_104001002F92BB00",
+      "location": "Tok Junction Airport, Alaska, USA",
+      "metadata": {
+        "Air_Field": "Tok Junction Airport",
+        "Country": "USA",
+        "State_Province": "Alaska",
+        "Test": "0",
+        "Train": "1",
+        "Weather": "Clear Skies",
+        "avg_sun_elevation_angle": "47.451363",
+        "cat_id": "104001002F92BB00",
+        "cloud_cover_percentage": "1",
+        "collection_time_end": "7/18/17 21:13",
+        "collection_time_start": "7/18/17 21:13",
+        "image_id": "105_104001002F92BB00",
+        "loc_id": "105",
+        "off_nadir_max": "18.226088",
+        "pan_resolution_maximum": "0.341562",
+        "pan_resolution_minimum": "0.336423",
+        "scan_direction": "Forward",
+        "sensor": "WV03",
+        "target_azimuth_maximum": "324.51483"
+      },
+      "ms_dimensions": [
+        2663,
+        395
+      ],
+      "pan_dimensions": [
+        10651,
+        1581
+      ],
+      "split": "train"
+    },
+    {
+      "id": "45_10400100202A2200",
+      "location": "Manassas Regional Airport, Virginia, USA",
+      "metadata": {
+        "Air_Field": "Manassas Regional Airport",
+        "Country": "USA",
+        "State_Province": "Virginia",
+        "Test": "0",
+        "Train": "1",
+        "Weather": "Clear Skies",
+        "avg_sun_elevation_angle": "61.116737",
+        "cat_id": "10400100202A2200",
+        "cloud_cover_percentage": "4",
+        "collection_time_end": "8/24/16 16:35",
+        "collection_time_start": "8/24/16 16:35",
+        "image_id": "45_10400100202A2200",
+        "loc_id": "45",
+        "off_nadir_max": "27.280035",
+        "pan_resolution_maximum": "0.381447",
+        "pan_resolution_minimum": "0.368962",
+        "scan_direction": "Forward",
+        "sensor": "WV03",
+        "target_azimuth_maximum": "124.300888"
+      },
+      "ms_dimensions": [
+        1462,
+        1633
+      ],
+      "pan_dimensions": [
+        5850,
+        6531
+      ],
+      "split": "train"
+    }
+  ],
+  "retrieved_on": "2026-09-09",
+  "schema_version": 1,
+  "selection": {
+    "path": "recipes/rareplanes-expanded-v1.selection.json",
+    "sha256": "51b655c49bf6ba1aa49308e2706a3e216d625b69c452d5924b875b4d9bb8fe60"
+  }
+}
