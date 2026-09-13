@@ -1,0 +1,1042 @@
+{
+  "assets": [
+    {
+      "bytes": 10140000,
+      "id": "RGB-PanSharpen_AOI_2_Vegas_img1454",
+      "image": {
+        "components": 3,
+        "height": 1300,
+        "precision": 16,
+        "signed": false,
+        "width": 1300
+      },
+      "role": "development",
+      "sha256": "cb15ff7fcc3626a5eba4ec585e1504dd3ed6f58b81afcdf0a824875f2e3c3958",
+      "statistics": [
+        {
+          "invalid_count": 0,
+          "maximum": 1520,
+          "minimum": 0,
+          "nodata": null,
+          "nodata_count": 0,
+          "samples": 1690000,
+          "source_band": 1,
+          "storage_maximum_count": 0,
+          "valid_count": 1690000,
+          "zero_count": 165033
+        },
+        {
+          "invalid_count": 0,
+          "maximum": 1909,
+          "minimum": 0,
+          "nodata": null,
+          "nodata_count": 0,
+          "samples": 1690000,
+          "source_band": 2,
+          "storage_maximum_count": 0,
+          "valid_count": 1690000,
+          "zero_count": 165033
+        },
+        {
+          "invalid_count": 0,
+          "maximum": 1339,
+          "minimum": 0,
+          "nodata": null,
+          "nodata_count": 0,
+          "samples": 1690000,
+          "source_band": 3,
+          "storage_maximum_count": 0,
+          "valid_count": 1690000,
+          "zero_count": 165033
+        }
+      ],
+      "validity": {
+        "bytes": 5070000,
+        "layout": "packed pixel-interleaved uint8; three bands; 0 invalid, 1 valid",
+        "path": "RGB-PanSharpen_AOI_2_Vegas_img1454.valid.u8",
+        "policy": "Per source band: GDAL mask nonzero AND sample unequal to declared nodata; no annotation mask.",
+        "sha256": "bd65079f1fb5341fe04091011500e1b0b624756363bfb1b3353e9e39db496daf"
+      }
+    },
+    {
+      "bytes": 10140000,
+      "id": "RGB-PanSharpen_AOI_2_Vegas_img230",
+      "image": {
+        "components": 3,
+        "height": 1300,
+        "precision": 16,
+        "signed": false,
+        "width": 1300
+      },
+      "role": "development",
+      "sha256": "7630c13271796617cc716d11695b1e791d14afbaf587c48bf3b8d6f8b1b5534a",
+      "statistics": [
+        {
+          "invalid_count": 0,
+          "maximum": 1541,
+          "minimum": 1,
+          "nodata": null,
+          "nodata_count": 0,
+          "samples": 1690000,
+          "source_band": 1,
+          "storage_maximum_count": 0,
+          "valid_count": 1690000,
+          "zero_count": 0
+        },
+        {
+          "invalid_count": 0,
+          "maximum": 1827,
+          "minimum": 109,
+          "nodata": null,
+          "nodata_count": 0,
+          "samples": 1690000,
+          "source_band": 2,
+          "storage_maximum_count": 0,
+          "valid_count": 1690000,
+          "zero_count": 0
+        },
+        {
+          "invalid_count": 0,
+          "maximum": 1190,
+          "minimum": 139,
+          "nodata": null,
+          "nodata_count": 0,
+          "samples": 1690000,
+          "source_band": 3,
+          "storage_maximum_count": 0,
+          "valid_count": 1690000,
+          "zero_count": 0
+        }
+      ],
+      "validity": {
+        "bytes": 5070000,
+        "layout": "packed pixel-interleaved uint8; three bands; 0 invalid, 1 valid",
+        "path": "RGB-PanSharpen_AOI_2_Vegas_img230.valid.u8",
+        "policy": "Per source band: GDAL mask nonzero AND sample unequal to declared nodata; no annotation mask.",
+        "sha256": "bd65079f1fb5341fe04091011500e1b0b624756363bfb1b3353e9e39db496daf"
+      }
+    },
+    {
+      "bytes": 10140000,
+      "id": "RGB-PanSharpen_AOI_2_Vegas_img699",
+      "image": {
+        "components": 3,
+        "height": 1300,
+        "precision": 16,
+        "signed": false,
+        "width": 1300
+      },
+      "role": "development",
+      "sha256": "97735f61ab0b0fb403b5b86cd554750aad581c7092264800d987047e78feb0bb",
+      "statistics": [
+        {
+          "invalid_count": 0,
+          "maximum": 1571,
+          "minimum": 1,
+          "nodata": null,
+          "nodata_count": 0,
+          "samples": 1690000,
+          "source_band": 1,
+          "storage_maximum_count": 0,
+          "valid_count": 1690000,
+          "zero_count": 0
+        },
+        {
+          "invalid_count": 0,
+          "maximum": 1892,
+          "minimum": 76,
+          "nodata": null,
+          "nodata_count": 0,
+          "samples": 1690000,
+          "source_band": 2,
+          "storage_maximum_count": 0,
+          "valid_count": 1690000,
+          "zero_count": 0
+        },
+        {
+          "invalid_count": 0,
+          "maximum": 1340,
+          "minimum": 101,
+          "nodata": null,
+          "nodata_count": 0,
+          "samples": 1690000,
+          "source_band": 3,
+          "storage_maximum_count": 0,
+          "valid_count": 1690000,
+          "zero_count": 0
+        }
+      ],
+      "validity": {
+        "bytes": 5070000,
+        "layout": "packed pixel-interleaved uint8; three bands; 0 invalid, 1 valid",
+        "path": "RGB-PanSharpen_AOI_2_Vegas_img699.valid.u8",
+        "policy": "Per source band: GDAL mask nonzero AND sample unequal to declared nodata; no annotation mask.",
+        "sha256": "bd65079f1fb5341fe04091011500e1b0b624756363bfb1b3353e9e39db496daf"
+      }
+    },
+    {
+      "bytes": 10140000,
+      "id": "RGB-PanSharpen_AOI_2_Vegas_img794",
+      "image": {
+        "components": 3,
+        "height": 1300,
+        "precision": 16,
+        "signed": false,
+        "width": 1300
+      },
+      "role": "development",
+      "sha256": "db2be7b856d8717a4b3005c8969c8d3558d2d6a2fbd266f5df80e7a7d37fff17",
+      "statistics": [
+        {
+          "invalid_count": 0,
+          "maximum": 1514,
+          "minimum": 1,
+          "nodata": null,
+          "nodata_count": 0,
+          "samples": 1690000,
+          "source_band": 1,
+          "storage_maximum_count": 0,
+          "valid_count": 1690000,
+          "zero_count": 0
+        },
+        {
+          "invalid_count": 0,
+          "maximum": 1907,
+          "minimum": 128,
+          "nodata": null,
+          "nodata_count": 0,
+          "samples": 1690000,
+          "source_band": 2,
+          "storage_maximum_count": 0,
+          "valid_count": 1690000,
+          "zero_count": 0
+        },
+        {
+          "invalid_count": 0,
+          "maximum": 1425,
+          "minimum": 157,
+          "nodata": null,
+          "nodata_count": 0,
+          "samples": 1690000,
+          "source_band": 3,
+          "storage_maximum_count": 0,
+          "valid_count": 1690000,
+          "zero_count": 0
+        }
+      ],
+      "validity": {
+        "bytes": 5070000,
+        "layout": "packed pixel-interleaved uint8; three bands; 0 invalid, 1 valid",
+        "path": "RGB-PanSharpen_AOI_2_Vegas_img794.valid.u8",
+        "policy": "Per source band: GDAL mask nonzero AND sample unequal to declared nodata; no annotation mask.",
+        "sha256": "bd65079f1fb5341fe04091011500e1b0b624756363bfb1b3353e9e39db496daf"
+      }
+    },
+    {
+      "bytes": 10140000,
+      "id": "RGB-PanSharpen_AOI_3_Paris_img235",
+      "image": {
+        "components": 3,
+        "height": 1300,
+        "precision": 16,
+        "signed": false,
+        "width": 1300
+      },
+      "role": "development",
+      "sha256": "e2226c2af50a04b990f8e9ef8841852ad9b31444a88e7ab5a995515405c118c1",
+      "statistics": [
+        {
+          "invalid_count": 0,
+          "maximum": 374,
+          "minimum": 82,
+          "nodata": null,
+          "nodata_count": 0,
+          "samples": 1690000,
+          "source_band": 1,
+          "storage_maximum_count": 0,
+          "valid_count": 1690000,
+          "zero_count": 0
+        },
+        {
+          "invalid_count": 0,
+          "maximum": 398,
+          "minimum": 186,
+          "nodata": null,
+          "nodata_count": 0,
+          "samples": 1690000,
+          "source_band": 2,
+          "storage_maximum_count": 0,
+          "valid_count": 1690000,
+          "zero_count": 0
+        },
+        {
+          "invalid_count": 0,
+          "maximum": 324,
+          "minimum": 202,
+          "nodata": null,
+          "nodata_count": 0,
+          "samples": 1690000,
+          "source_band": 3,
+          "storage_maximum_count": 0,
+          "valid_count": 1690000,
+          "zero_count": 0
+        }
+      ],
+      "validity": {
+        "bytes": 5070000,
+        "layout": "packed pixel-interleaved uint8; three bands; 0 invalid, 1 valid",
+        "path": "RGB-PanSharpen_AOI_3_Paris_img235.valid.u8",
+        "policy": "Per source band: GDAL mask nonzero AND sample unequal to declared nodata; no annotation mask.",
+        "sha256": "bd65079f1fb5341fe04091011500e1b0b624756363bfb1b3353e9e39db496daf"
+      }
+    },
+    {
+      "bytes": 10140000,
+      "id": "RGB-PanSharpen_AOI_3_Paris_img340",
+      "image": {
+        "components": 3,
+        "height": 1300,
+        "precision": 16,
+        "signed": false,
+        "width": 1300
+      },
+      "role": "development",
+      "sha256": "3a2d3eb7298562aa0694a65e13d361764bda6c4c43dbff9092775514a1566be2",
+      "statistics": [
+        {
+          "invalid_count": 0,
+          "maximum": 1741,
+          "minimum": 8,
+          "nodata": null,
+          "nodata_count": 0,
+          "samples": 1690000,
+          "source_band": 1,
+          "storage_maximum_count": 0,
+          "valid_count": 1690000,
+          "zero_count": 0
+        },
+        {
+          "invalid_count": 0,
+          "maximum": 1507,
+          "minimum": 130,
+          "nodata": null,
+          "nodata_count": 0,
+          "samples": 1690000,
+          "source_band": 2,
+          "storage_maximum_count": 0,
+          "valid_count": 1690000,
+          "zero_count": 0
+        },
+        {
+          "invalid_count": 0,
+          "maximum": 982,
+          "minimum": 159,
+          "nodata": null,
+          "nodata_count": 0,
+          "samples": 1690000,
+          "source_band": 3,
+          "storage_maximum_count": 0,
+          "valid_count": 1690000,
+          "zero_count": 0
+        }
+      ],
+      "validity": {
+        "bytes": 5070000,
+        "layout": "packed pixel-interleaved uint8; three bands; 0 invalid, 1 valid",
+        "path": "RGB-PanSharpen_AOI_3_Paris_img340.valid.u8",
+        "policy": "Per source band: GDAL mask nonzero AND sample unequal to declared nodata; no annotation mask.",
+        "sha256": "bd65079f1fb5341fe04091011500e1b0b624756363bfb1b3353e9e39db496daf"
+      }
+    },
+    {
+      "bytes": 10140000,
+      "id": "RGB-PanSharpen_AOI_3_Paris_img432",
+      "image": {
+        "components": 3,
+        "height": 1300,
+        "precision": 16,
+        "signed": false,
+        "width": 1300
+      },
+      "role": "development",
+      "sha256": "bae1515d43fd1df9704f0cc7d139f537fe868d78e2745ab29e0c383504b74efb",
+      "statistics": [
+        {
+          "invalid_count": 0,
+          "maximum": 1777,
+          "minimum": 9,
+          "nodata": null,
+          "nodata_count": 0,
+          "samples": 1690000,
+          "source_band": 1,
+          "storage_maximum_count": 0,
+          "valid_count": 1690000,
+          "zero_count": 0
+        },
+        {
+          "invalid_count": 0,
+          "maximum": 1552,
+          "minimum": 128,
+          "nodata": null,
+          "nodata_count": 0,
+          "samples": 1690000,
+          "source_band": 2,
+          "storage_maximum_count": 0,
+          "valid_count": 1690000,
+          "zero_count": 0
+        },
+        {
+          "invalid_count": 0,
+          "maximum": 1010,
+          "minimum": 172,
+          "nodata": null,
+          "nodata_count": 0,
+          "samples": 1690000,
+          "source_band": 3,
+          "storage_maximum_count": 0,
+          "valid_count": 1690000,
+          "zero_count": 0
+        }
+      ],
+      "validity": {
+        "bytes": 5070000,
+        "layout": "packed pixel-interleaved uint8; three bands; 0 invalid, 1 valid",
+        "path": "RGB-PanSharpen_AOI_3_Paris_img432.valid.u8",
+        "policy": "Per source band: GDAL mask nonzero AND sample unequal to declared nodata; no annotation mask.",
+        "sha256": "bd65079f1fb5341fe04091011500e1b0b624756363bfb1b3353e9e39db496daf"
+      }
+    },
+    {
+      "bytes": 10140000,
+      "id": "RGB-PanSharpen_AOI_3_Paris_img84",
+      "image": {
+        "components": 3,
+        "height": 1300,
+        "precision": 16,
+        "signed": false,
+        "width": 1300
+      },
+      "role": "development",
+      "sha256": "e426838970ef3dc16b456080abe67b4590f24fd326db91322c72c531ab5be8ca",
+      "statistics": [
+        {
+          "invalid_count": 0,
+          "maximum": 1702,
+          "minimum": 0,
+          "nodata": null,
+          "nodata_count": 0,
+          "samples": 1690000,
+          "source_band": 1,
+          "storage_maximum_count": 0,
+          "valid_count": 1690000,
+          "zero_count": 1217686
+        },
+        {
+          "invalid_count": 0,
+          "maximum": 1466,
+          "minimum": 0,
+          "nodata": null,
+          "nodata_count": 0,
+          "samples": 1690000,
+          "source_band": 2,
+          "storage_maximum_count": 0,
+          "valid_count": 1690000,
+          "zero_count": 1217686
+        },
+        {
+          "invalid_count": 0,
+          "maximum": 965,
+          "minimum": 0,
+          "nodata": null,
+          "nodata_count": 0,
+          "samples": 1690000,
+          "source_band": 3,
+          "storage_maximum_count": 0,
+          "valid_count": 1690000,
+          "zero_count": 1217686
+        }
+      ],
+      "validity": {
+        "bytes": 5070000,
+        "layout": "packed pixel-interleaved uint8; three bands; 0 invalid, 1 valid",
+        "path": "RGB-PanSharpen_AOI_3_Paris_img84.valid.u8",
+        "policy": "Per source band: GDAL mask nonzero AND sample unequal to declared nodata; no annotation mask.",
+        "sha256": "bd65079f1fb5341fe04091011500e1b0b624756363bfb1b3353e9e39db496daf"
+      }
+    },
+    {
+      "bytes": 10140000,
+      "id": "RGB-PanSharpen_AOI_4_Shanghai_img1196",
+      "image": {
+        "components": 3,
+        "height": 1300,
+        "precision": 16,
+        "signed": false,
+        "width": 1300
+      },
+      "role": "development",
+      "sha256": "187c7c14fc889c581629b0aae213cb48e6359dc1907d4063ce4cac21e4d62e27",
+      "statistics": [
+        {
+          "invalid_count": 0,
+          "maximum": 1328,
+          "minimum": 1,
+          "nodata": null,
+          "nodata_count": 0,
+          "samples": 1690000,
+          "source_band": 1,
+          "storage_maximum_count": 0,
+          "valid_count": 1690000,
+          "zero_count": 0
+        },
+        {
+          "invalid_count": 0,
+          "maximum": 1512,
+          "minimum": 124,
+          "nodata": null,
+          "nodata_count": 0,
+          "samples": 1690000,
+          "source_band": 2,
+          "storage_maximum_count": 0,
+          "valid_count": 1690000,
+          "zero_count": 0
+        },
+        {
+          "invalid_count": 0,
+          "maximum": 1090,
+          "minimum": 118,
+          "nodata": null,
+          "nodata_count": 0,
+          "samples": 1690000,
+          "source_band": 3,
+          "storage_maximum_count": 0,
+          "valid_count": 1690000,
+          "zero_count": 0
+        }
+      ],
+      "validity": {
+        "bytes": 5070000,
+        "layout": "packed pixel-interleaved uint8; three bands; 0 invalid, 1 valid",
+        "path": "RGB-PanSharpen_AOI_4_Shanghai_img1196.valid.u8",
+        "policy": "Per source band: GDAL mask nonzero AND sample unequal to declared nodata; no annotation mask.",
+        "sha256": "bd65079f1fb5341fe04091011500e1b0b624756363bfb1b3353e9e39db496daf"
+      }
+    },
+    {
+      "bytes": 10140000,
+      "id": "RGB-PanSharpen_AOI_4_Shanghai_img1700",
+      "image": {
+        "components": 3,
+        "height": 1300,
+        "precision": 16,
+        "signed": false,
+        "width": 1300
+      },
+      "role": "development",
+      "sha256": "6f9e8a6627ab8406ea1c2cf19aa145fc3afd5b3bd47137eff2f987566b9caaa4",
+      "statistics": [
+        {
+          "invalid_count": 0,
+          "maximum": 966,
+          "minimum": 61,
+          "nodata": null,
+          "nodata_count": 0,
+          "samples": 1690000,
+          "source_band": 1,
+          "storage_maximum_count": 0,
+          "valid_count": 1690000,
+          "zero_count": 0
+        },
+        {
+          "invalid_count": 0,
+          "maximum": 1152,
+          "minimum": 209,
+          "nodata": null,
+          "nodata_count": 0,
+          "samples": 1690000,
+          "source_band": 2,
+          "storage_maximum_count": 0,
+          "valid_count": 1690000,
+          "zero_count": 0
+        },
+        {
+          "invalid_count": 0,
+          "maximum": 855,
+          "minimum": 189,
+          "nodata": null,
+          "nodata_count": 0,
+          "samples": 1690000,
+          "source_band": 3,
+          "storage_maximum_count": 0,
+          "valid_count": 1690000,
+          "zero_count": 0
+        }
+      ],
+      "validity": {
+        "bytes": 5070000,
+        "layout": "packed pixel-interleaved uint8; three bands; 0 invalid, 1 valid",
+        "path": "RGB-PanSharpen_AOI_4_Shanghai_img1700.valid.u8",
+        "policy": "Per source band: GDAL mask nonzero AND sample unequal to declared nodata; no annotation mask.",
+        "sha256": "bd65079f1fb5341fe04091011500e1b0b624756363bfb1b3353e9e39db496daf"
+      }
+    },
+    {
+      "bytes": 10140000,
+      "id": "RGB-PanSharpen_AOI_4_Shanghai_img1890",
+      "image": {
+        "components": 3,
+        "height": 1300,
+        "precision": 16,
+        "signed": false,
+        "width": 1300
+      },
+      "role": "development",
+      "sha256": "42f8dc373110000beefc43d85410772dac3933cbc85ba111c32a6f70d55b8497",
+      "statistics": [
+        {
+          "invalid_count": 0,
+          "maximum": 504,
+          "minimum": 0,
+          "nodata": null,
+          "nodata_count": 0,
+          "samples": 1690000,
+          "source_band": 1,
+          "storage_maximum_count": 0,
+          "valid_count": 1690000,
+          "zero_count": 1422885
+        },
+        {
+          "invalid_count": 0,
+          "maximum": 650,
+          "minimum": 0,
+          "nodata": null,
+          "nodata_count": 0,
+          "samples": 1690000,
+          "source_band": 2,
+          "storage_maximum_count": 0,
+          "valid_count": 1690000,
+          "zero_count": 1422885
+        },
+        {
+          "invalid_count": 0,
+          "maximum": 503,
+          "minimum": 0,
+          "nodata": null,
+          "nodata_count": 0,
+          "samples": 1690000,
+          "source_band": 3,
+          "storage_maximum_count": 0,
+          "valid_count": 1690000,
+          "zero_count": 1422885
+        }
+      ],
+      "validity": {
+        "bytes": 5070000,
+        "layout": "packed pixel-interleaved uint8; three bands; 0 invalid, 1 valid",
+        "path": "RGB-PanSharpen_AOI_4_Shanghai_img1890.valid.u8",
+        "policy": "Per source band: GDAL mask nonzero AND sample unequal to declared nodata; no annotation mask.",
+        "sha256": "bd65079f1fb5341fe04091011500e1b0b624756363bfb1b3353e9e39db496daf"
+      }
+    },
+    {
+      "bytes": 10140000,
+      "id": "RGB-PanSharpen_AOI_4_Shanghai_img308",
+      "image": {
+        "components": 3,
+        "height": 1300,
+        "precision": 16,
+        "signed": false,
+        "width": 1300
+      },
+      "role": "development",
+      "sha256": "f19b14c95608ee112bcc34743ae9b6ab80494d9715f6c4adf9a485bac7a5a748",
+      "statistics": [
+        {
+          "invalid_count": 0,
+          "maximum": 1352,
+          "minimum": 37,
+          "nodata": null,
+          "nodata_count": 0,
+          "samples": 1690000,
+          "source_band": 1,
+          "storage_maximum_count": 0,
+          "valid_count": 1690000,
+          "zero_count": 0
+        },
+        {
+          "invalid_count": 0,
+          "maximum": 1520,
+          "minimum": 153,
+          "nodata": null,
+          "nodata_count": 0,
+          "samples": 1690000,
+          "source_band": 2,
+          "storage_maximum_count": 0,
+          "valid_count": 1690000,
+          "zero_count": 0
+        },
+        {
+          "invalid_count": 0,
+          "maximum": 1060,
+          "minimum": 147,
+          "nodata": null,
+          "nodata_count": 0,
+          "samples": 1690000,
+          "source_band": 3,
+          "storage_maximum_count": 0,
+          "valid_count": 1690000,
+          "zero_count": 0
+        }
+      ],
+      "validity": {
+        "bytes": 5070000,
+        "layout": "packed pixel-interleaved uint8; three bands; 0 invalid, 1 valid",
+        "path": "RGB-PanSharpen_AOI_4_Shanghai_img308.valid.u8",
+        "policy": "Per source band: GDAL mask nonzero AND sample unequal to declared nodata; no annotation mask.",
+        "sha256": "bd65079f1fb5341fe04091011500e1b0b624756363bfb1b3353e9e39db496daf"
+      }
+    },
+    {
+      "bytes": 10140000,
+      "id": "RGB-PanSharpen_AOI_5_Khartoum_img157",
+      "image": {
+        "components": 3,
+        "height": 1300,
+        "precision": 16,
+        "signed": false,
+        "width": 1300
+      },
+      "role": "reserved",
+      "sha256": "d245d3d5c72305f014e56f196eab18a30cdf49d693679fe9fc7c8da4b8b9070d",
+      "statistics": [
+        {
+          "invalid_count": 0,
+          "maximum": 1073,
+          "minimum": 0,
+          "nodata": null,
+          "nodata_count": 0,
+          "samples": 1690000,
+          "source_band": 1,
+          "storage_maximum_count": 0,
+          "valid_count": 1690000,
+          "zero_count": 1567049
+        },
+        {
+          "invalid_count": 0,
+          "maximum": 1039,
+          "minimum": 0,
+          "nodata": null,
+          "nodata_count": 0,
+          "samples": 1690000,
+          "source_band": 2,
+          "storage_maximum_count": 0,
+          "valid_count": 1690000,
+          "zero_count": 1567049
+        },
+        {
+          "invalid_count": 0,
+          "maximum": 677,
+          "minimum": 0,
+          "nodata": null,
+          "nodata_count": 0,
+          "samples": 1690000,
+          "source_band": 3,
+          "storage_maximum_count": 0,
+          "valid_count": 1690000,
+          "zero_count": 1567049
+        }
+      ],
+      "validity": {
+        "bytes": 5070000,
+        "layout": "packed pixel-interleaved uint8; three bands; 0 invalid, 1 valid",
+        "path": "RGB-PanSharpen_AOI_5_Khartoum_img157.valid.u8",
+        "policy": "Per source band: GDAL mask nonzero AND sample unequal to declared nodata; no annotation mask.",
+        "sha256": "bd65079f1fb5341fe04091011500e1b0b624756363bfb1b3353e9e39db496daf"
+      }
+    },
+    {
+      "bytes": 10140000,
+      "id": "RGB-PanSharpen_AOI_5_Khartoum_img304",
+      "image": {
+        "components": 3,
+        "height": 1300,
+        "precision": 16,
+        "signed": false,
+        "width": 1300
+      },
+      "role": "reserved",
+      "sha256": "d82ca23dd548c697d44d3299abe82ecd842fe0aad9d9d2c987bf329f56858207",
+      "statistics": [
+        {
+          "invalid_count": 0,
+          "maximum": 1584,
+          "minimum": 1,
+          "nodata": null,
+          "nodata_count": 0,
+          "samples": 1690000,
+          "source_band": 1,
+          "storage_maximum_count": 0,
+          "valid_count": 1690000,
+          "zero_count": 0
+        },
+        {
+          "invalid_count": 0,
+          "maximum": 1427,
+          "minimum": 171,
+          "nodata": null,
+          "nodata_count": 0,
+          "samples": 1690000,
+          "source_band": 2,
+          "storage_maximum_count": 0,
+          "valid_count": 1690000,
+          "zero_count": 0
+        },
+        {
+          "invalid_count": 0,
+          "maximum": 896,
+          "minimum": 169,
+          "nodata": null,
+          "nodata_count": 0,
+          "samples": 1690000,
+          "source_band": 3,
+          "storage_maximum_count": 0,
+          "valid_count": 1690000,
+          "zero_count": 0
+        }
+      ],
+      "validity": {
+        "bytes": 5070000,
+        "layout": "packed pixel-interleaved uint8; three bands; 0 invalid, 1 valid",
+        "path": "RGB-PanSharpen_AOI_5_Khartoum_img304.valid.u8",
+        "policy": "Per source band: GDAL mask nonzero AND sample unequal to declared nodata; no annotation mask.",
+        "sha256": "bd65079f1fb5341fe04091011500e1b0b624756363bfb1b3353e9e39db496daf"
+      }
+    },
+    {
+      "bytes": 10140000,
+      "id": "RGB-PanSharpen_AOI_5_Khartoum_img410",
+      "image": {
+        "components": 3,
+        "height": 1300,
+        "precision": 16,
+        "signed": false,
+        "width": 1300
+      },
+      "role": "reserved",
+      "sha256": "13aa14bb8d53feed3af68610ae27713cae26864ece8841f3aba230fd4f235790",
+      "statistics": [
+        {
+          "invalid_count": 0,
+          "maximum": 1150,
+          "minimum": 0,
+          "nodata": null,
+          "nodata_count": 0,
+          "samples": 1690000,
+          "source_band": 1,
+          "storage_maximum_count": 0,
+          "valid_count": 1690000,
+          "zero_count": 331345
+        },
+        {
+          "invalid_count": 0,
+          "maximum": 1177,
+          "minimum": 0,
+          "nodata": null,
+          "nodata_count": 0,
+          "samples": 1690000,
+          "source_band": 2,
+          "storage_maximum_count": 0,
+          "valid_count": 1690000,
+          "zero_count": 331345
+        },
+        {
+          "invalid_count": 0,
+          "maximum": 785,
+          "minimum": 0,
+          "nodata": null,
+          "nodata_count": 0,
+          "samples": 1690000,
+          "source_band": 3,
+          "storage_maximum_count": 0,
+          "valid_count": 1690000,
+          "zero_count": 331345
+        }
+      ],
+      "validity": {
+        "bytes": 5070000,
+        "layout": "packed pixel-interleaved uint8; three bands; 0 invalid, 1 valid",
+        "path": "RGB-PanSharpen_AOI_5_Khartoum_img410.valid.u8",
+        "policy": "Per source band: GDAL mask nonzero AND sample unequal to declared nodata; no annotation mask.",
+        "sha256": "bd65079f1fb5341fe04091011500e1b0b624756363bfb1b3353e9e39db496daf"
+      }
+    },
+    {
+      "bytes": 10140000,
+      "id": "RGB-PanSharpen_AOI_5_Khartoum_img74",
+      "image": {
+        "components": 3,
+        "height": 1300,
+        "precision": 16,
+        "signed": false,
+        "width": 1300
+      },
+      "role": "reserved",
+      "sha256": "709170dda215d904f44715f61450ac92799041a488a198bd9e2eec45a853486c",
+      "statistics": [
+        {
+          "invalid_count": 0,
+          "maximum": 715,
+          "minimum": 274,
+          "nodata": null,
+          "nodata_count": 0,
+          "samples": 1690000,
+          "source_band": 1,
+          "storage_maximum_count": 0,
+          "valid_count": 1690000,
+          "zero_count": 0
+        },
+        {
+          "invalid_count": 0,
+          "maximum": 747,
+          "minimum": 440,
+          "nodata": null,
+          "nodata_count": 0,
+          "samples": 1690000,
+          "source_band": 2,
+          "storage_maximum_count": 0,
+          "valid_count": 1690000,
+          "zero_count": 0
+        },
+        {
+          "invalid_count": 0,
+          "maximum": 500,
+          "minimum": 309,
+          "nodata": null,
+          "nodata_count": 0,
+          "samples": 1690000,
+          "source_band": 3,
+          "storage_maximum_count": 0,
+          "valid_count": 1690000,
+          "zero_count": 0
+        }
+      ],
+      "validity": {
+        "bytes": 5070000,
+        "layout": "packed pixel-interleaved uint8; three bands; 0 invalid, 1 valid",
+        "path": "RGB-PanSharpen_AOI_5_Khartoum_img74.valid.u8",
+        "policy": "Per source band: GDAL mask nonzero AND sample unequal to declared nodata; no annotation mask.",
+        "sha256": "bd65079f1fb5341fe04091011500e1b0b624756363bfb1b3353e9e39db496daf"
+      }
+    }
+  ],
+  "canonical_checks": {
+    "outcome": "All nine recorded canonical commands passed; catalogue check and external source-tree verification also passed separately.",
+    "path": "artifacts/spacenet-psrgb16-v1/evidence/testdata-canonical-checks.json",
+    "revision": "e21611faaa1c435adc03468d6393e087fd3c2157",
+    "sha256": "446b827be40db470e4d055d5c41eda3dff4abfbf5bca8d44987ba2a937ade31f"
+  },
+  "full_source_disposition": {
+    "combined_original_tiff_bytes": 121765689001,
+    "products": [
+      {
+        "acquisition_catalogue_id": "10400100137F4900",
+        "aoi": "AOI_2_Vegas",
+        "complete_original_tiff_bytes": 17903233221,
+        "complete_original_tiff_count": 51,
+        "complete_product_dimensions": [
+          57374,
+          52915
+        ],
+        "complete_rectangular_rgb16_bytes": 18215671260,
+        "disposition": "excluded_from_this_chip_campaign: complete product exceeds both download and persistent-store budgets",
+        "full_source_imagery_acquired": false
+      },
+      {
+        "acquisition_catalogue_id": "1040010018805C00",
+        "aoi": "AOI_3_Paris",
+        "complete_original_tiff_bytes": 103862455780,
+        "complete_original_tiff_count": 290,
+        "complete_product_dimensions": [
+          74875,
+          232699
+        ],
+        "complete_rectangular_rgb16_bytes": 104540025750,
+        "disposition": "excluded_from_this_chip_campaign: complete product exceeds both download and persistent-store budgets",
+        "full_source_imagery_acquired": false
+      }
+    ],
+    "scope": "Metadata-only investigation; complete products exceed frozen chip acquisition/store budgets; no one-tile/crop substitution or full-source imagery acquisition."
+  },
+  "pack_id": "common/spacenet-psrgb16",
+  "preparation_provenance": {
+    "catalogue_revision": "e21611faaa1c435adc03468d6393e087fd3c2157",
+    "recipe": {
+      "path": "recipes/spacenet-psrgb16-v1.py",
+      "sha256": "ec77ba58fd9d1e7eb9f051267c261c030dd8595b43a028c604291485b82d7816"
+    },
+    "selection_sha256": "ccfe10e81c1cbc202bf1f89325b16151b2bfe56e98220436e47ab00c1e460e72",
+    "shared_helpers": {
+      "path": "recipes/rareplanes-calibration-v1.py",
+      "sha256": "b5987ce12c7446d233652c6a5c2f31f93db51dee5d200264662ce9519f1755a8"
+    },
+    "source_lock_sha256": "94828583ae386b84b74015b633fd576a05742a3a3fb18c19f309f779ea7eb0ec",
+    "tools": {
+      "gdal": "3.13.0",
+      "numpy": "2.5.1",
+      "python": "3.14.4"
+    }
+  },
+  "prepared": {
+    "bytes": 85229,
+    "path": "artifacts/spacenet-psrgb16-v1/prepared-candidate/prepared.json",
+    "sha256": "209eb97c250f108c4ff0aff9a226db6dc6e4ecd68b10bc074e844b60b89e406e"
+  },
+  "raw_bytes": 162240000,
+  "sample_comparison": "all stored samples and source-derived per-band validity, independently reopened source and outputs",
+  "schema_version": 1,
+  "source_inspection": {
+    "evidence": [
+      {
+        "bytes": 7919,
+        "path": "artifacts/spacenet-psrgb16-v1/evidence/source-value-inspection.json",
+        "sha256": "48333528790e8036ebf2395aa0eb3bdcb8319d86c8331b60877f4ecf2b0341eb"
+      },
+      {
+        "bytes": 77182,
+        "path": "artifacts/spacenet-psrgb16-v1/evidence/lineage-overlap.json",
+        "sha256": "145e2a462b7f895542fe6a9703eab0faf3520b19800c97cc800900f250182c44"
+      },
+      {
+        "bytes": 54567,
+        "path": "artifacts/spacenet-psrgb16-v1/evidence/full-source-disposition.json",
+        "sha256": "c9ca3faf20ad12cfaa967d0a3fe9e9fd67a0be6cd22d22ee7f7fa95e832fbc2a"
+      },
+      {
+        "bytes": 2441,
+        "path": "artifacts/spacenet-psrgb16-v1/evidence/source-rights-review.json",
+        "sha256": "b8be9b6ae1f3c9f521dbab08e6794a71f328f59535bf290ad6656d8a79a98359"
+      },
+      {
+        "bytes": 2206309,
+        "path": "artifacts/spacenet-psrgb16-v1/evidence/source-contact-sheet.png",
+        "sha256": "60cfd342f04d3fb8cfda6ef13a5fa8ccab2d122043b639cf2f9f22e56e13b50e"
+      }
+    ],
+    "observations": [
+      "All selected sources declare no nodata and all-valid GDAL masks; observed zero-valued black triangular/edge areas remain valid. No inferred coverage or annotation mask is introduced.",
+      "Source-only contact-sheet review observed structures, roads, vegetation, shadows, contrast and edges across the four city groups. Paris img235 has a textured/striped/noisy appearance; retain authentic supplied source and source-quality uncertainty without exclusion.",
+      "Sixteen selected chip footprints and hashes are mutually disjoint/distinct and do not match the 42 checked RarePlanes source records. City catalogue association and containment do not establish exact per-chip parent tile or sample lineage.",
+      "The complete Paris parent envelope intersects RarePlanes 9_1040010008607D00; selected Paris chips do not. Different collection IDs do not remove the regional-overlap caveat.",
+      "Khartoum is a whole geographic reserve; source validation and untimed exactness may expose it, with no lossy or performance measurement. This is not a proved independent holdout."
+    ],
+    "proj_warning": "Existing host PROJ database lookup warnings occurred; embedded CRS WKT remains retained. No reprojection or geodetic-accuracy claim is made."
+  },
+  "source_tree_sha256": "93f16da720f748f2f2c99d1573507234bfd284ccf1f91c9d1837105be7e4df75",
+  "validity_bytes": 81120000,
+  "verification": {
+    "bytes": 162,
+    "path": "artifacts/spacenet-psrgb16-v1/evidence/preparation-candidate-verification.json",
+    "sha256": "a798a3739ee58d366e078e4c8d17dbb1c228404fe353d3de4451841fa74137aa"
+  },
+  "version": "1"
+}

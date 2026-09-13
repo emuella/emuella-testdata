@@ -100,3 +100,33 @@ block boundaries. `verify` repeats source locks and every sample/mask comparison
 No RarePlanes preparation code changes. Provenance records exact recipe/helper,
 selection/source-lock hashes, committed catalogue revision and tool versions.
 These are source-exactness checks, not codec or performance evidence.
+
+## Preparation and source coverage evidence
+
+[The factual evidence record](spacenet-psrgb16-v1.evidence.json) binds the exact
+committed preparation candidate, all raw and validity hashes, complete statistics
+and independently reopened comparison result. The sixteen raw arrays total
+162,240,000 bytes and validity arrays total 81,120,000 bytes; observed stored
+values range from 0 to 1909. No sample reaches the UInt16 storage maximum.
+
+Source-only contact-sheet inspection found structures, roads, vegetation,
+shadows, contrast and edges across city groups. Some delivered chips have black
+triangular or edge regions despite declaring all-valid masks and no nodata.
+These zeros remain valid: source validity metadata does not prove usable visual
+coverage. Paris `img235` has a textured/striped/noisy appearance; its authentic
+source and quality uncertainty remain in the fixed selection.
+
+Source hashes and selected chip footprints are distinct; the selected footprints
+do not overlap each other or the 42 checked RarePlanes source records. All chips
+lie within their published city collection envelopes. These observations do not
+supply unknown per-chip parent mappings. The complete Paris parent envelope does
+intersect RarePlanes `9_1040010008607D00` despite differing catalogue IDs; the
+selected chips do not. Keep this regional-overlap caveat when grouping future
+full-source work. The evidence record retains the exact local evidence identities.
+
+Metadata-only investigation enumerated complete Vegas (51 original TIFFs,
+17,903,233,221 bytes) and Paris (290 TIFFs, 103,862,455,780 bytes) products. Both
+exceed the frozen chip acquisition and persistent-store budgets. No full-source
+imagery was acquired and no single-tile or crop substitute admitted. The detailed
+XML/VRT/listing and object-key inventory stay in the approved source store; their
+hashes and bounded disposition are recorded with testdata evidence.
