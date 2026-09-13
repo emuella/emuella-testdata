@@ -1,0 +1,129 @@
+schema_version = 1
+pack_id = "common/spacenet-psrgb16"
+pack_version = "1"
+
+[[assets]]
+path = "LICENSE.md"
+bytes = 299
+sha256 = "ebeaa5a46058cce9e893f42d601e1155bae27aa538f2854c79c626e297356c35"
+media_type = "text/markdown"
+semantics = "Unchanged separately supplied bucket CC BY-SA 4.0 notice; covers selected SN3 paths."
+
+[[assets]]
+path = "SN3_roads_sample.tar.gz"
+bytes = 764157199
+sha256 = "e30f7192ed8f37227fefde12cd3431ed14e4a174a056b983d00632ed42a5f26d"
+media_type = "application/gzip"
+semantics = "Unchanged complete official SN3 sample archive; selected member extraction is separately inventoried."
+
+[[assets]]
+path = "SpaceNet_Roads_Sample/AOI_2_Vegas_Roads_Sample/RGB-PanSharpen/RGB-PanSharpen_AOI_2_Vegas_img1454.tif"
+bytes = 10150778
+sha256 = "b27c92ee627a76bda16f66d9b93e4170c5b40eb2bb2f7d32b795d6ccf4a5a513"
+media_type = "image/tiff"
+semantics = "Unchanged complete original supplier-pansharpened native UInt16 RGB GeoTIFF chip; retain source georeferencing and integer values."
+
+[[assets]]
+path = "SpaceNet_Roads_Sample/AOI_2_Vegas_Roads_Sample/RGB-PanSharpen/RGB-PanSharpen_AOI_2_Vegas_img230.tif"
+bytes = 10150778
+sha256 = "157cdaca4e02ad64ee6f39b69c871e376037406f65e86a08712fd234a662936a"
+media_type = "image/tiff"
+semantics = "Unchanged complete original supplier-pansharpened native UInt16 RGB GeoTIFF chip; retain source georeferencing and integer values."
+
+[[assets]]
+path = "SpaceNet_Roads_Sample/AOI_2_Vegas_Roads_Sample/RGB-PanSharpen/RGB-PanSharpen_AOI_2_Vegas_img699.tif"
+bytes = 10150778
+sha256 = "0a3012fcd7fbd47f53f0069e47a9f0e56889ade71f41ae076ef699c675c40f1f"
+media_type = "image/tiff"
+semantics = "Unchanged complete original supplier-pansharpened native UInt16 RGB GeoTIFF chip; retain source georeferencing and integer values."
+
+[[assets]]
+path = "SpaceNet_Roads_Sample/AOI_2_Vegas_Roads_Sample/RGB-PanSharpen/RGB-PanSharpen_AOI_2_Vegas_img794.tif"
+bytes = 10150778
+sha256 = "c9d5934233077426a761b9151f5c467a7a7ff9767f2aea8769d9fcc8d537cd1d"
+media_type = "image/tiff"
+semantics = "Unchanged complete original supplier-pansharpened native UInt16 RGB GeoTIFF chip; retain source georeferencing and integer values."
+
+[[assets]]
+path = "SpaceNet_Roads_Sample/AOI_3_Paris_Roads_Sample/RGB-PanSharpen/RGB-PanSharpen_AOI_3_Paris_img235.tif"
+bytes = 10150778
+sha256 = "79d3fb2b2d8163e8dcf7103a41b7df1567a4aae1712e82e4ddf2202588ccbe4f"
+media_type = "image/tiff"
+semantics = "Unchanged complete original supplier-pansharpened native UInt16 RGB GeoTIFF chip; retain source georeferencing and integer values."
+
+[[assets]]
+path = "SpaceNet_Roads_Sample/AOI_3_Paris_Roads_Sample/RGB-PanSharpen/RGB-PanSharpen_AOI_3_Paris_img340.tif"
+bytes = 10150778
+sha256 = "4901068e3b71425f3a7262bd13829451f059f88922f5a4539d18f49df57f4335"
+media_type = "image/tiff"
+semantics = "Unchanged complete original supplier-pansharpened native UInt16 RGB GeoTIFF chip; retain source georeferencing and integer values."
+
+[[assets]]
+path = "SpaceNet_Roads_Sample/AOI_3_Paris_Roads_Sample/RGB-PanSharpen/RGB-PanSharpen_AOI_3_Paris_img432.tif"
+bytes = 10150778
+sha256 = "24369a1bffef48900c556c7fccc2ce05b0169825d21a967e58f68d54d911d549"
+media_type = "image/tiff"
+semantics = "Unchanged complete original supplier-pansharpened native UInt16 RGB GeoTIFF chip; retain source georeferencing and integer values."
+
+[[assets]]
+path = "SpaceNet_Roads_Sample/AOI_3_Paris_Roads_Sample/RGB-PanSharpen/RGB-PanSharpen_AOI_3_Paris_img84.tif"
+bytes = 10150778
+sha256 = "5e9930d0c8106d5a657d128a268829207e0cfa48445d9242afea8eaab8f59a92"
+media_type = "image/tiff"
+semantics = "Unchanged complete original supplier-pansharpened native UInt16 RGB GeoTIFF chip; retain source georeferencing and integer values."
+
+[[assets]]
+path = "SpaceNet_Roads_Sample/AOI_4_Shanghai_Roads_Sample/RGB-PanSharpen/RGB-PanSharpen_AOI_4_Shanghai_img1196.tif"
+bytes = 10150778
+sha256 = "3dc18f82587c01a0ac845a5cd98c9064f7b7a75fb44b1b12c48b94a57f918464"
+media_type = "image/tiff"
+semantics = "Unchanged complete original supplier-pansharpened native UInt16 RGB GeoTIFF chip; retain source georeferencing and integer values."
+
+[[assets]]
+path = "SpaceNet_Roads_Sample/AOI_4_Shanghai_Roads_Sample/RGB-PanSharpen/RGB-PanSharpen_AOI_4_Shanghai_img1700.tif"
+bytes = 10150778
+sha256 = "a4431c1c2db543302b437e7af13ad8aeda06c5f40862719131ff2ab51f4b136b"
+media_type = "image/tiff"
+semantics = "Unchanged complete original supplier-pansharpened native UInt16 RGB GeoTIFF chip; retain source georeferencing and integer values."
+
+[[assets]]
+path = "SpaceNet_Roads_Sample/AOI_4_Shanghai_Roads_Sample/RGB-PanSharpen/RGB-PanSharpen_AOI_4_Shanghai_img1890.tif"
+bytes = 10150778
+sha256 = "bdc2fc0805b142e12d3b3398b3dec02034bf7d781983b9c919e7766bff2ff2f5"
+media_type = "image/tiff"
+semantics = "Unchanged complete original supplier-pansharpened native UInt16 RGB GeoTIFF chip; retain source georeferencing and integer values."
+
+[[assets]]
+path = "SpaceNet_Roads_Sample/AOI_4_Shanghai_Roads_Sample/RGB-PanSharpen/RGB-PanSharpen_AOI_4_Shanghai_img308.tif"
+bytes = 10150778
+sha256 = "91d96d8ff2588ec637f2fec5023d63fe951363501bd870e8f38f6534b5b4df79"
+media_type = "image/tiff"
+semantics = "Unchanged complete original supplier-pansharpened native UInt16 RGB GeoTIFF chip; retain source georeferencing and integer values."
+
+[[assets]]
+path = "SpaceNet_Roads_Sample/AOI_5_Khartoum_Roads_Sample/RGB-PanSharpen/RGB-PanSharpen_AOI_5_Khartoum_img157.tif"
+bytes = 10150778
+sha256 = "fae6ed378747659b1360f244852ca03c19e59854196f9875d6cab13f1fa05d62"
+media_type = "image/tiff"
+semantics = "Unchanged complete original supplier-pansharpened native UInt16 RGB GeoTIFF chip; retain source georeferencing and integer values."
+
+[[assets]]
+path = "SpaceNet_Roads_Sample/AOI_5_Khartoum_Roads_Sample/RGB-PanSharpen/RGB-PanSharpen_AOI_5_Khartoum_img304.tif"
+bytes = 10150778
+sha256 = "d6fea1718cbe958c79046909d5f46ad8c6cadacc3d70fdb9cf9a44a671acf16e"
+media_type = "image/tiff"
+semantics = "Unchanged complete original supplier-pansharpened native UInt16 RGB GeoTIFF chip; retain source georeferencing and integer values."
+
+[[assets]]
+path = "SpaceNet_Roads_Sample/AOI_5_Khartoum_Roads_Sample/RGB-PanSharpen/RGB-PanSharpen_AOI_5_Khartoum_img410.tif"
+bytes = 10150778
+sha256 = "e0caf19cce59d6ed3061abcc6c3ab4fc32dca999d83110665eb1aba6ef66fbcd"
+media_type = "image/tiff"
+semantics = "Unchanged complete original supplier-pansharpened native UInt16 RGB GeoTIFF chip; retain source georeferencing and integer values."
+
+[[assets]]
+path = "SpaceNet_Roads_Sample/AOI_5_Khartoum_Roads_Sample/RGB-PanSharpen/RGB-PanSharpen_AOI_5_Khartoum_img74.tif"
+bytes = 10150778
+sha256 = "844f372173cbf846c30dca7853cd859a4dd8376ff1d2e1982cc09809af5981b1"
+media_type = "image/tiff"
+semantics = "Unchanged complete original supplier-pansharpened native UInt16 RGB GeoTIFF chip; retain source georeferencing and integer values."

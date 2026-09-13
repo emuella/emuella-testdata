@@ -1,0 +1,1633 @@
+{
+  "archive_inventory": {
+    "decompressed_bytes": 1691632905,
+    "embedded_notices_found": false,
+    "members": 237,
+    "sha256": "aa216f9bd351920e8a61553aba0037ce8f8f25f069b880f8a6f334e5bcf26330"
+  },
+  "archive_sha256": "e30f7192ed8f37227fefde12cd3431ed14e4a174a056b983d00632ed42a5f26d",
+  "archive_url": "https://spacenet-dataset.s3.amazonaws.com/spacenet/SN3_roads/tarballs/SN3_roads_sample.tar.gz",
+  "assets": [
+    {
+      "bytes": 299,
+      "path": "LICENSE.md",
+      "sha256": "ebeaa5a46058cce9e893f42d601e1155bae27aa538f2854c79c626e297356c35"
+    },
+    {
+      "bytes": 764157199,
+      "path": "SN3_roads_sample.tar.gz",
+      "sha256": "e30f7192ed8f37227fefde12cd3431ed14e4a174a056b983d00632ed42a5f26d"
+    },
+    {
+      "bytes": 10150778,
+      "path": "SpaceNet_Roads_Sample/AOI_2_Vegas_Roads_Sample/RGB-PanSharpen/RGB-PanSharpen_AOI_2_Vegas_img1454.tif",
+      "sha256": "b27c92ee627a76bda16f66d9b93e4170c5b40eb2bb2f7d32b795d6ccf4a5a513"
+    },
+    {
+      "bytes": 10150778,
+      "path": "SpaceNet_Roads_Sample/AOI_2_Vegas_Roads_Sample/RGB-PanSharpen/RGB-PanSharpen_AOI_2_Vegas_img230.tif",
+      "sha256": "157cdaca4e02ad64ee6f39b69c871e376037406f65e86a08712fd234a662936a"
+    },
+    {
+      "bytes": 10150778,
+      "path": "SpaceNet_Roads_Sample/AOI_2_Vegas_Roads_Sample/RGB-PanSharpen/RGB-PanSharpen_AOI_2_Vegas_img699.tif",
+      "sha256": "0a3012fcd7fbd47f53f0069e47a9f0e56889ade71f41ae076ef699c675c40f1f"
+    },
+    {
+      "bytes": 10150778,
+      "path": "SpaceNet_Roads_Sample/AOI_2_Vegas_Roads_Sample/RGB-PanSharpen/RGB-PanSharpen_AOI_2_Vegas_img794.tif",
+      "sha256": "c9d5934233077426a761b9151f5c467a7a7ff9767f2aea8769d9fcc8d537cd1d"
+    },
+    {
+      "bytes": 10150778,
+      "path": "SpaceNet_Roads_Sample/AOI_3_Paris_Roads_Sample/RGB-PanSharpen/RGB-PanSharpen_AOI_3_Paris_img235.tif",
+      "sha256": "79d3fb2b2d8163e8dcf7103a41b7df1567a4aae1712e82e4ddf2202588ccbe4f"
+    },
+    {
+      "bytes": 10150778,
+      "path": "SpaceNet_Roads_Sample/AOI_3_Paris_Roads_Sample/RGB-PanSharpen/RGB-PanSharpen_AOI_3_Paris_img340.tif",
+      "sha256": "4901068e3b71425f3a7262bd13829451f059f88922f5a4539d18f49df57f4335"
+    },
+    {
+      "bytes": 10150778,
+      "path": "SpaceNet_Roads_Sample/AOI_3_Paris_Roads_Sample/RGB-PanSharpen/RGB-PanSharpen_AOI_3_Paris_img432.tif",
+      "sha256": "24369a1bffef48900c556c7fccc2ce05b0169825d21a967e58f68d54d911d549"
+    },
+    {
+      "bytes": 10150778,
+      "path": "SpaceNet_Roads_Sample/AOI_3_Paris_Roads_Sample/RGB-PanSharpen/RGB-PanSharpen_AOI_3_Paris_img84.tif",
+      "sha256": "5e9930d0c8106d5a657d128a268829207e0cfa48445d9242afea8eaab8f59a92"
+    },
+    {
+      "bytes": 10150778,
+      "path": "SpaceNet_Roads_Sample/AOI_4_Shanghai_Roads_Sample/RGB-PanSharpen/RGB-PanSharpen_AOI_4_Shanghai_img1196.tif",
+      "sha256": "3dc18f82587c01a0ac845a5cd98c9064f7b7a75fb44b1b12c48b94a57f918464"
+    },
+    {
+      "bytes": 10150778,
+      "path": "SpaceNet_Roads_Sample/AOI_4_Shanghai_Roads_Sample/RGB-PanSharpen/RGB-PanSharpen_AOI_4_Shanghai_img1700.tif",
+      "sha256": "a4431c1c2db543302b437e7af13ad8aeda06c5f40862719131ff2ab51f4b136b"
+    },
+    {
+      "bytes": 10150778,
+      "path": "SpaceNet_Roads_Sample/AOI_4_Shanghai_Roads_Sample/RGB-PanSharpen/RGB-PanSharpen_AOI_4_Shanghai_img1890.tif",
+      "sha256": "bdc2fc0805b142e12d3b3398b3dec02034bf7d781983b9c919e7766bff2ff2f5"
+    },
+    {
+      "bytes": 10150778,
+      "path": "SpaceNet_Roads_Sample/AOI_4_Shanghai_Roads_Sample/RGB-PanSharpen/RGB-PanSharpen_AOI_4_Shanghai_img308.tif",
+      "sha256": "91d96d8ff2588ec637f2fec5023d63fe951363501bd870e8f38f6534b5b4df79"
+    },
+    {
+      "bytes": 10150778,
+      "path": "SpaceNet_Roads_Sample/AOI_5_Khartoum_Roads_Sample/RGB-PanSharpen/RGB-PanSharpen_AOI_5_Khartoum_img157.tif",
+      "sha256": "fae6ed378747659b1360f244852ca03c19e59854196f9875d6cab13f1fa05d62"
+    },
+    {
+      "bytes": 10150778,
+      "path": "SpaceNet_Roads_Sample/AOI_5_Khartoum_Roads_Sample/RGB-PanSharpen/RGB-PanSharpen_AOI_5_Khartoum_img304.tif",
+      "sha256": "d6fea1718cbe958c79046909d5f46ad8c6cadacc3d70fdb9cf9a44a671acf16e"
+    },
+    {
+      "bytes": 10150778,
+      "path": "SpaceNet_Roads_Sample/AOI_5_Khartoum_Roads_Sample/RGB-PanSharpen/RGB-PanSharpen_AOI_5_Khartoum_img410.tif",
+      "sha256": "e0caf19cce59d6ed3061abcc6c3ab4fc32dca999d83110665eb1aba6ef66fbcd"
+    },
+    {
+      "bytes": 10150778,
+      "path": "SpaceNet_Roads_Sample/AOI_5_Khartoum_Roads_Sample/RGB-PanSharpen/RGB-PanSharpen_AOI_5_Khartoum_img74.tif",
+      "sha256": "844f372173cbf846c30dca7853cd859a4dd8376ff1d2e1982cc09809af5981b1"
+    }
+  ],
+  "attribution": "SpaceNet Dataset; SpaceNet Partners; DigitalGlobe imagery; Van Etten, Lindenbaum and Bacastow (2018), SpaceNet: A Remote Sensing Dataset and Challenge Series.",
+  "eligible_members": {
+    "AOI_2_Vegas": [
+      "SpaceNet_Roads_Sample/AOI_2_Vegas_Roads_Sample/RGB-PanSharpen/RGB-PanSharpen_AOI_2_Vegas_img1454.tif",
+      "SpaceNet_Roads_Sample/AOI_2_Vegas_Roads_Sample/RGB-PanSharpen/RGB-PanSharpen_AOI_2_Vegas_img1521.tif",
+      "SpaceNet_Roads_Sample/AOI_2_Vegas_Roads_Sample/RGB-PanSharpen/RGB-PanSharpen_AOI_2_Vegas_img1539.tif",
+      "SpaceNet_Roads_Sample/AOI_2_Vegas_Roads_Sample/RGB-PanSharpen/RGB-PanSharpen_AOI_2_Vegas_img230.tif",
+      "SpaceNet_Roads_Sample/AOI_2_Vegas_Roads_Sample/RGB-PanSharpen/RGB-PanSharpen_AOI_2_Vegas_img408.tif",
+      "SpaceNet_Roads_Sample/AOI_2_Vegas_Roads_Sample/RGB-PanSharpen/RGB-PanSharpen_AOI_2_Vegas_img517.tif",
+      "SpaceNet_Roads_Sample/AOI_2_Vegas_Roads_Sample/RGB-PanSharpen/RGB-PanSharpen_AOI_2_Vegas_img699.tif",
+      "SpaceNet_Roads_Sample/AOI_2_Vegas_Roads_Sample/RGB-PanSharpen/RGB-PanSharpen_AOI_2_Vegas_img734.tif",
+      "SpaceNet_Roads_Sample/AOI_2_Vegas_Roads_Sample/RGB-PanSharpen/RGB-PanSharpen_AOI_2_Vegas_img767.tif",
+      "SpaceNet_Roads_Sample/AOI_2_Vegas_Roads_Sample/RGB-PanSharpen/RGB-PanSharpen_AOI_2_Vegas_img794.tif"
+    ],
+    "AOI_3_Paris": [
+      "SpaceNet_Roads_Sample/AOI_3_Paris_Roads_Sample/RGB-PanSharpen/RGB-PanSharpen_AOI_3_Paris_img235.tif",
+      "SpaceNet_Roads_Sample/AOI_3_Paris_Roads_Sample/RGB-PanSharpen/RGB-PanSharpen_AOI_3_Paris_img28.tif",
+      "SpaceNet_Roads_Sample/AOI_3_Paris_Roads_Sample/RGB-PanSharpen/RGB-PanSharpen_AOI_3_Paris_img307.tif",
+      "SpaceNet_Roads_Sample/AOI_3_Paris_Roads_Sample/RGB-PanSharpen/RGB-PanSharpen_AOI_3_Paris_img340.tif",
+      "SpaceNet_Roads_Sample/AOI_3_Paris_Roads_Sample/RGB-PanSharpen/RGB-PanSharpen_AOI_3_Paris_img38.tif",
+      "SpaceNet_Roads_Sample/AOI_3_Paris_Roads_Sample/RGB-PanSharpen/RGB-PanSharpen_AOI_3_Paris_img406.tif",
+      "SpaceNet_Roads_Sample/AOI_3_Paris_Roads_Sample/RGB-PanSharpen/RGB-PanSharpen_AOI_3_Paris_img432.tif",
+      "SpaceNet_Roads_Sample/AOI_3_Paris_Roads_Sample/RGB-PanSharpen/RGB-PanSharpen_AOI_3_Paris_img489.tif",
+      "SpaceNet_Roads_Sample/AOI_3_Paris_Roads_Sample/RGB-PanSharpen/RGB-PanSharpen_AOI_3_Paris_img496.tif",
+      "SpaceNet_Roads_Sample/AOI_3_Paris_Roads_Sample/RGB-PanSharpen/RGB-PanSharpen_AOI_3_Paris_img84.tif"
+    ],
+    "AOI_4_Shanghai": [
+      "SpaceNet_Roads_Sample/AOI_4_Shanghai_Roads_Sample/RGB-PanSharpen/RGB-PanSharpen_AOI_4_Shanghai_img1196.tif",
+      "SpaceNet_Roads_Sample/AOI_4_Shanghai_Roads_Sample/RGB-PanSharpen/RGB-PanSharpen_AOI_4_Shanghai_img1227.tif",
+      "SpaceNet_Roads_Sample/AOI_4_Shanghai_Roads_Sample/RGB-PanSharpen/RGB-PanSharpen_AOI_4_Shanghai_img144.tif",
+      "SpaceNet_Roads_Sample/AOI_4_Shanghai_Roads_Sample/RGB-PanSharpen/RGB-PanSharpen_AOI_4_Shanghai_img1700.tif",
+      "SpaceNet_Roads_Sample/AOI_4_Shanghai_Roads_Sample/RGB-PanSharpen/RGB-PanSharpen_AOI_4_Shanghai_img1841.tif",
+      "SpaceNet_Roads_Sample/AOI_4_Shanghai_Roads_Sample/RGB-PanSharpen/RGB-PanSharpen_AOI_4_Shanghai_img1887.tif",
+      "SpaceNet_Roads_Sample/AOI_4_Shanghai_Roads_Sample/RGB-PanSharpen/RGB-PanSharpen_AOI_4_Shanghai_img1890.tif",
+      "SpaceNet_Roads_Sample/AOI_4_Shanghai_Roads_Sample/RGB-PanSharpen/RGB-PanSharpen_AOI_4_Shanghai_img1916.tif",
+      "SpaceNet_Roads_Sample/AOI_4_Shanghai_Roads_Sample/RGB-PanSharpen/RGB-PanSharpen_AOI_4_Shanghai_img1920.tif",
+      "SpaceNet_Roads_Sample/AOI_4_Shanghai_Roads_Sample/RGB-PanSharpen/RGB-PanSharpen_AOI_4_Shanghai_img308.tif"
+    ],
+    "AOI_5_Khartoum": [
+      "SpaceNet_Roads_Sample/AOI_5_Khartoum_Roads_Sample/RGB-PanSharpen/RGB-PanSharpen_AOI_5_Khartoum_img157.tif",
+      "SpaceNet_Roads_Sample/AOI_5_Khartoum_Roads_Sample/RGB-PanSharpen/RGB-PanSharpen_AOI_5_Khartoum_img194.tif",
+      "SpaceNet_Roads_Sample/AOI_5_Khartoum_Roads_Sample/RGB-PanSharpen/RGB-PanSharpen_AOI_5_Khartoum_img220.tif",
+      "SpaceNet_Roads_Sample/AOI_5_Khartoum_Roads_Sample/RGB-PanSharpen/RGB-PanSharpen_AOI_5_Khartoum_img304.tif",
+      "SpaceNet_Roads_Sample/AOI_5_Khartoum_Roads_Sample/RGB-PanSharpen/RGB-PanSharpen_AOI_5_Khartoum_img333.tif",
+      "SpaceNet_Roads_Sample/AOI_5_Khartoum_Roads_Sample/RGB-PanSharpen/RGB-PanSharpen_AOI_5_Khartoum_img4.tif",
+      "SpaceNet_Roads_Sample/AOI_5_Khartoum_Roads_Sample/RGB-PanSharpen/RGB-PanSharpen_AOI_5_Khartoum_img410.tif",
+      "SpaceNet_Roads_Sample/AOI_5_Khartoum_Roads_Sample/RGB-PanSharpen/RGB-PanSharpen_AOI_5_Khartoum_img468.tif",
+      "SpaceNet_Roads_Sample/AOI_5_Khartoum_Roads_Sample/RGB-PanSharpen/RGB-PanSharpen_AOI_5_Khartoum_img66.tif",
+      "SpaceNet_Roads_Sample/AOI_5_Khartoum_Roads_Sample/RGB-PanSharpen/RGB-PanSharpen_AOI_5_Khartoum_img74.tif"
+    ]
+  },
+  "members": [
+    {
+      "aoi": "AOI_2_Vegas",
+      "bytes": 10150778,
+      "lineage": {
+        "collection": "SpaceNet SN3 roads sample",
+        "geographic_group": "AOI_2_Vegas",
+        "holdout_claim": false,
+        "parent_tile": "unknown; no exact per-chip parent mapping established",
+        "published_aoi_catalogue_id": "10400100137F4900",
+        "related_releases": [
+          "SpaceNet SN2",
+          "SpaceNet SN3"
+        ],
+        "upstream_split": "sample; train/test membership unknown"
+      },
+      "member": "SpaceNet_Roads_Sample/AOI_2_Vegas_Roads_Sample/RGB-PanSharpen/RGB-PanSharpen_AOI_2_Vegas_img1454.tif",
+      "rank": 0,
+      "role": "development",
+      "sha256": "b27c92ee627a76bda16f66d9b93e4170c5b40eb2bb2f7d32b795d6ccf4a5a513",
+      "source_metadata": {
+        "bands": [
+          {
+            "colour": "Red",
+            "description": "",
+            "image_structure": {},
+            "index": 1,
+            "mask_flags": 1,
+            "metadata": {},
+            "nodata": null,
+            "offset": null,
+            "scale": null,
+            "stored_type": "UInt16"
+          },
+          {
+            "colour": "Green",
+            "description": "",
+            "image_structure": {},
+            "index": 2,
+            "mask_flags": 1,
+            "metadata": {},
+            "nodata": null,
+            "offset": null,
+            "scale": null,
+            "stored_type": "UInt16"
+          },
+          {
+            "colour": "Blue",
+            "description": "",
+            "image_structure": {},
+            "index": 3,
+            "mask_flags": 1,
+            "metadata": {},
+            "nodata": null,
+            "offset": null,
+            "scale": null,
+            "stored_type": "UInt16"
+          }
+        ],
+        "crs_wkt": "GEOGCS[\"WGS 84\",DATUM[\"World Geodetic System 1984\",SPHEROID[\"WGS 84\",6378137,298.257223563]],PRIMEM[\"Greenwich\",0],UNIT[\"degree\",0.0174532925199433,AUTHORITY[\"EPSG\",\"9122\"]],AXIS[\"Latitude\",NORTH],AXIS[\"Longitude\",EAST]]",
+        "declared_sensor_precision_bits": null,
+        "geotransform": [
+          -115.1671176,
+          2.699999999993434e-06,
+          0.0,
+          36.1247876997,
+          0.0,
+          -2.6999999999988997e-06
+        ],
+        "height": 1300,
+        "image_structure": {
+          "INTERLEAVE": "PIXEL"
+        },
+        "metadata": {
+          "AREA_OR_POINT": "Area"
+        },
+        "pixel_basis_vectors_crs_units": [
+          [
+            2.699999999993434e-06,
+            0.0
+          ],
+          [
+            0.0,
+            -2.6999999999988997e-06
+          ]
+        ],
+        "scale_offset_policy": "Retained as metadata, never applied to stored integer samples.",
+        "sensor_precision_note": "Not declared by the selected TIFF; UInt16 storage and observed values do not establish sensor precision.",
+        "width": 1300
+      }
+    },
+    {
+      "aoi": "AOI_2_Vegas",
+      "bytes": 10150778,
+      "lineage": {
+        "collection": "SpaceNet SN3 roads sample",
+        "geographic_group": "AOI_2_Vegas",
+        "holdout_claim": false,
+        "parent_tile": "unknown; no exact per-chip parent mapping established",
+        "published_aoi_catalogue_id": "10400100137F4900",
+        "related_releases": [
+          "SpaceNet SN2",
+          "SpaceNet SN3"
+        ],
+        "upstream_split": "sample; train/test membership unknown"
+      },
+      "member": "SpaceNet_Roads_Sample/AOI_2_Vegas_Roads_Sample/RGB-PanSharpen/RGB-PanSharpen_AOI_2_Vegas_img230.tif",
+      "rank": 3,
+      "role": "development",
+      "sha256": "157cdaca4e02ad64ee6f39b69c871e376037406f65e86a08712fd234a662936a",
+      "source_metadata": {
+        "bands": [
+          {
+            "colour": "Red",
+            "description": "",
+            "image_structure": {},
+            "index": 1,
+            "mask_flags": 1,
+            "metadata": {},
+            "nodata": null,
+            "offset": null,
+            "scale": null,
+            "stored_type": "UInt16"
+          },
+          {
+            "colour": "Green",
+            "description": "",
+            "image_structure": {},
+            "index": 2,
+            "mask_flags": 1,
+            "metadata": {},
+            "nodata": null,
+            "offset": null,
+            "scale": null,
+            "stored_type": "UInt16"
+          },
+          {
+            "colour": "Blue",
+            "description": "",
+            "image_structure": {},
+            "index": 3,
+            "mask_flags": 1,
+            "metadata": {},
+            "nodata": null,
+            "offset": null,
+            "scale": null,
+            "stored_type": "UInt16"
+          }
+        ],
+        "crs_wkt": "GEOGCS[\"WGS 84\",DATUM[\"World Geodetic System 1984\",SPHEROID[\"WGS 84\",6378137,298.257223563]],PRIMEM[\"Greenwich\",0],UNIT[\"degree\",0.0174532925199433,AUTHORITY[\"EPSG\",\"9122\"]],AXIS[\"Latitude\",NORTH],AXIS[\"Longitude\",EAST]]",
+        "declared_sensor_precision_bits": null,
+        "geotransform": [
+          -115.2829476,
+          2.7000000000043656e-06,
+          0.0,
+          36.1704176998,
+          0.0,
+          -2.6999999999988997e-06
+        ],
+        "height": 1300,
+        "image_structure": {
+          "INTERLEAVE": "PIXEL"
+        },
+        "metadata": {
+          "AREA_OR_POINT": "Area"
+        },
+        "pixel_basis_vectors_crs_units": [
+          [
+            2.7000000000043656e-06,
+            0.0
+          ],
+          [
+            0.0,
+            -2.6999999999988997e-06
+          ]
+        ],
+        "scale_offset_policy": "Retained as metadata, never applied to stored integer samples.",
+        "sensor_precision_note": "Not declared by the selected TIFF; UInt16 storage and observed values do not establish sensor precision.",
+        "width": 1300
+      }
+    },
+    {
+      "aoi": "AOI_2_Vegas",
+      "bytes": 10150778,
+      "lineage": {
+        "collection": "SpaceNet SN3 roads sample",
+        "geographic_group": "AOI_2_Vegas",
+        "holdout_claim": false,
+        "parent_tile": "unknown; no exact per-chip parent mapping established",
+        "published_aoi_catalogue_id": "10400100137F4900",
+        "related_releases": [
+          "SpaceNet SN2",
+          "SpaceNet SN3"
+        ],
+        "upstream_split": "sample; train/test membership unknown"
+      },
+      "member": "SpaceNet_Roads_Sample/AOI_2_Vegas_Roads_Sample/RGB-PanSharpen/RGB-PanSharpen_AOI_2_Vegas_img699.tif",
+      "rank": 6,
+      "role": "development",
+      "sha256": "0a3012fcd7fbd47f53f0069e47a9f0e56889ade71f41ae076ef699c675c40f1f",
+      "source_metadata": {
+        "bands": [
+          {
+            "colour": "Red",
+            "description": "",
+            "image_structure": {},
+            "index": 1,
+            "mask_flags": 1,
+            "metadata": {},
+            "nodata": null,
+            "offset": null,
+            "scale": null,
+            "stored_type": "UInt16"
+          },
+          {
+            "colour": "Green",
+            "description": "",
+            "image_structure": {},
+            "index": 2,
+            "mask_flags": 1,
+            "metadata": {},
+            "nodata": null,
+            "offset": null,
+            "scale": null,
+            "stored_type": "UInt16"
+          },
+          {
+            "colour": "Blue",
+            "description": "",
+            "image_structure": {},
+            "index": 3,
+            "mask_flags": 1,
+            "metadata": {},
+            "nodata": null,
+            "offset": null,
+            "scale": null,
+            "stored_type": "UInt16"
+          }
+        ],
+        "crs_wkt": "GEOGCS[\"WGS 84\",DATUM[\"World Geodetic System 1984\",SPHEROID[\"WGS 84\",6378137,298.257223563]],PRIMEM[\"Greenwich\",0],UNIT[\"degree\",0.0174532925199433,AUTHORITY[\"EPSG\",\"9122\"]],AXIS[\"Latitude\",NORTH],AXIS[\"Longitude\",EAST]]",
+        "declared_sensor_precision_bits": null,
+        "geotransform": [
+          -115.2338076,
+          2.7000000000043656e-06,
+          0.0,
+          36.1423376998,
+          0.0,
+          -2.7000000000043656e-06
+        ],
+        "height": 1300,
+        "image_structure": {
+          "INTERLEAVE": "PIXEL"
+        },
+        "metadata": {
+          "AREA_OR_POINT": "Area"
+        },
+        "pixel_basis_vectors_crs_units": [
+          [
+            2.7000000000043656e-06,
+            0.0
+          ],
+          [
+            0.0,
+            -2.7000000000043656e-06
+          ]
+        ],
+        "scale_offset_policy": "Retained as metadata, never applied to stored integer samples.",
+        "sensor_precision_note": "Not declared by the selected TIFF; UInt16 storage and observed values do not establish sensor precision.",
+        "width": 1300
+      }
+    },
+    {
+      "aoi": "AOI_2_Vegas",
+      "bytes": 10150778,
+      "lineage": {
+        "collection": "SpaceNet SN3 roads sample",
+        "geographic_group": "AOI_2_Vegas",
+        "holdout_claim": false,
+        "parent_tile": "unknown; no exact per-chip parent mapping established",
+        "published_aoi_catalogue_id": "10400100137F4900",
+        "related_releases": [
+          "SpaceNet SN2",
+          "SpaceNet SN3"
+        ],
+        "upstream_split": "sample; train/test membership unknown"
+      },
+      "member": "SpaceNet_Roads_Sample/AOI_2_Vegas_Roads_Sample/RGB-PanSharpen/RGB-PanSharpen_AOI_2_Vegas_img794.tif",
+      "rank": 9,
+      "role": "development",
+      "sha256": "c9d5934233077426a761b9151f5c467a7a7ff9767f2aea8769d9fcc8d537cd1d",
+      "source_metadata": {
+        "bands": [
+          {
+            "colour": "Red",
+            "description": "",
+            "image_structure": {},
+            "index": 1,
+            "mask_flags": 1,
+            "metadata": {},
+            "nodata": null,
+            "offset": null,
+            "scale": null,
+            "stored_type": "UInt16"
+          },
+          {
+            "colour": "Green",
+            "description": "",
+            "image_structure": {},
+            "index": 2,
+            "mask_flags": 1,
+            "metadata": {},
+            "nodata": null,
+            "offset": null,
+            "scale": null,
+            "stored_type": "UInt16"
+          },
+          {
+            "colour": "Blue",
+            "description": "",
+            "image_structure": {},
+            "index": 3,
+            "mask_flags": 1,
+            "metadata": {},
+            "nodata": null,
+            "offset": null,
+            "scale": null,
+            "stored_type": "UInt16"
+          }
+        ],
+        "crs_wkt": "GEOGCS[\"WGS 84\",DATUM[\"World Geodetic System 1984\",SPHEROID[\"WGS 84\",6378137,298.257223563]],PRIMEM[\"Greenwich\",0],UNIT[\"degree\",0.0174532925199433,AUTHORITY[\"EPSG\",\"9122\"]],AXIS[\"Latitude\",NORTH],AXIS[\"Longitude\",EAST]]",
+        "declared_sensor_precision_bits": null,
+        "geotransform": [
+          -115.2267876,
+          2.699999999993434e-06,
+          0.0,
+          36.1949876999,
+          0.0,
+          -2.6999999999988997e-06
+        ],
+        "height": 1300,
+        "image_structure": {
+          "INTERLEAVE": "PIXEL"
+        },
+        "metadata": {
+          "AREA_OR_POINT": "Area"
+        },
+        "pixel_basis_vectors_crs_units": [
+          [
+            2.699999999993434e-06,
+            0.0
+          ],
+          [
+            0.0,
+            -2.6999999999988997e-06
+          ]
+        ],
+        "scale_offset_policy": "Retained as metadata, never applied to stored integer samples.",
+        "sensor_precision_note": "Not declared by the selected TIFF; UInt16 storage and observed values do not establish sensor precision.",
+        "width": 1300
+      }
+    },
+    {
+      "aoi": "AOI_3_Paris",
+      "bytes": 10150778,
+      "lineage": {
+        "collection": "SpaceNet SN3 roads sample",
+        "geographic_group": "AOI_3_Paris",
+        "holdout_claim": false,
+        "parent_tile": "unknown; no exact per-chip parent mapping established",
+        "published_aoi_catalogue_id": "1040010018805C00",
+        "related_releases": [
+          "SpaceNet SN2",
+          "SpaceNet SN3"
+        ],
+        "upstream_split": "sample; train/test membership unknown"
+      },
+      "member": "SpaceNet_Roads_Sample/AOI_3_Paris_Roads_Sample/RGB-PanSharpen/RGB-PanSharpen_AOI_3_Paris_img235.tif",
+      "rank": 0,
+      "role": "development",
+      "sha256": "79d3fb2b2d8163e8dcf7103a41b7df1567a4aae1712e82e4ddf2202588ccbe4f",
+      "source_metadata": {
+        "bands": [
+          {
+            "colour": "Red",
+            "description": "",
+            "image_structure": {},
+            "index": 1,
+            "mask_flags": 1,
+            "metadata": {},
+            "nodata": null,
+            "offset": null,
+            "scale": null,
+            "stored_type": "UInt16"
+          },
+          {
+            "colour": "Green",
+            "description": "",
+            "image_structure": {},
+            "index": 2,
+            "mask_flags": 1,
+            "metadata": {},
+            "nodata": null,
+            "offset": null,
+            "scale": null,
+            "stored_type": "UInt16"
+          },
+          {
+            "colour": "Blue",
+            "description": "",
+            "image_structure": {},
+            "index": 3,
+            "mask_flags": 1,
+            "metadata": {},
+            "nodata": null,
+            "offset": null,
+            "scale": null,
+            "stored_type": "UInt16"
+          }
+        ],
+        "crs_wkt": "GEOGCS[\"WGS 84\",DATUM[\"World Geodetic System 1984\",SPHEROID[\"WGS 84\",6378137,298.257223563]],PRIMEM[\"Greenwich\",0],UNIT[\"degree\",0.0174532925199433,AUTHORITY[\"EPSG\",\"9122\"]],AXIS[\"Latitude\",NORTH],AXIS[\"Longitude\",EAST]]",
+        "declared_sensor_precision_bits": null,
+        "geotransform": [
+          2.25485639994,
+          2.6999999999999246e-06,
+          0.0,
+          49.0494609,
+          0.0,
+          -2.6999999999988997e-06
+        ],
+        "height": 1300,
+        "image_structure": {
+          "INTERLEAVE": "PIXEL"
+        },
+        "metadata": {
+          "AREA_OR_POINT": "Area"
+        },
+        "pixel_basis_vectors_crs_units": [
+          [
+            2.6999999999999246e-06,
+            0.0
+          ],
+          [
+            0.0,
+            -2.6999999999988997e-06
+          ]
+        ],
+        "scale_offset_policy": "Retained as metadata, never applied to stored integer samples.",
+        "sensor_precision_note": "Not declared by the selected TIFF; UInt16 storage and observed values do not establish sensor precision.",
+        "width": 1300
+      }
+    },
+    {
+      "aoi": "AOI_3_Paris",
+      "bytes": 10150778,
+      "lineage": {
+        "collection": "SpaceNet SN3 roads sample",
+        "geographic_group": "AOI_3_Paris",
+        "holdout_claim": false,
+        "parent_tile": "unknown; no exact per-chip parent mapping established",
+        "published_aoi_catalogue_id": "1040010018805C00",
+        "related_releases": [
+          "SpaceNet SN2",
+          "SpaceNet SN3"
+        ],
+        "upstream_split": "sample; train/test membership unknown"
+      },
+      "member": "SpaceNet_Roads_Sample/AOI_3_Paris_Roads_Sample/RGB-PanSharpen/RGB-PanSharpen_AOI_3_Paris_img340.tif",
+      "rank": 3,
+      "role": "development",
+      "sha256": "4901068e3b71425f3a7262bd13829451f059f88922f5a4539d18f49df57f4335",
+      "source_metadata": {
+        "bands": [
+          {
+            "colour": "Red",
+            "description": "",
+            "image_structure": {},
+            "index": 1,
+            "mask_flags": 1,
+            "metadata": {},
+            "nodata": null,
+            "offset": null,
+            "scale": null,
+            "stored_type": "UInt16"
+          },
+          {
+            "colour": "Green",
+            "description": "",
+            "image_structure": {},
+            "index": 2,
+            "mask_flags": 1,
+            "metadata": {},
+            "nodata": null,
+            "offset": null,
+            "scale": null,
+            "stored_type": "UInt16"
+          },
+          {
+            "colour": "Blue",
+            "description": "",
+            "image_structure": {},
+            "index": 3,
+            "mask_flags": 1,
+            "metadata": {},
+            "nodata": null,
+            "offset": null,
+            "scale": null,
+            "stored_type": "UInt16"
+          }
+        ],
+        "crs_wkt": "GEOGCS[\"WGS 84\",DATUM[\"World Geodetic System 1984\",SPHEROID[\"WGS 84\",6378137,298.257223563]],PRIMEM[\"Greenwich\",0],UNIT[\"degree\",0.0174532925199433,AUTHORITY[\"EPSG\",\"9122\"]],AXIS[\"Latitude\",NORTH],AXIS[\"Longitude\",EAST]]",
+        "declared_sensor_precision_bits": null,
+        "geotransform": [
+          2.27240639994,
+          2.6999999923076165e-06,
+          0.0,
+          49.0073409,
+          0.0,
+          -2.7000000000043656e-06
+        ],
+        "height": 1300,
+        "image_structure": {
+          "INTERLEAVE": "PIXEL"
+        },
+        "metadata": {
+          "AREA_OR_POINT": "Area"
+        },
+        "pixel_basis_vectors_crs_units": [
+          [
+            2.6999999923076165e-06,
+            0.0
+          ],
+          [
+            0.0,
+            -2.7000000000043656e-06
+          ]
+        ],
+        "scale_offset_policy": "Retained as metadata, never applied to stored integer samples.",
+        "sensor_precision_note": "Not declared by the selected TIFF; UInt16 storage and observed values do not establish sensor precision.",
+        "width": 1300
+      }
+    },
+    {
+      "aoi": "AOI_3_Paris",
+      "bytes": 10150778,
+      "lineage": {
+        "collection": "SpaceNet SN3 roads sample",
+        "geographic_group": "AOI_3_Paris",
+        "holdout_claim": false,
+        "parent_tile": "unknown; no exact per-chip parent mapping established",
+        "published_aoi_catalogue_id": "1040010018805C00",
+        "related_releases": [
+          "SpaceNet SN2",
+          "SpaceNet SN3"
+        ],
+        "upstream_split": "sample; train/test membership unknown"
+      },
+      "member": "SpaceNet_Roads_Sample/AOI_3_Paris_Roads_Sample/RGB-PanSharpen/RGB-PanSharpen_AOI_3_Paris_img432.tif",
+      "rank": 6,
+      "role": "development",
+      "sha256": "24369a1bffef48900c556c7fccc2ce05b0169825d21a967e58f68d54d911d549",
+      "source_metadata": {
+        "bands": [
+          {
+            "colour": "Red",
+            "description": "",
+            "image_structure": {},
+            "index": 1,
+            "mask_flags": 1,
+            "metadata": {},
+            "nodata": null,
+            "offset": null,
+            "scale": null,
+            "stored_type": "UInt16"
+          },
+          {
+            "colour": "Green",
+            "description": "",
+            "image_structure": {},
+            "index": 2,
+            "mask_flags": 1,
+            "metadata": {},
+            "nodata": null,
+            "offset": null,
+            "scale": null,
+            "stored_type": "UInt16"
+          },
+          {
+            "colour": "Blue",
+            "description": "",
+            "image_structure": {},
+            "index": 3,
+            "mask_flags": 1,
+            "metadata": {},
+            "nodata": null,
+            "offset": null,
+            "scale": null,
+            "stored_type": "UInt16"
+          }
+        ],
+        "crs_wkt": "GEOGCS[\"WGS 84\",DATUM[\"World Geodetic System 1984\",SPHEROID[\"WGS 84\",6378137,298.257223563]],PRIMEM[\"Greenwich\",0],UNIT[\"degree\",0.0174532925199433,AUTHORITY[\"EPSG\",\"9122\"]],AXIS[\"Latitude\",NORTH],AXIS[\"Longitude\",EAST]]",
+        "declared_sensor_precision_bits": null,
+        "geotransform": [
+          2.28644639993,
+          2.6999999999999246e-06,
+          0.0,
+          48.9968109,
+          0.0,
+          -2.6999999999988997e-06
+        ],
+        "height": 1300,
+        "image_structure": {
+          "INTERLEAVE": "PIXEL"
+        },
+        "metadata": {
+          "AREA_OR_POINT": "Area"
+        },
+        "pixel_basis_vectors_crs_units": [
+          [
+            2.6999999999999246e-06,
+            0.0
+          ],
+          [
+            0.0,
+            -2.6999999999988997e-06
+          ]
+        ],
+        "scale_offset_policy": "Retained as metadata, never applied to stored integer samples.",
+        "sensor_precision_note": "Not declared by the selected TIFF; UInt16 storage and observed values do not establish sensor precision.",
+        "width": 1300
+      }
+    },
+    {
+      "aoi": "AOI_3_Paris",
+      "bytes": 10150778,
+      "lineage": {
+        "collection": "SpaceNet SN3 roads sample",
+        "geographic_group": "AOI_3_Paris",
+        "holdout_claim": false,
+        "parent_tile": "unknown; no exact per-chip parent mapping established",
+        "published_aoi_catalogue_id": "1040010018805C00",
+        "related_releases": [
+          "SpaceNet SN2",
+          "SpaceNet SN3"
+        ],
+        "upstream_split": "sample; train/test membership unknown"
+      },
+      "member": "SpaceNet_Roads_Sample/AOI_3_Paris_Roads_Sample/RGB-PanSharpen/RGB-PanSharpen_AOI_3_Paris_img84.tif",
+      "rank": 9,
+      "role": "development",
+      "sha256": "5e9930d0c8106d5a657d128a268829207e0cfa48445d9242afea8eaab8f59a92",
+      "source_metadata": {
+        "bands": [
+          {
+            "colour": "Red",
+            "description": "",
+            "image_structure": {},
+            "index": 1,
+            "mask_flags": 1,
+            "metadata": {},
+            "nodata": null,
+            "offset": null,
+            "scale": null,
+            "stored_type": "UInt16"
+          },
+          {
+            "colour": "Green",
+            "description": "",
+            "image_structure": {},
+            "index": 2,
+            "mask_flags": 1,
+            "metadata": {},
+            "nodata": null,
+            "offset": null,
+            "scale": null,
+            "stored_type": "UInt16"
+          },
+          {
+            "colour": "Blue",
+            "description": "",
+            "image_structure": {},
+            "index": 3,
+            "mask_flags": 1,
+            "metadata": {},
+            "nodata": null,
+            "offset": null,
+            "scale": null,
+            "stored_type": "UInt16"
+          }
+        ],
+        "crs_wkt": "GEOGCS[\"WGS 84\",DATUM[\"World Geodetic System 1984\",SPHEROID[\"WGS 84\",6378137,298.257223563]],PRIMEM[\"Greenwich\",0],UNIT[\"degree\",0.0174532925199433,AUTHORITY[\"EPSG\",\"9122\"]],AXIS[\"Latitude\",NORTH],AXIS[\"Longitude\",EAST]]",
+        "declared_sensor_precision_bits": null,
+        "geotransform": [
+          2.23028639995,
+          2.6999999999999246e-06,
+          0.0,
+          49.0108509,
+          0.0,
+          -2.6999999999988997e-06
+        ],
+        "height": 1300,
+        "image_structure": {
+          "INTERLEAVE": "PIXEL"
+        },
+        "metadata": {
+          "AREA_OR_POINT": "Area"
+        },
+        "pixel_basis_vectors_crs_units": [
+          [
+            2.6999999999999246e-06,
+            0.0
+          ],
+          [
+            0.0,
+            -2.6999999999988997e-06
+          ]
+        ],
+        "scale_offset_policy": "Retained as metadata, never applied to stored integer samples.",
+        "sensor_precision_note": "Not declared by the selected TIFF; UInt16 storage and observed values do not establish sensor precision.",
+        "width": 1300
+      }
+    },
+    {
+      "aoi": "AOI_4_Shanghai",
+      "bytes": 10150778,
+      "lineage": {
+        "collection": "SpaceNet SN3 roads sample",
+        "geographic_group": "AOI_4_Shanghai",
+        "holdout_claim": false,
+        "parent_tile": "unknown; no exact per-chip parent mapping established",
+        "published_aoi_catalogue_id": "104001000C924900",
+        "related_releases": [
+          "SpaceNet SN2",
+          "SpaceNet SN3"
+        ],
+        "upstream_split": "sample; train/test membership unknown"
+      },
+      "member": "SpaceNet_Roads_Sample/AOI_4_Shanghai_Roads_Sample/RGB-PanSharpen/RGB-PanSharpen_AOI_4_Shanghai_img1196.tif",
+      "rank": 0,
+      "role": "development",
+      "sha256": "3dc18f82587c01a0ac845a5cd98c9064f7b7a75fb44b1b12c48b94a57f918464",
+      "source_metadata": {
+        "bands": [
+          {
+            "colour": "Red",
+            "description": "",
+            "image_structure": {},
+            "index": 1,
+            "mask_flags": 1,
+            "metadata": {},
+            "nodata": null,
+            "offset": null,
+            "scale": null,
+            "stored_type": "UInt16"
+          },
+          {
+            "colour": "Green",
+            "description": "",
+            "image_structure": {},
+            "index": 2,
+            "mask_flags": 1,
+            "metadata": {},
+            "nodata": null,
+            "offset": null,
+            "scale": null,
+            "stored_type": "UInt16"
+          },
+          {
+            "colour": "Blue",
+            "description": "",
+            "image_structure": {},
+            "index": 3,
+            "mask_flags": 1,
+            "metadata": {},
+            "nodata": null,
+            "offset": null,
+            "scale": null,
+            "stored_type": "UInt16"
+          }
+        ],
+        "crs_wkt": "GEOGCS[\"WGS 84\",DATUM[\"World Geodetic System 1984\",SPHEROID[\"WGS 84\",6378137,298.257223563]],PRIMEM[\"Greenwich\",0],UNIT[\"degree\",0.0174532925199433,AUTHORITY[\"EPSG\",\"9122\"]],AXIS[\"Latitude\",NORTH],AXIS[\"Longitude\",EAST]]",
+        "declared_sensor_precision_bits": null,
+        "geotransform": [
+          121.6884492,
+          2.7000000000043656e-06,
+          0.0,
+          31.2136659001,
+          0.0,
+          -2.7000000000016326e-06
+        ],
+        "height": 1300,
+        "image_structure": {
+          "INTERLEAVE": "PIXEL"
+        },
+        "metadata": {
+          "AREA_OR_POINT": "Area"
+        },
+        "pixel_basis_vectors_crs_units": [
+          [
+            2.7000000000043656e-06,
+            0.0
+          ],
+          [
+            0.0,
+            -2.7000000000016326e-06
+          ]
+        ],
+        "scale_offset_policy": "Retained as metadata, never applied to stored integer samples.",
+        "sensor_precision_note": "Not declared by the selected TIFF; UInt16 storage and observed values do not establish sensor precision.",
+        "width": 1300
+      }
+    },
+    {
+      "aoi": "AOI_4_Shanghai",
+      "bytes": 10150778,
+      "lineage": {
+        "collection": "SpaceNet SN3 roads sample",
+        "geographic_group": "AOI_4_Shanghai",
+        "holdout_claim": false,
+        "parent_tile": "unknown; no exact per-chip parent mapping established",
+        "published_aoi_catalogue_id": "104001000C924900",
+        "related_releases": [
+          "SpaceNet SN2",
+          "SpaceNet SN3"
+        ],
+        "upstream_split": "sample; train/test membership unknown"
+      },
+      "member": "SpaceNet_Roads_Sample/AOI_4_Shanghai_Roads_Sample/RGB-PanSharpen/RGB-PanSharpen_AOI_4_Shanghai_img1700.tif",
+      "rank": 3,
+      "role": "development",
+      "sha256": "a4431c1c2db543302b437e7af13ad8aeda06c5f40862719131ff2ab51f4b136b",
+      "source_metadata": {
+        "bands": [
+          {
+            "colour": "Red",
+            "description": "",
+            "image_structure": {},
+            "index": 1,
+            "mask_flags": 1,
+            "metadata": {},
+            "nodata": null,
+            "offset": null,
+            "scale": null,
+            "stored_type": "UInt16"
+          },
+          {
+            "colour": "Green",
+            "description": "",
+            "image_structure": {},
+            "index": 2,
+            "mask_flags": 1,
+            "metadata": {},
+            "nodata": null,
+            "offset": null,
+            "scale": null,
+            "stored_type": "UInt16"
+          },
+          {
+            "colour": "Blue",
+            "description": "",
+            "image_structure": {},
+            "index": 3,
+            "mask_flags": 1,
+            "metadata": {},
+            "nodata": null,
+            "offset": null,
+            "scale": null,
+            "stored_type": "UInt16"
+          }
+        ],
+        "crs_wkt": "GEOGCS[\"WGS 84\",DATUM[\"World Geodetic System 1984\",SPHEROID[\"WGS 84\",6378137,298.257223563]],PRIMEM[\"Greenwich\",0],UNIT[\"degree\",0.0174532925199433,AUTHORITY[\"EPSG\",\"9122\"]],AXIS[\"Latitude\",NORTH],AXIS[\"Longitude\",EAST]]",
+        "declared_sensor_precision_bits": null,
+        "geotransform": [
+          121.7235492,
+          2.7000000000043656e-06,
+          0.0,
+          31.4137359,
+          0.0,
+          -2.6999999999988997e-06
+        ],
+        "height": 1300,
+        "image_structure": {
+          "INTERLEAVE": "PIXEL"
+        },
+        "metadata": {
+          "AREA_OR_POINT": "Area"
+        },
+        "pixel_basis_vectors_crs_units": [
+          [
+            2.7000000000043656e-06,
+            0.0
+          ],
+          [
+            0.0,
+            -2.6999999999988997e-06
+          ]
+        ],
+        "scale_offset_policy": "Retained as metadata, never applied to stored integer samples.",
+        "sensor_precision_note": "Not declared by the selected TIFF; UInt16 storage and observed values do not establish sensor precision.",
+        "width": 1300
+      }
+    },
+    {
+      "aoi": "AOI_4_Shanghai",
+      "bytes": 10150778,
+      "lineage": {
+        "collection": "SpaceNet SN3 roads sample",
+        "geographic_group": "AOI_4_Shanghai",
+        "holdout_claim": false,
+        "parent_tile": "unknown; no exact per-chip parent mapping established",
+        "published_aoi_catalogue_id": "104001000C924900",
+        "related_releases": [
+          "SpaceNet SN2",
+          "SpaceNet SN3"
+        ],
+        "upstream_split": "sample; train/test membership unknown"
+      },
+      "member": "SpaceNet_Roads_Sample/AOI_4_Shanghai_Roads_Sample/RGB-PanSharpen/RGB-PanSharpen_AOI_4_Shanghai_img1890.tif",
+      "rank": 6,
+      "role": "development",
+      "sha256": "bdc2fc0805b142e12d3b3398b3dec02034bf7d781983b9c919e7766bff2ff2f5",
+      "source_metadata": {
+        "bands": [
+          {
+            "colour": "Red",
+            "description": "",
+            "image_structure": {},
+            "index": 1,
+            "mask_flags": 1,
+            "metadata": {},
+            "nodata": null,
+            "offset": null,
+            "scale": null,
+            "stored_type": "UInt16"
+          },
+          {
+            "colour": "Green",
+            "description": "",
+            "image_structure": {},
+            "index": 2,
+            "mask_flags": 1,
+            "metadata": {},
+            "nodata": null,
+            "offset": null,
+            "scale": null,
+            "stored_type": "UInt16"
+          },
+          {
+            "colour": "Blue",
+            "description": "",
+            "image_structure": {},
+            "index": 3,
+            "mask_flags": 1,
+            "metadata": {},
+            "nodata": null,
+            "offset": null,
+            "scale": null,
+            "stored_type": "UInt16"
+          }
+        ],
+        "crs_wkt": "GEOGCS[\"WGS 84\",DATUM[\"World Geodetic System 1984\",SPHEROID[\"WGS 84\",6378137,298.257223563]],PRIMEM[\"Greenwich\",0],UNIT[\"degree\",0.0174532925199433,AUTHORITY[\"EPSG\",\"9122\"]],AXIS[\"Latitude\",NORTH],AXIS[\"Longitude\",EAST]]",
+        "declared_sensor_precision_bits": null,
+        "geotransform": [
+          121.7410992,
+          2.7000000000043656e-06,
+          0.0,
+          31.2733359001,
+          0.0,
+          -2.7000000000016326e-06
+        ],
+        "height": 1300,
+        "image_structure": {
+          "INTERLEAVE": "PIXEL"
+        },
+        "metadata": {
+          "AREA_OR_POINT": "Area"
+        },
+        "pixel_basis_vectors_crs_units": [
+          [
+            2.7000000000043656e-06,
+            0.0
+          ],
+          [
+            0.0,
+            -2.7000000000016326e-06
+          ]
+        ],
+        "scale_offset_policy": "Retained as metadata, never applied to stored integer samples.",
+        "sensor_precision_note": "Not declared by the selected TIFF; UInt16 storage and observed values do not establish sensor precision.",
+        "width": 1300
+      }
+    },
+    {
+      "aoi": "AOI_4_Shanghai",
+      "bytes": 10150778,
+      "lineage": {
+        "collection": "SpaceNet SN3 roads sample",
+        "geographic_group": "AOI_4_Shanghai",
+        "holdout_claim": false,
+        "parent_tile": "unknown; no exact per-chip parent mapping established",
+        "published_aoi_catalogue_id": "104001000C924900",
+        "related_releases": [
+          "SpaceNet SN2",
+          "SpaceNet SN3"
+        ],
+        "upstream_split": "sample; train/test membership unknown"
+      },
+      "member": "SpaceNet_Roads_Sample/AOI_4_Shanghai_Roads_Sample/RGB-PanSharpen/RGB-PanSharpen_AOI_4_Shanghai_img308.tif",
+      "rank": 9,
+      "role": "development",
+      "sha256": "91d96d8ff2588ec637f2fec5023d63fe951363501bd870e8f38f6534b5b4df79",
+      "source_metadata": {
+        "bands": [
+          {
+            "colour": "Red",
+            "description": "",
+            "image_structure": {},
+            "index": 1,
+            "mask_flags": 1,
+            "metadata": {},
+            "nodata": null,
+            "offset": null,
+            "scale": null,
+            "stored_type": "UInt16"
+          },
+          {
+            "colour": "Green",
+            "description": "",
+            "image_structure": {},
+            "index": 2,
+            "mask_flags": 1,
+            "metadata": {},
+            "nodata": null,
+            "offset": null,
+            "scale": null,
+            "stored_type": "UInt16"
+          },
+          {
+            "colour": "Blue",
+            "description": "",
+            "image_structure": {},
+            "index": 3,
+            "mask_flags": 1,
+            "metadata": {},
+            "nodata": null,
+            "offset": null,
+            "scale": null,
+            "stored_type": "UInt16"
+          }
+        ],
+        "crs_wkt": "GEOGCS[\"WGS 84\",DATUM[\"World Geodetic System 1984\",SPHEROID[\"WGS 84\",6378137,298.257223563]],PRIMEM[\"Greenwich\",0],UNIT[\"degree\",0.0174532925199433,AUTHORITY[\"EPSG\",\"9122\"]],AXIS[\"Latitude\",NORTH],AXIS[\"Longitude\",EAST]]",
+        "declared_sensor_precision_bits": null,
+        "geotransform": [
+          121.6182492,
+          2.7000000000043656e-06,
+          0.0,
+          31.3540659,
+          0.0,
+          -2.6999999999988997e-06
+        ],
+        "height": 1300,
+        "image_structure": {
+          "INTERLEAVE": "PIXEL"
+        },
+        "metadata": {
+          "AREA_OR_POINT": "Area"
+        },
+        "pixel_basis_vectors_crs_units": [
+          [
+            2.7000000000043656e-06,
+            0.0
+          ],
+          [
+            0.0,
+            -2.6999999999988997e-06
+          ]
+        ],
+        "scale_offset_policy": "Retained as metadata, never applied to stored integer samples.",
+        "sensor_precision_note": "Not declared by the selected TIFF; UInt16 storage and observed values do not establish sensor precision.",
+        "width": 1300
+      }
+    },
+    {
+      "aoi": "AOI_5_Khartoum",
+      "bytes": 10150778,
+      "lineage": {
+        "collection": "SpaceNet SN3 roads sample",
+        "geographic_group": "AOI_5_Khartoum",
+        "holdout_claim": false,
+        "parent_tile": "unknown; no exact per-chip parent mapping established",
+        "published_aoi_catalogue_id": "104001000A6A1E00",
+        "related_releases": [
+          "SpaceNet SN2",
+          "SpaceNet SN3"
+        ],
+        "upstream_split": "sample; train/test membership unknown"
+      },
+      "member": "SpaceNet_Roads_Sample/AOI_5_Khartoum_Roads_Sample/RGB-PanSharpen/RGB-PanSharpen_AOI_5_Khartoum_img157.tif",
+      "rank": 0,
+      "role": "reserved",
+      "sha256": "fae6ed378747659b1360f244852ca03c19e59854196f9875d6cab13f1fa05d62",
+      "source_metadata": {
+        "bands": [
+          {
+            "colour": "Red",
+            "description": "",
+            "image_structure": {},
+            "index": 1,
+            "mask_flags": 1,
+            "metadata": {},
+            "nodata": null,
+            "offset": null,
+            "scale": null,
+            "stored_type": "UInt16"
+          },
+          {
+            "colour": "Green",
+            "description": "",
+            "image_structure": {},
+            "index": 2,
+            "mask_flags": 1,
+            "metadata": {},
+            "nodata": null,
+            "offset": null,
+            "scale": null,
+            "stored_type": "UInt16"
+          },
+          {
+            "colour": "Blue",
+            "description": "",
+            "image_structure": {},
+            "index": 3,
+            "mask_flags": 1,
+            "metadata": {},
+            "nodata": null,
+            "offset": null,
+            "scale": null,
+            "stored_type": "UInt16"
+          }
+        ],
+        "crs_wkt": "GEOGCS[\"WGS 84\",DATUM[\"World Geodetic System 1984\",SPHEROID[\"WGS 84\",6378137,298.257223563]],PRIMEM[\"Greenwich\",0],UNIT[\"degree\",0.0174532925199433,AUTHORITY[\"EPSG\",\"9122\"]],AXIS[\"Latitude\",NORTH],AXIS[\"Longitude\",EAST]]",
+        "declared_sensor_precision_bits": null,
+        "geotransform": [
+          32.54199840002184,
+          2.7000000004798827e-06,
+          0.0,
+          15.69633119996875,
+          0.0,
+          -2.7000000004798827e-06
+        ],
+        "height": 1300,
+        "image_structure": {
+          "INTERLEAVE": "PIXEL"
+        },
+        "metadata": {
+          "AREA_OR_POINT": "Area"
+        },
+        "pixel_basis_vectors_crs_units": [
+          [
+            2.7000000004798827e-06,
+            0.0
+          ],
+          [
+            0.0,
+            -2.7000000004798827e-06
+          ]
+        ],
+        "scale_offset_policy": "Retained as metadata, never applied to stored integer samples.",
+        "sensor_precision_note": "Not declared by the selected TIFF; UInt16 storage and observed values do not establish sensor precision.",
+        "width": 1300
+      }
+    },
+    {
+      "aoi": "AOI_5_Khartoum",
+      "bytes": 10150778,
+      "lineage": {
+        "collection": "SpaceNet SN3 roads sample",
+        "geographic_group": "AOI_5_Khartoum",
+        "holdout_claim": false,
+        "parent_tile": "unknown; no exact per-chip parent mapping established",
+        "published_aoi_catalogue_id": "104001000A6A1E00",
+        "related_releases": [
+          "SpaceNet SN2",
+          "SpaceNet SN3"
+        ],
+        "upstream_split": "sample; train/test membership unknown"
+      },
+      "member": "SpaceNet_Roads_Sample/AOI_5_Khartoum_Roads_Sample/RGB-PanSharpen/RGB-PanSharpen_AOI_5_Khartoum_img304.tif",
+      "rank": 3,
+      "role": "reserved",
+      "sha256": "d6fea1718cbe958c79046909d5f46ad8c6cadacc3d70fdb9cf9a44a671acf16e",
+      "source_metadata": {
+        "bands": [
+          {
+            "colour": "Red",
+            "description": "",
+            "image_structure": {},
+            "index": 1,
+            "mask_flags": 1,
+            "metadata": {},
+            "nodata": null,
+            "offset": null,
+            "scale": null,
+            "stored_type": "UInt16"
+          },
+          {
+            "colour": "Green",
+            "description": "",
+            "image_structure": {},
+            "index": 2,
+            "mask_flags": 1,
+            "metadata": {},
+            "nodata": null,
+            "offset": null,
+            "scale": null,
+            "stored_type": "UInt16"
+          },
+          {
+            "colour": "Blue",
+            "description": "",
+            "image_structure": {},
+            "index": 3,
+            "mask_flags": 1,
+            "metadata": {},
+            "nodata": null,
+            "offset": null,
+            "scale": null,
+            "stored_type": "UInt16"
+          }
+        ],
+        "crs_wkt": "GEOGCS[\"WGS 84\",DATUM[\"World Geodetic System 1984\",SPHEROID[\"WGS 84\",6378137,298.257223563]],PRIMEM[\"Greenwich\",0],UNIT[\"degree\",0.0174532925199433,AUTHORITY[\"EPSG\",\"9122\"]],AXIS[\"Latitude\",NORTH],AXIS[\"Longitude\",EAST]]",
+        "declared_sensor_precision_bits": null,
+        "geotransform": [
+          32.55252840002371,
+          2.7000000004798827e-06,
+          0.0,
+          15.731431199974988,
+          0.0,
+          -2.7000000004798827e-06
+        ],
+        "height": 1300,
+        "image_structure": {
+          "INTERLEAVE": "PIXEL"
+        },
+        "metadata": {
+          "AREA_OR_POINT": "Area"
+        },
+        "pixel_basis_vectors_crs_units": [
+          [
+            2.7000000004798827e-06,
+            0.0
+          ],
+          [
+            0.0,
+            -2.7000000004798827e-06
+          ]
+        ],
+        "scale_offset_policy": "Retained as metadata, never applied to stored integer samples.",
+        "sensor_precision_note": "Not declared by the selected TIFF; UInt16 storage and observed values do not establish sensor precision.",
+        "width": 1300
+      }
+    },
+    {
+      "aoi": "AOI_5_Khartoum",
+      "bytes": 10150778,
+      "lineage": {
+        "collection": "SpaceNet SN3 roads sample",
+        "geographic_group": "AOI_5_Khartoum",
+        "holdout_claim": false,
+        "parent_tile": "unknown; no exact per-chip parent mapping established",
+        "published_aoi_catalogue_id": "104001000A6A1E00",
+        "related_releases": [
+          "SpaceNet SN2",
+          "SpaceNet SN3"
+        ],
+        "upstream_split": "sample; train/test membership unknown"
+      },
+      "member": "SpaceNet_Roads_Sample/AOI_5_Khartoum_Roads_Sample/RGB-PanSharpen/RGB-PanSharpen_AOI_5_Khartoum_img410.tif",
+      "rank": 6,
+      "role": "reserved",
+      "sha256": "e0caf19cce59d6ed3061abcc6c3ab4fc32dca999d83110665eb1aba6ef66fbcd",
+      "source_metadata": {
+        "bands": [
+          {
+            "colour": "Red",
+            "description": "",
+            "image_structure": {},
+            "index": 1,
+            "mask_flags": 1,
+            "metadata": {},
+            "nodata": null,
+            "offset": null,
+            "scale": null,
+            "stored_type": "UInt16"
+          },
+          {
+            "colour": "Green",
+            "description": "",
+            "image_structure": {},
+            "index": 2,
+            "mask_flags": 1,
+            "metadata": {},
+            "nodata": null,
+            "offset": null,
+            "scale": null,
+            "stored_type": "UInt16"
+          },
+          {
+            "colour": "Blue",
+            "description": "",
+            "image_structure": {},
+            "index": 3,
+            "mask_flags": 1,
+            "metadata": {},
+            "nodata": null,
+            "offset": null,
+            "scale": null,
+            "stored_type": "UInt16"
+          }
+        ],
+        "crs_wkt": "GEOGCS[\"WGS 84\",DATUM[\"World Geodetic System 1984\",SPHEROID[\"WGS 84\",6378137,298.257223563]],PRIMEM[\"Greenwich\",0],UNIT[\"degree\",0.0174532925199433,AUTHORITY[\"EPSG\",\"9122\"]],AXIS[\"Latitude\",NORTH],AXIS[\"Longitude\",EAST]]",
+        "declared_sensor_precision_bits": null,
+        "geotransform": [
+          32.55954840002496,
+          2.7000000004798827e-06,
+          0.0,
+          15.675271199965007,
+          0.0,
+          -2.7000000004798827e-06
+        ],
+        "height": 1300,
+        "image_structure": {
+          "INTERLEAVE": "PIXEL"
+        },
+        "metadata": {
+          "AREA_OR_POINT": "Area"
+        },
+        "pixel_basis_vectors_crs_units": [
+          [
+            2.7000000004798827e-06,
+            0.0
+          ],
+          [
+            0.0,
+            -2.7000000004798827e-06
+          ]
+        ],
+        "scale_offset_policy": "Retained as metadata, never applied to stored integer samples.",
+        "sensor_precision_note": "Not declared by the selected TIFF; UInt16 storage and observed values do not establish sensor precision.",
+        "width": 1300
+      }
+    },
+    {
+      "aoi": "AOI_5_Khartoum",
+      "bytes": 10150778,
+      "lineage": {
+        "collection": "SpaceNet SN3 roads sample",
+        "geographic_group": "AOI_5_Khartoum",
+        "holdout_claim": false,
+        "parent_tile": "unknown; no exact per-chip parent mapping established",
+        "published_aoi_catalogue_id": "104001000A6A1E00",
+        "related_releases": [
+          "SpaceNet SN2",
+          "SpaceNet SN3"
+        ],
+        "upstream_split": "sample; train/test membership unknown"
+      },
+      "member": "SpaceNet_Roads_Sample/AOI_5_Khartoum_Roads_Sample/RGB-PanSharpen/RGB-PanSharpen_AOI_5_Khartoum_img74.tif",
+      "rank": 9,
+      "role": "reserved",
+      "sha256": "844f372173cbf846c30dca7853cd859a4dd8376ff1d2e1982cc09809af5981b1",
+      "source_metadata": {
+        "bands": [
+          {
+            "colour": "Red",
+            "description": "",
+            "image_structure": {},
+            "index": 1,
+            "mask_flags": 1,
+            "metadata": {},
+            "nodata": null,
+            "offset": null,
+            "scale": null,
+            "stored_type": "UInt16"
+          },
+          {
+            "colour": "Green",
+            "description": "",
+            "image_structure": {},
+            "index": 2,
+            "mask_flags": 1,
+            "metadata": {},
+            "nodata": null,
+            "offset": null,
+            "scale": null,
+            "stored_type": "UInt16"
+          },
+          {
+            "colour": "Blue",
+            "description": "",
+            "image_structure": {},
+            "index": 3,
+            "mask_flags": 1,
+            "metadata": {},
+            "nodata": null,
+            "offset": null,
+            "scale": null,
+            "stored_type": "UInt16"
+          }
+        ],
+        "crs_wkt": "GEOGCS[\"WGS 84\",DATUM[\"World Geodetic System 1984\",SPHEROID[\"WGS 84\",6378137,298.257223563]],PRIMEM[\"Greenwich\",0],UNIT[\"degree\",0.0174532925199433,AUTHORITY[\"EPSG\",\"9122\"]],AXIS[\"Latitude\",NORTH],AXIS[\"Longitude\",EAST]]",
+        "declared_sensor_precision_bits": null,
+        "geotransform": [
+          32.51742840001747,
+          2.7000000004798827e-06,
+          0.0,
+          15.5418911999413,
+          0.0,
+          -2.7000000004798827e-06
+        ],
+        "height": 1300,
+        "image_structure": {
+          "INTERLEAVE": "PIXEL"
+        },
+        "metadata": {
+          "AREA_OR_POINT": "Area"
+        },
+        "pixel_basis_vectors_crs_units": [
+          [
+            2.7000000004798827e-06,
+            0.0
+          ],
+          [
+            0.0,
+            -2.7000000004798827e-06
+          ]
+        ],
+        "scale_offset_policy": "Retained as metadata, never applied to stored integer samples.",
+        "sensor_precision_note": "Not declared by the selected TIFF; UInt16 storage and observed values do not establish sensor precision.",
+        "width": 1300
+      }
+    }
+  ],
+  "notice_url": "https://spacenet-dataset.s3.amazonaws.com/LICENSE.md",
+  "pack_id": "common/spacenet-psrgb16",
+  "recipe_id": "spacenet-psrgb16-v1",
+  "rule": "lexical PS-RGB member ranks 0,3,6,9 of 10 per AOI; frozen before source sample inspection or codec results",
+  "schema_version": 1,
+  "selection_sha256": "ccfe10e81c1cbc202bf1f89325b16151b2bfe56e98220436e47ab00c1e460e72",
+  "source_rights_review": {
+    "attribution": "SpaceNet Dataset; SpaceNet Partners; DigitalGlobe imagery; cite Van Etten, Lindenbaum and Bacastow (2018), SpaceNet: A Remote Sensing Dataset and Challenge Series.",
+    "coverage": "Explicit bucket notice covers all contents except Hosted-Datasets and subfolders; selected SN3 and AOIs paths are within scope.",
+    "full_source_notice_reconciliation": "Generic DigitalGlobe copyright/unauthorised-use notices are retained with the bucket explicit CC grant; they name no alternate licence. No full-source imagery acquired.",
+    "high_bit_origin": {
+      "authors": [
+        "Adam Van Etten",
+        "Jake Shermeyer"
+      ],
+      "locator": "section 2, 16-bit Imagery Conversion",
+      "observation": "Release authors describe native high-bit WorldView3 RGB-PanSharpen imagery and a subsequent separate conversion to 8-bit display products. Original RGB-PanSharpen members selected, not converted outputs. This supports processing origin, not effective sensor precision.",
+      "published": "2017-12-14",
+      "retrieval": "Web browsing tool opened complete public article on2026-09-13; direct HTTP metadata retention returned403, separately logged. No click-through or account.",
+      "url": "https://medium.com/the-downlinq/creating-training-datasets-for-the-spacenet-road-detection-and-routing-challenge-6f970d413e2f"
+    },
+    "legalcode": {
+      "locator": "Sections2\u20133",
+      "review": "Web browsing tool read legal code; local technical format changes authorised; retain attribution/licence/source/modification notices. Sharing conditions not exercised; no publication of pixels.",
+      "url": "https://creativecommons.org/licenses/by-sa/4.0/legalcode.en"
+    },
+    "licence": "CC-BY-SA-4.0",
+    "notice": "LICENSE.md",
+    "rareplanes": "No prior data rights, membership, outcomes or failures changed.",
+    "review_date": "2026-09-13",
+    "unknowns": [
+      "Effective sensor precision not established",
+      "Perchip upstream fullscene tile mapping not embedded by assumed filename; catalogue/geospatial linkage separately checked",
+      "Source processing history beyond published delivery documented fields remains uncertain"
+    ],
+    "upstream_split": "sample archive; train/test membership not inferred from chip numbers."
+  },
+  "version": "1"
+}
