@@ -76,6 +76,7 @@ cargo run -p emuella-corpus -- verify common/generated-core
 ./scripts/check-generated.sh
 python3 recipes/check-independent-nitf.py
 python3 recipes/check-spacenet-psrgb16.py
+python3 recipes/check-spacenet-extract.py
 cargo deny check
 ```
 

@@ -967,6 +967,38 @@
     ],
     "scope": "Metadata-only investigation; complete products exceed frozen chip acquisition/store budgets; no one-tile/crop substitution or full-source imagery acquisition."
   },
+  "offline_extractor": {
+    "outcome": "All three authored stdlib-only extraction tests passed. Preserved archive and licence identities, bounded complete scan and all sixteen selected-member hashes passed without rewriting extracted TIFFs.",
+    "real_read_only_result": {
+      "bytes": 318,
+      "path": "artifacts/spacenet-psrgb16-v1/evidence/archive-extractor-verification.json",
+      "sha256": "1088aea077b63d2c6ef9c20560b83ce9da71156f3446a89aa1e189b751ed7953"
+    },
+    "real_result": {
+      "action": "verify-archive",
+      "archive_members": 237,
+      "archive_sha256": "e30f7192ed8f37227fefde12cd3431ed14e4a174a056b983d00632ed42a5f26d",
+      "decompressed_member_bytes": 1691632905,
+      "recipe_sha256": "286fa7925f11d54f91fd93db6feb64f0640ffe51931475663147f629e97b9f40",
+      "selected_bytes": 162412448,
+      "selected_members": 16
+    },
+    "recipe": {
+      "bytes": 5791,
+      "path": "recipes/spacenet-psrgb16-extract.py",
+      "sha256": "286fa7925f11d54f91fd93db6feb64f0640ffe51931475663147f629e97b9f40"
+    },
+    "synthetic_result": {
+      "bytes": 101,
+      "path": "artifacts/spacenet-psrgb16-v1/evidence/extractor-synthetic-tests.log",
+      "sha256": "5279d1fc9a1ced44f9c96da1414ef59e4676f963fbad52e7a1a2903538819b0d"
+    },
+    "tests": {
+      "bytes": 4362,
+      "path": "recipes/check-spacenet-extract.py",
+      "sha256": "037c6a6ccd7b62445027f88e8728198d0bbcddded0f0ef6398b369595e988bb0"
+    }
+  },
   "pack_id": "common/spacenet-psrgb16",
   "preparation_provenance": {
     "catalogue_revision": "e21611faaa1c435adc03468d6393e087fd3c2157",

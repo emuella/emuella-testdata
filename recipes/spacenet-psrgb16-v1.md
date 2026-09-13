@@ -24,7 +24,25 @@ bucket `LICENSE.md`. The eighteen-file source inventory includes that notice,
 the preserved archive and sixteen unchanged selected TIFFs under their original
 member paths. These satisfy archive-backed locked admission; this optional pack
 is outside all qualification suites. Acquisition is a separately authorised
-operation and is not implemented by the preparation script.
+operation and is not implemented by these offline scripts.
+
+To reproduce extraction, first place only the locked unchanged archive and the
+separately supplied unchanged `LICENSE.md` in a new `source/` root. The stdlib-only
+extractor verifies both identities, scans at most 10,000 entries and 4 GiB of
+member bytes, limits each member to 32 MiB and the selection to 512 MiB, rejects
+unsafe paths, duplicates, links and special entries, and checks all selected
+member hashes before writing. It writes only the sixteen locked regular TIFFs
+and refuses existing member outputs. It never calls unrestricted tar extraction.
+
+```sh
+python3 recipes/check-spacenet-extract.py
+python3 recipes/spacenet-psrgb16-extract.py extract \
+  --source-root "$SPACENET_STORE/source"
+```
+
+For a source root already containing those TIFFs, use the read-only
+`verify-archive` command instead of `extract`. This independently checks the
+archive selection without rewriting or duplicating protected source files.
 
 Khartoum has role `reserved`; the other AOIs have role `development`. Reserve
 permits source validation and untimed lossless exactness only. Exclude the whole
