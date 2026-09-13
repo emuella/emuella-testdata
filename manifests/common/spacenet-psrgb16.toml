@@ -1,0 +1,43 @@
+schema_version = 1
+id = "common/spacenet-psrgb16"
+version = "1"
+name = "SpaceNet supplier-pansharpened RGB16 chips"
+description = "Sixteen original SN3 roads sample RGB-PanSharpen GeoTIFF chips, four per Vegas, Paris, Shanghai and Khartoum AOI, selected before codec results; a separate native UInt16 class, not a representative satellite sample."
+review_state = "locked"
+kind = "external"
+codecs = ["common", "jpeg-2000", "htj2k"]
+purposes = ["quality-benchmark", "throughput-benchmark"]
+asset_inventory = "inventories/common/spacenet-psrgb16-v1.toml"
+
+[license]
+expression = "CC-BY-SA-4.0"
+name = "Creative Commons Attribution-ShareAlike 4.0 International"
+local_files = []
+evidence_url = "https://spacenet-dataset.s3.amazonaws.com/LICENSE.md"
+reviewed_on = "2026-09-13"
+notes = "The unchanged bucket LICENSE.md expressly covers all contents except Hosted-Datasets. SN3 roads is covered. Retain this separately supplied notice with the unchanged archive and selected original members. Attribute SpaceNet Dataset, SpaceNet Partners and DigitalGlobe imagery; cite Van Etten, Lindenbaum and Bacastow (2018), SpaceNet: A Remote Sensing Dataset and Challenge Series. The scan found no embedded archive notices."
+
+[rights]
+access = "permitted"
+redistribution = "conditional"
+modification = "conditional"
+commercial_use = "conditional"
+publish_derivatives = "conditional"
+publish_benchmarks = "conditional"
+ml_training = "conditional"
+weights_redistribution = "unknown"
+notes = "Retain attribution, licence, source lineage and modification notices. Sharing adaptations invokes ShareAlike. Local sample and validity preparation is authorised; publication of pixels is outside this recipe. Training is not an intended use; learned-weight rights require separate review. Rights are independent of the Apache-2.0 catalogue software."
+
+[source]
+landing_page = "https://spacenet.ai/spacenet-roads-dataset/"
+download_url = "https://spacenet-dataset.s3.amazonaws.com/spacenet/SN3_roads/tarballs/SN3_roads_sample.tar.gz"
+terms_url = "https://spacenet-dataset.s3.amazonaws.com/LICENSE.md"
+archive_filename = "SN3_roads_sample.tar.gz"
+archive_sha256 = "e30f7192ed8f37227fefde12cd3431ed14e4a174a056b983d00632ed42a5f26d"
+requires_manual_acquisition = true
+
+[materialization]
+directory = "artifacts/spacenet-psrgb16-v1/source"
+expected_tree_sha256 = "93f16da720f748f2f2c99d1573507234bfd284ccf1f91c9d1837105be7e4df75"
+layout = "Unchanged SN3_roads_sample.tar.gz, sixteen original RGB-PanSharpen member paths from its SpaceNet_Roads_Sample tree and unchanged separately supplied bucket LICENSE.md; exactly eighteen inventory files."
+notes = "Archive plus selected-member inventory satisfy archive-backed lock admission. No qualification suite membership is asserted. The offline recipe preserves full stored integer samples and source-valid per-band masks. Khartoum is reserved from lossy and performance measurements; unknown per-chip parent lineage prevents a holdout claim. See recipes/spacenet-psrgb16-v1.md."

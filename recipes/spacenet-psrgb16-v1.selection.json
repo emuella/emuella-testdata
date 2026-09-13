@@ -1,0 +1,103 @@
+{
+  "schema_version": 1,
+  "archive_sha256": "e30f7192ed8f37227fefde12cd3431ed14e4a174a056b983d00632ed42a5f26d",
+  "rule": "lexical PS-RGB member ranks 0,3,6,9 of 10 per AOI; frozen before source sample inspection or codec results",
+  "members": [
+    {
+      "member": "SpaceNet_Roads_Sample/AOI_2_Vegas_Roads_Sample/RGB-PanSharpen/RGB-PanSharpen_AOI_2_Vegas_img1454.tif",
+      "aoi": "AOI_2_Vegas",
+      "rank": 0,
+      "role": "development"
+    },
+    {
+      "member": "SpaceNet_Roads_Sample/AOI_2_Vegas_Roads_Sample/RGB-PanSharpen/RGB-PanSharpen_AOI_2_Vegas_img230.tif",
+      "aoi": "AOI_2_Vegas",
+      "rank": 3,
+      "role": "development"
+    },
+    {
+      "member": "SpaceNet_Roads_Sample/AOI_2_Vegas_Roads_Sample/RGB-PanSharpen/RGB-PanSharpen_AOI_2_Vegas_img699.tif",
+      "aoi": "AOI_2_Vegas",
+      "rank": 6,
+      "role": "development"
+    },
+    {
+      "member": "SpaceNet_Roads_Sample/AOI_2_Vegas_Roads_Sample/RGB-PanSharpen/RGB-PanSharpen_AOI_2_Vegas_img794.tif",
+      "aoi": "AOI_2_Vegas",
+      "rank": 9,
+      "role": "development"
+    },
+    {
+      "member": "SpaceNet_Roads_Sample/AOI_3_Paris_Roads_Sample/RGB-PanSharpen/RGB-PanSharpen_AOI_3_Paris_img235.tif",
+      "aoi": "AOI_3_Paris",
+      "rank": 0,
+      "role": "development"
+    },
+    {
+      "member": "SpaceNet_Roads_Sample/AOI_3_Paris_Roads_Sample/RGB-PanSharpen/RGB-PanSharpen_AOI_3_Paris_img340.tif",
+      "aoi": "AOI_3_Paris",
+      "rank": 3,
+      "role": "development"
+    },
+    {
+      "member": "SpaceNet_Roads_Sample/AOI_3_Paris_Roads_Sample/RGB-PanSharpen/RGB-PanSharpen_AOI_3_Paris_img432.tif",
+      "aoi": "AOI_3_Paris",
+      "rank": 6,
+      "role": "development"
+    },
+    {
+      "member": "SpaceNet_Roads_Sample/AOI_3_Paris_Roads_Sample/RGB-PanSharpen/RGB-PanSharpen_AOI_3_Paris_img84.tif",
+      "aoi": "AOI_3_Paris",
+      "rank": 9,
+      "role": "development"
+    },
+    {
+      "member": "SpaceNet_Roads_Sample/AOI_4_Shanghai_Roads_Sample/RGB-PanSharpen/RGB-PanSharpen_AOI_4_Shanghai_img1196.tif",
+      "aoi": "AOI_4_Shanghai",
+      "rank": 0,
+      "role": "development"
+    },
+    {
+      "member": "SpaceNet_Roads_Sample/AOI_4_Shanghai_Roads_Sample/RGB-PanSharpen/RGB-PanSharpen_AOI_4_Shanghai_img1700.tif",
+      "aoi": "AOI_4_Shanghai",
+      "rank": 3,
+      "role": "development"
+    },
+    {
+      "member": "SpaceNet_Roads_Sample/AOI_4_Shanghai_Roads_Sample/RGB-PanSharpen/RGB-PanSharpen_AOI_4_Shanghai_img1890.tif",
+      "aoi": "AOI_4_Shanghai",
+      "rank": 6,
+      "role": "development"
+    },
+    {
+      "member": "SpaceNet_Roads_Sample/AOI_4_Shanghai_Roads_Sample/RGB-PanSharpen/RGB-PanSharpen_AOI_4_Shanghai_img308.tif",
+      "aoi": "AOI_4_Shanghai",
+      "rank": 9,
+      "role": "development"
+    },
+    {
+      "member": "SpaceNet_Roads_Sample/AOI_5_Khartoum_Roads_Sample/RGB-PanSharpen/RGB-PanSharpen_AOI_5_Khartoum_img157.tif",
+      "aoi": "AOI_5_Khartoum",
+      "rank": 0,
+      "role": "reserved"
+    },
+    {
+      "member": "SpaceNet_Roads_Sample/AOI_5_Khartoum_Roads_Sample/RGB-PanSharpen/RGB-PanSharpen_AOI_5_Khartoum_img304.tif",
+      "aoi": "AOI_5_Khartoum",
+      "rank": 3,
+      "role": "reserved"
+    },
+    {
+      "member": "SpaceNet_Roads_Sample/AOI_5_Khartoum_Roads_Sample/RGB-PanSharpen/RGB-PanSharpen_AOI_5_Khartoum_img410.tif",
+      "aoi": "AOI_5_Khartoum",
+      "rank": 6,
+      "role": "reserved"
+    },
+    {
+      "member": "SpaceNet_Roads_Sample/AOI_5_Khartoum_Roads_Sample/RGB-PanSharpen/RGB-PanSharpen_AOI_5_Khartoum_img74.tif",
+      "aoi": "AOI_5_Khartoum",
+      "rank": 9,
+      "role": "reserved"
+    }
+  ]
+}

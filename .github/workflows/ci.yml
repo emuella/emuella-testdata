@@ -26,4 +26,6 @@ jobs:
       - run: cargo run -p emuella-corpus -- verify common/generated-core
       - run: ./scripts/check-generated.sh
       - run: python3 recipes/check-independent-nitf.py
+      - run: python3 recipes/check-spacenet-psrgb16.py
+      - run: python3 recipes/check-spacenet-extract.py
       - run: cargo run -p emuella-corpus -- verify jpeg-2000/independent-nitf

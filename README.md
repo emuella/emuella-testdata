@@ -75,6 +75,8 @@ cargo run -p emuella-corpus -- check
 cargo run -p emuella-corpus -- verify common/generated-core
 ./scripts/check-generated.sh
 python3 recipes/check-independent-nitf.py
+python3 recipes/check-spacenet-psrgb16.py
+python3 recipes/check-spacenet-extract.py
 cargo deny check
 ```
 
@@ -94,6 +96,10 @@ are optional preparation dependencies; ordinary catalogue checks stay offline.
 The separate [twelve-location RarePlanes recipe](recipes/rareplanes-expanded-v1.md)
 freezes metadata coverage before timing and prepares 48 complete sample arrays.
 Its source locks and selection remain separate from the original calibration.
+
+The separate [SpaceNet supplier-pansharpened RGB16 recipe](recipes/spacenet-psrgb16-v1.md)
+locks sixteen original SN3 chips and preserves native integer samples and per-band
+source validity. Preparation is opt-in; ordinary catalogue checks remain offline.
 
 ## Licensing
 
