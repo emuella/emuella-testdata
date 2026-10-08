@@ -66,7 +66,7 @@ authoritative source and terms links, expected layout, and lock status.
 
 ## Local checks
 
-Development and CI use the exact Rust 1.98.1 toolchain pinned in
+Development and CI use the exact Rust 1.99.0 toolchain pinned in
 `rust-toolchain.toml`; the workspace compatibility floor remains Rust 1.97.0.
 
 ```sh
