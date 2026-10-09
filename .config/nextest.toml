@@ -1,0 +1,16 @@
+nextest-version = { required = "0.9.146", recommended = "0.9.146" }
+
+[store]
+dir = ".test-results/nextest"
+
+[profile.default]
+slow-timeout = "5s"
+retries = 0
+
+[profile.default.junit]
+path = "junit.xml"
+report-name = "emuella-testdata-rust-tests"
+report-skipped = "all"
+
+[profile.ci]
+fail-fast = false
