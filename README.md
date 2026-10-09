@@ -73,7 +73,8 @@ Development and CI use the exact Rust 1.99.0 toolchain pinned in
 cargo fmt --all --check
 cargo check --workspace --all-targets
 cargo clippy --workspace --all-targets -- -D warnings
-cargo test --workspace
+python3 scripts/check-test-runner.py
+python3 scripts/test-rust.py
 cargo run -p emuella-corpus -- check
 cargo run -p emuella-corpus -- verify common/generated-core
 ./scripts/check-generated.sh
@@ -82,6 +83,30 @@ python3 recipes/check-spacenet-psrgb16.py
 python3 recipes/check-spacenet-extract.py
 cargo deny check
 ```
+
+Ordinary Rust tests use [Cargo Nextest](https://nexte.st/) 0.9.146 or newer;
+install a [pre-built binary](https://nexte.st/docs/installation/pre-built-binaries/)
+for your platform. CI installs exactly 0.9.146 with checksum verification and no
+source-build fallback. The runner checks the configured minimum before building
+tests, then runs the same workspace selection as `cargo test --workspace` and
+runs `cargo test --workspace --doc` separately for doctests. The runner contract
+check requires Python 3.11 or newer and uses only a temporary, authored Rust
+probe; no materialised corpus is opened.
+
+Both the default local profile and CI retain JUnit reports at
+`.test-results/nextest/<profile>/junit.xml`, outside the Cargo target directory.
+The wrapper removes its profile's old report before preflight or compilation;
+CI also removes it before installing the toolchain and Nextest. Reports record
+skipped tests, failures propagate without retries, and tests emit a slow warning
+every five seconds without a hard deadline. The CI profile runs the remaining
+tests after a failure. Use `python3 scripts/test-rust.py --profile ci` to run that
+profile locally.
+
+For focused feedback, Nextest supports name filters, for example
+`cargo nextest run --workspace -E 'test(=catalog::tests::rejects_parent_traversal)'`.
+Remove `.test-results/nextest/default/junit.xml` before a direct invocation so a
+setup or build failure cannot leave a stale report. Focused runs do not replace
+the complete local checks above.
 
 The small independent NITF/JPEG 2000 pack includes native 11-bit PAN, U16 grey,
 RGB8 and RGB16 arithmetic fixtures. Its
