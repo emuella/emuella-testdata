@@ -102,8 +102,11 @@ class NextestContracts(unittest.TestCase):
 
     def run_nextest(self, *args, config=CONFIG):
         result = subprocess.run(
-            ["cargo", "nextest", *args, "--config-file", str(config)],
-            cwd=self.root, env=self.env, text=True, capture_output=True,
+            ["cargo", "nextest", *args, "--manifest-path", str(self.root / "Cargo.toml"),
+             "--config-file", str(config)],
+            # Keep the repository's effective Rust toolchain; only the probe's
+            # manifest, build output and reports belong to the temporary project.
+            cwd=ROOT, env=self.env, text=True, capture_output=True,
         )
         return result, result.stdout + result.stderr
 
@@ -138,7 +141,8 @@ class NextestContracts(unittest.TestCase):
 
     def test_valid_higher_minimum_produces_a_version_diagnostic(self):
         version = subprocess.run(
-            ["cargo", "nextest", "--version"], text=True, capture_output=True, check=True,
+            ["cargo", "nextest", "--version"], cwd=ROOT, env=self.env,
+            text=True, capture_output=True, check=True,
         ).stdout
         match = re.search(r"cargo-nextest (\d+)\.(\d+)\.(\d+)", version)
         self.assertIsNotNone(match, version)
